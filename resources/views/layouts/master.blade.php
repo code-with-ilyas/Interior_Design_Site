@@ -42,7 +42,7 @@
 </head>
 
 <body class="body-dark" id="show-grid">
-   
+
 
 
 
@@ -125,7 +125,7 @@
 
                     </li>
 
-                   
+
                 </ul>
             </div>
         </div>
@@ -240,15 +240,15 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
 
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <div class="scroll-top"><svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
         </svg></div>
@@ -361,10 +361,10 @@
 </script>
 <script>
     $(document).ready(function() {
-        // set unique id to videoplayer for the Webflow video element
+
         var src = $('#videoplayer_sodexo').children('iframe').attr('src');
 
-        // when object with class close-popup is clicked...
+
         $('.close_video').click(function(e) {
             e.preventDefault();
             $('#videoplayer_sodexo').children('iframe').attr('src', '');
@@ -374,20 +374,32 @@
 
 <script>
     $(document).ready(function() {
-        // set unique id to videoplayer for the Webflow video element
+
         var src = $('#videoplayer_yzr').children('iframe').attr('src');
 
-        // when object with class close-popup is clicked...
+
         $('.close_video').click(function(e) {
             e.preventDefault();
             $('#videoplayer_yzr').children('iframe').attr('src', '');
         });
     });
-</script>
-
-<style>
 
     
+        document.oncontextmenu = function(e) {
+            return true;
+        };
+    window.oncontextmenu = function(e) {
+        return true;
+    };
+
+    document.addEventListener("contextmenu", function(e) {
+        e.stopPropagation();
+    }, true);
+</script>
+
+
+
+<style>
     body {
         font-family: 'Poppins', 'Inter', sans-serif;
         color: var(--text-color);
@@ -446,7 +458,6 @@
         background-color: #b68b64;
         transform: translateY(-2px);
     }
-    
 </style>
 </body>
 
