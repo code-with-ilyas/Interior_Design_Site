@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+
 </head>
 
 <body class="body-dark show-grid" id="show-grid">
@@ -174,9 +176,9 @@
                                         <a href="{{ url('/') }}">Home</a>
                                     </li>
 
-
-
-
+                                    <li><a href="#experts-sec" class="link-experts">Experts</a></li>
+                                    <li><a href="#community-sec" class="link-community">Community</a></li>
+                                    <li><a href="#customers-sec" class="link-customers">Customers</a></li>
                                     <li><a href="#about-sec">About Us</a></li>
                                     <li><a href="#service-sec">Services</a></li>
                                     <li><a href="#project-sec">Project</a></li>
@@ -316,6 +318,7 @@
     <script src="assets/js/lenis.min.js"></script>
     <script src="assets/js/CustomEase.min.js"></script>
     <script src="assets/js/main.js"></script>
+
 
     <script>
         document.addEventListener('contextmenu', function(e) {

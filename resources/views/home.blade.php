@@ -172,41 +172,51 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+
 <section class="position-relative overflow-hidden space-bottom" id="service-sec">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="title-area text-center"><span class="sub-title style2 text-white text-anime">Our Services</span>
-          <h2 class="sec-title style2 split-text text-white">Personalized Home Styling Services</h2>
+          <h3 class="sec-title style2 split-text text-white">Support for all your transformation challenges </h3>
         </div>
       </div>
     </div>
     <hr class="ser-line">
     <div class="row gy-4 justify-content-center">
-      <div class="col-lg-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".1s">
+      <div class="col-lg-4 col-md-6 col-xxl-4">
+        <div class="service-grid wow fadeInUp" data-wow-delay=".1s" style="border-radius: 15px; overflow: hidden;">
           <div class="overlay" data-bg-src="assets/img/service/service_3_1.jpg"></div>
           <div class="box-content">
             <div class="box-icon"><img src="assets/img/icon/service_2_1.svg" alt="Icon"></div>
-            <h3 class="box-title"><a href="service-details.html">Interior Design</a></h3>
+            <h3 class="box-title">
+              <a href="{{ route('service.details') }}">Interior Design</a>
+            </h3>
           </div>
         </div>
       </div>
-      <div class="col-lg-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".3s">
+      <div class="col-lg-4 col-md-6 col-xxl-4">
+        <div class="service-grid wow fadeInUp" data-wow-delay=".3s" style="border-radius: 15px; overflow: hidden;">
           <div class="overlay" data-bg-src="assets/img/service/service_3_2.jpg"></div>
           <div class="box-content">
             <div class="box-icon"><img src="assets/img/icon/service_2_2.svg" alt="Icon"></div>
-            <h3 class="box-title"><a href="service-details.html">3d Modeling</a></h3>
+            <h3 class="box-title"><a href="{{ route('model') }}">3d Modeling</a></h3>
+
           </div>
         </div>
       </div>
-      <div class="col-lg-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".5s">
+      <div class="col-lg-4 col-md-6 col-xxl-4">
+        <div class="service-grid wow fadeInUp" data-wow-delay=".5s" style="border-radius: 15px; overflow: hidden;">
           <div class="overlay" data-bg-src="assets/img/service/service_3_3.jpg"></div>
           <div class="box-content">
             <div class="box-icon"><img src="assets/img/icon/service_2_3.svg" alt="Icon"></div>
-            <h3 class="box-title"><a href="service-details.html">Color & Paint</a></h3>
+            <h3 class="box-title"><a href="{{ route('paints') }}">Color & Paint</a></h3>
+
           </div>
         </div>
       </div>
@@ -214,7 +224,7 @@
     <div class="row">
       <div class="service-content">
         <p class="box-text wow fadeInUp" data-wow-delay=".3s">Choosing minimal interior design offers both aesthetic and practical benefits. It's a style that emphasizes simplicity, functionality, and intentionality—making your space feel calm, clean, and timeless.</p>
-        <div class="wow fadeInUp" data-wow-delay=".4s"><a href="service-details.html" class="th-btn th-border th-icon">View Details</a></div>
+        <div class="wow fadeInUp" data-wow-delay=".4s"><a href="{{ route('design') }}" class="th-btn th-border th-icon">View Details</a></div>
       </div>
     </div>
   </div>
