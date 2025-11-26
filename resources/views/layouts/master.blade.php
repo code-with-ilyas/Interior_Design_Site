@@ -478,6 +478,18 @@
 
 
         setInterval(changeCompanies, 2000);
+
+        
+        
+        // Enable right click on the page
+document.addEventListener("contextmenu", function (e) {
+    e.stopPropagation();
+    // allow default behaviour
+}, true);
+
+// Remove any existing event listeners that block right-click
+document.oncontextmenu = null;
+window.oncontextmenu = null;
     </script>
 
     <style>
