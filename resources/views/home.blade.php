@@ -99,6 +99,23 @@
       <div class="marquee-item">Engie</div>
       <div class="marquee-item">Leroy Merlin</div>
 
+       <div class="marquee-track flex">
+      <div class="marquee-item">L'Oréal</div>
+      <div class="marquee-item">Etam</div>
+      <div class="marquee-item">Sodexo</div>
+      <div class="marquee-item">Renault</div>
+      <div class="marquee-item">LVMH</div>
+      <div class="marquee-item">Chanel</div>
+      <div class="marquee-item">BNP Paribas</div>
+      <div class="marquee-item">Air Liquide</div>
+      <div class="marquee-item">Estee Lauder</div>
+      <div class="marquee-item">La Poste</div>
+      <div class="marquee-item">Credit Agricole</div>
+      <div class="marquee-item">BPCE</div>
+      <div class="marquee-item">Kering</div>
+      <div class="marquee-item">Engie</div>
+      <div class="marquee-item">Leroy Merlin</div>
+
       
     </div>
   </div>
@@ -912,10 +929,15 @@
 </section>
 <br>
 <br>
-
-
-<div class="th-hero-wrapper hero-3" id="hero">
-  <div class="container">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
     <section class="project-area position-relative space-bottom" id="project-sec">
       <div class="container">
@@ -938,7 +960,7 @@
             <div class="project-content">
               <h2 class="box-title">Minimalist Interior Design</h2>
               <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-              <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
+              <a href="{{ route('project1') }}" class="th-btn white-border th-icon">View Details</a>
             </div>
           </div>
           <div class="project-item col-12 filter-item cat2 cat1">
@@ -949,7 +971,7 @@
             <div class="project-content">
               <h2 class="box-title">Modern Dining Tables</h2>
               <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-              <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
+           <a href="{{ route('project2') }}" class="th-btn white-border th-icon">View Details</a>
             </div>
           </div>
           <div class="project-item col-12 filter-item cat1 cat3">
@@ -960,7 +982,7 @@
             <div class="project-content">
               <h2 class="box-title">Minimalist Bedroom Design</h2>
               <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-              <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
+               <a href="{{ route('project3') }}" class="th-btn white-border th-icon">View Details</a>
             </div>
           </div>
         </div>

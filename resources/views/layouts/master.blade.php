@@ -36,8 +36,6 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
-
 </head>
 
 <body class="body-dark show-grid" id="show-grid">
@@ -1232,6 +1230,8 @@
         .w-tab-link div:hover {
             color: #00bfff;
         }
+
+        
     </style>
 
 
