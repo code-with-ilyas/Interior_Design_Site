@@ -2,6 +2,16 @@
 <html class="no-js" lang="zxx">
 
 <head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+
+
+
+
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Faren - Architecture & Interior Design Template - home-interior</title>
@@ -168,20 +178,20 @@
                             <div class="header-logo"><a href="home-interior.html"><img src="assets/img/logo-white.svg" alt="Faren  "></a></div>
                         </div>
                         <div class="col-auto">
-                            <nav class="main-menu d-none d-lg-inline-block">
+                            <nav class="main-menu d-none d-lg-inline-block playfair-display">
                                 <ul>
-                                    <li class="mega-menu-wrap">
+                                    <li class="mega-menu-wrap playfair-display">
                                         <a href="{{ url('/') }}">Home</a>
                                     </li>
 
-                                    <li><a href="#experts-sec" class="link-experts">Experts</a></li>
-                                    <li><a href="#community-sec" class="link-community">Community</a></li>
-                                    <li><a href="#customers-sec" class="link-customers">Customers</a></li>
-                                  
-                                    <li><a href="#service-sec">Services</a></li>
-                                    <li><a href="#project-sec">Project</a></li>
-                                    <li><a href="#blog-sec">Blog</a></li>
-                                    <li><a href="#contact-sec">Contact Us</a></li>
+                                    <li><a href="#experts-sec" class="link-experts playfair-display">Experts</a></li>
+                                    <li><a href="#community-sec" class="link-community playfair-display">Community</a></li>
+                                    <li><a href="#customers-sec" class="link-customers playfair-display">Customers</a></li>
+
+                                    <li><a href="#service-sec" class="playfair-display">Services</a></li>
+                                    <li><a href="#project-sec" class="playfair-display">Project</a></li>
+                                    <li><a href="#blog-sec" class="playfair-display">Blog</a></li>
+                                    <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -200,7 +210,7 @@
     </main>
 
 
-    <footer class="footer-wrapper footer-layout3">
+    <footer class="footer-wrapper footer-layout3 playfair-display">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
@@ -321,6 +331,33 @@
     <script src="assets/js/main.js"></script>
 
     <script>
+        const demoBtn = document.getElementById('demoBtn');
+        const demoFormOverlay = document.getElementById('demoFormOverlay');
+        const demoFormContainer = document.getElementById('demoFormContainer');
+        const closeForm = document.getElementById('closeForm');
+
+        // Open Form
+        demoBtn.addEventListener('click', () => {
+            demoFormOverlay.classList.add('active');
+            demoFormContainer.classList.add('active');
+        });
+
+        // Close Form
+        closeForm.addEventListener('click', () => {
+            demoFormContainer.classList.remove('active');
+            demoFormOverlay.classList.remove('active');
+        });
+
+        // Close when clicking outside the form
+        demoFormOverlay.addEventListener('click', (e) => {
+            if (e.target === demoFormOverlay) {
+                demoFormContainer.classList.remove('active');
+                demoFormOverlay.classList.remove('active');
+            }
+        });
+
+
+
         const tabs = document.querySelectorAll('.tab-link');
 
         tabs.forEach(tab => {
@@ -479,17 +516,17 @@
 
         setInterval(changeCompanies, 2000);
 
-        
-        
-        // Enable right click on the page
-document.addEventListener("contextmenu", function (e) {
-    e.stopPropagation();
-    // allow default behaviour
-}, true);
 
-// Remove any existing event listeners that block right-click
-document.oncontextmenu = null;
-window.oncontextmenu = null;
+
+
+        document.addEventListener("contextmenu", function(e) {
+            e.stopPropagation();
+
+        }, true);
+
+
+        document.oncontextmenu = null;
+        window.oncontextmenu = null;
     </script>
 
     <style>
@@ -1243,13 +1280,140 @@ window.oncontextmenu = null;
             color: #00bfff;
         }
 
-        
+
+
+
+
+
+
+
+        .playfair-display {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+        }
+
+
+
+        body {
+            font-family: "Playfair Display", serif !important;
+        }
+
+
+
+        .playfair-display a {
+            font-family: 'Playfair Display', serif;
+        }
+
+
+        .playfair-display,
+        .playfair-display * {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+
+            font-style: normal;
+        }
+
+       
+        #demoFormOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+      
+            backdrop-filter: blur(5px);
+         
+            display: none;
+      
+            z-index: 9998;
+        }
+
+    
+        #demoFormContainer {
+            position: fixed;
+            top: 0;
+            right: -50%;
+            width: 50%;
+          
+            height: 100%;
+            background: #fff;
+            box-shadow: -3px 0 15px rgba(0, 0, 0, 0.3);
+            transition: right 0.4s ease;
+            z-index: 9999;
+            padding: 40px 30px;
+            overflow-y: auto;
+        }
+
+        #demoFormOverlay.active {
+            display: block;
+        }
+
+        #demoFormContainer.active {
+            right: 0;
+        }
+
+        #demoFormContainer h3 {
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+     
+        #closeForm {
+            font-size: 30px;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-bottom: 20px;
+            color: #333;
+            transition: transform 0.2s ease;
+        }
+
+        #closeForm:hover {
+            transform: rotate(180deg);
+        }
+
+     
+        #demoFormContainer input,
+        #demoFormContainer textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        #demoFormContainer textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+     
+        #demoFormContainer button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #7b5cf3;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        #demoFormContainer button:hover {
+            background: #5a3ab9;
+        }
+
+      
+        @media (max-width: 768px) {
+            #demoFormContainer {
+                width: 100%;
+                right: -100%;
+            }
+        }
     </style>
-
-
-
-
 </body>
-
-
 </html>

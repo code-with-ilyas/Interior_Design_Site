@@ -9,6 +9,10 @@ use App\Http\Controllers\DesignController;
 use App\Http\Controllers\Project1Controller;
 use App\Http\Controllers\Project2Controller;
 use App\Http\Controllers\Project3Controller;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlagController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,6 +49,10 @@ Route::get('/project1', [Project1Controller::class, 'index'])->name('project1');
 Route::get('/project2', [Project2Controller::class, 'index'])->name('project2');
 Route::get('/project3', [Project3Controller::class, 'index'])->name('project3');
 
+
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blag', [BlagController::class, 'index'])->name('blag.index');
 
 
 require __DIR__.'/auth.php';
