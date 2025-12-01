@@ -48,7 +48,7 @@
               <span class="btn-icon">
                 <img src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/66d6caf319433c5d77180915_EllipsePurple.svg" alt="">
               </span>
-              Request a demo
+              Request a Demo
             </a>
 
 

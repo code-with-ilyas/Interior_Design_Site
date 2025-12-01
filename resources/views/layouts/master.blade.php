@@ -14,7 +14,9 @@
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Faren - Architecture & Interior Design Template - home-interior</title>
+    <title>H24 RENOVATION</title>
+    
+
     <meta name="author" content="themeholy">
     <meta name="description" content="Faren   - Architecture & Interior Design Template">
     <meta name="keywords" content="Faren   - Architecture & Interior Design Template">
@@ -54,7 +56,7 @@
         <div class="sidemenu-content"><button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
             <div class="widget footer-widget mb-0">
                 <div class="th-widget-about">
-                    <div class="about-logo"><a href="index.html"><img src="assets/img/logo.svg" alt="Faren  "></a></div>
+                    <div class="about-logo"><a href="index.html"><img src="assets/img/H24.png" alt="Faren  "></a></div>
                     <p class="about-text">Minimal interiors often feel larger than they are. Neutral colors, natural materials, and an uncluttered layout help reflect light and create an airy,</p>
                 </div>
             </div>
@@ -102,7 +104,7 @@
     </div>
     <div class="th-menu-wrapper">
         <div class="th-menu-area text-center"><button class="th-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo"><a href="home-interior.html"><img src="assets/img/logo.svg" alt="Faren  "></a></div>
+            <div class="mobile-logo"><a href="home-interior.html"><img src="assets/img/H24.png" alt="Faren  "></a></div>
             <div class="th-mobile-menu">
                 <ul>
                     <li class="menu-item-has-children"><a href="home-interior.html">Home</a>
@@ -175,7 +177,7 @@
                 <div class="menu-area">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <div class="header-logo"><a href="home-interior.html"><img src="assets/img/logo-white.svg" alt="Faren  "></a></div>
+                            <div class="header-logo"><img src="assets/img/H24.png" alt="  "></a></div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block playfair-display">
@@ -1316,7 +1318,7 @@
             font-style: normal;
         }
 
-       
+
         #demoFormOverlay {
             position: fixed;
             top: 0;
@@ -1324,21 +1326,21 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-      
+
             backdrop-filter: blur(5px);
-         
+
             display: none;
-      
+
             z-index: 9998;
         }
 
-    
+
         #demoFormContainer {
             position: fixed;
             top: 0;
             right: -50%;
             width: 50%;
-          
+
             height: 100%;
             background: #fff;
             box-shadow: -3px 0 15px rgba(0, 0, 0, 0.3);
@@ -1361,7 +1363,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-     
+
         #closeForm {
             font-size: 30px;
             cursor: pointer;
@@ -1375,7 +1377,7 @@
             transform: rotate(180deg);
         }
 
-     
+
         #demoFormContainer input,
         #demoFormContainer textarea {
             width: 100%;
@@ -1390,7 +1392,7 @@
             min-height: 100px;
         }
 
-     
+
         #demoFormContainer button {
             width: 100%;
             padding: 12px;
@@ -1407,7 +1409,7 @@
             background: #5a3ab9;
         }
 
-      
+
         @media (max-width: 768px) {
             #demoFormContainer {
                 width: 100%;
@@ -1416,4 +1418,5 @@
         }
     </style>
 </body>
+
 </html>
