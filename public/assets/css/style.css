@@ -8275,7 +8275,8 @@ ol.widget_recent_comments,
     line-height: 28px;
     letter-spacing: 0.02em;
     color: var(--title-color);
-    text-transform: uppercase
+    /* text-transform: uppercase */
+    text-transform: capitalize;
 }
 
 .main-menu a:hover {
