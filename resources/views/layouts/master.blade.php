@@ -2,42 +2,33 @@
 <html class="no-js" lang="zxx">
 
 <head>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-
-
-
-
-
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>H24 RENOVATION</title>
-    
-
+    <title>H24 Renovation</title>
     <meta name="author" content="themeholy">
     <meta name="description" content="Faren   - Architecture & Interior Design Template">
     <meta name="keywords" content="Faren   - Architecture & Interior Design Template">
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/H24.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/H24.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/H24.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/H24.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicons/H24.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/H24.png">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/H24.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -48,6 +39,9 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
 </head>
 
 <body class="body-dark show-grid" id="show-grid">
@@ -104,7 +98,7 @@
     </div>
     <div class="th-menu-wrapper">
         <div class="th-menu-area text-center"><button class="th-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo"><a href="home-interior.html"><img src="assets/img/H24.png" alt="Faren  "></a></div>
+            <div class="mobile-logo"><a href="home-interior.html"><img src="assets/img/H24 (157 x 49 px) (6).png" alt="Faren  "></a></div>
             <div class="th-mobile-menu">
                 <ul>
                     <li class="menu-item-has-children"><a href="home-interior.html">Home</a>
@@ -182,17 +176,14 @@
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block playfair-display">
                                 <ul>
-                                    <li class="mega-menu-wrap playfair-display">
-                                        <a href="{{ url('/') }}">Home</a>
-                                    </li>
-
-                                    <li><a href="#experts-sec" class="link-experts playfair-display">Experts</a></li>
-                                    <li><a href="#community-sec" class="link-community playfair-display">Community</a></li>
-                                    <li><a href="#customers-sec" class="link-customers playfair-display">Customers</a></li>
-
+                                    <li class="mega-menu-wrap playfair-display"><a href="{{ url('/') }}">Home</a> </li>
+                                    <li><a href="#about-title" class="playfair-display">About Us</a></li>
                                     <li><a href="#service-sec" class="playfair-display">Services</a></li>
                                     <li><a href="#project-sec" class="playfair-display">Project</a></li>
                                     <li><a href="#blog-sec" class="playfair-display">Blog</a></li>
+                                    <li><a href="#experts-sec" class="link-experts playfair-display">Experts</a></li>
+                                    <li><a href="#customers-sec" class="link-customers playfair-display">Customers</a></li>
+                                    <li><a href="#community-sec" class="link-community playfair-display">Community</a></li>
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                 </ul>
                             </nav>
@@ -219,9 +210,15 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a class="icon-masking" href="index.html"><img src="assets/img/logo-white.svg" alt="Faren  "></a></div>
-                                <p class="about-text">Minimal interiors often feel larger than they are. Neutral colors, natural materials, and an uncluttered layout help reflect light and create an airy,</p>
-                                <div class="th-social"><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a> <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a> <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a> <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a> <a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a></div>
+                                <div class="about-logo"><a class="icon-masking" href="#"><img src="assets/img/H24.png" alt="Faren  "></a></div>
+                                <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
+                                <div class="th-social">
+                                    <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                    <a href="#"><i class="fab fa-whatsapp"></i></a> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -261,9 +258,9 @@
                         <div class="widget footer-widget">
                             <h3 class="widget_title">Get In Touch</h3>
                             <div class="th-widget-about style2">
-                                <p class="footer-info"><i class="fa-regular fa-location-dot"></i>789 Inner Lane, Holy park, California, USA</p>
-                                <p class="footer-info"><i class="fa-sharp fa-solid fa-phone"></i> <span><a class="text-inherit d-block" href="tel:+01234567890">+01 234 567 890</a><a class="text-inherit" href="tel:+09876543210">+09 876 543 210</a></span></p>
-                                <p class="footer-info"><i class="fa-sharp fa-solid fa-envelope"></i><span> <a class="text-inherit" href="mailto:mailinfo00@faren.com">mailinfo00@faren.com</a> <a class="text-inherit" href="mailto:support24@faren.com">support24@faren.com</a></span></p>
+                                <p class="footer-info">221 Rue LaFayette, 75010 Paris</p>
+                                <p class="footer-info"><span><a class="text-inherit d-block" href="tel:+01234567890">01 80 20 92 78</a><a class="text-inherit" href="tel:+09876543210"></a></span></p>
+                                <p class="footer-info"></i><span> <a class="text-inherit" href="mailto:mailinfo00@faren.com">contact@mesbatisseurs.fr</a> <a class="text-inherit" href="mailto:support24@faren.com"></a></span></p>
                             </div>
                         </div>
                     </div>
@@ -273,7 +270,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-6">
                                 <div class="copyright-wrap">
-                                    <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> 2025 <a href="https://themeforest.net/user/themeholy">Faren </a>. All Rights Reserved.</p>
+                                    <p class="copyright-text">Copyright, H24 RENOVATION. <a href="https://themeforest.net/user/themeholy"> </a> All Rights Reserved.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 text-center text-lg-end">
@@ -281,19 +278,15 @@
                                     <ul>
                                         <li><a href="about.html">Terms of service</a></li>
                                         <li><a href="about.html">Privacy policy</a></li>
-                                        <li><a href="about.html">Cookies</a></li>
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <hr class="line">
-                        <div class="row">
-                            <h3 class="box-title">ICONIC LIVING.</h3>
-                        </div>
+
+
                     </div>
-                    <div class="col-xl-3 d-none d-xl-block">
-                        <div class="gsap-cursor"><img class="cursor-picture" src="assets/img/bg/footer-2-1.jpg" alt=""> <img class="cursor-picture" src="assets/img/bg/footer-2-2.jpg" alt=""> <img class="cursor-picture" src="assets/img/bg/footer-2-3.jpg" alt=""> <img class="cursor-picture" src="assets/img/bg/footer-2-4.jpg" alt=""></div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -532,6 +525,63 @@
     </script>
 
     <style>
+        
+        .service-grid {
+            height: 200px;
+           
+            overflow: hidden;
+        }
+
+
+        .main-menu ul li a {
+            font-family: "Playfair Display", serif;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            color: #fff;
+            transition: color 0.3s ease;
+            font-size: 14px;
+
+        }
+
+        .main-menu ul li a:hover {
+            color: #898b8fff;
+
+        }
+
+
+        .main-menu ul li a.active {
+            color: #4d65ff;
+            font-weight: 600;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Playfair Display", serif;
+
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-bottom: 20px;
+
+        }
+
+
+        .sub-title,
+        .h2-subtitle {
+            font-weight: 500;
+            text-transform: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -539,7 +589,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'lato';
             background: #f8f9fa;
             color: #333;
             line-height: 1.6;
@@ -562,7 +612,7 @@
             color: #ffffffff;
             font-size: 14px;
             font-weight: 600;
-            text-transform: uppercase;
+            text-transform: none;
             margin-bottom: 12px;
             letter-spacing: 1px;
         }
@@ -606,7 +656,7 @@
 
         .card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(135, 206, 235, 0.5);
+            box-shadow: 0 6px 16px #898b8fff;
         }
 
         .card h5 {
@@ -749,7 +799,7 @@
 
         .company-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(77, 101, 255, 0.2);
+            box-shadow: 0 12px 30px #898b8fff;
         }
 
         html::-webkit-scrollbar,
@@ -775,7 +825,6 @@
 
         .freelancer-hero-section {
             background: #111 !important;
-
             background-image: none !important;
             color: #fff;
             padding: 100px 0;
@@ -807,7 +856,7 @@
 
         .freelancer-tag:hover {
             background: rgba(142, 248, 252, 0.3);
-            color: #000;
+            color: #898b8fff;
             transform: translateY(-2px);
         }
 
@@ -888,7 +937,7 @@
 
         .freelancer-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px #898b8fff;
         }
 
         .btn-icon {
@@ -1024,7 +1073,7 @@
             font-weight: 600;
             letter-spacing: 1px;
             margin-bottom: 16px;
-            text-transform: uppercase;
+            text-transform: none;
         }
 
         .h2.white {
@@ -1068,7 +1117,7 @@
         .tab-link.w--current {
             background-color: #4d65ff;
             border-color: #4d65ff;
-            color: #fff;
+            color: #898b8fff;
         }
 
 
@@ -1087,7 +1136,7 @@
 
         .profile.grey:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(77, 101, 255, 0.2);
+            box-shadow: 0 10px 30px #898b8fff;
         }
 
         .profile-header {
@@ -1279,7 +1328,7 @@
 
 
         .w-tab-link div:hover {
-            color: #00bfff;
+            color: #898b8fff;
         }
 
 
@@ -1314,7 +1363,6 @@
             font-family: "Playfair Display", serif;
             font-optical-sizing: auto;
             font-weight: 400;
-
             font-style: normal;
         }
 
@@ -1326,11 +1374,8 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-
             backdrop-filter: blur(5px);
-
             display: none;
-
             z-index: 9998;
         }
 
@@ -1406,7 +1451,7 @@
         }
 
         #demoFormContainer button:hover {
-            background: #5a3ab9;
+            background: #898b8fff;
         }
 
 

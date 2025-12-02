@@ -15,7 +15,7 @@
             <span class="freelancer-tag playfair-display">IT</span>
             <span class="freelancer-tag playfair-display">Digital</span>
           </div>
-          <h1 class="freelancer-title playfair-display">The best freelancers are <span class="highlight">on creme.</span></h1>
+          <h1 class="freelancer-title playfair-display">H24 RENOVATION</span></h1>
           <div class="freelancer-features">
             <div class="feature-item">
               <div class="feature-icon">
@@ -37,12 +37,12 @@
             </div>
           </div>
           <div class="freelancer-buttons playfair-display">
-            <a href="https://project-submission.client.cremedelacreme.io" class="th-btn freelancer-btn primary">
+            <!-- <a href="https://project-submission.client.cremedelacreme.io" class="th-btn freelancer-btn primary">
               <span class="btn-icon">
                 <img src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/66d6caf319433c5d77180915_EllipsePurple.svg" alt="">
               </span>
               Find a freelancer
-            </a>
+            </a> -->
 
             <a href="javascript:void(0);" id="demoBtn" class="th-btn freelancer-btn secondary playfair-display">
               <span class="btn-icon">
@@ -54,7 +54,7 @@
 
             <div id="demoFormOverlay">
               <div id="demoFormContainer">
-                <span id="closeForm" class="close-arrow">&#x2192;</span> <!-- Right arrow -->
+                <span id="closeForm" class="close-arrow">&#x2192;</span>
                 <h3>Request a Demo</h3>
                 <form action="/submit-demo" method="POST">
                   <input type="text" name="name" placeholder="Your Name" required>
@@ -96,8 +96,7 @@
 
 <section class="client-reference">
   <div class="reference-heading text-center mb-20 playfair-display">
-    Referenced by most <span class="text-span-5 playfair-display">CAC40 and</span> <span class="text-span-6 playfair-display">SBF120 companies</span>
-  </div>
+    Referenced by most <span class="text-span-5 playfair-display text-primary ">CAC40 </span> and <span class="text-span-6 playfair-display text-primary">SBF120</span> companies </div>
 
   <div class="marquee-area overflow-hidden ">
     <div class="marquee-track flex ">
@@ -136,10 +135,200 @@
 <br>
 <br>
 
+<section id="about-us" style="padding: 80px 0;">
+ <h3 id="about-title" style="text-align: center; scroll-margin-top: 80px;">About Us</h3>
+
+<br>
+  <div style="
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: 1200px;
+        margin: auto;
+        gap: 40px;
+        flex-wrap: wrap;
+    ">
+
+
+    <div style="flex: 1; min-width: 350px;">
+      
+      <img src="https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg"
+        alt="About Mes Batisseurs"
+        style="width: 100%; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+    </div>
+
+
+    <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
+      
+
+      <p style="font-size: 18px; line-height: 1.7; color: #444;" class="text-white">
+        At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into
+        true havens of peace. We offer a range of services, from adding innovative
+        extensions to revitalizing your interiors, not to mention designing enchanting
+        outdoor spaces. Our goal is to create bespoke solutions that perfectly harmonize
+        with each client's unique aspirations.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="position-relative overflow-hidden space-bottom playfair-display" id="service-sec">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title-area text-center"><span class="sub  "></span>
+          <br>
+          <h6 class=" text-white">Amoung Our Services</h6>
+        </div>
+      </div>
+    </div>
+    <hr class="ser-line">
+    <div class="row gy-4 justify-content-center">
+      <div class="col-lg-4 col-md-6 col-xxl-4">
+        <div class="service-grid wow fadeInUp" data-wow-delay=".1s" style="border-radius: 15px; overflow: hidden;">
+          <!-- <div class="overlay" data-bg-src="assets/img/service/service_3_1.jpg"></div> -->
+          <div class="box-content">
+            <!-- <div class="box-icon"><img src="assets/img/icon/service_2_1.svg" alt="Icon"></div> -->
+         
+              <a href="#" class="text-white">Expand your living space with custom-made extensions, tailored to your style and needs.</a>
+        
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xxl-4">
+        <div class="service-grid wow fadeInUp" data-wow-delay=".3s" style="border-radius: 15px; overflow: hidden;">
+          <!-- <div class="overlay" data-bg-src="assets/img/service/service_3_2.jpg"></div> -->
+          <div class="box-content">
+            <!-- <div class="box-icon"><img src="assets/img/icon/service_2_2.svg" alt="Icon"></div> -->
+           <a href="#" class="text-white">Transform your interior spaces with quality renovations, including kitchens, bathrooms, and living rooms.</a>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6 col-xxl-4">
+        <div class="service-grid wow fadeInUp" data-wow-delay=".5s" style="border-radius: 15px; overflow: hidden;">
+          <!-- <div class="overlay" data-bg-src="assets/img/service/service_3_3.jpg"></div> -->
+          <div class="box-content">
+            <!-- <div class="box-icon"><img src="assets/img/icon/service_2_3.svg" alt="Icon"></div> -->
+           <a href="#" class="text-white" >Enhance the appearance and functionality of your home with our facade renovation, roofing, and exterior landscaping services.</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="service-content">
+        <p">Choosing minimal interior design offers both aesthetic and practical benefits. It's a style that emphasizes simplicity, functionality, and intentionality—making your space feel calm, clean, and timeless.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section class="project-area position-relative space-bottom playfair-display" id="project-sec">
+  <div class="container">
+    <div class="row justify-content-between align-items-end">
+      <div class="col-xl-6">
+        <h3 class="text-center">Our Projects</h3>
+
+        <br>
+        <br>
+          <h2 class="sec-title  text-white">Complete Solutions for Your Outdoor Projects</h2>
+          <p class="text-white">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
+      </div>
+    </div>
+    <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
+      <div class="project-item col-12 filter-item cat2 cat3">
+        <div class="project-item_wrapp">
+          <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
+          <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
+        </div>
+        <div class="project-content">
+          <h2 class="box-title ">Minimalist Interior Design</h2>
+          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+          <a href="{{ route('project1') }}" class="th-btn white-border th-icon">View Details</a>
+        </div>
+      </div>
+      <div class="project-item col-12 filter-item cat2 cat1">
+        <div class="project-item_wrapp">
+          <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
+          <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
+        </div>
+        <div class="project-content">
+          <h2 class="box-title">Modern Dining Tables</h2>
+          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+          <a href="{{ route('project2') }}" class="th-btn white-border th-icon">View Details</a>
+        </div>
+      </div>
+      <div class="project-item col-12 filter-item cat1 cat3">
+        <div class="project-item_wrapp">
+          <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
+          <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
+        </div>
+        <div class="project-content">
+          <h2 class="box-title">Minimalist Bedroom Design</h2>
+          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+          <a href="{{ route('project3') }}" class="th-btn white-border th-icon">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="overflow-hidden space overflow-hidden playfair-display" id="blog-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6">
+        <div class="title-area"><span class="sub-title style2 text-white text-anime">Blog & News</span>
+          <h2 class="sec-title style2 text-white split-text">Browse Our Latest News & Articles</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row gy-4">
+      <div class="col-xxl-6">
+        <div class="blog-box wow fadeInUp">
+          <div class="box-img global-img"><img src="assets/img/blog/blog_2_1.jpg" alt="blog image"></div>
+          <div class="box-content">
+            <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
+            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blag.index') }}" class="th-btn th-border th-icon">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xxl-6">
+        <div class="blog-box wow fadeInUp">
+          <div class="box-img global-img"><img src="assets/img/blog/blog_2_2.jpg" alt="blog image"></div>
+          <div class="box-content">
+            <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
+            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blag.index') }}" class="th-btn th-border th-icon">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shape-mockup movingX d-none d-xxl-block" data-top="10%" data-right="5%"><img src="assets/img/shape/element-2.png" alt=""></div>
+</section>
+
+
+
 <div id="experts-sec" class="expertise">
   <div class="hero">
     <div class="header">
-      <div class="h2-subtitle blue playfair-display">our experts</div>
+      
+      <h3>our experts</h3>
       <h1 class="h2 white playfair-display">The best experts in each field</h1>
     </div>
     <div class="freelances-group">
@@ -834,28 +1023,11 @@
 </div>
 
 
-<div id="community-sec" class="community-section">
-  <div class="community-hero">
-    <div class="community-header ">
-      <h2 class="community-title playfair-display">Our Community</h2>
-      <p class="community-subtitle playfair-display">Experts in the technologies you need for your projects</p>
-    </div>
-    <div class="community-companies">
-      <div class="company-box">Company 1</div>
-      <div class="company-box">Company 2</div>
-      <div class="company-box">Company 3</div>
-      <div class="company-box">Company 4</div>
-    </div>
-  </div>
-</div>
-
-
-
 <section id="customers-sec" class="clients">
 
   <div class="hero">
     <div class="h2-subtitle fade-in playfair-display"></div>
-    <h2 class="playfair-display text-white">Costomer</h2>
+    <h2 class="playfair-display text-white">Costomers</h2>
     <h2 class="h2 fade-in playfair-display text-white">Who are our customers and partners</h2>
   </div>
 
@@ -938,126 +1110,79 @@
     </div>
   </div>
 </section>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<section class="project-area position-relative space-bottom playfair-display" id="project-sec">
-  <div class="container">
-    <div class="row justify-content-between align-items-end">
-      <div class="col-xl-6">
-        <div class="title-area"><span class="sub-title style2 text-anime text-white">Our Projects</span>
-          <h2 class="sec-title style2 split-text text-white">Our Signature Luxury Interior Projects</h2>
-        </div>
-      </div>
-      <div class="col-xl-6">
-        <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
-      </div>
+
+<div id="community-sec" class="community-section">
+  <div class="community-hero">
+    <div class="community-header ">
+      <h2 class=" playfair-display">Our Community</h2>
+      <p class="community-subtitle playfair-display">Experts in the technologies you need for your projects</p>
     </div>
-    <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
-      <div class="project-item col-12 filter-item cat2 cat3">
-        <div class="project-item_wrapp">
-          <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
-          <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
-        </div>
-        <div class="project-content">
-          <h2 class="box-title ">Minimalist Interior Design</h2>
-          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-          <a href="{{ route('project1') }}" class="th-btn white-border th-icon">View Details</a>
+    <div class="community-companies">
+      <div class="company-box">Company 1</div>
+      <div class="company-box">Company 2</div>
+      <div class="company-box">Company 3</div>
+      <div class="company-box">Company 4</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="overflow-hidden space-top playfair-display" id="contact-sec">
+  <div class="container">
+    <div class="row gy-4 flex-row-reverse">
+      <div class="col-xl-6">
+        <div class="ps-xl-5">
+          <form action="https://html.themehour.net/faren/demo/mail.php" method="POST" class="contact-form2 ajax-contact">
+            <div class="title-area">
+              <h2 class="sec-title style2 split-text text-white">Let’s <span class="title1">Work</span><span class="title4">Together</span></h2>
+              <p class="contact-text text-white mt-30">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those who appreciate both functionality.</p>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6"><input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> <i class="fa-solid fa-user"></i></div>
+              <div class="form-group col-md-6"><input type="email" class="form-control" name="email" id="email" placeholder="Email Address"> <i class="fa-solid fa-envelope"></i></div>
+              <div class="form-group col-md-6"><input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number"> <i class="fa-solid fa-phone"></i></div>
+              <div class="form-group col-md-6"><select name="subject" id="subject" class="form-select nice-select">
+                  <option value="" disabled="disabled" selected="selected" hidden>Inquire Services</option>
+                  <option value="General Medicinet">General Medicine</option>
+                  <option value="Heart Specialists">Heart Specialists</option>
+                  <option value="Skin & Hair Specialists">Skin & Hair Specialists</option>
+                  <option value="Child Specialists">Child Specialists</option>
+                </select></div>
+              <div class="form-group col-12"><textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
+              <div class="col-12 form-group"><input type="checkbox" id="html"> <label for="html">I agree with the privacy policy</label></div>
+              <div class="form-btn mt-20 col-12"><button class="th-btn th-border">Submit Now</button></div>
+            </div>
+            <p class="form-messages mb-0 mt-3"></p>
+          </form>
         </div>
       </div>
-      <div class="project-item col-12 filter-item cat2 cat1">
-        <div class="project-item_wrapp">
-          <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
-          <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
-        </div>
-        <div class="project-content">
-          <h2 class="box-title">Modern Dining Tables</h2>
-          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-          <a href="{{ route('project2') }}" class="th-btn white-border th-icon">View Details</a>
-        </div>
-      </div>
-      <div class="project-item col-12 filter-item cat1 cat3">
-        <div class="project-item_wrapp">
-          <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
-          <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
-        </div>
-        <div class="project-content">
-          <h2 class="box-title">Minimalist Bedroom Design</h2>
-          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-          <a href="{{ route('project3') }}" class="th-btn white-border th-icon">View Details</a>
+      <div class="col-xl-6">
+        <div class="contact-image2" data-mask-src="assets/img/normal/contact-shape.png">
+          <div class="img1 img-anim-left"><img src="assets/img/normal/contact-1-1.jpg" alt=""></div>
+          <div class="contact-shape"><img src="assets/img/normal/contact-shape2.png" alt=""></div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
+<br>
+<br>
 
-<section class="position-relative overflow-hidden space-bottom playfair-display" id="service-sec">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="title-area text-center"><span class="sub-title style2 text-white text-anime">Our Services</span>
-          <h3 class="sec-title style2 split-text text-white">Support for all your transformation challenges </h3>
-        </div>
-      </div>
-    </div>
-    <hr class="ser-line">
-    <div class="row gy-4 justify-content-center">
-      <div class="col-lg-4 col-md-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".1s" style="border-radius: 15px; overflow: hidden;">
-          <div class="overlay" data-bg-src="assets/img/service/service_3_1.jpg"></div>
-          <div class="box-content">
-            <div class="box-icon"><img src="assets/img/icon/service_2_1.svg" alt="Icon"></div>
-            <h3 class="box-title">
-              <a href="{{ route('service.details') }}">Interior Design</a>
-            </h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".3s" style="border-radius: 15px; overflow: hidden;">
-          <div class="overlay" data-bg-src="assets/img/service/service_3_2.jpg"></div>
-          <div class="box-content">
-            <div class="box-icon"><img src="assets/img/icon/service_2_2.svg" alt="Icon"></div>
-            <h3 class="box-title"><a href="{{ route('model') }}">3d Modeling</a></h3>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".5s" style="border-radius: 15px; overflow: hidden;">
-          <div class="overlay" data-bg-src="assets/img/service/service_3_3.jpg"></div>
-          <div class="box-content">
-            <div class="box-icon"><img src="assets/img/icon/service_2_3.svg" alt="Icon"></div>
-            <h3 class="box-title"><a href="{{ route('paints') }}">Color & Paint</a></h3>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="service-content">
-        <p class="box-text wow fadeInUp" data-wow-delay=".3s">Choosing minimal interior design offers both aesthetic and practical benefits. It's a style that emphasizes simplicity, functionality, and intentionality—making your space feel calm, clean, and timeless.</p>
-        <div class="wow fadeInUp" data-wow-delay=".4s"><a href="{{ route('design') }}" class="th-btn th-border th-icon">View Details</a></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="overflow-hidden overflow-hidden playfair-display" id="testi-sec">
   <div class="container">
     <div class="row gy-24 justify-content-center">
       <div class="col-xl-8">
-        <div class="title-area align-self-end"><span class="sub-title text-white text-anime">TESTIMONIALS</span>
+       
+        <h3 class="text-center">TESTIMONIALS</h3>
+        <br>
+        <br>
           <h2 class="sec-title style2 split-text text-white">Client Feedback <span class="fs-160">&</span><span class="title3">Success Stories</span></h2>
         </div>
       </div>
@@ -1128,76 +1253,10 @@
     </div>
   </div>
 </section>
-<div class="overflow-hidden space-top playfair-display" id="contact-sec">
-  <div class="container">
-    <div class="row gy-4 flex-row-reverse">
-      <div class="col-xl-6">
-        <div class="ps-xl-5">
-          <form action="https://html.themehour.net/faren/demo/mail.php" method="POST" class="contact-form2 ajax-contact">
-            <div class="title-area">
-              <h2 class="sec-title style2 split-text text-white">Let’s <span class="title1">Work</span><span class="title4">Together</span></h2>
-              <p class="contact-text text-white mt-30">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those who appreciate both functionality.</p>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-6"><input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> <i class="fa-solid fa-user"></i></div>
-              <div class="form-group col-md-6"><input type="email" class="form-control" name="email" id="email" placeholder="Email Address"> <i class="fa-solid fa-envelope"></i></div>
-              <div class="form-group col-md-6"><input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number"> <i class="fa-solid fa-phone"></i></div>
-              <div class="form-group col-md-6"><select name="subject" id="subject" class="form-select nice-select">
-                  <option value="" disabled="disabled" selected="selected" hidden>Inquire Services</option>
-                  <option value="General Medicinet">General Medicine</option>
-                  <option value="Heart Specialists">Heart Specialists</option>
-                  <option value="Skin & Hair Specialists">Skin & Hair Specialists</option>
-                  <option value="Child Specialists">Child Specialists</option>
-                </select></div>
-              <div class="form-group col-12"><textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
-              <div class="col-12 form-group"><input type="checkbox" id="html"> <label for="html">I agree with the privacy policy</label></div>
-              <div class="form-btn mt-20 col-12"><button class="th-btn th-border">Submit Now</button></div>
-            </div>
-            <p class="form-messages mb-0 mt-3"></p>
-          </form>
-        </div>
-      </div>
-      <div class="col-xl-6">
-        <div class="contact-image2" data-mask-src="assets/img/normal/contact-shape.png">
-          <div class="img1 img-anim-left"><img src="assets/img/normal/contact-1-1.jpg" alt=""></div>
-          <div class="contact-shape"><img src="assets/img/normal/contact-shape2.png" alt=""></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<section class="overflow-hidden space overflow-hidden playfair-display" id="blog-sec">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="title-area"><span class="sub-title style2 text-white text-anime">Blog & News</span>
-          <h2 class="sec-title style2 text-white split-text">Browse Our Latest News & Articles</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row gy-4">
-      <div class="col-xxl-6">
-        <div class="blog-box wow fadeInUp">
-          <div class="box-img global-img"><img src="assets/img/blog/blog_2_1.jpg" alt="blog image"></div>
-          <div class="box-content">
-            <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
-            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blag.index') }}" class="th-btn th-border th-icon">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xxl-6">
-        <div class="blog-box wow fadeInUp">
-          <div class="box-img global-img"><img src="assets/img/blog/blog_2_2.jpg" alt="blog image"></div>
-          <div class="box-content">
-            <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
-            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blag.index') }}" class="th-btn th-border th-icon">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="shape-mockup movingX d-none d-xxl-block" data-top="10%" data-right="5%"><img src="assets/img/shape/element-2.png" alt=""></div>
-</section>
+
+
+
+
 <div class="overflow-hidden space-bottom overflow-hidden playfair-display">
   <div class="container">
     <div class="row justify-content-center">
