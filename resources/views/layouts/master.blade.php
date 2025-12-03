@@ -48,7 +48,7 @@
         <div class="sidemenu-content"><button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
             <div class="widget footer-widget mb-0">
                 <div class="th-widget-about">
-                    <div class="about-logo"><a href="index.html"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
+                    <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
                     <p class="about-text">Minimal interiors often feel larger than they are. Neutral colors, natural materials, and an uncluttered layout help reflect light and create an airy,</p>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                 <div class="menu-area">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <div class="header-logo"><img src="{{ asset('assets/img/H24.png') }}" alt="  "></a></div>
+                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="  "></a></div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block playfair-display">
@@ -177,7 +177,7 @@
                                     <li class="mega-menu-wrap playfair-display"><a href="{{ url('/') }}">Home</a> </li>
                                     <li><a href="#about-title" class="playfair-display">About Us</a></li>
                                     <li><a href="#service-sec" class="playfair-display">Services</a></li>
-                                    <li><a href="#project-sec" class="playfair-display">Project</a></li>
+                                    <li><a href="#project-sec" class="playfair-display">Projects</a></li>
                                     <li><a href="#blog-sec" class="playfair-display">Blog</a></li>
                                     <li><a href="#experts-sec" class="link-experts playfair-display">Experts</a></li>
                                     <li><a href="#customers-sec" class="link-customers playfair-display">Customers</a></li>
