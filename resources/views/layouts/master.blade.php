@@ -13,35 +13,33 @@
     <meta name="keywords" content="Faren   - Architecture & Interior Design Template">
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/H24.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/H24.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/H24.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/H24.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicons/H24.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/H24.png">
-    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/H24.png">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/H24.png') }}">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/gallery-fonts.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/gallery-fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
 </head>
 
 <body class="body-dark show-grid" id="show-grid">
@@ -50,7 +48,7 @@
         <div class="sidemenu-content"><button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
             <div class="widget footer-widget mb-0">
                 <div class="th-widget-about">
-                    <div class="about-logo"><a href="index.html"><img src="assets/img/H24.png" alt="Faren  "></a></div>
+                    <div class="about-logo"><a href="index.html"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
                     <p class="about-text">Minimal interiors often feel larger than they are. Neutral colors, natural materials, and an uncluttered layout help reflect light and create an airy,</p>
                 </div>
             </div>
@@ -58,28 +56,28 @@
                 <h3 class="widget_title">Featured Blog</h3>
                 <div class="recent-post-wrap">
                     <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="assets/img/blog/recent-post-1-1.jpg" alt="Blog Image"></a></div>
+                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-1.jpg') }}" alt="Blog Image"></a></div>
                         <div class="media-body">
                             <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
                             <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
                         </div>
                     </div>
                     <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="assets/img/blog/recent-post-1-2.jpg" alt="Blog Image"></a></div>
+                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-2.jpg') }}" alt="Blog Image"></a></div>
                         <div class="media-body">
                             <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
                             <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
                         </div>
                     </div>
                     <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="assets/img/blog/recent-post-1-3.jpg" alt="Blog Image"></a></div>
+                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-3.jpg') }}" alt="Blog Image"></a></div>
                         <div class="media-body">
                             <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
                             <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
                         </div>
                     </div>
                     <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="assets/img/blog/recent-post-1-4.jpg" alt="Blog Image"></a></div>
+                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-4.jpg') }}" alt="Blog Image"></a></div>
                         <div class="media-body">
                             <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
                             <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
@@ -98,7 +96,7 @@
     </div>
     <div class="th-menu-wrapper">
         <div class="th-menu-area text-center"><button class="th-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo"><a href="home-interior.html"><img src="assets/img/H24 (157 x 49 px) (6).png" alt="Faren  "></a></div>
+            <div class="mobile-logo"><a href="#"><img src="{{ asset('assets/img/H24 (157 x 49 px) (6).png') }}" alt="Faren  "></a></div>
             <div class="th-mobile-menu">
                 <ul>
                     <li class="menu-item-has-children"><a href="home-interior.html">Home</a>
@@ -171,7 +169,7 @@
                 <div class="menu-area">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <div class="header-logo"><img src="assets/img/H24.png" alt="  "></a></div>
+                            <div class="header-logo"><img src="{{ asset('assets/img/H24.png') }}" alt="  "></a></div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block playfair-display">
@@ -210,7 +208,7 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a class="icon-masking" href="#"><img src="assets/img/H24.png" alt="Faren  "></a></div>
+                                <div class="about-logo"><a class="icon-masking" href="#"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
                                 <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
                                 <div class="th-social">
                                     <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -222,31 +220,31 @@
 
                                 <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
 
-                                    <!-- Footer Links Box -->
+
                                     <div style="display:flex; flex-direction:column; gap:10px; border:1px solid #fff; padding:15px 20px; border-radius:8px; transition:0.3s;"
-     onmouseover="this.style.background='#7e7171ff'; this.style.transform='translateY(-2px)';"
-     onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
+                                        onmouseover="this.style.background='#7e7171ff'; this.style.transform='translateY(-2px)';"
+                                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
 
-    <a href="https://mesbatisseurs.fr/politiques/" 
-       style="color:#fff; text-decoration:none; font-size:14px;">Privacy Policy</a>
+                                        <a href="https://mesbatisseurs.fr/politiques/"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">Privacy Policy</a>
 
-    <a href="https://mesbatisseurs.fr/conditions-2/" 
-       style="color:#fff; text-decoration:none; font-size:14px;">General Terms and Conditions</a>
+                                        <a href="https://mesbatisseurs.fr/conditions-2/"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">General Terms and Conditions</a>
 
-    <a href="https://mesbatisseurs.fr/legales/" 
-       style="color:#fff; text-decoration:none; font-size:14px;">Legal Notices</a>
+                                        <a href="https://mesbatisseurs.fr/legales/"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">Legal Notices</a>
 
-    <a href="#" 
-       style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
+                                        <a href="#"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
 
-</div>
+                                    </div>
 
-                                    
+
 
                                 </div>
 
 
-                                <!-- Font Awesome -->
+                              
                                 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
                             </div>
