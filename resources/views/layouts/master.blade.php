@@ -222,26 +222,26 @@
 
                                 <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
 
-                                    <!-- Footer Links Box -->
+                              
                                     <div style="display:flex; flex-direction:column; gap:10px; border:1px solid #fff; padding:15px 20px; border-radius:8px; transition:0.3s;"
-     onmouseover="this.style.background='#7e7171ff'; this.style.transform='translateY(-2px)';"
-     onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
+                                        onmouseover="this.style.background='#7e7171ff'; this.style.transform='translateY(-2px)';"
+                                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
 
-    <a href="https://mesbatisseurs.fr/politiques/" 
-       style="color:#fff; text-decoration:none; font-size:14px;">Privacy Policy</a>
+                                        <a href="https://mesbatisseurs.fr/politiques/"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">Privacy Policy</a>
 
-    <a href="https://mesbatisseurs.fr/conditions-2/" 
-       style="color:#fff; text-decoration:none; font-size:14px;">General Terms and Conditions</a>
+                                        <a href="https://mesbatisseurs.fr/conditions-2/"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">General Terms and Conditions</a>
 
-    <a href="https://mesbatisseurs.fr/legales/" 
-       style="color:#fff; text-decoration:none; font-size:14px;">Legal Notices</a>
+                                        <a href="https://mesbatisseurs.fr/legales/"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">Legal Notices</a>
 
-    <a href="#" 
-       style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
+                                        <a href="#"
+                                            style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
 
-</div>
+                                    </div>
 
-                                    
+
 
                                 </div>
 
