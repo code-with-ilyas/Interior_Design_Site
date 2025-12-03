@@ -23,6 +23,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/gallery', function () {
+    return view('gallery'); 
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

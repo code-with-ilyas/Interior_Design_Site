@@ -44,125 +44,7 @@
 
 <body class="body-dark show-grid" id="show-grid">
 
-    <div class="sidemenu-wrapper">
-        <div class="sidemenu-content"><button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-            <div class="widget footer-widget mb-0">
-                <div class="th-widget-about">
-                    <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
-                    <p class="about-text">Minimal interiors often feel larger than they are. Neutral colors, natural materials, and an uncluttered layout help reflect light and create an airy,</p>
-                </div>
-            </div>
-            <div class="widget footer-widget">
-                <h3 class="widget_title">Featured Blog</h3>
-                <div class="recent-post-wrap">
-                    <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-1.jpg') }}" alt="Blog Image"></a></div>
-                        <div class="media-body">
-                            <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
-                            <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-2.jpg') }}" alt="Blog Image"></a></div>
-                        <div class="media-body">
-                            <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
-                            <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-3.jpg') }}" alt="Blog Image"></a></div>
-                        <div class="media-body">
-                            <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
-                            <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <div class="media-img"><a href="blog-details.html"><img src="{{ asset('assets/img/blog/recent-post-1-4.jpg') }}" alt="Blog Image"></a></div>
-                        <div class="media-body">
-                            <div class="recent-post-meta"><a href="blog.html">June 12, 2025</a> <a href="blog.html">6 min read</a></div>
-                            <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Good choice for premium quality interior design?</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="widget footer-widget">
-                <h3 class="widget_title">Social Media:</h3>
-                <div class="th-social"><a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a> <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a> <a href="https://pinterest.com/"><i class="fab fa-pinterest-p"></i></a> <a href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a> <a href="https://linkedin.com/"><i class="fab fa-instagram"></i></a></div>
-            </div>
-        </div>
-    </div>
-    <div class="popup-search-box d-none d-lg-block"><button class="searchClose"><i class="fal fa-times"></i></button>
-        <form action="#"><input type="text" placeholder="What are you looking for?"> <button type="submit"><i class="fal fa-search"></i></button></form>
-    </div>
-    <div class="th-menu-wrapper">
-        <div class="th-menu-area text-center"><button class="th-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo"><a href="#"><img src="{{ asset('assets/img/H24 (157 x 49 px) (6).png') }}" alt="Faren  "></a></div>
-            <div class="th-mobile-menu">
-                <ul>
-                    <li class="menu-item-has-children"><a href="home-interior.html">Home</a>
-                        <ul class="sub-menu">
-                            <li><a href="home-interior.html">Home Home Interio</a></li>
-                            <li><a href="home-architecture.html">Home architecture</a></li>
-                            <li><a href="home-minimalist-luxury.html">Home Minimalist and luxury Dark</a></li>
-                            <li><a href="home-minimalist-luxury-light.html">Home Minimalist and luxury Light</a></li>
-                            <li><a href="home-real-estate-property.html">Home Real Estate Property</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">About</a>
-                        <ul class="sub-menu">
-                            <li><a href="about.html">About Style 1</a></li>
-                            <li><a href="about-2.html">About Style 2</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Services</a>
-                        <ul class="sub-menu">
-                            <li><a href="service.html">Services</a></li>
-                            <li><a href="service-details.html">Service Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Projects</a>
-                        <ul class="sub-menu">
-                            <li><a href="project.html">project</a></li>
-                            <li><a href="project-details.html">project details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item-has-children"><a href="#">Shop</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="#">Blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Blog Layout</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                                            <li><a href="blog-grid-sidebar.html">Blog Grid With Sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="team.html">Team</a></li>
-                            <li><a href="team-details.html">Team Details</a></li>
-                            <li><a href="testimonial.html">Testimonial</a></li>
-                            <li><a href="pricing.html">Price Table</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="error.html">Error Page</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
     <header class="th-header header-layout3 onepage-nav">
         <div class="sticky-wrapper">
             <div class="container th-container4">
@@ -183,6 +65,8 @@
                                     <li><a href="#customers-sec" class="link-customers playfair-display">Customers</a></li>
                                     <li><a href="#community-sec" class="link-community playfair-display">Community</a></li>
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
+                                    <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
+                                    <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -208,7 +92,7 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a class="icon-masking" href="#"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
+                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
                                 <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
                                 <div class="th-social">
                                     <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -244,7 +128,7 @@
                                 </div>
 
 
-                              
+
                                 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
                             </div>
@@ -354,6 +238,13 @@
     <script src="assets/js/main.js"></script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.h2-subtitle, .h2-title, .service-card');
+            elements.forEach((el, index) => {
+
+                el.style.opacity = '1';
+            });
+        });
         const demoBtn = document.getElementById('demoBtn');
         const demoFormOverlay = document.getElementById('demoFormOverlay');
         const demoFormContainer = document.getElementById('demoFormContainer');
@@ -553,6 +444,110 @@
     </script>
 
     <style>
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .floating-logo {
+            animation: floatUp 3s ease-in-out infinite;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .our-services-section {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            color: #fff;
+            padding: 80px 20px;
+        }
+
+
+        .services-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .service-column {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+        }
+
+        .service-card {
+            background: #121212;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 40px 30px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: all 0.3s ease;
+        }
+
+
+        .service-card:hover {
+            background: rgba(87, 87, 87, 0.15);
+            border-color: #464646ff;
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px  #464646ff;
+        }
+
+
+        .service-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .service-description {
+            font-size: 17px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+
+        .h2-title {
+            font-size: 46px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .h2-subtitle {
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #4169e1;
+            margin-bottom: 8px;
+        }
+
+
+        @media (max-width: 768px) {
+            .h2-title {
+                font-size: 34px;
+            }
+
+            .service-card {
+                padding: 30px 22px;
+            }
+        }
+
         .service-grid {
             height: 200px;
 

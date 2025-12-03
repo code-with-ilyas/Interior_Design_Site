@@ -92,7 +92,6 @@
   </div>
 </section>
 
-<br>
 
 <section class="client-reference">
   <div class="reference-heading text-center mb-20 playfair-display">
@@ -131,14 +130,10 @@
 </section>
 
 
-<br>
-<br>
-<br>
-
 <section id="about-us" style="padding: 80px 0;">
- <h3 id="about-title" style="text-align: center; scroll-margin-top: 80px;">About Us</h3>
+  <h5 id="about-title" style="text-align: center;">About Us</h5>
 
-<br>
+  <br>
   <div style="
         display: flex;
         align-items: flex-start;
@@ -151,7 +146,7 @@
 
 
     <div style="flex: 1; min-width: 350px;">
-      
+
       <img src="https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg"
         alt="About Mes Batisseurs"
         style="width: 100%; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
@@ -159,7 +154,7 @@
 
 
     <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
-      
+
 
       <p style="font-size: 18px; line-height: 1.7; color: #444;" class="text-white">
         At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into
@@ -173,131 +168,135 @@
   </div>
 </section>
 
-<section class="position-relative overflow-hidden space-bottom playfair-display" id="service-sec">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="title-area text-center"><span class="sub  "></span>
-          <br>
-          <h6 class=" text-white">Amoung Our Services</h6>
+
+<div class="our-services-section playfair-display" id="service-sec">
+  <div class="services-header">
+    <h5 class="text-primary">Our services</h5>
+    
+    <h4>Support for all your transformation challenges</h4>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="services-row">
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Project management</h5>
+          <div class="service-description">From PMO to experienced interim manager, to bring your company's major projects to fruition.</div>
+        </div>
+      </div>
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Technical Assistance</h5>
+          <div class="service-description">More than 100K experts available for contract work throughout France</div>
+        </div>
+      </div>
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Tech Factories</h5>
+          <div class="service-description">Build up your centers of excellence and teams in record time (Digital Factory, IA Factory)</div>
         </div>
       </div>
     </div>
-    <hr class="ser-line">
-    <div class="row gy-4 justify-content-center">
-      <div class="col-lg-4 col-md-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".1s" style="border-radius: 15px; overflow: hidden;">
-          <!-- <div class="overlay" data-bg-src="assets/img/service/service_3_1.jpg"></div> -->
-          <div class="box-content">
-            <!-- <div class="box-icon"><img src="assets/img/icon/service_2_1.svg" alt="Icon"></div> -->
-         
-              <a href="#" class="text-white">Expand your living space with custom-made extensions, tailored to your style and needs.</a>
-        
-          </div>
+    <br>
+    <br>
+
+    <div class="services-row">
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Consulting</h5>
+          <div class="service-description">Industry experts to meet your operational and strategic challenges.</div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".3s" style="border-radius: 15px; overflow: hidden;">
-          <!-- <div class="overlay" data-bg-src="assets/img/service/service_3_2.jpg"></div> -->
-          <div class="box-content">
-            <!-- <div class="box-icon"><img src="assets/img/icon/service_2_2.svg" alt="Icon"></div> -->
-           <a href="#" class="text-white">Transform your interior spaces with quality renovations, including kitchens, bathrooms, and living rooms.</a>
-
-          </div>
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Training</h5>
+          <div class="service-description">Call on freelance experts to train your teams on the latest technological topics.</div>
         </div>
       </div>
-
-
-      <div class="col-lg-4 col-md-6 col-xxl-4">
-        <div class="service-grid wow fadeInUp" data-wow-delay=".5s" style="border-radius: 15px; overflow: hidden;">
-          <!-- <div class="overlay" data-bg-src="assets/img/service/service_3_3.jpg"></div> -->
-          <div class="box-content">
-            <!-- <div class="box-icon"><img src="assets/img/icon/service_2_3.svg" alt="Icon"></div> -->
-           <a href="#" class="text-white" >Enhance the appearance and functionality of your home with our facade renovation, roofing, and exterior landscaping services.</a>
-
-          </div>
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Portage</h5>
+          <div class="service-description">Wear all your consultants in minutes thanks to our automated platform.</div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="service-content">
-        <p">Choosing minimal interior design offers both aesthetic and practical benefits. It's a style that emphasizes simplicity, functionality, and intentionality—making your space feel calm, clean, and timeless.</p>
-
       </div>
     </div>
   </div>
-</section>
-<br>
-<br>
-<br>
+</div>
+
 <br>
 <br>
 <br>
 
-<section class="project-area position-relative space-bottom playfair-display" id="project-sec">
-  <div class="container">
-    <div class="row justify-content-between align-items-end">
-      <div class="col-xl-6">
-        <h3 class="text-center">Our Projects</h3>
+ <section class="project-area position-relative space-bottom playfair-display" id="project-sec">
+   <div class="container" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+     <div class="row justify-content-center text-center">
+         <div class="col-xl-6">
+             <h5>Our Projects</h5>
+           
+            <h5 class="text-white">Complete Solutions for Your Outdoor Projects</h5>
+             <p class="text-white">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+         </div>
+     </div>
+     </div>
 
-        <br>
-        <br>
-          <h2 class="sec-title  text-white">Complete Solutions for Your Outdoor Projects</h2>
-          <p class="text-white">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
-        </div>
+     <div class="col-xl-6">
+       <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
+     </div>
+   </div>
+  <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
+    <div class="project-item col-12 filter-item cat2 cat3">
+      <div class="project-item_wrapp">
+        <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
+        <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
       </div>
-      <div class="col-xl-6">
-        <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
-      </div>
-    </div>
-    <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
-      <div class="project-item col-12 filter-item cat2 cat3">
-        <div class="project-item_wrapp">
-          <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
-          <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
-        </div>
-        <div class="project-content">
-          <h2 class="box-title ">Minimalist Interior Design</h2>
-          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-          <a href="{{ route('project1') }}" class="th-btn white-border th-icon">View Details</a>
-        </div>
-      </div>
-      <div class="project-item col-12 filter-item cat2 cat1">
-        <div class="project-item_wrapp">
-          <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
-          <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
-        </div>
-        <div class="project-content">
-          <h2 class="box-title">Modern Dining Tables</h2>
-          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-          <a href="{{ route('project2') }}" class="th-btn white-border th-icon">View Details</a>
-        </div>
-      </div>
-      <div class="project-item col-12 filter-item cat1 cat3">
-        <div class="project-item_wrapp">
-          <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
-          <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
-        </div>
-        <div class="project-content">
-          <h2 class="box-title">Minimalist Bedroom Design</h2>
-          <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-          <a href="{{ route('project3') }}" class="th-btn white-border th-icon">View Details</a>
-        </div>
+      <div class="project-content">
+        <h2 class="box-title ">Minimalist Interior Design</h2>
+        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+        <a href="{{ route('project1') }}" class="th-btn white-border th-icon">View Details</a>
       </div>
     </div>
+    <div class="project-item col-12 filter-item cat2 cat1">
+      <div class="project-item_wrapp">
+        <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
+        <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
+      </div>
+      <div class="project-content">
+        <h2 class="box-title">Modern Dining Tables</h2>
+        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+        <a href="{{ route('project2') }}" class="th-btn white-border th-icon">View Details</a>
+      </div>
+    </div>
+    <div class="project-item col-12 filter-item cat1 cat3">
+      <div class="project-item_wrapp">
+        <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
+        <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
+      </div>
+      <div class="project-content">
+        <h2 class="box-title">Minimalist Bedroom Design</h2>
+        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+        <a href="{{ route('project3') }}" class="th-btn white-border th-icon">View Details</a>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 
 
 <section class="overflow-hidden space overflow-hidden playfair-display" id="blog-sec">
   <div class="container">
-    <div class="row">
-      <div class="col-xl-6">
-        <div class="title-area"><span class="sub-title style2 text-white text-anime">Blog & News</span>
-          <h2 class="sec-title style2 text-white split-text">Browse Our Latest News & Articles</h2>
+    <div class="row justify-content-center">
+        <div class="col-xl-6 text-center">
+            <div class="title-area">
+                <h5>Blog & News</h5>
+                <br>
+        
+                <h4 class="text-white split-text">Browse Our Latest News & Articles</h4>
+            </div>
         </div>
-      </div>
     </div>
+  </div>
+
     <div class="row gy-4">
       <div class="col-xxl-6">
         <div class="blog-box wow fadeInUp">
@@ -327,9 +326,9 @@
 <div id="experts-sec" class="expertise">
   <div class="hero">
     <div class="header">
-      
-      <h3>our experts</h3>
-      <h1 class="h2 white playfair-display">The best experts in each field</h1>
+
+      <h4>our experts</h4>
+      <h3 class=" white playfair-display">The best experts in each field</h3>
     </div>
     <div class="freelances-group">
       <div data-duration-in="500" data-duration-out="200" data-current="Tab 1" data-easing="ease" class="w-tabs">
@@ -1022,13 +1021,15 @@
   </div>
 </div>
 
+<br>
+<br>
 
 <section id="customers-sec" class="clients">
 
   <div class="hero">
     <div class="h2-subtitle fade-in playfair-display"></div>
-    <h2 class="playfair-display text-white">Costomers</h2>
-    <h2 class="h2 fade-in playfair-display text-white">Who are our customers and partners</h2>
+    <h4 class="playfair-display text-white">Costomers</h4>
+    <h3 class="playfair-display text-white">Who are our customers and partners</h3>
   </div>
 
   <div class="columns">
@@ -1112,27 +1113,67 @@
 </section>
 
 
-<div id="community-sec" class="community-section">
-  <div class="community-hero">
-    <div class="community-header ">
-      <h2 class=" playfair-display">Our Community</h2>
-      <p class="community-subtitle playfair-display">Experts in the technologies you need for your projects</p>
-    </div>
-    <div class="community-companies">
-      <div class="company-box">Company 1</div>
-      <div class="company-box">Company 2</div>
-      <div class="company-box">Company 3</div>
-      <div class="company-box">Company 4</div>
-    </div>
+
+
+<section id="community-sec" class="clients">
+  <div class="header" style="text-align:center; margin-bottom:40px;">
+
+    <h4 class="subtitle blue">Our Community</h4>
+    <h3>Experts in the technologies you need for your projects</h3>
   </div>
-</div>
+
+  <div class="services-row" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;">
 
 
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
+    </div>
 
 
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+    </div>
+
+
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
+    </div>
+
+
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+    </div>
+
+
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+    </div>
+
+
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
+    </div>
+
+
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+    </div>
+
+
+    <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
+    </div>
+
+  </div>
+</section>
 
 
 <div class="overflow-hidden space-top playfair-display" id="contact-sec">
+  <h5 style="text-align: center;">Contact Us</h5>
+  <p style="text-align: center;" class="text-white">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We’re here to help and will get back to you as soon as possible.</p>
+
+  <br>
+  <br>
   <div class="container">
     <div class="row gy-4 flex-row-reverse">
       <div class="col-xl-6">
@@ -1173,76 +1214,76 @@
 
 <br>
 <br>
+<br>
+
 
 
 <section class="overflow-hidden overflow-hidden playfair-display" id="testi-sec">
   <div class="container">
     <div class="row gy-24 justify-content-center">
       <div class="col-xl-8">
-       
-        <h3 class="text-center">TESTIMONIALS</h3>
-        <br>
-        <br>
-          <h2 class="sec-title style2 split-text text-white">Client Feedback <span class="fs-160">&</span><span class="title3">Success Stories</span></h2>
-        </div>
+
+        <h4 class="text-center">TESTIMONIALS</h4>
+   
+        <h2 class="style2 split-text text-white">Client Feedback & <span class="fs-160"></span><span class="title3">Success Stories</span></h2>
       </div>
     </div>
-    <div class="row gy-5 justify-content-between align-items-center">
-      <div class="col-xl-8">
-        <div class="testi-area">
-          <div class="row">
-            <div class="col-lg-7">
-              <div class="testi-box-tab" data-slider-tab="#testiSlide3">
-                <div class="tab-btn active"><img src="assets/img/testimonial/testi-1-1.jpg" alt="avater"></div>
-                <div class="tab-btn"><img src="assets/img/testimonial/testi-1-2.jpg" alt="avater"></div>
-                <div class="tab-btn"><img src="assets/img/testimonial/testi-1-3.jpg" alt="avater"></div>
-                <div class="tab-btn"><img src="assets/img/testimonial/testi-1-4.jpg" alt="avater"></div>
-              </div>
-            </div>
-            <div class="col-lg-5">
-              <div class="testi-img global-img"><img src="assets/img/testimonial/testi-image.jpg" alt=""></div>
+  </div>
+  <div class="row gy-5 justify-content-between align-items-center">
+    <div class="col-xl-8">
+      <div class="testi-area">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="testi-box-tab" data-slider-tab="#testiSlide3">
+              <div class="tab-btn active"><img src="assets/img/testimonial/testi-1-1.jpg" alt="avater"></div>
+              <div class="tab-btn"><img src="assets/img/testimonial/testi-1-2.jpg" alt="avater"></div>
+              <div class="tab-btn"><img src="assets/img/testimonial/testi-1-3.jpg" alt="avater"></div>
+              <div class="tab-btn"><img src="assets/img/testimonial/testi-1-4.jpg" alt="avater"></div>
             </div>
           </div>
-          <div class="icon-box"><button data-slider-prev="#testiSlide3" class="slider-arrow default slider-prev"><img src="assets/img/icon/left-arrow2.svg" alt=""></button> <button data-slider-next="#testiSlide3" class="slider-arrow default slider-next"><img src="assets/img/icon/right-arrow3.svg" alt=""></button></div><span class="testi-line"></span>
+          <div class="col-lg-5">
+            
+          </div>
         </div>
+        <div class="icon-box"><button data-slider-prev="#testiSlide3" class="slider-arrow default slider-prev"><img src="assets/img/icon/left-arrow2.svg" alt=""></button> <button data-slider-next="#testiSlide3" class="slider-arrow default slider-next"><img src="assets/img/icon/right-arrow3.svg" alt=""></button></div><span class="testi-line"></span>
       </div>
-      <div class="col-xl-4">
-        <div class="slider-wrap">
-          <div class="swiper th-slider testiSlide3 has-shadow" id="testiSlide3" data-slider-options='{"effect":"slide","loop":true}'>
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="testi-box">
-                  <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                  <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
-                  <div class="box-profile">
-                    <div class="box-author"><img src="assets/img/testimonial/testi_3_1.jpg" alt="Avater"></div>
-                    <div class="box-info">
-                      <h3 class="box-title">Alex James</h3><span class="box-desig">Company Owner</span>
-                    </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="slider-wrap">
+        <div class="swiper th-slider testiSlide3 has-shadow" id="testiSlide3" data-slider-options='{"effect":"slide","loop":true}'>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testi-box">
+                <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
+                <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
+                <div class="box-profile">
+                  <div class="box-author"><img src="assets/img/testimonial/testi_3_1.jpg" alt="Avater"></div>
+                  <div class="box-info">
+                    <h3 class="box-title">Alex James</h3><span class="box-desig">Company Owner</span>
                   </div>
                 </div>
               </div>
-              <div class="swiper-slide">
-                <div class="testi-box">
-                  <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                  <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
-                  <div class="box-profile">
-                    <div class="box-author"><img src="assets/img/testimonial/testi_3_2.jpg" alt="Avater"></div>
-                    <div class="box-info">
-                      <h3 class="box-title">James Thompson</h3><span class="box-desig">Company Owner</span>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-box">
+                <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
+                <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
+                <div class="box-profile">
+                  <div class="box-author"><img src="assets/img/testimonial/testi_3_2.jpg" alt="Avater"></div>
+                  <div class="box-info">
+                    <h3 class="box-title">James Thompson</h3><span class="box-desig">Company Owner</span>
                   </div>
                 </div>
               </div>
-              <div class="swiper-slide">
-                <div class="testi-box">
-                  <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                  <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
-                  <div class="box-profile">
-                    <div class="box-author"><img src="assets/img/testimonial/testi_3_3.jpg" alt="Avater"></div>
-                    <div class="box-info">
-                      <h3 class="box-title">Aditi Banerjee</h3><span class="box-desig">Company Owner</span>
-                    </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-box">
+                <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
+                <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
+                <div class="box-profile">
+                  <div class="box-author"><img src="assets/img/testimonial/testi_3_3.jpg" alt="Avater"></div>
+                  <div class="box-info">
+                    <h3 class="box-title">Aditi Banerjee</h3><span class="box-desig">Company Owner</span>
                   </div>
                 </div>
               </div>
@@ -1252,67 +1293,164 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 
+<br>
+<br>
 
 
-<div class="overflow-hidden space-bottom overflow-hidden playfair-display">
+<div class="overflow-hidden space-bottom overflow-hidden playfair-display" id="instagram-sec">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-7">
-        <div class="title-area text-center"><span class="sub-title style2 text-anime text-white">Instagram</span>
-          <h2 class="sec-title style2 split-text text-white">Our Instagram Gallery</h2>
+        <div class="title-area text-center">
+          
+          <h4 class="text-anime text-white">Instagram</h4>
+      
+          <h3>Our Instagram Gallery</h3>
         </div>
       </div>
     </div>
     <div class="row justify-content-center align-items-center">
       <div class="col-10">
         <div class="row gallery-row filter-active justify-content-between">
+          <!-- Instagram Images -->
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_1.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_1.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
             </div>
           </div>
+
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_2.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_2.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
             </div>
           </div>
+
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_3.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_3.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
             </div>
           </div>
+
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_5.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_5.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
             </div>
           </div>
+
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_4.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_4.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
             </div>
           </div>
-          <div class="col-xl-auto col-md-6 filter-item">
-            <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_6.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_6.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
-            </div>
-          </div>
-          <div class="col-xl-auto col-md-6 filter-item">
-            <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_7.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_7.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
-            </div>
-          </div>
-          <div class="col-xl-auto col-md-6 filter-item">
-            <div class="gallery-box">
-              <div class="box-img global-img"><img src="assets/img/gallery/gallery_3_8.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_3_8.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a></div>
-            </div>
-          </div>
+          <!-- End Instagram Images -->
         </div>
       </div>
     </div>
   </div>
 </div>
 
+
+
+<section class=" space playfair-display" id="gallery-sec">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-8">
+        <div class="title-area text-center">
+        
+  <h4 class=" text-anime text-white">OUR GALLERY</h4>
+          <h4>Through a Unique Combination of Engineering</h4>
+        </div>
+      </div>
+    </div>
+    <div class="slider-wrap text-center">
+      <div class="swiper th-slider gallery-slider4" id="gallerySlider4" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1.3"},"991":{"slidesPerView":"1.5"},"1200":{"slidesPerView":"2"},"1600":{"slidesPerView":"3.3"}},"effect":"coverflow","coverflowEffect":{"rotate":"17","stretch":"190","depth":"190","modifier":"1"},"centeredSlides":"true", "initialSlide":"5"}'>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_1.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_1.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_2.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_2.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_3.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_3.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_4.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_4.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_5.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_5.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="icon-box">
+          <button data-slider-prev="#gallerySlider4" class="slider-arrow style2 default slider-prev">
+            <img src="{{ asset('assets/img/icon/right-arrow3.svg') }}" alt="">
+          </button>
+          <div class="text-center">
+            <a href="{{ url('/gallery') }}" class="th-btn style2">
+              <img src="{{ asset('assets/img/icon/grid.png') }}" alt=""> Explore All
+            </a>
+          </div>
+
+          <button data-slider-next="#gallerySlider4" class="slider-arrow style2 default slider-next">
+            <img src="{{ asset('assets/img/icon/left-arrow2.svg') }}S" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 @endsection
