@@ -67,6 +67,29 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
+                                    @auth
+                                        <li class="menu-item-has-children" id="user-dropdown">
+                                            <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
+                                                <i class="fas fa-user" style="font-size: 18px;"></i>
+                                            </a>
+                                            <ul class="sub-menu" id="user-dropdown-menu" style="display: none;">
+                                                @if(Auth::user()->hasRole('super-admin'))
+                                                    <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                                @else
+                                                    <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                                @endif
+                                                <li>
+                                                    <a href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        Logout
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endauth
                                 </ul>
                             </nav>
                         </div>
@@ -104,7 +127,6 @@
 
                                 <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
 
-                                    <!-- Footer Links Box -->
                                     <div style="display:flex; flex-direction:column; gap:10px; border:1px solid #fff; padding:15px 20px; border-radius:8px; transition:0.3s;"
                                         onmouseover="this.style.background='#7e7171ff'; this.style.transform='translateY(-2px)';"
                                         onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
@@ -122,8 +144,6 @@
                                             style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
 
                                     </div>
-
-
 
                                 </div>
 
@@ -171,8 +191,8 @@
                             <h3 class="widget_title">Get In Touch</h3>
                             <div class="th-widget-about style2">
                                 <p class="footer-info">221 Rue LaFayette, 75010 Paris</p>
-                                <p class="footer-info"><span><a class="text-inherit d-block" href="tel:+01234567890">01 80 20 92 78</a><a class="text-inherit" href="tel:+09876543210"></a></span></p>
-                                <p class="footer-info"></i><span> <a class="text-inherit" href="mailto:mailinfo00@faren.com">contact@mesbatisseurs.fr</a> <a class="text-inherit" href="mailto:support24@faren.com"></a></span></p>
+                                <p class="footer-info"><span><a class="text-inherit d-block" href="tel:+01234567890">01 80 20 92 78</a></span></p>
+                                <p class="footer-info"><span><a class="text-inherit" href="mailto:contact@mesbatisseurs.fr">contact@mesbatisseurs.fr</a></span></p>
                             </div>
                         </div>
                     </div>
@@ -182,7 +202,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-6">
                                 <div class="copyright-wrap">
-                                    <p class="copyright-text">Copyright, H24 RENOVATION. <a href="https://themeforest.net/user/themeholy"> </a> All Rights Reserved.</p>
+                                    <p class="copyright-text">Copyright, H24 RENOVATION. All Rights Reserved.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 text-center text-lg-end">
@@ -443,6 +463,25 @@
         window.oncontextmenu = null;
     </script>
 
+    <script>
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById('user-dropdown-menu');
+            if (dropdownMenu.style.display === 'none') {
+                dropdownMenu.style.display = 'block';
+            } else {
+                dropdownMenu.style.display = 'none';
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('user-dropdown');
+            if (dropdown && !dropdown.contains(event.target)) {
+                document.getElementById('user-dropdown-menu').style.display = 'none';
+            }
+        });
+    </script>
+
     <style>
         @keyframes floatUp {
             0% {
@@ -546,6 +585,35 @@
             .service-card {
                 padding: 30px 22px;
             }
+        }
+
+        #user-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            min-width: 150px;
+        }
+
+        #user-dropdown-menu li {
+            display: block;
+            width: 100%;
+        }
+
+        #user-dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        #user-dropdown-menu li a:hover {
+            background: #333;
         }
 
         .service-grid {
@@ -1352,12 +1420,6 @@
         .w-tab-link div:hover {
             color: #898b8fff;
         }
-
-
-
-
-
-
 
 
         .playfair-display {
