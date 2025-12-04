@@ -27,7 +27,7 @@ Route::get('/blog', function () {
 })->name('blog.index');
 
 Route::get('/gallery', function () {
-    return view('gallery'); 
+    return view('gallery');
 });
 
 
@@ -46,6 +46,28 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    // Expert management routes
+    Route::resource('experts', \App\Http\Controllers\Admin\ExpertController::class)->names([
+        'index' => 'admin.experts.index',
+        'create' => 'admin.experts.create',
+        'store' => 'admin.experts.store',
+        'show' => 'admin.experts.show',
+        'edit' => 'admin.experts.edit',
+        'update' => 'admin.experts.update',
+        'destroy' => 'admin.experts.destroy',
+    ]);
+
+    // Skill management routes
+    Route::resource('skills', \App\Http\Controllers\Admin\SkillController::class)->names([
+        'index' => 'admin.skills.index',
+        'create' => 'admin.skills.create',
+        'store' => 'admin.skills.store',
+        'show' => 'admin.skills.show',
+        'edit' => 'admin.skills.edit',
+        'update' => 'admin.skills.update',
+        'destroy' => 'admin.skills.destroy',
+    ]);
 
     // Quote management routes
     Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes.index');
