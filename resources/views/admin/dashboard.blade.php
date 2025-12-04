@@ -12,7 +12,7 @@
                     <h3 class="text-lg font-medium mb-4">Welcome, Super Admin!</h3>
                     <p>{{ __("You're logged in as Super Admin!") }}</p>
 
-                    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
                         <!-- Stats cards -->
                         <div class="bg-blue-50 p-4 rounded-lg">
                             <h4 class="font-medium text-blue-800">Total Users</h4>
@@ -33,6 +33,16 @@
                             <h4 class="font-medium text-yellow-800">Total Services</h4>
                             <p class="text-2xl font-bold">{{ \App\Models\Service::count() }}</p>
                         </div>
+
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-indigo-800">Total Experts</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Expert::count() }}</p>
+                        </div>
+
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">Total Skills</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Skill::count() }}</p>
+                        </div>
                     </div>
 
                     <div class="mt-8">
@@ -42,6 +52,8 @@
                             <a href="#" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Manage Projects</a>
                             <a href="{{ route('admin.quotes.index') }}" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600">View Quotes</a>
                             <a href="#" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">Manage Services</a>
+                            <a href="{{ route('admin.experts.index') }}" class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">Manage Experts</a>
+                            <a href="{{ route('admin.skills.index') }}" class="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600">Manage Skills</a>
                         </div>
                     </div>
                 </div>
