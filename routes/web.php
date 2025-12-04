@@ -1,27 +1,30 @@
 <?php
 
+use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\PaintController;
-use App\Http\Controllers\ModelController;
-use App\Http\Controllers\DesignController;
-use App\Http\Controllers\Project1Controller;
-use App\Http\Controllers\Project2Controller;
-use App\Http\Controllers\Project3Controller;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\BlagController;
-
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
+// Project routes
+Route::get('/project/1', function () {
+    return view('project1');
+})->name('project1');
+
+Route::get('/project/2', function () {
+    return view('project2');
+})->name('project2');
+
+Route::get('/project/3', function () {
+    return view('project3');
+})->name('project3');
+
+// Blog routes
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog.index');
 
 Route::get('/gallery', function () {
     return view('gallery'); 
@@ -30,35 +33,29 @@ Route::get('/gallery', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'not.super.admin'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Admin routes
+Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
 
-
-
-
-Route::get('/service-details', [ServiceController::class, 'details'])->name('service.details');
-Route::get('/paints', [PaintController::class, 'paint'])->name('paints');
-Route::get('/model', [ModelController::class, 'model'])->name('model');
-Route::get('/design', [DesignController::class, 'design'])->name('design');
-
-
-
-
-Route::get('/project1', [Project1Controller::class, 'index'])->name('project1');
-Route::get('/project2', [Project2Controller::class, 'index'])->name('project2');
-Route::get('/project3', [Project3Controller::class, 'index'])->name('project3');
-
-
-
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blag', [BlagController::class, 'index'])->name('blag.index');
-
+    // Quote management routes
+    Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes.index');
+    Route::get('/quotes/pending', [QuoteController::class, 'pending'])->name('admin.quotes.pending');
+    Route::get('/quotes/approved', [QuoteController::class, 'approved'])->name('admin.quotes.approved');
+    Route::get('/quotes/rejected', [QuoteController::class, 'rejected'])->name('admin.quotes.rejected');
+    Route::get('/quotes/{quote}', [QuoteController::class, 'show'])->name('admin.quotes.show');
+    Route::post('/quotes/{quote}/approve', [QuoteController::class, 'approve'])->name('admin.quotes.approve');
+    Route::post('/quotes/{quote}/reject', [QuoteController::class, 'reject'])->name('admin.quotes.reject');
+});
 
 
 
