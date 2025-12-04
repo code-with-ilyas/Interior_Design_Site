@@ -172,7 +172,7 @@
 <div class="our-services-section playfair-display" id="service-sec">
   <div class="services-header">
     <h5 class="text-primary">Our services</h5>
-    
+
     <h4>Support for all your transformation challenges</h4>
   </div>
 
@@ -233,7 +233,7 @@
      <div class="row justify-content-center text-center">
          <div class="col-xl-6">
              <h5>Our Projects</h5>
-           
+
             <h5 class="text-white">Complete Solutions for Your Outdoor Projects</h5>
              <p class="text-white">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
          </div>
@@ -290,7 +290,7 @@
             <div class="title-area">
                 <h5>Blog & News</h5>
                 <br>
-        
+
                 <h4 class="text-white split-text">Browse Our Latest News & Articles</h4>
             </div>
         </div>
@@ -303,7 +303,7 @@
           <div class="box-img global-img"><img src="assets/img/blog/blog_2_1.jpg" alt="blog image"></div>
           <div class="box-content">
             <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
-            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blag.index') }}" class="th-btn th-border th-icon">Read More</a>
+            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blog.index') }}" class="th-btn th-border th-icon">Read More</a>
           </div>
         </div>
       </div>
@@ -312,7 +312,7 @@
           <div class="box-img global-img"><img src="assets/img/blog/blog_2_2.jpg" alt="blog image"></div>
           <div class="box-content">
             <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
-            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blag.index') }}" class="th-btn th-border th-icon">Read More</a>
+            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blog.index') }}" class="th-btn th-border th-icon">Read More</a>
           </div>
         </div>
       </div>
@@ -327,8 +327,8 @@
   <div class="hero">
     <div class="header">
 
-      <h4>our experts</h4>
-      <h3 class=" white playfair-display">The best experts in each field</h3>
+      <h3>our experts</h3>
+      <h1 class="h2 white playfair-display">The best experts in each field</h1>
     </div>
     <div class="freelances-group">
       <div data-duration-in="500" data-duration-out="200" data-current="Tab 1" data-easing="ease" class="w-tabs">
@@ -1224,7 +1224,7 @@
       <div class="col-xl-8">
 
         <h4 class="text-center">TESTIMONIALS</h4>
-   
+
         <h2 class="style2 split-text text-white">Client Feedback & <span class="fs-160"></span><span class="title3">Success Stories</span></h2>
       </div>
     </div>
@@ -1242,7 +1242,7 @@
             </div>
           </div>
           <div class="col-lg-5">
-            
+
           </div>
         </div>
         <div class="icon-box"><button data-slider-prev="#testiSlide3" class="slider-arrow default slider-prev"><img src="assets/img/icon/left-arrow2.svg" alt=""></button> <button data-slider-next="#testiSlide3" class="slider-arrow default slider-next"><img src="assets/img/icon/right-arrow3.svg" alt=""></button></div><span class="testi-line"></span>
@@ -1306,9 +1306,9 @@
     <div class="row justify-content-center">
       <div class="col-xl-7">
         <div class="title-area text-center">
-          
+
           <h4 class="text-anime text-white">Instagram</h4>
-      
+
           <h3>Our Instagram Gallery</h3>
         </div>
       </div>
@@ -1368,14 +1368,12 @@
   </div>
 </div>
 
-
-
 <section class=" space playfair-display" id="gallery-sec">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-8">
         <div class="title-area text-center">
-        
+
   <h4 class=" text-anime text-white">OUR GALLERY</h4>
           <h4>Through a Unique Combination of Engineering</h4>
         </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -27,6 +28,12 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        // Check if the user is a super admin and redirect accordingly
+        $user = Auth::user();
+        if ($user && $user->hasRole('super-admin')) {
+            return redirect()->intended(route('admin.dashboard', absolute: false));
+        }
 
         return redirect()->intended(route('dashboard', absolute: false));
     }
