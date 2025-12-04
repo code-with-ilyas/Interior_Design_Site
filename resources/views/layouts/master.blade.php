@@ -67,6 +67,9 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
+                                    
+
+
                                 </ul>
                             </nav>
                         </div>
@@ -506,7 +509,7 @@
             background: rgba(87, 87, 87, 0.15);
             border-color: #464646ff;
             transform: translateY(-8px);
-            box-shadow: 0 8px 25px  #464646ff;
+            box-shadow: 0 8px 25px #464646ff;
         }
 
 

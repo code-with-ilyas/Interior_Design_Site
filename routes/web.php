@@ -60,4 +60,6 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blag', [BlagController::class, 'index'])->name('blag.index');
 
 
+
+
 require __DIR__.'/auth.php';
