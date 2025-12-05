@@ -14,6 +14,7 @@
             <span class="freelancer-tag playfair-display">Cyber</span>
             <span class="freelancer-tag playfair-display">IT</span>
             <span class="freelancer-tag playfair-display">Digital</span>
+            
           </div>
           <h1 class="freelancer-title playfair-display" style="font-size: 45px;">H24 RENOVATION</h1>
           <div class="freelancer-features">
