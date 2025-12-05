@@ -69,6 +69,31 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
         'destroy' => 'admin.skills.destroy',
     ]);
 
+    // Project management routes
+    Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class)->names([
+        'index' => 'admin.projects.index',
+        'create' => 'admin.projects.create',
+        'store' => 'admin.projects.store',
+        'show' => 'admin.projects.show',
+        'edit' => 'admin.projects.edit',
+        'update' => 'admin.projects.update',
+        'destroy' => 'admin.projects.destroy',
+    ]);
+
+    // Project image management routes
+    Route::delete('/projects/{project}/images/{image}', [\App\Http\Controllers\Admin\ProjectController::class, 'destroyImage'])->name('admin.projects.images.destroy');
+
+    // Project Category management routes
+    Route::resource('project-categories', \App\Http\Controllers\Admin\ProjectCategoryController::class)->names([
+        'index' => 'admin.project-categories.index',
+        'create' => 'admin.project-categories.create',
+        'store' => 'admin.project-categories.store',
+        'show' => 'admin.project-categories.show',
+        'edit' => 'admin.project-categories.edit',
+        'update' => 'admin.project-categories.update',
+        'destroy' => 'admin.project-categories.destroy',
+    ]);
+
     // Quote management routes
     Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes.index');
     Route::get('/quotes/pending', [QuoteController::class, 'pending'])->name('admin.quotes.pending');
