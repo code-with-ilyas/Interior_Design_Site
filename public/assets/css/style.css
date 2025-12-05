@@ -2,7 +2,7 @@
 @use 'base/variable' as var;
 
 :root {
-    --theme-color: #FF833B;
+    --theme-color: #4b4641;
     --title-color: #02000F;
     --body-color: #6C6D71;
     --smoke-color: #E4E4E5;

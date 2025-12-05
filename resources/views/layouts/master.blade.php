@@ -13,22 +13,22 @@
     <meta name="keywords" content="Faren   - Architecture & Interior Design Template">
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/H24.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/H24.png') }}">
     <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/H24.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/') }}">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -59,7 +59,10 @@
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block playfair-display">
                                 <ul>
-                                    <li class="mega-menu-wrap playfair-display"><a href="{{ url('/') }}">Home</a> </li>
+                                    <li>
+                                        <a href="#hero-sec" class="playfair-display" style="font-size: 13.5px;">Home</a>
+                                    </li>
+
                                     <li><a href="#about-title" class="playfair-display">About Us</a></li>
                                     <li><a href="#service-sec" class="playfair-display">Services</a></li>
                                     <li><a href="#project-sec" class="playfair-display">Projects</a></li>
@@ -70,28 +73,29 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
+                                    
                                     @auth
-                                        <li class="menu-item-has-children" id="user-dropdown">
-                                            <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
-                                                <i class="fas fa-user" style="font-size: 18px;"></i>
-                                            </a>
-                                            <ul class="sub-menu" id="user-dropdown-menu" style="display: none;">
-                                                @if(Auth::user()->hasRole('super-admin'))
-                                                    <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                                @else
-                                                    <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                                                @endif
-                                                <li>
-                                                    <a href="{{ route('logout') }}"
-                                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                        Logout
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
+                                    <li class="menu-item-has-children" id="user-dropdown">
+                                        <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
+                                            <i class="fas fa-user" style="font-size: 18px;"></i>
+                                        </a>
+                                        <ul class="sub-menu" id="user-dropdown-menu" style="display: none;">
+                                            @if(Auth::user()->hasRole('super-admin'))
+                                            <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                            @else
+                                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                            @endif
+                                            <li>
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                     @endauth
                                 </ul>
                             </nav>
@@ -548,7 +552,7 @@
             background: rgba(87, 87, 87, 0.15);
             border-color: #464646ff;
             transform: translateY(-8px);
-            box-shadow: 0 8px 25px  #464646ff;
+            box-shadow: 0 8px 25px #464646ff;
         }
 
 
@@ -662,7 +666,7 @@
             letter-spacing: 1px;
             color: #fff;
             margin-bottom: 20px;
-
+font-size: 13.5px; /* Updated size */
         }
 
 
@@ -671,7 +675,7 @@
             font-weight: 500;
             text-transform: none;
             color: rgba(255, 255, 255, 0.7);
-            font-size: 16px;
+            font-size: 13.5px; /* Updated size */
             margin-bottom: 10px;
         }
 
@@ -918,7 +922,7 @@
 
         .freelancer-hero-section {
             background: #111 !important;
-            background-image: none !important;
+
             color: #fff;
             padding: 100px 0;
             position: relative;
@@ -948,8 +952,8 @@
         }
 
         .freelancer-tag:hover {
-            background: rgba(142, 248, 252, 0.3);
-            color: #898b8fff;
+            background: rgba(28, 29, 29, 0.3);
+            color: #000000ff;
             transform: translateY(-2px);
         }
 
@@ -1435,7 +1439,7 @@
 
 
         body {
-            font-family: "Playfair Display", serif !important;
+            font-family: "Playfair Display", lato !important;
         }
 
 
@@ -1447,10 +1451,11 @@
 
         .playfair-display,
         .playfair-display * {
-            font-family: "Playfair Display", serif;
+            font-family: "Playfair Display", lato;
             font-optical-sizing: auto;
             font-weight: 400;
             font-style: normal;
+            font-size: 14px;
         }
 
 
@@ -1529,7 +1534,7 @@
             width: 100%;
             padding: 12px;
             border: none;
-            background: #7b5cf3;
+            background: #114135ff;
             color: #fff;
             font-weight: bold;
             border-radius: 6px;
@@ -1538,7 +1543,7 @@
         }
 
         #demoFormContainer button:hover {
-            background: #898b8fff;
+            background: #484d4aff;
         }
 
 
@@ -1548,6 +1553,28 @@
                 right: -100%;
             }
         }
+
+        
+
+        /* body,
+        body * {
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
+        } */
+            /* Base style for buttons */
+.th-btn.th-border {
+    background-color: transparent; /* بٹن کی بیک گراؤنڈ کلر */
+    color: #003f3a; /* بٹن کے ٹیکسٹ کا کلر */
+    border: 2px solid #003f3a; /* بٹن کے بارڈر کا کلر */
+    transition: all 0.3s ease; /* smooth hover effect */
+}
+
+/* Hover effect */
+.th-btn.th-border:hover {
+    background-color: #003f3a; /* ہاور پر بیک گراؤنڈ کلر */
+    color: #ffffff; /* ہاور پر ٹیکسٹ کلر */
+    border-color: #003f3a; /* ہاور پر بارڈر کلر */
+}
+
     </style>
 
 </body>

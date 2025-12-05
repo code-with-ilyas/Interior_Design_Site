@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="freelancer-hero-section">
+<section class="freelancer-hero-section" id="hero-sec">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
@@ -15,7 +15,7 @@
             <span class="freelancer-tag playfair-display">IT</span>
             <span class="freelancer-tag playfair-display">Digital</span>
           </div>
-          <h1 class="freelancer-title playfair-display">H24 RENOVATION</span></h1>
+          <h1 class="freelancer-title playfair-display" style="font-size: 45px;">H24 RENOVATION</h1>
           <div class="freelancer-features">
             <div class="feature-item">
               <div class="feature-icon">
@@ -44,23 +44,26 @@
               Find a freelancer
             </a> -->
 
-            <a href="javascript:void(0);" id="demoBtn" class="th-btn freelancer-btn secondary playfair-display">
-              <span class="btn-icon">
-                <img src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/66d6caf319433c5d77180915_EllipsePurple.svg" alt="">
-              </span>
-              Request a Demo
-            </a>
+
+            <a href="javascript:void(0);" id="demoBtn" class="playfair-display"
+              style="display:inline-block; font-family:'Playfair Display', serif; font-size:16px; font-weight:500; padding:10px 25px; border:2px solid #003f3a; background-color:transparent; color:#003f3a; border-radius:100px; text-align:center; cursor:pointer; text-decoration:none; transition:all 0.3s ease;"
+              onmouseover="this.style.backgroundColor='#003f3a'; this.style.color='#fff';"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Request a Demo</a>
 
 
-            <div id="demoFormOverlay">
+
+
+
+
+            <div id="demoFormOverlay" class="playfair-display">
               <div id="demoFormContainer">
                 <span id="closeForm" class="close-arrow">&#x2192;</span>
-                <h3>Request a Demo</h3>
+                <h3 class="text-dark">Request a Demo</h3>
                 <form action="/submit-demo" method="POST">
-                  <input type="text" name="name" placeholder="Your Name" required>
-                  <input type="email" name="email" placeholder="Your Email" required>
-                  <input type="tel" name="phone" placeholder="Your Phone">
-                  <textarea name="message" placeholder="Your Message"></textarea>
+                  <input class="text-dark" type="text" name="name" placeholder="Your Name" required>
+                  <input class="text-dark" type="email" name="email" placeholder="Your Email" required>
+                  <input class="text-dark" type="tel" name="phone" placeholder="Your Phone">
+                  <textarea class="text-dark" name="message" placeholder="Your Message"></textarea>
                   <button type="submit" class="th-btn">Submit</button>
                 </form>
               </div>
@@ -71,24 +74,107 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="animation-placeholder" style="position: relative; width: 100%; max-width: 350px;">
+        <div style="position: relative; width:100%; max-width:200px; margin:auto;">
 
-          <img src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg"
+
+          <img
+            src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg"
             alt="Man wearing glasses in 3-piece suit"
-            style="width:100%; height:100%; border-radius:10px; display:block;"
-            class="temp-image playfair-display">
+            style="
+          width:100%; 
+          border-radius:12px; 
+          animation: floatUpDown 4s ease-in-out infinite;
+        ">
 
-          <div class="lottie-animation"
-            data-animation-type="lottie"
-            data-src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/673dc0cbc1f84e2fc0946796_data.json"
-            style="position:absolute; top:0; left:0; width:100%; height: 100%; opacity:0;"
-            onload="this.style.opacity='1'; document.querySelector('.temp-image').style.display='none';">
+
+          <div
+            style="
+          position:absolute;
+          left:-60px;
+          top:35%;
+          width:90px;
+          padding:10px;
+          background: #1d1c1cff;
+          border-radius:10px;
+          box-shadow:0 4px 12px rgba(0,0,0,0.15);
+          font-size:11px;
+          height:80px;          /* vertical shape */
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          text-align:center;
+        ">
+            <h6 style="margin:0; font-size:12px;" class="text-white">Stitching</h6>
+            <p style="margin:0;" class="text-white">Premium</p>
+          </div>
+
+          <div
+            style="
+          position:absolute;
+          right:-60px;
+          top:5%;
+          width:90px;
+          padding:10px;
+          background: #1d1c1cff;
+          border-radius:10px;
+          box-shadow:0 4px 12px rgba(0,0,0,0.15);
+          font-size:11px;
+          height:60px;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          text-align:center;
+        ">
+            <h6 style="margin:0; font-size:12px;" class="text-white">Perfect</h6>
+            <p style="margin:0;" class="text-white">Measurement</p>
+          </div>
+
+
+          <div
+            style="
+          position:absolute;
+          right:-60px;
+          bottom:5%;
+          width:90px;
+          padding:10px;
+         background: #1d1c1cff;
+          border-radius:10px;
+          box-shadow:0 4px 12px rgba(0,0,0,0.15);
+          font-size:11px;
+          height:60px;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          text-align:center;
+        ">
+            <h6 style="margin:0; font-size:12px;" class="text-white">Delivery</h6>
+            <p style="margin:0;" class="text-white">Fast</p>
           </div>
 
         </div>
-
       </div>
+
+      <style>
+        @keyframes floatUpDown {
+          0% {
+            transform: translateY(0px);
+          }
+
+          50% {
+            transform: translateY(-15px);
+          }
+
+          100% {
+            transform: translateY(0px);
+          }
+        }
+      </style>
+
+
     </div>
+
+  </div>
+  </div>
   </div>
 </section>
 
@@ -129,9 +215,9 @@
   </div>
 </section>
 
-
-<section id="about-us" style="padding: 80px 0;">
-  <h5 id="about-title" style="text-align: center;">About Us</h5>
+<section style="padding: 80px 0;">
+  <h5 id="about-title" style="text-align: center; scroll-margin-top: 100px; font-size: 14px;">
+    About Us</h5>
 
   <br>
   <div style="
@@ -149,14 +235,14 @@
 
       <img src="https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg"
         alt="About Mes Batisseurs"
-        style="width: 100%; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        style="width: 100%; height: 500px;  border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
     </div>
 
 
     <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
 
 
-      <p style="font-size: 18px; line-height: 1.7; color: #444;" class="text-white">
+      <p style="font-size: 16px; line-height: 1.7; color: #444;" class="text-white">
         At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into
         true havens of peace. We offer a range of services, from adding innovative
         extensions to revitalizing your interiors, not to mention designing enchanting
@@ -173,7 +259,7 @@
   <div class="services-header">
     <h5 class="text-primary">Our services</h5>
 
-    <h4>Support for all your transformation challenges</h4>
+    <h4 style="font-size: 20px;">Support for all your transformation challenges</h4>
   </div>
 
   <div class="services-grid">
@@ -223,39 +309,51 @@
     </div>
   </div>
 </div>
-
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section class="project-area position-relative space-bottom playfair-display" id="project-sec">
+  <div class="container text-center">
 
- <section class="project-area position-relative space-bottom playfair-display" id="project-sec">
-   <div class="container" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
-     <div class="row justify-content-center text-center">
-         <div class="col-xl-6">
-             <h5>Our Projects</h5>
+    <h5 style="font-size: 14px; margin-bottom: 14px;">Our Projects</h5>
 
-            <h5 class="text-white">Complete Solutions for Your Outdoor Projects</h5>
-             <p class="text-white">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
-         </div>
-     </div>
-     </div>
 
-     <div class="col-xl-6">
-       <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
-     </div>
-   </div>
-  <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
+    <p class="text-white" style="font-size: 20px; line-height: 1.4; margin-bottom: 10px;">Complete Solutions for Your Outdoor Projects</p>
+
+
+    <p class="text-white" style="font-size: 20px; line-height: 1.6; margin-bottom: 20px;">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+
+
+    <div class="col-xl-6 mx-auto">
+      <div class="filter-menu style2 filter-menu-active">
+        <button data-filter="*" class="th-btn th-border active" type="button">View All</button>
+        <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button>
+        <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button>
+        <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center mt-4">
     <div class="project-item col-12 filter-item cat2 cat3">
       <div class="project-item_wrapp">
         <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
         <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
       </div>
       <div class="project-content">
-        <h2 class="box-title ">Minimalist Interior Design</h2>
+        <h2 class="box-title text-size: 1px;">Minimalist Interior Design</h2>
         <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
         <a href="{{ route('project1') }}" class="th-btn white-border th-icon">View Details</a>
       </div>
     </div>
+
     <div class="project-item col-12 filter-item cat2 cat1">
       <div class="project-item_wrapp">
         <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
@@ -267,6 +365,7 @@
         <a href="{{ route('project2') }}" class="th-btn white-border th-icon">View Details</a>
       </div>
     </div>
+
     <div class="project-item col-12 filter-item cat1 cat3">
       <div class="project-item_wrapp">
         <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
@@ -279,46 +378,56 @@
       </div>
     </div>
   </div>
-  </div>
 </section>
 
 
-<section class="overflow-hidden space overflow-hidden playfair-display" id="blog-sec">
+
+<section class="positive-relative overflow-hidden space overflow-hidden" id="blog-sec">
   <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-6 text-center">
-            <div class="title-area">
-                <h5>Blog & News</h5>
-                <br>
-
-                <h4 class="text-white split-text">Browse Our Latest News & Articles</h4>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-xl-5">
+        <div class="title-area text-center"><span class=" style2 text-anime">Blog & News</span>
+          <br>
+          <h2>Browse Our Latest Articles & News</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row gx-24 gy-30">
+      <div class="col-12">
+        <div class="blog-card style2 wow fadeInUp" data-wow-delay=".3s">
+          <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_1.jpg') }}" alt="blog image"></div>
+          <div class="box-content">
+            <div>
+              <div class="blog-meta text-white"><a href="blog.html" class="text-white">By Alex John</a> <a href="blog.html" class="text-white">Architecture</a></div>
+              <h3 class="box-title text-white"><a href="blog-details.html">Six Inspiring New Young Architects You Should be Following</a></h3>
             </div>
+            <div class="box-wrapp"><span class="date text-white">Aug 25, 2025</span> <a href="blog-details.html" class="th-btn black-border text-white ">Read More</a></div>
+          </div>
         </div>
-    </div>
-  </div>
-
-    <div class="row gy-4">
-      <div class="col-xxl-6">
-        <div class="blog-box wow fadeInUp">
-          <div class="box-img global-img"><img src="assets/img/blog/blog_2_1.jpg" alt="blog image"></div>
+        <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".5s">
+          <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_2.jpg') }}" alt="blog image"></div>
           <div class="box-content">
-            <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
-            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blog.index') }}" class="th-btn th-border th-icon">Read More</a>
+            <div>
+              <div class="blog-meta"><a href="blog.html" class="text-white">By Michel Bruis</a> <a href="blog.html" class="text-white">Architecture</a></div>
+              <h3 class="box-title"><a href="blog-details.html">Maximizing Space Smart Architecture Solutions for Small Homes</a></h3>
+            </div>
+            <div class="box-wrapp"><span class="date text-white">Aug 26, 2025</span> <a href="blog-details.html" class="th-btn black-border text-white">Read More</a></div>
+          </div>
+        </div>
+        <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".6s">
+          <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_3.jpg') }}" alt="blog image"></div>
+          <div class="box-content">
+            <div>
+              <div class="blog-meta"><a href="blog.html" class="text-white">By Michel Bruis</a> <a href="blog.html" class="text-white">Architecture</a></div>
+              <h3 class="box-title"><a href="blog-details.html">The Intersection of Art and Architecture to Creating Sculptural Buildings</a></h3>
+            </div>
+            <div class="box-wrapp"><span class="date text-white">Aug 27, 2025</span> <a href="blog-details.html" class="th-btn black-border text-white">Read More</a></div>
           </div>
         </div>
       </div>
-      <div class="col-xxl-6">
-        <div class="blog-box wow fadeInUp">
-          <div class="box-img global-img"><img src="assets/img/blog/blog_2_2.jpg" alt="blog image"></div>
-          <div class="box-content">
-            <div class="blog-meta"><a href="{{ route('blog.index') }}">By Elis colin</a> <span class="date">May 27, 2025</span></div>
-            <h3 class="box-title"><a href="blog-details.html">Designing for Wellness How Interiors Affect Your Mood</a></h3><a href="{{ route('blog.index') }}" class="th-btn th-border th-icon">Read More</a>
-          </div>
-        </div>
-      </div>
     </div>
+    <hr class="line">
   </div>
-  <div class="shape-mockup movingX d-none d-xxl-block" data-top="10%" data-right="5%"><img src="assets/img/shape/element-2.png" alt=""></div>
 </section>
 
 
@@ -1196,7 +1305,7 @@
                 </select></div>
               <div class="form-group col-12"><textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
               <div class="col-12 form-group"><input type="checkbox" id="html"> <label for="html">I agree with the privacy policy</label></div>
-              <div class="form-btn mt-20 col-12"><button class="th-btn th-border">Submit Now</button></div>
+              <div class="form-btn mt-20 col-12  text-white"><button class="th-btn th-border">Submit Now</button></div>
             </div>
             <p class="form-messages mb-0 mt-3"></p>
           </form>
@@ -1374,7 +1483,7 @@
       <div class="col-xl-8">
         <div class="title-area text-center">
 
-  <h4 class=" text-anime text-white">OUR GALLERY</h4>
+          <h4 class=" text-anime text-white">OUR GALLERY</h4>
           <h4>Through a Unique Combination of Engineering</h4>
         </div>
       </div>
@@ -1437,14 +1546,16 @@
           <button data-slider-prev="#gallerySlider4" class="slider-arrow style2 default slider-prev">
             <img src="{{ asset('assets/img/icon/right-arrow3.svg') }}" alt="">
           </button>
+
           <div class="text-center">
-            <a href="{{ url('/gallery') }}" class="th-btn style2">
+            <a href="{{ url('/gallery') }}" class="th-btn style2" style="background-color: #313636ff; color: #fff; border-radius: 100px; padding: 10px 25px; text-decoration: none;">
               <img src="{{ asset('assets/img/icon/grid.png') }}" alt=""> Explore All
             </a>
           </div>
 
+
           <button data-slider-next="#gallerySlider4" class="slider-arrow style2 default slider-next">
-            <img src="{{ asset('assets/img/icon/left-arrow2.svg') }}S" alt="">
+            <img src="{{ asset('assets/img/icon/left-arrow2.svg') }}" alt="">
           </button>
         </div>
       </div>
