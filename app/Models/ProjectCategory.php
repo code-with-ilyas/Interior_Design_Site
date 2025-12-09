@@ -17,9 +17,7 @@ class ProjectCategory extends Model
      */
     protected $guarded = [];
 
-    /**
-     * Boot the model.
-     */
+   
     protected static function boot()
     {
         parent::boot();
@@ -33,9 +31,7 @@ class ProjectCategory extends Model
         });
     }
 
-    /**
-     * Get the projects for the category.
-     */
+    
     public function projects()
     {
         return $this->hasMany(Project::class);

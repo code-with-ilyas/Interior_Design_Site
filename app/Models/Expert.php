@@ -25,17 +25,13 @@ class Expert extends Model
         'experience_years' => 'integer',
     ];
 
-    /**
-     * The skills that belong to the expert.
-     */
+    
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'expert_skill');
     }
 
-    /**
-     * The projects that the expert worked on.
-     */
+    
     public function projects()
     {
         return $this->belongsToMany(Project::class, 'project_expert')->withPivot('role');

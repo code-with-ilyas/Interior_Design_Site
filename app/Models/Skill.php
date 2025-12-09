@@ -16,9 +16,7 @@ class Skill extends Model
      */
     protected $guarded = [];
 
-    /**
-     * The experts that belong to the skill.
-     */
+    
     public function experts()
     {
         return $this->belongsToMany(Expert::class, 'expert_skill');

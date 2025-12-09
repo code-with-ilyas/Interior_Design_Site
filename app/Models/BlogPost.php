@@ -25,17 +25,13 @@ class BlogPost extends Model
         'published_at' => 'datetime',
     ];
 
-    /**
-     * Get the category that owns the blog post.
-     */
+    
     public function blogCategory()
     {
         return $this->belongsTo(BlogCategory::class);
     }
 
-    /**
-     * Get the images for the blog post.
-     */
+    
     public function blogPostImages()
     {
         return $this->hasMany(BlogPostImage::class);

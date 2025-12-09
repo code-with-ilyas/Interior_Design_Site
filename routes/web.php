@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\CustomerController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Project routes
 Route::get('/project/1', function () {
@@ -96,6 +99,7 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
 
     // Quote management routes
     Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes.index');
+    Route::post('/quotes', [QuoteController::class, 'store'])->name('admin.quotes.store');
     Route::get('/quotes/pending', [QuoteController::class, 'pending'])->name('admin.quotes.pending');
     Route::get('/quotes/approved', [QuoteController::class, 'approved'])->name('admin.quotes.approved');
     Route::get('/quotes/rejected', [QuoteController::class, 'rejected'])->name('admin.quotes.rejected');
@@ -104,4 +108,32 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     Route::post('/quotes/{quote}/reject', [QuoteController::class, 'reject'])->name('admin.quotes.reject');
 });
 
-require __DIR__.'/auth.php';
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('gallery', GalleryController::class);
+});
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('customers', CustomerController::class);
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('about', \App\Http\Controllers\Admin\AboutSectionController::class);
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
+});
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('instagram', App\Http\Controllers\Admin\InstagramGalleryController::class);
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
+});
+
+
+
+require __DIR__ . '/auth.php';

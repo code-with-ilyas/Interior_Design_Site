@@ -13,9 +13,7 @@ use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $this->authorize('viewAny', Project::class);
@@ -24,9 +22,7 @@ class ProjectController extends Controller
         return view('admin.projects.index', compact('projects'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
         $this->authorize('create', Project::class);
@@ -36,32 +32,30 @@ class ProjectController extends Controller
         return view('admin.projects.create', compact('categories', 'experts'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(ProjectRequest $request)
     {
         $this->authorize('create', Project::class);
 
         $data = $request->validated();
 
-        // Extract related data before creating project
+        
         $experts = $data['experts'] ?? [];
         $expertRoles = $data['expert_roles'] ?? [];
         $images = $request->file('images', []);
         unset($data['experts'], $data['expert_roles'], $data['images']);
 
-        // Handle cover image upload
+        
         if ($request->hasFile('cover_image')) {
             $data['cover_image'] = $request->file('cover_image')->store('projects/covers', 'public');
         }
 
-        // Generate slug from title
+      
         $data['slug'] = Str::slug($data['title']);
 
         $project = Project::create($data);
 
-        // Handle project images
+      
         foreach ($images as $image) {
             $project->projectImages()->create([
                 'image' => $image->store('projects/images', 'public'),
@@ -69,7 +63,7 @@ class ProjectController extends Controller
             ]);
         }
 
-        // Sync experts with roles
+       
         $expertData = [];
         foreach ($experts as $index => $expertId) {
             if (isset($expertRoles[$index])) {
@@ -84,9 +78,7 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index')->with('success', 'Project created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(Project $project)
     {
         $this->authorize('view', $project);
@@ -95,9 +87,7 @@ class ProjectController extends Controller
         return view('admin.projects.show', compact('project'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(Project $project)
     {
         $this->authorize('update', $project);
@@ -114,36 +104,34 @@ class ProjectController extends Controller
         return view('admin.projects.edit', compact('project', 'categories', 'experts', 'projectExperts', 'expertRoles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(ProjectRequest $request, Project $project)
     {
         $this->authorize('update', $project);
 
         $data = $request->validated();
 
-        // Extract related data before updating project
+       
         $experts = $data['experts'] ?? [];
         $expertRoles = $data['expert_roles'] ?? [];
         $images = $request->file('images', []);
         unset($data['experts'], $data['expert_roles'], $data['images']);
 
-        // Handle cover image upload
+      
         if ($request->hasFile('cover_image')) {
-            // Delete old cover image if exists
+           
             if ($project->cover_image) {
                 Storage::disk('public')->delete($project->cover_image);
             }
             $data['cover_image'] = $request->file('cover_image')->store('projects/covers', 'public');
         }
 
-        // Generate slug from title
+       
         $data['slug'] = Str::slug($data['title']);
 
         $project->update($data);
 
-        // Handle project images
+    
         foreach ($images as $image) {
             $project->projectImages()->create([
                 'image' => $image->store('projects/images', 'public'),
@@ -151,7 +139,7 @@ class ProjectController extends Controller
             ]);
         }
 
-        // Sync experts with roles
+        
         $expertData = [];
         foreach ($experts as $index => $expertId) {
             if (isset($expertRoles[$index])) {
@@ -168,19 +156,17 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index')->with('success', 'Project updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+  
     public function destroy(Project $project)
     {
         $this->authorize('delete', $project);
 
-        // Delete cover image if exists
+       
         if ($project->cover_image) {
             Storage::disk('public')->delete($project->cover_image);
         }
 
-        // Delete project images
+      
         foreach ($project->projectImages as $image) {
             Storage::disk('public')->delete($image->image);
         }
@@ -190,9 +176,7 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index')->with('success', 'Project deleted successfully.');
     }
 
-    /**
-     * Remove a project image.
-     */
+    
     public function destroyImage(Request $request, $projectId, $imageId)
     {
         $project = Project::findOrFail($projectId);
@@ -200,10 +184,10 @@ class ProjectController extends Controller
 
         $image = $project->projectImages()->findOrFail($imageId);
 
-        // Delete image file
+       
         Storage::disk('public')->delete($image->image);
 
-        // Delete image record
+     
         $image->delete();
 
         return response()->json(['success' => true]);
