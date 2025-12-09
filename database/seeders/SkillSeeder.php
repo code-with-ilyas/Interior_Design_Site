@@ -8,9 +8,7 @@ use App\Models\Skill;
 
 class SkillSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+   
     public function run(): void
     {
         $skills = [

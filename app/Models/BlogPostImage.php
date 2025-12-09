@@ -16,9 +16,7 @@ class BlogPostImage extends Model
      */
     protected $guarded = [];
 
-    /**
-     * Get the blog post that owns the image.
-     */
+    
     public function blogPost()
     {
         return $this->belongsTo(BlogPost::class);

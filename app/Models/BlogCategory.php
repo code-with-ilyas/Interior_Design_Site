@@ -16,9 +16,7 @@ class BlogCategory extends Model
      */
     protected $guarded = [];
 
-    /**
-     * Get the blog posts for the category.
-     */
+    
     public function blogPosts()
     {
         return $this->hasMany(BlogPost::class);
