@@ -25,6 +25,8 @@ class ExpertRequest extends FormRequest
             'experience' => 'nullable|integer|min:0',
             'bio' => 'nullable|string',
             'company' => 'nullable|string|max:255',
+            'company_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'nullable|exists:expert_categories,id',
             'skills' => 'nullable|array',
             'skills.*' => 'exists:skills,id',
         ];
@@ -38,5 +40,18 @@ class ExpertRequest extends FormRequest
         }
 
         return $rules;
+    }
+
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation()
+    {
+        // Ensure category_id is a single value, not an array
+        if (is_array($this->category_id)) {
+            $this->merge([
+                'category_id' => $this->category_id[0] ?? null,
+            ]);
+        }
     }
 }

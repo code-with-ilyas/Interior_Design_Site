@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Expert;
+use App\Models\ExpertCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +13,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // Fetch experts with their categories, skills, and company logos
+        $expertsByCategory = ExpertCategory::with(['experts.skills'])
+            ->whereHas('experts')
+            ->orderBy('name')
+            ->get();
+
+        return view('home', compact('expertsByCategory'));
     }
 
     /**

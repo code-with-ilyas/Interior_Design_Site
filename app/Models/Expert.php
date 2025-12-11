@@ -25,6 +25,18 @@ class Expert extends Model
         'experience_years' => 'integer',
     ];
 
+    protected $fillable = [
+        'name',
+        'designation',
+        'bio',
+        'experience',
+        'company',
+        'company_logo',
+        'company_url',
+        'image',
+        'category_id',
+    ];
+
     /**
      * The skills that belong to the expert.
      */
@@ -39,5 +51,13 @@ class Expert extends Model
     public function projects()
     {
         return $this->belongsToMany(Project::class, 'project_expert')->withPivot('role');
+    }
+
+    /**
+     * Get the category that owns the expert.
+     */
+    public function category()
+    {
+        return $this->belongsTo(ExpertCategory::class, 'category_id');
     }
 }

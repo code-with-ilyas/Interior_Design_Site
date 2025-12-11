@@ -70,6 +70,30 @@
                             </div>
 
                             <div class="md:col-span-2">
+                                <label for="company_logo" class="block text-sm font-medium text-gray-700">Company Logo</label>
+                                @if($expert->company_logo)
+                                    <div class="mb-2">
+                                        <img src="{{ asset('storage/' . $expert->company_logo) }}" alt="{{ $expert->company }} Logo" class="h-10 w-auto">
+                                    </div>
+                                @endif
+                                <input type="file" name="company_logo" id="company_logo" accept="image/*"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <p class="mt-1 text-sm text-gray-500">Upload a new company logo (JPG, PNG, GIF, SVG) - Max 2MB</p>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <x-tom-select
+                                    name="category_id"
+                                    label="Category"
+                                    :options="$categories->pluck('name', 'id')"
+                                    :selected="old('category_id', $expert->category_id)"
+                                    :multiple="false"
+                                    placeholder="Select a category"
+                                    helpText="Select a category for this expert"
+                                />
+                            </div>
+
+                            <div class="md:col-span-2">
                                 <x-tom-select
                                     name="skills"
                                     label="Skills"
