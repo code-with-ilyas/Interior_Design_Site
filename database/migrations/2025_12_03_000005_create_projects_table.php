@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
@@ -18,7 +20,7 @@ return new class extends Migration
             $table->longText('long_description')->nullable();
             $table->string('cover_image')->nullable();
 
-           
+            // Renovation / Interior Fields
             $table->string('property_type')->nullable();
             $table->string('project_type')->nullable();
             $table->string('surface_area')->nullable();
@@ -28,10 +30,10 @@ return new class extends Migration
             $table->integer('duration_weeks')->nullable();
             $table->year('completion_year')->nullable();
 
-           
+            // Environmental
             $table->string('co2_avoided_per_year')->nullable();
 
-         
+            // Additional
             $table->string('location')->nullable();
             $table->string('client_name')->nullable();
             $table->string('architect_name')->nullable();
@@ -44,7 +46,9 @@ return new class extends Migration
         });
     }
 
-   
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('projects');

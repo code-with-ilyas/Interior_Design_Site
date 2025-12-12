@@ -6,13 +6,17 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ExpertRequest extends FormRequest
 {
-   
+    /**
+     * Determine if the user is authorized to make this request.
+     */
     public function authorize(): bool
     {
-        return true; 
+        return true; // We're using policies for authorization
     }
 
-   
+    /**
+     * Get the validation rules that apply to the request.
+     */
     public function rules(): array
     {
         $rules = [
@@ -26,10 +30,10 @@ class ExpertRequest extends FormRequest
         ];
 
         if ($this->isMethod('post')) {
-            
+            // Create validation
             $rules['image'] = 'required|image|mimes:jpeg,png,jpg,gif|max:2048';
         } else {
-           
+            // Update validation
             $rules['image'] = 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048';
         }
 

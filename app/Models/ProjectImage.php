@@ -16,7 +16,9 @@ class ProjectImage extends Model
      */
     protected $guarded = [];
 
-   
+    /**
+     * Get the project that owns the image.
+     */
     public function project()
     {
         return $this->belongsTo(Project::class);

@@ -8,11 +8,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>H24 Renovation</title>
-    <meta name="description" content="H24 RENOVATION">
-    <meta name="keywords" content="H24 RENOVATION">
+    <meta name="author" content="themeholy">
+    <meta name="description" content="Faren   - Architecture & Interior Design Template">
+    <meta name="keywords" content="Faren   - Architecture & Interior Design Template">
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/') }}">
@@ -73,6 +74,7 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
+
                                     @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
@@ -276,19 +278,19 @@
         const demoFormContainer = document.getElementById('demoFormContainer');
         const closeForm = document.getElementById('closeForm');
 
-
+        // Open Form
         demoBtn.addEventListener('click', () => {
             demoFormOverlay.classList.add('active');
             demoFormContainer.classList.add('active');
         });
 
-
+        // Close Form
         closeForm.addEventListener('click', () => {
             demoFormContainer.classList.remove('active');
             demoFormOverlay.classList.remove('active');
         });
 
-
+        // Close when clicking outside the form
         demoFormOverlay.addEventListener('click', (e) => {
             if (e.target === demoFormOverlay) {
                 demoFormContainer.classList.remove('active');
@@ -1574,9 +1576,6 @@
             border-color: #003f3a;
 
         }
-
-
-        
     </style>
 
 </body>

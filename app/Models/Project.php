@@ -27,19 +27,25 @@ class Project extends Model
         'completion_year' => 'integer',
     ];
 
-    
+    /**
+     * Get the category that owns the project.
+     */
     public function projectCategory()
     {
         return $this->belongsTo(ProjectCategory::class);
     }
 
-    
+    /**
+     * Get the images for the project.
+     */
     public function projectImages()
     {
         return $this->hasMany(ProjectImage::class);
     }
 
-    
+    /**
+     * Get the experts that worked on the project.
+     */
     public function experts()
     {
         return $this->belongsToMany(Expert::class, 'project_expert')->withPivot('role');
