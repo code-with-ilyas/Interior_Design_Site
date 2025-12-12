@@ -9,12 +9,19 @@ class Testimonial extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'client_name',
-        'designation',
-        'testimonial_text',
-        'client_image',
-        'sort_order',
-        'is_active',
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'rating' => 'integer',
     ];
 }

@@ -11,15 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-
-        // 🔹 Your custom route middlewares
         $middleware->alias([
             'super.admin' => \App\Http\Middleware\SuperAdminMiddleware::class,
             'not.super.admin' => \App\Http\Middleware\NotSuperAdminMiddleware::class,
-            
         ]);
-
-       
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

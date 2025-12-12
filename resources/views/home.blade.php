@@ -48,239 +48,26 @@
             <a href="javascript:void(0);" id="demoBtn" class="playfair-display"
               style="display:inline-block; font-family:'Playfair Display', serif; font-size:16px; font-weight:500; padding:10px 25px; border:2px solid #003f3a; background-color:transparent; color:#003f3a; border-radius:100px; text-align:center; cursor:pointer; text-decoration:none; transition:all 0.3s ease;"
               onmouseover="this.style.backgroundColor='#003f3a'; this.style.color='#fff';"
-              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#003f3a';">Request a Demo</a>
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Request a Demo</a>
+
+
+
+
+
 
             <div id="demoFormOverlay" class="playfair-display">
               <div id="demoFormContainer">
                 <span id="closeForm" class="close-arrow">&#x2192;</span>
                 <h3 class="text-dark">Request a Demo</h3>
-
-                {{-- Success popup --}}
-                @if (session('success'))
-                <div id="successPopup" style="
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #28a745;
-                color: white;
-                padding: 15px 20px;
-                border-radius: 6px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                z-index: 2000;
-                font-size: 14px;
-                opacity: 0;
-                transform: translateY(-20px);
-                transition: all 0.5s ease;
-            ">
-                  {{ session('success') }}
-                </div>
-                @endif
-
-                <form action="{{ route('admin.quotes.store') }}" method="POST">
-                  @csrf
-
-                  <div class="form-row">
-                    <input class="text-dark" type="text" name="name" placeholder="Your Name" required>
-                    <input class="text-dark" type="text" name="first_name" placeholder="First Name" required>
-                  </div>
-
-                  <div class="form-row">
-                    <input class="text-dark" type="email" name="email" placeholder="Your Email" required>
-                    <input class="text-dark" type="tel" name="phone" placeholder="Your Phone">
-                  </div>
-
-                  <div class="form-row">
-                    <input class="text-dark" type="text" name="company" placeholder="Your Company">
-                    <input class="text-dark" type="text" name="cities" placeholder="Preferred Cities">
-                  </div>
-
-                  <div class="form-row">
-                    <input class="text-dark" type="text" name="address" placeholder="Street Address">
-                    <input class="text-dark" type="text" name="postal_code" placeholder="Postal/ZIP Code">
-                  </div>
-
-                  <div class="form-row">
-                    <input class="text-dark" type="text" name="city" placeholder="City">
-                    <input class="text-dark" type="text" name="country" placeholder="Country">
-                  </div>
-
-                  <div class="form-row">
-                    <textarea class="text-dark" name="mesage" placeholder="Your Message"></textarea>
-                  </div>
-
-                  <div class="form-row">
-                    <button type="submit" class="th-btn">Submit</button>
-                  </div>
+                <form action="/submit-demo" method="POST">
+                  <input class="text-dark" type="text" name="name" placeholder="Your Name" required>
+                  <input class="text-dark" type="email" name="email" placeholder="Your Email" required>
+                  <input class="text-dark" type="tel" name="phone" placeholder="Your Phone">
+                  <textarea class="text-dark" name="message" placeholder="Your Message"></textarea>
+                  <button type="submit" class="th-btn">Submit</button>
                 </form>
-
-                <div id="successPopup" style="
-      display: none;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #28a745;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-size: 14px;
-      z-index: 2000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    ">
-                  Your request has been submitted successfully!
-                </div>
               </div>
             </div>
-
-
-            <style>
-              .form-row:has(button) button {
-                flex: 0 0 25%;
-                max-width: 25%;
-                align-self: center;
-                margin: auto;
-              }
-
-              #demoFormOverlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0, 0, 0, 0.8);
-                z-index: 1000;
-                justify-content: center;
-                align-items: stretch;
-              }
-
-
-              #demoFormContainer {
-                width: 90%;
-                max-width: 700px;
-                height: 100%;
-                background: white;
-                padding: 40px 30px 30px;
-                margin: 0;
-                border-radius: 8px;
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                overflow: hidden;
-              }
-
-              h3.text-dark {
-                margin: 0 0 20px 0;
-                text-align: center;
-              }
-
-              #closeForm {
-                position: absolute;
-                top: 15px;
-                right: 20px;
-                font-size: 24px;
-                cursor: pointer;
-                color: #333;
-                z-index: 10;
-              }
-
-              .form-row {
-                display: flex;
-                gap: 15px;
-                flex-wrap: wrap;
-              }
-
-              .form-row input,
-              .form-row textarea {
-                flex: 1;
-                min-width: 100px;
-                padding: 10px;
-                font-family: inherit;
-                border-radius: 4px;
-                border: 1px solid #ddd;
-                box-sizing: border-box;
-              }
-
-              .form-row textarea {
-                flex: 1 1 100%;
-                height: auto;
-                min-height: 80px;
-              }
-
-              .form-row:has(button) button {
-                flex: 1 1 100%;
-              }
-
-              .th-btn {
-                padding: 11px 30px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-                transition: 0.3s;
-              }
-
-              .th-btn:hover {
-                background-color: #0056b3;
-              }
-
-              /* Responsive */
-              @media(max-width:768px) {
-                .form-row {
-                  flex-direction: column;
-                  gap: 10px;
-                }
-
-                .form-row input,
-                .form-row textarea {
-                  min-width: 100%;
-                }
-              }
-
-              .form-row input:focus,
-              .form-row textarea:focus {
-                outline: none;
-                border-color: #007bff;
-                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-              }
-            </style>
-
-            <script>
-              document.getElementById('demoBtn').addEventListener('click', function() {
-                document.getElementById('demoFormOverlay').style.display = 'flex';
-              });
-
-
-              document.getElementById('closeForm').addEventListener('click', function() {
-                document.getElementById('demoFormOverlay').style.display = 'none';
-              });
-
-
-              document.getElementById('demoFormOverlay').addEventListener('click', function(e) {
-                if (e.target === this) this.style.display = 'none';
-              });
-
-
-              window.addEventListener('DOMContentLoaded', (event) => {
-                const popup = document.getElementById('successPopup');
-                if (popup) {
-                  // show popup
-                  popup.style.opacity = 1;
-                  popup.style.transform = 'translateY(0)';
-
-                  // hide after 3 seconds
-                  setTimeout(() => {
-                    popup.style.opacity = 0;
-                    popup.style.transform = 'translateY(-20px)';
-                  }, 3000);
-                }
-              });
-            </script>
-
-
 
 
           </div>
@@ -428,82 +215,100 @@
   </div>
 </section>
 
-@php
-$about = $aboutSections->first();
-@endphp
-
 <section style="padding: 80px 0;">
-  <h5 id="about-title" style="text-align: center; scroll-margin-top: 100px; font-size: 14px;">About Us</h5>
+  <h5 id="about-title" style="text-align: center; scroll-margin-top: 100px; font-size: 14px;">
+    About Us</h5>
+
   <br>
-  <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
+  <div style="
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: 1200px;
+        margin: auto;
+        gap: 40px;
+        flex-wrap: wrap;
+    ">
+
+
     <div style="flex: 1; min-width: 350px;">
-      @if($about && $about->image)
-      <img src="{{ Storage::url($about->image) }}" alt="{{ $about->name }}" style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-      @else
-      <img src="https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg" alt="About Default" style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-      @endif
+
+      <img src="https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg"
+        alt="About Mes Batisseurs"
+        style="width: 100%; height: 500px;  border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
     </div>
 
+
     <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
+
+
       <p style="font-size: 16px; line-height: 1.7; color: #444;" class="text-white">
-        @if($about && $about->description)
-        {!! $about->description !!}
-        @else
         At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into
         true havens of peace. We offer a range of services, from adding innovative
         extensions to revitalizing your interiors, not to mention designing enchanting
         outdoor spaces. Our goal is to create bespoke solutions that perfectly harmonize
         with each client's unique aspirations.
-        @endif
       </p>
     </div>
+
   </div>
 </section>
-
-
 
 
 <div class="our-services-section playfair-display" id="service-sec">
   <div class="services-header">
     <h5 class="text-primary">Our services</h5>
+
     <h4 style="font-size: 20px;">Support for all your transformation challenges</h4>
   </div>
 
   <div class="services-grid">
-    @php
-    // Fetch all services from DB
-    $dbServices = $services ?? collect();
 
-    // Default services (shown if DB is empty)
-    $defaultServices = [
-    ['service_title' => 'Project management', 'service_description' => "From PMO to experienced interim manager, to bring your company's major projects to fruition."],
-    ['service_title' => 'Technical Assistance', 'service_description' => "More than 100K experts available for contract work throughout France"],
-    ['service_title' => 'Tech Factories', 'service_description' => "Build up your centers of excellence and teams in record time (Digital Factory, IA Factory)"],
-    ['service_title' => 'Consulting', 'service_description' => "Industry experts to meet your operational and strategic challenges."],
-    ['service_title' => 'Training', 'service_description' => "Call on freelance experts to train your teams on the latest technological topics."],
-    ['service_title' => 'Portage', 'service_description' => "Wear all your consultants in minutes thanks to our automated platform."],
-    ];
-
-    // Display DB services if exists, else default services
-    $displayServices = $dbServices->isEmpty() ? collect($defaultServices) : $dbServices;
-    @endphp
-
-    @foreach($displayServices->chunk(3) as $row)
     <div class="services-row">
-      @foreach($row as $service)
       <div class="service-column">
         <div class="service-card">
-          <h5 class="service-title">{{ $service->service_title ?? $service['service_title'] }}</h5>
-          <div class="service-description">{{ $service->service_description ?? $service['service_description'] }}</div>
+          <h5 class="service-title">Project management</h5>
+          <div class="service-description">From PMO to experienced interim manager, to bring your company's major projects to fruition.</div>
         </div>
       </div>
-      @endforeach
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Technical Assistance</h5>
+          <div class="service-description">More than 100K experts available for contract work throughout France</div>
+        </div>
+      </div>
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Tech Factories</h5>
+          <div class="service-description">Build up your centers of excellence and teams in record time (Digital Factory, IA Factory)</div>
+        </div>
+      </div>
     </div>
-    <br><br>
-    @endforeach
+    <br>
+    <br>
+
+    <div class="services-row">
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Consulting</h5>
+          <div class="service-description">Industry experts to meet your operational and strategic challenges.</div>
+        </div>
+      </div>
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Training</h5>
+          <div class="service-description">Call on freelance experts to train your teams on the latest technological topics.</div>
+        </div>
+      </div>
+      <div class="service-column">
+        <div class="service-card">
+          <h5 class="service-title">Portage</h5>
+          <div class="service-description">Wear all your consultants in minutes thanks to our automated platform.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
 <br>
 <br>
 <br>
@@ -513,8 +318,6 @@ $about = $aboutSections->first();
 <br>
 <br>
 <br>
-
-
 <section class="project-area position-relative space-bottom playfair-display" id="project-sec">
   <div class="container text-center">
 
@@ -575,7 +378,6 @@ $about = $aboutSections->first();
       </div>
     </div>
   </div>
-
 </section>
 
 
@@ -1331,51 +1133,94 @@ $about = $aboutSections->first();
 <br>
 <br>
 
-
-
 <section id="customers-sec" class="clients">
 
   <div class="hero">
     <div class="h2-subtitle fade-in playfair-display"></div>
-    <h4 class="playfair-display text-white">Customers</h4>
+    <h4 class="playfair-display text-white">Costomers</h4>
     <h3 class="playfair-display text-white">Who are our customers and partners</h3>
   </div>
 
   <div class="columns">
-    @php
-    $customers = \App\Models\Customer::all();
-    @endphp
 
-    @foreach($customers as $customer)
     <div class="column fade-in">
-      <div class="card">
-
+      <div class="card ">
+        <h5 class="playfair-display text-white">Innovative companies</h5>
+        <p class="playfair-display">We work with some of France's biggest companies, from large corporations to leading scale-ups.</p>
 
         <div class="company-names">
-          <div class="company-list playfair-display">
-            <div class="company-name playfair-display">{{ $customer->name }}</div>
+          <div class="company-list playfair-display" id="companies1">
+            <div class="company-name playfair-display">Louis Vuitton</div>
+            <div class="company-name playfair-display">BNP Paribas</div>
+            <div class="company-name playfair-display">Engie</div>
+            <div class="company-name playfair-display">L'Oréal</div>
+            <div class="company-name playfair-display">Renault</div>
           </div>
         </div>
 
-        <div>
-          <h5 class="playfair-display text-white">{{ $customer->category }}</h5>
-          <p class="playfair-display">{{ $customer->description }}</p>
-        </div>
-
-
 
         <div class="logo-mask">
-          <div class="logo-track">
-            @if($customer->logo)
-            <!-- <img src="{{ asset('storage/'.$customer->logo) }}" class="customer-logo"> -->
-            @endif
+          <div class="logo-track" id="track1">
+
           </div>
         </div>
       </div>
     </div>
-    @endforeach
+
+
+    <div class="column fade-in">
+      <div class="card">
+        <h5 class="playfair-display text-white">Consulting firms</h5>
+        <p class="playfair-display">Leading consulting firms use crème de la crème to complete their projects with the best experts.</p>
+
+
+        <div class="company-names">
+          <div class="company-list playfair-display" id="companies2">
+            <div class="company-name playfair-display">Capgemini</div>
+            <div class="company-name playfair-display">Akkodis</div>
+            <div class="company-name playfair-display">Accenture</div>
+            <div class="company-name playfair-display">Deloitte</div>
+            <div class="company-name playfair-display">McKinsey</div>
+          </div>
+        </div>
+
+
+        <div class="logo-mask">
+          <div class="logo-track" id="track2">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="column fade-in">
+      <div class="card">
+        <h5 class="playfair-display text-white">Technology vendors</h5>
+        <p class="playfair-display">Our community of technical experts integrates the most innovative technological solutions on the market.</p>
+
+
+        <div class="company-names">
+          <div class="company-list playfair-display" id="companies3">
+            <div class="company-name playfair-display">Google</div>
+            <div class="company-name playfair-display">Microsoft</div>
+            <div class="company-name playfair-display">Amazon</div>
+            <div class="company-name playfair-display">IBM</div>
+            <div class="company-name playfair-display">Oracle</div>
+          </div>
+        </div>
+
+
+        <div class="logo-mask">
+          <div class="logo-track" id="track3">
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
 
 
 
@@ -1570,82 +1415,151 @@ $about = $aboutSections->first();
     <div class="row justify-content-center">
       <div class="col-xl-7">
         <div class="title-area text-center">
+
           <h4 class="text-anime text-white">Instagram</h4>
+
           <h3>Our Instagram Gallery</h3>
         </div>
       </div>
     </div>
-
     <div class="row justify-content-center align-items-center">
       <div class="col-10">
         <div class="row gallery-row filter-active justify-content-between">
-
-          @forelse($instagramImages as $insta)
+          <!-- Instagram Images -->
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
               <div class="box-img global-img">
-                <img src="{{ asset($insta->image) }}" alt="Instagram Image">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
               </div>
             </div>
           </div>
-          @empty
-              <p class="text-center text-white">No Instagram Images Available</p>
-          @endforelse
 
+          <div class="col-xl-auto col-md-6 filter-item">
+            <div class="gallery-box">
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-auto col-md-6 filter-item">
+            <div class="gallery-box">
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-auto col-md-6 filter-item">
+            <div class="gallery-box">
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-auto col-md-6 filter-item">
+            <div class="gallery-box">
+              <div class="box-img global-img">
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- End Instagram Images -->
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<section class="space playfair-display" id="gallery-sec">
+<section class=" space playfair-display" id="gallery-sec">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-8">
         <div class="title-area text-center">
-          <h4 class="text-anime text-white">OUR GALLERY</h4>
+
+          <h4 class=" text-anime text-white">OUR GALLERY</h4>
           <h4>Through a Unique Combination of Engineering</h4>
         </div>
       </div>
     </div>
-
     <div class="slider-wrap text-center">
-      <div class="swiper th-slider gallery-slider4" id="gallerySlider4"
-        data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":1.3},"991":{"slidesPerView":1.5},"1200":{"slidesPerView":2},"1600":{"slidesPerView":3.3}},"effect":"coverflow","coverflowEffect":{"rotate":17,"stretch":190,"depth":190,"modifier":1},"centeredSlides":true,"initialSlide":0}'>
-
+      <div class="swiper th-slider gallery-slider4" id="gallerySlider4" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1.3"},"991":{"slidesPerView":"1.5"},"1200":{"slidesPerView":"2"},"1600":{"slidesPerView":"3.3"}},"effect":"coverflow","coverflowEffect":{"rotate":"17","stretch":"190","depth":"190","modifier":"1"},"centeredSlides":"true", "initialSlide":"5"}'>
         <div class="swiper-wrapper">
-          @forelse($galleries as $gallery)
           <div class="swiper-slide">
             <div class="gallery-item2">
               <div class="box-img">
-                <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title ?? 'Gallery Image' }}">
-                <a href="{{ asset($gallery->image) }}" class="icon-btn th-popup-image">
+                <img src="{{ asset('assets/img/gallery/gallery_7_1.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_1.jpg') }}" class="icon-btn th-popup-image">
                   <i class="far fa-plus"></i>
                 </a>
               </div>
             </div>
           </div>
-          @empty
-
-          @endforelse
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_2.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_2.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_3.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_3.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_4.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_4.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="gallery-item2">
+              <div class="box-img">
+                <img src="{{ asset('assets/img/gallery/gallery_7_5.jpg') }}" alt="gallery image">
+                <a href="{{ asset('assets/img/gallery/gallery_7_5.jpg') }}" class="icon-btn th-popup-image">
+                  <i class="far fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-
         <div class="icon-box">
           <button data-slider-prev="#gallerySlider4" class="slider-arrow style2 default slider-prev">
             <img src="{{ asset('assets/img/icon/right-arrow3.svg') }}" alt="">
           </button>
 
+          <div class="text-center">
+            <a href="{{ url('/gallery') }}" class="th-btn style2" style="background-color: #313636ff; color: #fff; border-radius: 100px; padding: 10px 25px; text-decoration: none;">
+              <img src="{{ asset('assets/img/icon/grid.png') }}" alt=""> Explore All
+            </a>
+          </div>
 
 
           <button data-slider-next="#gallerySlider4" class="slider-arrow style2 default slider-next">
             <img src="{{ asset('assets/img/icon/left-arrow2.svg') }}" alt="">
           </button>
         </div>
-
       </div>
     </div>
   </div>
 </section>
-
-
 @endsection

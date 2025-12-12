@@ -9,9 +9,12 @@ use Spatie\Permission\Models\Role;
 
 class PermissionSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-      
+        // Create permissions if they don't already exist
         $permissions = [
             'view admin dashboard',
             'manage users',
@@ -26,7 +29,7 @@ class PermissionSeeder extends Seeder
             Permission::firstOrCreate(['name' => $permission]);
         }
 
-       
+        // Create roles if they don't already exist
         $roles = [
             'super-admin',
             'admin',
@@ -38,15 +41,15 @@ class PermissionSeeder extends Seeder
             Role::firstOrCreate(['name' => $role]);
         }
 
-        
+        // Get the roles
         $superAdminRole = Role::where('name', 'super-admin')->first();
         $adminRole = Role::where('name', 'admin')->first();
         $editorRole = Role::where('name', 'editor')->first();
 
-      
+        // Assign all permissions to super-admin
         $superAdminRole->givePermissionTo(Permission::all());
 
-       
+        // Assign specific permissions to admin
         $adminPermissions = [
             'view admin dashboard',
             'manage projects',
@@ -56,7 +59,7 @@ class PermissionSeeder extends Seeder
         ];
         $adminRole->givePermissionTo($adminPermissions);
 
-       
+        // Assign specific permissions to editor
         $editorPermissions = [
             'view admin dashboard',
             'manage blog'

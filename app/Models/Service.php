@@ -9,5 +9,10 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['service_title', 'service_description'];
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
 }
