@@ -3,3 +3,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom sidebar styles */
+#sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+#sidebar-overlay {
+    transition: opacity 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .md\:ml-64 {
+        margin-left: 16rem;
+    }
+
+    .md\:ml-0 {
+        margin-left: 0;
+    }
+}
