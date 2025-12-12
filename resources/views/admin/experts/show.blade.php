@@ -43,7 +43,7 @@
                                 <h4 class="mt-4 text-lg font-medium">{{ $expert->name }}</h4>
                                 <p class="text-gray-600">{{ $expert->designation ?? 'No designation' }}</p>
                                 <p class="text-gray-500 text-sm">{{ $expert->company ?? 'No company' }}</p>
-                                
+
                                 @if($expert->company_logo)
                                     <div class="mt-2">
                                         <img src="{{ asset('storage/' . $expert->company_logo) }}" alt="{{ $expert->company }} Logo" class="h-10 w-auto">
@@ -62,6 +62,17 @@
                                         <dd class="mt-1 text-sm text-gray-900">
                                             @if($expert->experience)
                                                 {{ $expert->experience }} years
+                                            @else
+                                                Not specified
+                                            @endif
+                                        </dd>
+                                    </div>
+
+                                    <div class="sm:col-span-1">
+                                        <dt class="text-sm font-medium text-gray-500">Company URL</dt>
+                                        <dd class="mt-1 text-sm text-gray-900">
+                                            @if($expert->company_url)
+                                                <a href="{{ $expert->company_url }}" target="_blank" class="text-blue-500 hover:text-blue-700">{{ $expert->company_url }}</a>
                                             @else
                                                 Not specified
                                             @endif

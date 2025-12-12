@@ -478,10 +478,10 @@
                     <div class="box-logo-profile">
                       @if($expert->company_url)
                       <a href="{{ $expert->company_url }}" target="_blank">
-                        <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
+                        <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
                       </a>
                       @else
-                      <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
+                      <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
                       @endif
                     </div>
                   </div>
@@ -796,8 +796,8 @@
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
               <div class="box-img global-img">
-                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" alt="Instagram image">
-                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
               </div>
             </div>
           </div>
@@ -805,8 +805,8 @@
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
               <div class="box-img global-img">
-                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" alt="Instagram image">
-                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.31.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
               </div>
             </div>
           </div>
@@ -814,8 +814,8 @@
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
               <div class="box-img global-img">
-                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" alt="Instagram image">
-                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
               </div>
             </div>
           </div>
@@ -823,8 +823,8 @@
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
               <div class="box-img global-img">
-                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" alt="Instagram image">
-                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.32.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
               </div>
             </div>
           </div>
@@ -832,8 +832,8 @@
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
               <div class="box-img global-img">
-                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" alt="Instagram image">
-                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+                <img src="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" alt="Instagram image">
+                <a href="https://www.littleworker.fr/wp-content/uploads/2021/05/Capture-décran-2020-10-16-à-16.33-1.png.webp" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
               </div>
             </div>
           </div>

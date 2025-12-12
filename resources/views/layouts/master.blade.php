@@ -73,7 +73,7 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
-                                    
+
                                     @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
@@ -1307,6 +1307,14 @@ font-size: 13.5px; /* Updated size */
             filter: brightness(0) invert(1);
         }
 
+        .logo_profile_custom {
+            max-height: 30px;
+            max-width: 120px;
+            display: block;
+            margin: 5px 0;
+            object-fit: contain;
+        }
+
 
         .tabs-content-2 {
             position: relative;
@@ -1554,7 +1562,7 @@ font-size: 13.5px; /* Updated size */
             }
         }
 
-        
+
 
         /* body,
         body * {

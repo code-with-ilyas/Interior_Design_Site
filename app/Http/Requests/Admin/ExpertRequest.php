@@ -25,6 +25,7 @@ class ExpertRequest extends FormRequest
             'experience' => 'nullable|integer|min:0',
             'bio' => 'nullable|string',
             'company' => 'nullable|string|max:255',
+            'company_url' => 'nullable|url|max:255',
             'company_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'nullable|exists:expert_categories,id',
             'skills' => 'nullable|array',

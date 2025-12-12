@@ -45,6 +45,13 @@
                             </div>
 
                             <div>
+                                <label for="company_url" class="block text-sm font-medium text-gray-700">Company URL</label>
+                                <input type="url" name="company_url" id="company_url" value="{{ old('company_url') }}"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <p class="mt-1 text-sm text-gray-500">Enter the company website URL (e.g. https://example.com)</p>
+                            </div>
+
+                            <div>
                                 <label for="experience" class="block text-sm font-medium text-gray-700">Experience (years)</label>
                                 <input type="number" name="experience" id="experience" value="{{ old('experience') }}" min="0"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
