@@ -437,7 +437,7 @@
     <div class="header">
 
       <h3>our experts</h3>
-      <h1 class="h2 white playfair-display">The best experts in each field</h1>
+      <h1 class=" playfair-display">The best experts in each field</h1>
     </div>
     <div class="freelances-group">
       <div data-duration-in="500" data-duration-out="200" data-current="Tab 1" data-easing="ease" class="w-tabs">

@@ -13,6 +13,7 @@
     <meta name="keywords" content="Faren   - Architecture & Interior Design Template">
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/') }}">
@@ -39,9 +40,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Scripts -->
+
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -156,7 +157,7 @@
 
 
 
-                                <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
                             </div>
                         </div>
@@ -480,7 +481,7 @@
             }
         }
 
-        // Close dropdown when clicking outside
+
         document.addEventListener('click', function(event) {
             var dropdown = document.getElementById('user-dropdown');
             if (dropdown && !dropdown.contains(event.target)) {
@@ -666,7 +667,8 @@
             letter-spacing: 1px;
             color: #fff;
             margin-bottom: 20px;
-font-size: 13.5px; /* Updated size */
+            font-size: 13.5px;
+            /* Updated size */
         }
 
 
@@ -675,7 +677,8 @@ font-size: 13.5px; /* Updated size */
             font-weight: 500;
             text-transform: none;
             color: rgba(255, 255, 255, 0.7);
-            font-size: 13.5px; /* Updated size */
+            font-size: 13.5px;
+            /* Updated size */
             margin-bottom: 10px;
         }
 
@@ -1564,25 +1567,13 @@ font-size: 13.5px; /* Updated size */
 
 
 
-        /* body,
-        body * {
-            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
-        } */
-            /* Base style for buttons */
-.th-btn.th-border {
-    background-color: transparent; /* بٹن کی بیک گراؤنڈ کلر */
-    color: #003f3a; /* بٹن کے ٹیکسٹ کا کلر */
-    border: 2px solid #003f3a; /* بٹن کے بارڈر کا کلر */
-    transition: all 0.3s ease; /* smooth hover effect */
-}
+        .th-btn.th-border:hover {
+            background-color: #003f3a;
 
-/* Hover effect */
-.th-btn.th-border:hover {
-    background-color: #003f3a; /* ہاور پر بیک گراؤنڈ کلر */
-    color: #ffffff; /* ہاور پر ٹیکسٹ کلر */
-    border-color: #003f3a; /* ہاور پر بارڈر کلر */
-}
+            color: #ffffff;
+            border-color: #003f3a;
 
+        }
     </style>
 
 </body>

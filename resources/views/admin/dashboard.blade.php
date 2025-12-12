@@ -13,7 +13,7 @@
                     <p>{{ __("You're logged in as Super Admin!") }}</p>
 
                     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-                        <!-- Stats cards -->
+                       
                         <div class="bg-blue-50 p-4 rounded-lg">
                             <h4 class="font-medium text-blue-800">Total Users</h4>
                             <p class="text-2xl font-bold">{{ \App\Models\User::count() }}</p>
