@@ -88,8 +88,8 @@
                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.quotes.index') && !request()->has('status') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
                         Quotes List
                     </a>
-                    <a href="{{ route('admin.quotes.index', ['status' => 'pending']) }}"
-                       class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.quotes.index') && request()->get('status') === 'pending' ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                    <a href="{{ route('admin.quotes.pending') }}"
+                       class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.quotes.pending') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
                         Pending Quotes
                     </a>
                 </div>
