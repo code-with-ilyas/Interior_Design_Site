@@ -1310,6 +1310,14 @@
             filter: brightness(0) invert(1);
         }
 
+        .logo_profile_custom {
+            max-height: 30px;
+            max-width: 120px;
+            display: block;
+            margin: 5px 0;
+            object-fit: contain;
+        }
+
 
         .tabs-content-2 {
             position: relative;
@@ -1557,16 +1565,6 @@
             }
         }
 
-        .th-btn.th-border {
-            background-color: transparent;
-
-            color: #003f3a;
-
-            border: 2px solid #003f3a;
-
-            transition: all 0.3s ease;
-
-        }
 
 
         .th-btn.th-border:hover {

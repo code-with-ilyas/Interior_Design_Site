@@ -1,12 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\QuoteController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Project routes
 Route::get('/project/1', function () {
@@ -69,6 +68,17 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
         'destroy' => 'admin.skills.destroy',
     ]);
 
+    // Expert Category management routes
+    Route::resource('expert-categories', \App\Http\Controllers\Admin\ExpertCategoryController::class)->names([
+        'index' => 'admin.expert-categories.index',
+        'create' => 'admin.expert-categories.create',
+        'store' => 'admin.expert-categories.store',
+        'show' => 'admin.expert-categories.show',
+        'edit' => 'admin.expert-categories.edit',
+        'update' => 'admin.expert-categories.update',
+        'destroy' => 'admin.expert-categories.destroy',
+    ]);
+
     // Project management routes
     Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class)->names([
         'index' => 'admin.projects.index',
@@ -102,6 +112,22 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     Route::get('/quotes/{quote}', [QuoteController::class, 'show'])->name('admin.quotes.show');
     Route::post('/quotes/{quote}/approve', [QuoteController::class, 'approve'])->name('admin.quotes.approve');
     Route::post('/quotes/{quote}/reject', [QuoteController::class, 'reject'])->name('admin.quotes.reject');
+
+    // Permission management routes
+    Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class)->names([
+        'index' => 'admin.permissions.index',
+        'create' => 'admin.permissions.create',
+        'store' => 'admin.permissions.store',
+        'show' => 'admin.permissions.show',
+        'edit' => 'admin.permissions.edit',
+        'update' => 'admin.permissions.update',
+        'destroy' => 'admin.permissions.destroy',
+    ])->except(['show']);
+
+    Route::post('/permissions/assign-to-role', [\App\Http\Controllers\Admin\PermissionController::class, 'assignToRole'])->name('admin.permissions.assign-to-role');
+    Route::post('/permissions/assign-to-user', [\App\Http\Controllers\Admin\PermissionController::class, 'assignToUser'])->name('admin.permissions.assign-to-user');
+    Route::get('/permissions/user-permissions', [\App\Http\Controllers\Admin\PermissionController::class, 'getUserPermissions'])->name('admin.permissions.user-permissions');
+    Route::get('/permissions/role-permissions', [\App\Http\Controllers\Admin\PermissionController::class, 'getRolePermissions'])->name('admin.permissions.role-permissions');
 });
 
 require __DIR__.'/auth.php';
