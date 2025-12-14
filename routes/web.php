@@ -3,9 +3,17 @@
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\InstagramController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+
 
 // Project routes
 Route::get('/project/1', function () {
@@ -106,6 +114,7 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
 
     // Quote management routes
     Route::get('/quotes', [QuoteController::class, 'index'])->name('admin.quotes.index');
+    Route::post('/quotes', [QuoteController::class, 'store'])->name('admin.quotes.store');
     Route::get('/quotes/pending', [QuoteController::class, 'pending'])->name('admin.quotes.pending');
     Route::get('/quotes/approved', [QuoteController::class, 'approved'])->name('admin.quotes.approved');
     Route::get('/quotes/rejected', [QuoteController::class, 'rejected'])->name('admin.quotes.rejected');
@@ -130,4 +139,24 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     Route::get('/permissions/role-permissions', [\App\Http\Controllers\Admin\PermissionController::class, 'getRolePermissions'])->name('admin.permissions.role-permissions');
 });
 
-require __DIR__.'/auth.php';
+
+
+Route::resource('admin/about', AboutController::class)
+    ->names('admin.about');
+
+Route::resource('admin/services', ServiceController::class)
+    ->names('admin.services');
+
+
+Route::resource('admin/customers', CustomerController::class)
+    ->names('admin.customers');
+
+Route::resource('admin/gallery', GalleryController::class)
+    ->names('admin.gallery');
+
+Route::resource('admin/instagram', InstagramController::class)
+    ->names('admin.instagram');
+
+
+
+require __DIR__ . '/auth.php';
