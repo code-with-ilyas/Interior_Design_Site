@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InstagramController;
+use App\Http\Controllers\Admin\TestimonialController;
+
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -157,6 +160,9 @@ Route::resource('admin/gallery', GalleryController::class)
 Route::resource('admin/instagram', InstagramController::class)
     ->names('admin.instagram');
 
+
+Route::resource('admin/testimonials', TestimonialController::class)
+    ->names('admin.testimonials');
 
 
 require __DIR__ . '/auth.php';

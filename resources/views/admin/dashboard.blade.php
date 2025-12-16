@@ -68,6 +68,12 @@
                             <h4 class="font-medium text-teal-800">Instagrams</h4>
                             <p class="text-2xl font-bold">{{ \App\Models\Instagram::count() }}</p>
                         </div>
+
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">testimonials</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Testimonial::count() }}</p>
+                        </div>
+
                     </div>
 
                     <div class="mt-8">
