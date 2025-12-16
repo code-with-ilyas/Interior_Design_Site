@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expert;
+use App\Models\About;
+use App\Models\Service;
+use App\Models\Customer;
+use App\Models\Gallery;
+use App\Models\Instagram;
 use App\Models\ExpertCategory;
 use Illuminate\Http\Request;
 
@@ -19,7 +24,21 @@ class HomeController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('home', compact('expertsByCategory'));
+
+        // Fetch latest About section
+        $about = About::latest()->first();
+
+
+        $services = Service::all();
+
+        $customers = Customer::all();
+
+
+        $galleries = Gallery::latest()->get();
+
+        $instagrams = Instagram::latest()->get();
+
+        return view('home', compact('expertsByCategory', 'about', 'services', 'customers', 'galleries', 'instagrams'));
     }
 
     /**

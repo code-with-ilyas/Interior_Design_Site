@@ -74,8 +74,7 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
-
-                                    @auth
+                                   @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
                                             <i class="fas fa-user" style="font-size: 18px;"></i>
@@ -1461,7 +1460,7 @@
 
 
         .playfair-display,
-        .playfair-display * {
+        .playfair-display  {
             font-family: "Playfair Display", lato;
             font-optical-sizing: auto;
             font-weight: 400;

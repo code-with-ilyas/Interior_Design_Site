@@ -43,6 +43,37 @@
                             <h4 class="font-medium text-teal-800">Total Skills</h4>
                             <p class="text-2xl font-bold">{{ \App\Models\Skill::count() }}</p>
                         </div>
+
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">About Us</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\About::count() }}</p>
+                        </div>
+
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">Services</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Service::count() }}</p>
+                        </div>
+
+                         <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">customers</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Customer::count() }}</p>
+                        </div>
+
+                         <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">Galleries</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Gallery::count() }}</p>
+                        </div>
+
+                         <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">Instagrams</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Instagram::count() }}</p>
+                        </div>
+
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-teal-800">testimonials</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\Testimonial::count() }}</p>
+                        </div>
+
                     </div>
 
                     <div class="mt-8">
@@ -55,6 +86,7 @@
                             <a href="{{ route('admin.skills.index') }}" class="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600">Manage Skills</a>
                             <a href="{{ route('admin.project-categories.index') }}" class="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600">Manage Project Categories</a>
                             <a href="{{ route('admin.permissions.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Manage Permissions</a>
+                           
                         </div>
                     </div>
                 </div>

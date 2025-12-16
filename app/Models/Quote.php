@@ -10,16 +10,29 @@ class Quote extends Model
     use HasFactory;
 
     /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
+     * The attributes that are mass assignable.
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'first_name',
+        'email',
+        'phone',
+        'company',
+        'cities',
+        'address',
+        'postal_code',
+        'city',
+        'country',
+        'mesage',
+        'status',
+        'start_date_preference',
+        'attachments',
+        'gdpr_consent',
+        'marketing_consent',
+    ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array
+     * The attributes that should be cast to native types.
      */
     protected $casts = [
         'start_date_preference' => 'date',
@@ -29,37 +42,11 @@ class Quote extends Model
     ];
 
     /**
-     * The attributes that should have default values.
-     *
-     * @var array
+     * Default attribute values.
      */
     protected $attributes = [
         'status' => 'pending',
     ];
-
-    /**
-     * Get the pending quotes.
-     */
-    public static function pending()
-    {
-        return self::where('status', 'pending');
-    }
-
-    /**
-     * Get the approved quotes.
-     */
-    public static function approved()
-    {
-        return self::where('status', 'approved');
-    }
-
-    /**
-     * Get the rejected quotes.
-     */
-    public static function rejected()
-    {
-        return self::where('status', 'rejected');
-    }
 
     /**
      * Scope a query to only include pending quotes.
