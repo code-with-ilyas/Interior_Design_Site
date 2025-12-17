@@ -96,37 +96,48 @@
             </div>
 
             <a href="{{ route('admin.about.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                    {{ request()->routeIs('admin.about.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.about.index') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6M12 12v4" />
+                </svg>
                 Manage About
             </a>
 
-
-
             <a href="{{ route('admin.services.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.services.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.services.index') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12h8v8H4v-8h8zm0-8h8v4H4V4h8z" />
+                </svg>
                 Manage Services
             </a>
 
             <a href="{{ route('admin.customers.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.customers.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.customers.index') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M16 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
                 Manage Customers
             </a>
 
-
             <a href="{{ route('admin.gallery.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.gallery.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.gallery.index') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8h18M3 16h18M3 12h18" />
+                </svg>
                 Manage Galleries
             </a>
 
             <a href="{{ route('admin.instagram.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.instagrams.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage Instagrams
+                class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.instagrams.index') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <rect x="3" y="3" width="18" height="18" rx="4" ry="4" stroke-width="2" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 6.5h.01" />
+                </svg>
+                Manage Instagram
             </a>
+
 
 
             <!-- Permissions -->

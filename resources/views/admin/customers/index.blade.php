@@ -1,41 +1,97 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Our Customers</h2>
-            <a href="{{ route('admin.customers.create') }}" class="px-4 py-2 bg-green-500 text-dark rounded hover:bg-green-600 text-sm">
-                Add Customer
-            </a>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Customers Management</h2>
+
         </div>
     </x-slot>
 
-    <section id="customers-sec" class="clients py-6 px-4 bg-gray-100">
-        <div class="columns grid grid-cols-1 md:grid-cols-3 gap-4">
-            @forelse($customers as $customer)
-            <div class="column fade-in border rounded p-4 bg-white shadow-sm">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
 
-                {{-- Name --}}
-                <h6 class="text-gray-500 font-semibold mb-1">Name</h6>
-                <p class="text-gray-800 font-medium mb-3">{{ $customer->name }}</p>
+                    <!-- Success Message -->
+                    @if(session('success'))
+                    <div class="mb-4 px-4 py-2 bg-green-100 text-green-800 rounded">
+                        {{ session('success') }}
+                    </div>
+                    @endif
 
-                {{-- Description --}}
-                <h6 class="text-gray-500 font-semibold mb-1">Description</h6>
-                <p class="text-gray-800 text-sm mb-3">{{ $customer->description }}</p>
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <div class="flex justify-end mb-2">
+                            <a href="{{ route('admin.customers.create') }}"
+                                class="px-4 py-2 bg-black text-dark rounded hover:bg-gray-800">
+                                Add Customer
+                            </a>
+                        </div>
 
-                {{-- Action buttons --}}
-                <div class="flex justify-center gap-2">
-                    <a href="{{ route('admin.customers.edit', $customer->id) }}" class="px-3 py-1 bg-blue-500 text-dark rounded text-sm hover:bg-blue-600">Edit</a>
 
-                    <form action="{{ route('admin.customers.destroy', $customer->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this customer?');">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="px-3 py-1 bg-red-500 text-dark rounded text-sm hover:bg-red-600">Delete</button>
-                    </form>
+
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.No</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                @forelse($customers as $customer)
+                                <tr>
+                                    <!-- Serial Number -->
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{ $loop->iteration }}
+                                    </td>
+
+                                    <!-- Name -->
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        {{ $customer->name }}
+                                    </td>
+
+                                    <!-- Description -->
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        {{ Str::limit($customer->description, 80) }}
+                                    </td>
+
+                                    <!-- Actions -->
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex gap-3">
+                                        <a href="{{ route('admin.customers.edit', $customer->id) }}" class="text-indigo-600 hover:text-indigo-900">
+                                            Edit
+                                        </a>
+
+                                        <form action="{{ route('admin.customers.destroy', $customer->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button onclick="return confirm('Are you sure you want to delete this customer?')" class="text-red-600 hover:text-red-900">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="4" class="px-6 py-4 text-center text-sm text-gray-500">
+                                        No customers found.
+                                    </td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    @if(method_exists($customers, 'links'))
+                    <div class="mt-4">
+                        {{ $customers->links() }}
+                    </div>
+                    @endif
+
                 </div>
-
             </div>
-            @empty
-            <p class="text-gray-700 col-span-3 text-center">No customers found.</p>
-            @endforelse
         </div>
-    </section>
+    </div>
 </x-app-layout>
