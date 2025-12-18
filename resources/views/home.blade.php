@@ -940,8 +940,7 @@
           <div class="col-xl-auto col-md-6 filter-item">
             <div class="gallery-box">
               <div class="box-img global-img">
-                <img src="{{ Storage::url($insta->image) }}" alt="Instagram Image" class="img-fluid rounded">
-
+                <img src="{{ asset($insta->image) }}" alt="Instagram Image">
               </div>
             </div>
           </div>

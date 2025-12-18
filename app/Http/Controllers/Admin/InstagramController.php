@@ -11,7 +11,7 @@ class InstagramController extends Controller
 {
     public function index()
     {
-        $images = Instagram::latest()->paginate(10);
+        $images = Instagram::latest()->get();
         return view('admin.instagram.index', compact('images'));
     }
 

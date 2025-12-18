@@ -10,10 +10,9 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::orderBy('id', 'desc')->paginate(10); // 10 items per page
+        $services = Service::latest()->get();
         return view('admin.services.index', compact('services'));
     }
-
 
     public function create()
     {

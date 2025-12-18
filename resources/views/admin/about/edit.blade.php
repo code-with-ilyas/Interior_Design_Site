@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">Edit About</h2>
     </x-slot>
-<br>
+
     <div class="py-10 px-4 max-w-3xl mx-auto">
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <form action="{{ route('admin.about.update', $about->id) }}" method="POST" enctype="multipart/form-data">
