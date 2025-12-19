@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
         ]);
 
+        $this->call([
+        SiteSettingSeeder::class,
+    ]);
+
         // Check if the test user already exists
         $testUser = User::where('email', 'test@example.com')->first();
 

@@ -45,11 +45,6 @@
                         </div>
 
                         <div class="bg-teal-50 p-4 rounded-lg">
-                            <h4 class="font-medium text-teal-800">About Us</h4>
-                            <p class="text-2xl font-bold">{{ \App\Models\About::count() }}</p>
-                        </div>
-
-                        <div class="bg-teal-50 p-4 rounded-lg">
                             <h4 class="font-medium text-teal-800">Services</h4>
                             <p class="text-2xl font-bold">{{ \App\Models\Service::count() }}</p>
                         </div>
@@ -62,11 +57,6 @@
                          <div class="bg-teal-50 p-4 rounded-lg">
                             <h4 class="font-medium text-teal-800">Galleries</h4>
                             <p class="text-2xl font-bold">{{ \App\Models\Gallery::count() }}</p>
-                        </div>
-
-                         <div class="bg-teal-50 p-4 rounded-lg">
-                            <h4 class="font-medium text-teal-800">Instagrams</h4>
-                            <p class="text-2xl font-bold">{{ \App\Models\Instagram::count() }}</p>
                         </div>
 
                         <div class="bg-teal-50 p-4 rounded-lg">

@@ -9,17 +9,22 @@ class SiteSetting extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = true;
+    protected $fillable = [
+        'site_name',
+        'email',
+        'address',
+        'phone',
+        'location',
+        'logo',
+        'mobile_logo',
+        'favicon',
+        'terms_and_conditions',
+        'privacy_policy',
+        'legal_notices',
+        'about_us',
+        'facebook',
+        'instagram',
+        'linkedin',
+        'whatsapp',
+    ];
 }
