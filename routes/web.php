@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InstagramController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\SiteSettingController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -163,6 +164,11 @@ Route::resource('admin/instagram', InstagramController::class)
 
 Route::resource('admin/testimonials', TestimonialController::class)
     ->names('admin.testimonials');
+    
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('site-settings/edit', [SiteSettingController::class, 'edit'])->name('site-settings.edit');
+    Route::put('site-settings/update', [SiteSettingController::class, 'update'])->name('site-settings.update');
+});
 
 
 require __DIR__ . '/auth.php';
