@@ -36,13 +36,38 @@
               <span class="feature-text playfair-display">Offers to suit all your needs.</span>
             </div>
           </div>
-          <div class="freelancer-buttons playfair-display">
-            <!-- <a href="https://project-submission.client.cremedelacreme.io" class="th-btn freelancer-btn primary">
-              <span class="btn-icon">
-                <img src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/66d6caf319433c5d77180915_EllipsePurple.svg" alt="">
-              </span>
-              Find a freelancer
-            </a> -->
+          <div class="">
+            
+
+          <a href="{{ route('renovate') }}"
+              class="playfair-display renovate-btn">
+              I Want to Renovate a Property
+            </a>
+
+            <style>
+              .renovate-btn {
+                display: inline-block;
+                font-family: 'Playfair Display', serif;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 10px 25px;
+                border: 2px solid #003f3a;
+                background-color: transparent;
+                color: #003f3a;
+                border-radius: 100px;
+                text-align: center;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+              }
+
+              .renovate-btn:hover {
+                background-color: #003f3a;
+                color: #fff;
+              }
+            </style>
+
 
 
             <a href="javascript:void(0);" id="demoBtn" class="playfair-display"
@@ -429,31 +454,30 @@
 </section>
 
 <section style="padding: 80px 0;">
-    <h5 id="about-title" style="text-align: center; scroll-margin-top: 100px; font-size: 14px;">
-        {{ $about?->name ?? 'About Us' }}
-    </h5>
+  <h5 id="about-title" style="text-align: center; scroll-margin-top: 100px; font-size: 14px;">
+    {{ $about?->name ?? 'About Us' }}
+  </h5>
 
-    <br>
+  <br>
 
-    <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
+  <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
 
-        <!-- Image -->
-        <div style="flex: 1; min-width: 350px;">
-            <img
-                src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
-                alt="{{ $about?->name ?? 'About Image' }}"
-                style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"
-            >
-        </div>
-
-        <!-- Description -->
-        <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
-            <p style="font-size: 16px; line-height: 1.7; color: #444;" class="text-white">
-                {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
-            </p>
-        </div>
-
+    <!-- Image -->
+    <div style="flex: 1; min-width: 350px;">
+      <img
+        src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
+        alt="{{ $about?->name ?? 'About Image' }}"
+        style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
     </div>
+
+    <!-- Description -->
+    <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
+      <p style="font-size: 16px; line-height: 1.7; color: #444;" class="text-white">
+        {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
+      </p>
+    </div>
+
+  </div>
 </section>
 
 
@@ -945,7 +969,7 @@
             </div>
           </div>
           @empty
-              <p class="text-center text-white">No Instagram Images Available</p>
+          <p class="text-center text-white">No Instagram Images Available</p>
           @endforelse
 
         </div>
