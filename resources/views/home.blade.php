@@ -8,12 +8,12 @@
       <div class="col-lg-6">
         <div class="freelancer-hero-content">
           <div class="freelancer-tags">
-            <span class="freelancer-tag playfair-display">IA</span>
-            <span class="freelancer-tag playfair-display">Data</span>
-            <span class="freelancer-tag playfair-display">Cloud</span>
-            <span class="freelancer-tag playfair-display">Cyber</span>
-            <span class="freelancer-tag playfair-display">IT</span>
-            <span class="freelancer-tag playfair-display">Digital</span>
+            <span class="freelancer-tag playfair-display text-white">IA</span>
+            <span class="freelancer-tag playfair-display text-white">Data</span>
+            <span class="freelancer-tag playfair-display text-white">Cloud</span>
+            <span class="freelancer-tag playfair-display text-white">Cyber</span>
+            <span class="freelancer-tag playfair-display text-white">IT</span>
+            <span class="freelancer-tag playfair-display text-white">Digital</span>
           </div>
           <h1 class="freelancer-title playfair-display" style="font-size: 45px;">H24 RENOVATION</h1>
           <div class="freelancer-features">
@@ -37,9 +37,9 @@
             </div>
           </div>
           <div class="">
-            
 
-          <a href="{{ route('renovate') }}"
+
+            <a href="{{ route('renovate') }}"
               class="playfair-display renovate-btn">
               I Want to Renovate a Property
             </a>
@@ -53,7 +53,7 @@
                 padding: 10px 25px;
                 border: 2px solid #003f3a;
                 background-color: transparent;
-                color: #003f3a;
+                color: #000000ff;
                 border-radius: 100px;
                 text-align: center;
                 cursor: pointer;
@@ -63,8 +63,8 @@
               }
 
               .renovate-btn:hover {
-                background-color: #003f3a;
-                color: #fff;
+                background-color: #b5c2c0ff;
+                color: #000000ff;
               }
             </style>
 
@@ -72,8 +72,8 @@
 
             <a href="javascript:void(0);" id="demoBtn" class="playfair-display"
               style="display:inline-block; font-family:'Playfair Display', serif; font-size:16px; font-weight:500; padding:10px 25px; border:2px solid #003f3a; background-color:transparent; color:#003f3a; border-radius:100px; text-align:center; cursor:pointer; text-decoration:none; transition:all 0.3s ease;"
-              onmouseover="this.style.backgroundColor='#003f3a'; this.style.color='#fff';"
-              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#003f3a';">Request a Demo</a>
+              onmouseover="this.style.backgroundColor='#b5c2c0ff'; this.style.color='#000000ff';"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000000ff';">Request a Demo</a>
 
             <div id="demoFormOverlay" class="playfair-display">
               <div id="demoFormContainer">
@@ -327,12 +327,14 @@
 
           <div
             style="
+             font-style: italic;
           position:absolute;
           left:-60px;
           top:35%;
           width:90px;
           padding:10px;
-          background: #1d1c1cff;
+          background:#003f3a;
+          
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -348,12 +350,13 @@
 
           <div
             style="
+            font-style: italic;
           position:absolute;
           right:-60px;
           top:5%;
           width:90px;
           padding:10px;
-          background: #1d1c1cff;
+          background:#003f3a;
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -370,12 +373,13 @@
 
           <div
             style="
+             font-style: italic;
           position:absolute;
           right:-60px;
           bottom:5%;
           width:90px;
           padding:10px;
-         background: #1d1c1cff;
+         background: #003f3a;
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -453,39 +457,43 @@
   </div>
 </section>
 
-<section style="padding: 80px 0;">
-  <h5 id="about-title" style="text-align: center; scroll-margin-top: 100px; font-size: 14px;">
-    {{ $about?->name ?? 'About Us' }}
-  </h5>
+<br>
+<br>
+<br>
 
-  <br>
+<h5 id="about-title" class="text-custom" style="text-align: center; scroll-margin-top: 100px; font-size: 14px; color:#000000;">
+  {{ $about?->name ?? 'About Us' }}
+</h5>
+<br>
+<div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
 
-  <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
-
-    <!-- Image -->
-    <div style="flex: 1; min-width: 350px;">
-      <img
-        src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
-        alt="{{ $about?->name ?? 'About Image' }}"
-        style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-    </div>
-
-    <!-- Description -->
-    <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
-      <p style="font-size: 16px; line-height: 1.7; color: #444;" class="text-white">
-        {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
-      </p>
-    </div>
-
+  <!-- Image -->
+  <div style="flex: 1; min-width: 350px;">
+    <img
+      src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
+      alt="{{ $about?->name ?? 'About Image' }}"
+      style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
   </div>
+
+  <!-- Description -->
+  <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
+    <p style="font-size: 16px; line-height: 1.7; color: #000000ff;" class="text-custom">
+      {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
+    </p>
+  </div>
+
+</div>
 </section>
 
+<br>
+<br>
+<br>
 
 
-<div class="our-services-section playfair-display" id="service-sec">
+<div class="text-custom" id="service-sec">
   <div class="services-header">
     <h5 class="text-primary">Our services</h5>
-    <h4 style="font-size: 20px;">Support for all your transformation challenges</h4>
+    <h4 class="text-custom" style="font-size: 20px;">Support for all your transformation challenges</h4>
   </div>
 
   <div class="services-grid">
@@ -512,8 +520,8 @@
       @foreach($row as $service)
       <div class="service-column">
         <div class="service-card">
-          <h5 class="service-title">{{ $service->service_title ?? $service['service_title'] }}</h5>
-          <div class="service-description">{{ $service->service_description ?? $service['service_description'] }}</div>
+          <h5 class="service-title text-custom">{{ $service->service_title ?? $service['service_title'] }}</h5>
+          <div class="service-description text-custom">{{ $service->service_description ?? $service['service_description'] }}</div>
         </div>
       </div>
       @endforeach
@@ -522,6 +530,7 @@
     @endforeach
   </div>
 </div>
+
 <br>
 <br>
 <br>
@@ -531,24 +540,25 @@
 <br>
 <br>
 <br>
+
 <section class="project-area position-relative space-bottom playfair-display" id="project-sec">
   <div class="container text-center">
 
-    <h5 style="font-size: 14px; margin-bottom: 14px;">Our Projects</h5>
+    <h5 style="font-size: 14px; margin-bottom: 14px;" class="text-custom">Our Projects</h5>
 
 
-    <p class="text-white" style="font-size: 20px; line-height: 1.4; margin-bottom: 10px;">Complete Solutions for Your Outdoor Projects</p>
+    <p class="text-custom" style="font-size: 20px; line-height: 1.4; margin-bottom: 10px;">Complete Solutions for Your Outdoor Projects</p>
 
 
-    <p class="text-white" style="font-size: 20px; line-height: 1.6; margin-bottom: 20px;">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+    <p class="text-custom" style="font-size: 20px; line-height: 1.6; margin-bottom: 20px;">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
 
 
     <div class="col-xl-6 mx-auto">
       <div class="filter-menu style2 filter-menu-active">
-        <button data-filter="*" class="th-btn th-border active" type="button">View All</button>
-        <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button>
-        <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button>
-        <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button>
+        <button data-filter="*" class="th-btn th-border active text-custom" type="button">View All</button>
+        <button data-filter=".cat1" class="th-btn th-border text-custom" type="button">Residential</button>
+        <button data-filter=".cat2" class="th-btn th-border text-custom" type="button">Commercial</button>
+        <button data-filter=".cat3" class="th-btn th-border text-custom" type="button">Multipurpose</button>
       </div>
     </div>
   </div>
@@ -561,9 +571,9 @@
         <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
       </div>
       <div class="project-content">
-        <h2 class="box-title text-size: 1px;">Minimalist Interior Design</h2>
-        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project1') }}" class="th-btn white-border th-icon">View Details</a>
+        <h2 class="box-title text-size: 1px; text-custom">Minimalist Interior Design</h2>
+        <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+        <a href="{{ route('project1') }}" class="th-btn black-border th-icon text-custom">View Details</a>
       </div>
     </div>
 
@@ -573,9 +583,9 @@
         <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
       </div>
       <div class="project-content">
-        <h2 class="box-title">Modern Dining Tables</h2>
-        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project2') }}" class="th-btn white-border th-icon">View Details</a>
+        <h2 class="box-title text-custom">Modern Dining Tables</h2>
+        <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+        <a href="{{ route('project2') }}" class="th-btn black-border th-icon text-custom">View Details</a>
       </div>
     </div>
 
@@ -585,9 +595,9 @@
         <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
       </div>
       <div class="project-content">
-        <h2 class="box-title">Minimalist Bedroom Design</h2>
-        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project3') }}" class="th-btn white-border th-icon">View Details</a>
+        <h2 class="box-title text-custom">Minimalist Bedroom Design</h2>
+        <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+        <a href="{{ route('project3') }}" class="th-btn black-border th-icon text-custom">View Details</a>
       </div>
     </div>
   </div>
@@ -599,9 +609,11 @@
   <div class="container">
     <div class="row align-items-center justify-content-center">
       <div class="col-xl-5">
-        <div class="title-area text-center"><span class=" style2 text-anime">Blog & News</span>
+        <div class="title-area text-center"><span class=" style2 text-custom">Blog & News</span>
           <br>
-          <h2>Browse Our Latest Articles & News</h2>
+          <br>
+
+          <h2 class="text-custom">Browse Our Latest Articles & News</h2>
         </div>
       </div>
     </div>
@@ -611,30 +623,30 @@
           <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_1.jpg') }}" alt="blog image"></div>
           <div class="box-content">
             <div>
-              <div class="blog-meta text-white"><a href="blog.html" class="text-white">By Alex John</a> <a href="blog.html" class="text-white">Architecture</a></div>
-              <h3 class="box-title text-white"><a href="blog-details.html">Six Inspiring New Young Architects You Should be Following</a></h3>
+              <div class="blog-meta text-custom"><a href="blog.html" class="text-dark">By Alex John</a> <a href="blog.html" class="text-dark">Architecture</a></div>
+              <h3 class="box-title text-custom"><a href="blog-details.html">Six Inspiring New Young Architects You Should be Following</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-white">Aug 25, 2025</span> <a href="blog-details.html" class="th-btn black-border text-white ">Read More</a></div>
+            <div class="box-wrapp"><span class="date text-custom">Aug 25, 2025</span> <a href="blog-details.html" class="th-btn black-border text-custom ">Read More</a></div>
           </div>
         </div>
         <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".5s">
           <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_2.jpg') }}" alt="blog image"></div>
           <div class="box-content">
             <div>
-              <div class="blog-meta"><a href="blog.html" class="text-white">By Michel Bruis</a> <a href="blog.html" class="text-white">Architecture</a></div>
-              <h3 class="box-title"><a href="blog-details.html">Maximizing Space Smart Architecture Solutions for Small Homes</a></h3>
+              <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
+              <h3 class="box-title text-custom"><a href="blog-details.html">Maximizing Space Smart Architecture Solutions for Small Homes</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-white">Aug 26, 2025</span> <a href="blog-details.html" class="th-btn black-border text-white">Read More</a></div>
+            <div class="box-wrapp"><span class="date text-custom">Aug 26, 2025</span> <a href="blog-details.html" class="th-btn black-border text-custom">Read More</a></div>
           </div>
         </div>
         <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".6s">
           <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_3.jpg') }}" alt="blog image"></div>
           <div class="box-content">
             <div>
-              <div class="blog-meta"><a href="blog.html" class="text-white">By Michel Bruis</a> <a href="blog.html" class="text-white">Architecture</a></div>
-              <h3 class="box-title"><a href="blog-details.html">The Intersection of Art and Architecture to Creating Sculptural Buildings</a></h3>
+              <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
+              <h3 class="box-title text-custom"><a href="blog-details.html">The Intersection of Art and Architecture to Creating Sculptural Buildings</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-white">Aug 27, 2025</span> <a href="blog-details.html" class="th-btn black-border text-white">Read More</a></div>
+            <div class="box-wrapp"><span class="date text-custom">Aug 27, 2025</span> <a href="blog-details.html" class="th-btn black-border text-custom">Read More</a></div>
           </div>
         </div>
       </div>
@@ -649,8 +661,8 @@
   <div class="hero">
     <div class="header">
 
-      <h3>our experts</h3>
-      <h1 class=" playfair-display">The best experts in each field</h1>
+      <h3 class="text-dark">our experts</h3>
+      <h1 class=" playfair-display text-dark">The best experts in each field</h1>
     </div>
     <div class="freelances-group">
       <div data-duration-in="500" data-duration-out="200" data-current="Tab 1" data-easing="ease" class="w-tabs">
@@ -717,8 +729,8 @@
 
   <div class="hero">
     <div class="h2-subtitle fade-in playfair-display"></div>
-    <h4 class="playfair-display text-white">Customers</h4>
-    <h3 class="playfair-display text-white">Who are our customers and partners</h3>
+    <h4 class="playfair-display text-dark">Customers</h4>
+    <h3 class="playfair-display text-dark">Who are our customers and partners</h3>
   </div>
 
   <div class="columns">
@@ -762,8 +774,8 @@
 <section id="community-sec" class="clients">
   <div class="header" style="text-align:center; margin-bottom:40px;">
 
-    <h4 class="subtitle blue">Our Community</h4>
-    <h3>Experts in the technologies you need for your projects</h3>
+    <h4 class="subtitle blue text-custom">Our Community</h4>
+    <h3 class="text-custom">Experts in the technologies you need for your projects</h3>
   </div>
 
   <div class="services-row" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;">
@@ -813,8 +825,8 @@
 
 
 <div class="overflow-hidden space-top playfair-display" id="contact-sec">
-  <h5 style="text-align: center;">Contact Us</h5>
-  <p style="text-align: center;" class="text-white">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We’re here to help and will get back to you as soon as possible.</p>
+  <h5 style="text-align: center;" class="text-dark">Contact Us</h5>
+  <p style="text-align: center;" class="text-custom">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We’re here to help and will get back to you as soon as possible.</p>
 
   <br>
   <br>
@@ -822,10 +834,15 @@
     <div class="row gy-4 flex-row-reverse">
       <div class="col-xl-6">
         <div class="ps-xl-5">
-          <form action="https://html.themehour.net/faren/demo/mail.php" method="POST" class="contact-form2 ajax-contact">
+        <form action="">
             <div class="title-area">
-              <h2 class="sec-title style2 split-text text-white">Let’s <span class="title1">Work</span><span class="title4">Together</span></h2>
-              <p class="contact-text text-white mt-30">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those who appreciate both functionality.</p>
+              <h2 class="sec-title style2 split-text text-custom">
+                Let’s
+                <span class="title1 text-custom">Work</span>
+                <span class="title4 text-custom">Together</span>
+              </h2>
+
+              <p class="contact-text text-custom mt-30">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those who appreciate both functionality.</p>
             </div>
             <div class="row">
               <div class="form-group col-md-6"><input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> <i class="fa-solid fa-user"></i></div>
@@ -839,8 +856,8 @@
                   <option value="Child Specialists">Child Specialists</option>
                 </select></div>
               <div class="form-group col-12"><textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
-              <div class="col-12 form-group"><input type="checkbox" id="html"> <label for="html">I agree with the privacy policy</label></div>
-              <div class="form-btn mt-20 col-12  text-white"><button class="th-btn th-border">Submit Now</button></div>
+              <div class="col-12 form-group text-custom"><input type="checkbox" id="html"> <label for="html" class="text-custom">I agree with the privacy policy</label></div>
+              <div class="form-btn mt-20 col-12  text-custom"><button class="th-btn th-border text-custom">Submit Now</button></div>
             </div>
             <p class="form-messages mb-0 mt-3"></p>
           </form>
@@ -867,9 +884,9 @@
     <div class="row gy-24 justify-content-center">
       <div class="col-xl-8">
 
-        <h4 class="text-center">TESTIMONIALS</h4>
+        <h4 class="text-center text-dark">TESTIMONIALS</h4>
 
-        <h2 class="style2 split-text text-white">Client Feedback & <span class="fs-160"></span><span class="title3">Success Stories</span></h2>
+        <h2 class="style2 split-text text-custom">Client Feedback & <span class="fs-160"></span><span class="title3">Success Stories</span></h2>
       </div>
     </div>
   </div>
@@ -899,11 +916,11 @@
             <div class="swiper-slide">
               <div class="testi-box">
                 <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
+                <p class="box-text text-custom">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
                 <div class="box-profile">
                   <div class="box-author"><img src="assets/img/testimonial/testi_3_1.jpg" alt="Avater"></div>
                   <div class="box-info">
-                    <h3 class="box-title">Alex James</h3><span class="box-desig">Company Owner</span>
+                    <h3 class="box-title text-custom">Alex James</h3><span class="box-desig text-custom   ">Company Owner</span>
                   </div>
                 </div>
               </div>
@@ -911,11 +928,11 @@
             <div class="swiper-slide">
               <div class="testi-box">
                 <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
+                <p class="box-text text-custom">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
                 <div class="box-profile">
                   <div class="box-author"><img src="assets/img/testimonial/testi_3_2.jpg" alt="Avater"></div>
                   <div class="box-info">
-                    <h3 class="box-title">James Thompson</h3><span class="box-desig">Company Owner</span>
+                    <h3 class="box-title text-custom">James Thompson</h3><span class="box-desig text-custom">Company Owner</span>
                   </div>
                 </div>
               </div>
@@ -923,11 +940,11 @@
             <div class="swiper-slide">
               <div class="testi-box">
                 <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                <p class="box-text">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
+                <p class="box-text text-custom">“John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative.”</p>
                 <div class="box-profile">
                   <div class="box-author"><img src="assets/img/testimonial/testi_3_3.jpg" alt="Avater"></div>
                   <div class="box-info">
-                    <h3 class="box-title">Aditi Banerjee</h3><span class="box-desig">Company Owner</span>
+                    <h3 class="box-title text-custom">Aditi Banerjee</h3><span class="box-desig text-custom">Company Owner</span>
                   </div>
                 </div>
               </div>
@@ -950,8 +967,8 @@
     <div class="row justify-content-center">
       <div class="col-xl-7">
         <div class="title-area text-center">
-          <h4 class="text-anime text-white">Instagram</h4>
-          <h3>Our Instagram Gallery</h3>
+          <h4 class="text-anime text-dark">Instagram</h4>
+          <h3 class="text-dark">Our Instagram Gallery</h3>
         </div>
       </div>
     </div>
@@ -969,7 +986,7 @@
             </div>
           </div>
           @empty
-          <p class="text-center text-white">No Instagram Images Available</p>
+          <p class="text-center text-dark">No Instagram Images Available</p>
           @endforelse
 
         </div>
@@ -983,8 +1000,8 @@
     <div class="row justify-content-center">
       <div class="col-xl-8">
         <div class="title-area text-center">
-          <h4 class="text-anime text-white">OUR GALLERY</h4>
-          <h4>Through a Unique Combination of Engineering</h4>
+          <h4 class="text-anime text-dark">OUR GALLERY</h4>
+          <h4 class="text-dark">Through a Unique Combination of Engineering</h4>
         </div>
       </div>
     </div>

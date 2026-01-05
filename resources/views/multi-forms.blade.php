@@ -5,33 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Worker - Project Info</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         html,
         body {
-            height: 100%;
-            overflow: hidden;
+            min-height: 100%;
         }
 
         body {
             font-family: 'Playfair Display', serif;
             background-color: #f9f9f9;
-            padding: 50px;
             margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .header-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
 
         .header-row h1 {
             margin: 0;
-            font-weight: 500;
             font-size: 28px;
+            font-weight: 500;
         }
 
         .header-row p {
@@ -41,18 +51,16 @@
         }
 
         .help-text {
-            margin-bottom: 40px;
+            margin: 30px 0 40px;
             font-size: 18px;
             font-weight: 500;
-            text-align: left;
         }
 
         .options {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            margin-bottom: 50px;
         }
 
         .option-box {
@@ -63,10 +71,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: 0.3s;
             min-height: 120px;
             text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         .option-box:hover {
@@ -77,6 +85,13 @@
         .option-box.selected {
             border-color: #003f3a;
             background-color: #d1e7e2;
+        }
+
+        /* Make anchor behave like a normal box */
+        .option-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .nav-buttons {
@@ -95,6 +110,7 @@
             cursor: pointer;
             font-family: 'Playfair Display', serif;
             font-size: 16px;
+            transition: 0.3s;
         }
 
         .nav-buttons button:hover {
@@ -115,6 +131,7 @@
             .header-row {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 5px;
             }
         }
     </style>
@@ -122,31 +139,31 @@
 
 <body>
 
-    <div class="header-row">
-        <h1>Little Worker</h1>
-        <p>Project Information --- 2 --- 3</p>
-    </div>
+    <div class="container">
 
-    <p class="help-text">How can we help you?</p>
+        <div class="header-row">
+            <h1>Little Worker</h1>
+            <p>Project Information — Step 2 of 3</p>
+        </div>
 
-    <div class="options">
-        <div class="option-box">I need a quote</div>
-        <a href="{{ route('estimate.step1') }}" style="text-decoration:none;color:inherit;">
-            <div class="option-box">I would like an estimate</div>
-        </a>
+        <p class="help-text">How can we help you?</p>
 
+        <div class="options">
+            <div class="option-box">I need a quote</div>
 
+            <a href="{{ route('estimate.step1') }}" class="option-link"> <div class="option-box">I would like an estimate</div></a>
 
+            <a href="{{ route('estimate.step1') }}" class="option-link"><div class="option-box">I am looking for a company</div></a>
+            <a href="{{ route('estimate.step1') }}" class="option-link"><div class="option-box">I want to improve the energy performance rating (DPE)</div></a>
+          <a href="{{ route('estimate.step1') }}" class="option-link">  <div class="option-box">I am looking for inspiration</div></a>
+            <a href="{{ route('estimate.step1') }}" class="option-link"><div class="option-box">Other</div></a>
+        </div>
 
-        <div class="option-box">I am looking for a company</div>
-        <div class="option-box">I want to improve the energy performance rating (DPE)</div>
-        <div class="option-box">I am looking for inspiration</div>
-        <div class="option-box">Other</div>
-    </div>
+        <div class="nav-buttons">
+            <button id="prevBtn">&larr; Previous</button>
+            <button id="nextBtn">Next &rarr;</button>
+        </div>
 
-    <div class="nav-buttons">
-        <button id="prevBtn">&larr; Previous</button>
-        <button id="nextBtn">Next &rarr;</button>
     </div>
 
     <script>
@@ -159,32 +176,25 @@
             currentIndex = index;
         }
 
-        // Default selected
         selectBox(0);
 
-        // Click selection
         boxes.forEach((box, index) => {
             box.addEventListener('click', () => {
                 selectBox(index);
             });
         });
 
-        // Next button
         document.getElementById('nextBtn').addEventListener('click', () => {
             if (currentIndex < boxes.length - 1) {
                 selectBox(currentIndex + 1);
             }
         });
 
-        // Previous button
         document.getElementById('prevBtn').addEventListener('click', () => {
             if (currentIndex > 0) {
                 selectBox(currentIndex - 1);
             } else {
-                // 🔥 Redirect to REAL HOME PAGE
                 window.location.href = "/";
-                // Laravel Blade option:
-                // window.location.href = "{{ url('/') }}";
             }
         });
     </script>

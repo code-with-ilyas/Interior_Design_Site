@@ -154,7 +154,7 @@ body {
 </form>
 
 <div class="nav-buttons">
-    <a href="/estimate/step1" class="prev">← Previous</a>
+    <a href="/estimate" class="prev">← Previous</a>
     <a href="/estimate/step3">Next →</a>
 </div>
 
