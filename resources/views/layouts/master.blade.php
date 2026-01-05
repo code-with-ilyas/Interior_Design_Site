@@ -49,7 +49,7 @@
 <body class="body-dark show-grid" id="show-grid">
 
 
-    <header class="th-header header-layout3 onepage-nav">
+    <header class="th-header header-layout3 onepage-nav text-dark">
         <div class="sticky-wrapper">
             <div class="container th-container4">
                 <div class="menu-area">
@@ -58,7 +58,7 @@
                             <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="  "></a></div>
                         </div>
                         <div class="col-auto">
-                            <nav class="main-menu d-none d-lg-inline-block playfair-display">
+                            <nav class="main-menu d-none d-lg-inline-block playfair-display ">
                                 <ul>
                                     <li>
                                         <a href="#hero-sec" class="playfair-display" style="font-size: 13.5px;">Home</a>
@@ -74,7 +74,7 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
-                                   @auth
+                                    @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
                                             <i class="fas fa-user" style="font-size: 18px;"></i>
@@ -123,19 +123,20 @@
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
-                                <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
+                                <p class="about-text text-custom">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
                                 <div class="th-social">
-                                    <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                     <a href="#"><i class="fab fa-youtube"></i></a>
-                                    <a href="#"><i class="fab fa-whatsapp"></i></a> -->
+                                    <a href="#"><i class="fab fa-whatsapp"></i></a>
                                 </div>
-
+                                <br>
+                                <br>
                                 <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
 
                                     <div style="display:flex; flex-direction:column; gap:10px; border:1px solid #fff; padding:15px 20px; border-radius:8px; transition:0.3s;"
-                                        onmouseover="this.style.background='#7e7171ff'; this.style.transform='translateY(-2px)';"
+                                        onmouseover="this.style.background='#fafafaff'; this.style.transform='translateY(-2px)';"
                                         onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
 
                                         <a href="https://mesbatisseurs.fr/politiques/"
@@ -162,42 +163,42 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
-                        <div class="widget widget_nav_menu footer-line footer-widget">
-                            <h3 class="widget_title">About Us</h3>
-                            <div class="menu-all-pages-container">
+                        <div class="widget widget_nav_menu  footer-widget">
+                            <h3 class="widget_title text-custom">About Us</h3>
+                            <div class="menu-all-pages-container text-custom">
                                 <ul class="menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="service.html">All Services</a></li>
-                                    <li><a href="team.html">Our Team Leaders</a></li>
-                                    <li><a href="contact.html">Rquest a Visit</a></li>
-                                    <li><a href="pricing.html">Our Pricing Plan</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="about.html" class="text-custom">About Us</a></li>
+                                    <li><a href="service.html" class="text-custom">All Services</a></li>
+                                    <li><a href="team.html" class="text-custom">Our Team Leaders</a></li>
+                                    <li><a href="contact.html" class="text-custom">Rquest a Visit</a></li>
+                                    <li><a href="pricing.html" class="text-custom">Our Pricing Plan</a></li>
+                                    <li><a href="faq.html" class="text-custom">FAQ</a></li>
+                                    <li><a href="contact.html" class="text-custom">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Our Projects</h3>
+                            <h3 class="widget_title text-custom">Our Projects</h3>
                             <div class="menu-all-pages-container">
-                                <ul class="menu">
-                                    <li><a href="project.html">All Projects</a></li>
-                                    <li><a href="contact.html">Residential Space</a></li>
-                                    <li><a href="contact.html">Multipurpose</a></li>
-                                    <li><a href="contact.html">Commercial Space</a></li>
-                                    <li><a href="contact.html">Minimalism</a></li>
-                                    <li><a href="contact.html">Urbanism</a></li>
-                                    <li><a href="contact.html">Villa Cabin</a></li>
+                                <ul class="menu text-custom">
+                                    <li><a href="project.html" class="text-custom">All Projects</a></li>
+                                    <li><a href="contact.html" class="text-custom">Residential Space</a></li>
+                                    <li><a href="contact.html" class="text-custom">Multipurpose</a></li>
+                                    <li><a href="contact.html" class="text-custom">Commercial Space</a></li>
+                                    <li><a href="contact.html" class="text-custom">Minimalism</a></li>
+                                    <li><a href="contact.html" class="text-custom">Urbanism</a></li>
+                                    <li><a href="contact.html" class="text-custom">Villa Cabin</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget footer-widget">
-                            <h3 class="widget_title">Get In Touch</h3>
+                            <h3 class="widget_title text-custom">Get In Touch</h3>
                             <div class="th-widget-about style2">
-                                <p class="footer-info">221 Rue LaFayette, 75010 Paris</p>
+                                <p class="footer-info text-custom">221 Rue LaFayette, 75010 Paris</p>
                                 <p class="footer-info"><span><a class="text-inherit d-block" href="tel:+01234567890">01 80 20 92 78</a></span></p>
                                 <p class="footer-info"><span><a class="text-inherit" href="mailto:contact@mesbatisseurs.fr">contact@mesbatisseurs.fr</a></span></p>
                             </div>
@@ -209,7 +210,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-6">
                                 <div class="copyright-wrap">
-                                    <p class="copyright-text">Copyright, H24 RENOVATION. All Rights Reserved.</p>
+                                    <p class="text-custom">Copyright, H24 RENOVATION. All Rights Reserved.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 text-center text-lg-end">
@@ -489,7 +490,92 @@
         });
     </script>
 
+
+
+
     <style>
+        .text-custom {
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
+            font-family: 'Playfair Display', serif !important;
+            font-style: italic !important;
+        }
+
+
+
+
+        .th-btn.black-border.text-custom:hover {
+            background-color: #003f3a !important;
+            color: #ffffff !important;
+            border-color: #003f3a !important;
+        }
+
+
+        /* FOOTER WHITE BACKGROUND */
+        .footer-wrapper,
+        .footer-wrapper .widget-area {
+            background: #ffffff !important;
+        }
+
+        /* Footer text */
+        .footer-wrapper,
+        .footer-wrapper p,
+        .footer-wrapper span,
+        .footer-wrapper li,
+        .footer-wrapper a,
+        .footer-wrapper h3 {
+            color: #000000 !important;
+        }
+
+        /* Footer links hover (keep nice effect) */
+        .footer-wrapper a:hover {
+            color: #4d65ff !important;
+        }
+
+        /* Social icons */
+        .footer-wrapper .th-social i {
+            color: #000000 !important;
+        }
+
+        /* Copyright */
+        .footer-wrapper .copyright-text {
+            color: #000000 !important;
+        }
+
+        /* Footer boxes (policy links box border fix) */
+        .footer-wrapper div[style*="border"] {
+            border-color: #000000 !important;
+        }
+
+        /* HEADER WHITE BACKGROUND + CUSTOM GREEN TEXT */
+        .th-header,
+        .th-header .sticky-wrapper,
+        .th-header .menu-area {
+            background: #ffffff !important;
+        }
+
+        /* Menu links */
+        .th-header .main-menu ul li a {
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* User icon */
+        .th-header i,
+        .th-header svg {
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
+        }
+
+
+        /* Dropdown menu */
+        #user-dropdown-menu {
+            background: #ffffff !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        #user-dropdown-menu a {
+            color: #000000 !important;
+        }
+
         @keyframes floatUp {
             0% {
                 transform: translateY(0);
@@ -535,8 +621,8 @@
         }
 
         .service-card {
-            background: #121212;
-            border: 1px solid #333;
+            background: #ffffffff;
+            border: 1px solid #c5bebeff;
             border-radius: 10px;
             padding: 40px 30px;
             width: 100%;
@@ -549,7 +635,7 @@
 
 
         .service-card:hover {
-            background: rgba(87, 87, 87, 0.15);
+            background: rgba(255, 255, 255, 0.15);
             border-color: #464646ff;
             transform: translateY(-8px);
             box-shadow: 0 8px 25px #464646ff;
@@ -560,13 +646,13 @@
             font-size: 22px;
             font-weight: 600;
             margin-bottom: 15px;
-            color: #fff;
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
 
         .service-description {
             font-size: 17px;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
 
 
@@ -598,7 +684,7 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: #1a1a1a;
+            background: #ffffffff;
             border: 1px solid #333;
             border-radius: 4px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -667,7 +753,6 @@
             color: #fff;
             margin-bottom: 20px;
             font-size: 13.5px;
-            /* Updated size */
         }
 
 
@@ -677,7 +762,6 @@
             text-transform: none;
             color: rgba(255, 255, 255, 0.7);
             font-size: 13.5px;
-            /* Updated size */
             margin-bottom: 10px;
         }
 
@@ -742,10 +826,10 @@
 
         .card {
 
-            background: #1a1a1a;
+            background: #ffffffff;
             border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             color: white;
             height: 100%;
@@ -854,7 +938,7 @@
 
         .community-section {
             padding: 100px 20px;
-            background-color: #111;
+            background-color: #ffffffff;
 
             color: #fff;
             text-align: center;
@@ -883,7 +967,7 @@
         }
 
         .company-box {
-            background: #1a1a1a;
+            background: #ffffffff;
             padding: 56px 42px;
             border-radius: 16px;
             min-width: 280px;
@@ -923,9 +1007,8 @@
         }
 
         .freelancer-hero-section {
-            background: #111 !important;
+            background: #ffffff !important;
 
-            color: #fff;
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -943,8 +1026,8 @@
         }
 
         .freelancer-tag {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background: #024e48ff;
+
             padding: 5px 10px;
             border-radius: 6px;
             font-size: 10px;
@@ -954,7 +1037,7 @@
         }
 
         .freelancer-tag:hover {
-            background: rgba(28, 29, 29, 0.3);
+            background: #024e48ff;
             color: #000000ff;
             transform: translateY(-2px);
         }
@@ -964,7 +1047,8 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 40px;
-            color: #fff;
+            color: #024e48ff;
+
         }
 
         .freelancer-title .highlight {
@@ -1000,7 +1084,7 @@
 
         .feature-text {
             font-size: 16px;
-            color: #fff;
+            color: #000000ff;
             line-height: 1.5;
         }
 
@@ -1064,7 +1148,7 @@
             width: 100%;
             max-width: 500px;
             height: 400px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(61, 9, 9, 0.05);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -1135,10 +1219,10 @@
 
         body,
         html {
-            background: #111 !important;
-
-            background-image: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
         }
+
 
         * {
             margin: 0;
@@ -1148,13 +1232,10 @@
         }
 
         body {
-            background-color: #000;
+            background-color: #ffffffff;
             color: #fff;
             line-height: 1.6;
         }
-
-
-
 
         .expertise .hero {
             max-width: 1200px;
@@ -1227,7 +1308,7 @@
         }
 
         .profile.grey {
-            background-color: #1a1a1a;
+            background-color: #ffffffff;
             border-radius: 16px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1270,7 +1351,7 @@
         }
 
         .tag.grey {
-            background-color: #333;
+            background-color: #c4b4b4ff;
         }
 
         .sector_profile.white {
@@ -1460,12 +1541,14 @@
 
 
         .playfair-display,
-        .playfair-display  {
+        .playfair-display {
             font-family: "Playfair Display", lato;
             font-optical-sizing: auto;
             font-weight: 400;
-            font-style: normal;
+            font-style: italic;
             font-size: 14px;
+
+
         }
 
 
@@ -1475,7 +1558,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(180, 175, 175, 0.5);
             backdrop-filter: blur(5px);
             display: none;
             z-index: 9998;
@@ -1565,13 +1648,27 @@
         }
 
 
+        /* Filter menu buttons */
+        .filter-menu.style2 .th-btn.th-border {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: #000000 !important;
+        }
 
-        .th-btn.th-border:hover {
-            background-color: #003f3a;
+        /* Hover state – light gray */
+        .filter-menu.style2 .th-btn.th-border:hover {
+            background-color: #f2f2f2 !important;
+            /* light gray */
+            color: #000000 !important;
+            border-color: #bdbdbd !important;
+            /* softer gray border */
+        }
 
-            color: #ffffff;
-            border-color: #003f3a;
-
+        /* Active button */
+        .filter-menu.style2 .th-btn.th-border.active {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: #000000 !important;
         }
     </style>
 

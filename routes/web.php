@@ -164,5 +164,28 @@ Route::resource('admin/instagram', InstagramController::class)
 Route::resource('admin/testimonials', TestimonialController::class)
     ->names('admin.testimonials');
 
+Route::get('/renovate', function () {
+    return view('multi-forms'); 
+})->name('renovate');
+
+
+Route::view('/estimate', 'estimates.step1')->name('estimate.step1');
+Route::view('/estimate/step2', 'estimates.step2')->name('estimate.step2');
+Route::view('/estimate/step3', 'estimates.step3')->name('estimate.step3');
+Route::view('/estimate/step4', 'estimates.step4')->name('estimate.step4');
+Route::view('/estimate/step5', 'estimates.step5')->name('estimate.step5');
+Route::view('/estimate/step6', 'estimates.step6')->name('estimate.step6');
+Route::view('/estimate/step7', 'estimates.step7')->name('estimate.step7');
+Route::view('/estimate/step8', 'estimates.step8')->name('estimate.step8');
+Route::view('/estimate/step9', 'estimates.step9')->name('estimate.step9');
+Route::view('/estimate/step10', 'estimates.step10')->name('estimate.step10');
+Route::view('/estimate/step11', 'estimates.step11')->name('estimate.step11');
+Route::view('/estimate/step12', 'estimates.step12')->name('estimate.step12');
+Route::view('/estimate/step13', 'estimates.step13')->name('estimate.step13');
+Route::view('/estimate/step14', 'estimates.step14')->name('estimate.step14');
+
+
+
+
 
 require __DIR__ . '/auth.php';
