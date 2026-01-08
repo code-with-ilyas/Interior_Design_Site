@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Worker - Project Address</title>
+<title>H24 RENOVATION</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <style>
     body {
@@ -95,13 +95,17 @@
 <body>
 
 <div class="header-row">
-    <h1>Little Worker</h1>
+    <h1>H24 RENOVATION</h1>
     <p>Project Information — 5 / 5</p>
 </div>
 
 <p class="help-text">One last step to finalize your project:</p>
 
 <div class="input-group">
+    <label for="Address">Site Address:</label>
+    <br>
+    <br>
+    
     <input type="text" name="project_address" placeholder="Enter the construction site address...">
     
 </div>

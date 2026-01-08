@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Worker - Project Info</title>
+    <title>H24 RENOVATION</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <style>
         html,
@@ -129,7 +129,7 @@
 <body>
 
     <div class="header-row">
-        <h1>Little Worker</h1>
+        <h1>H24 RENOVATION</h1>
         <p>Project Information --- 2 --- 3</p>
     </div>
 
@@ -138,8 +138,7 @@
     <div class="options">
 
         <a href="{{ route('estimate.step2') }}" class="option-box"> Partial Renovation </a>
-
-        <a href="{{ route('estimate.step2') }}" class="option-box">Complte Renovation</a>
+        <a href="{{ route('estimate.step2') }}" class="option-box">Complete Renovation</a>
         <a href="{{ route('estimate.step2') }}" class="option-box">Small Specific Works</a>
         <a href="{{ route('estimate.step2') }}" class="option-box">Home Extension Upwards</a>
          <a href="{{ route('estimate.step2') }}" class="option-box">Home elevation</a>

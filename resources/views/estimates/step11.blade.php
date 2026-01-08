@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Worker - Painting</title>
+<title>H24 RENOVATION</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <style>
     body {
@@ -42,12 +42,7 @@
         margin: auto;
     }
 
-    .input-field {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
+  
 
     .input-field input[type="number"] {
         width: 100%;
@@ -98,7 +93,7 @@
 <body>
 
 <div class="header-row">
-    <h1>Little Worker</h1>
+    <h1>H24 RENOVATION</h1>
     <p>Project Information — 3 / 5</p>
 </div>
 

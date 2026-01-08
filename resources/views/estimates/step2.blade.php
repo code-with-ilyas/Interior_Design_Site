@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Worker - Project Budget</title>
+<title>H24 RENOVATION</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
 <style>
@@ -52,10 +52,7 @@ body {
     margin: 0 auto 40px;
 }
 
-/* Hide radios */
-.options input {
-    display: none;
-}
+
 
 /* Card style */
 .option-box {
@@ -97,18 +94,22 @@ body {
     font-size: 16px;
 }
 
-.nav-buttons a.prev {
-    background: transparent;
-    border: 2px solid #003f3a;
-    color: #003f3a;
-}
+    .nav-buttons button {
+        padding: 12px 30px;
+        border-radius: 50px;
+        border: 2px solid #003f3a;
+        background: #003f3a;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
 </style>
 </head>
 
 <body>
 
 <div class="header-row">
-    <h1>Little Worker</h1>
+    <h1>H24 RENOVATION</h1>
     <p>Project Information — 2 / 3</p>
 </div>
 

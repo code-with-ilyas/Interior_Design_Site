@@ -3,14 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Worker - Personal Information</title>
+<title>H24 RENOVATION</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
 <style>
+    /* Disable scrolling */
+    html, body {
+        height: 100%;
+        overflow: hidden;
+    }
+
     body {
         font-family: 'Playfair Display', serif;
         background: #f9f9f9;
-        padding: 50px;
         margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Main container */
+    .page-wrapper {
+        width: 100%;
+        max-width: 600px;
+        padding: 30px;
+        box-sizing: border-box;
     }
 
     .header-row {
@@ -33,26 +51,54 @@
 
     .help-text {
         font-size: 18px;
-        margin: 40px 0 20px;
+        margin: 30px 0 15px;
         font-weight: 500;
+        text-align: center;
+    }
+
+    .quote-amount {
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+        margin: 15px 0;
+        color: #003f3a;
+    }
+
+    .note {
+        text-align: center;
+        color: #555;
+        font-size: 14px;
+        margin-bottom: 25px;
+        line-height: 1.5;
     }
 
     .input-group {
-        max-width: 500px;
-        margin: auto 0 20px;
         display: flex;
         flex-direction: column;
         gap: 15px;
     }
 
-    input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+    .input-field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-field label {
+        font-size: 14px;
+        margin-bottom: 6px;
+        color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
         width: 100%;
         padding: 15px 12px;
         border-radius: 10px;
         border: 1px solid #d3d3d3;
         font-size: 14px;
-        box-sizing: border-box;
         transition: all 0.3s ease;
+        box-sizing: border-box;
     }
 
     input:focus {
@@ -61,66 +107,82 @@
         background-color: #e6f0ef;
     }
 
-    .note {
-        text-align: center;
-        color: #555;
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
     .nav-buttons {
         display: flex;
-        justify-content: center;
-        max-width: 500px;
-        margin: 20px auto 0;
+        gap: 15px;
+        margin-top: 25px;
     }
 
     .nav-buttons button {
-        padding: 12px 30px;
+        flex: 1;
+        padding: 12px 20px;
         border-radius: 50px;
         border: 2px solid #003f3a;
         background: #003f3a;
         color: #fff;
-        font-size: 16px;
+        font-size: 15px;
         cursor: pointer;
-        width: 100%;
     }
 
-    .quote-amount {
-        font-size: 24px;
-        font-weight: 600;
-        text-align: center;
-        margin: 20px 0;
-        color: #003f3a;
+    .nav-buttons button:first-child {
+                background: #003f3a;
+ 
+        color: #ffffffff;
+    }
+
+    .nav-buttons button:hover {
+        opacity: 0.9;
     }
 </style>
 </head>
 <body>
 
-<div class="header-row">
-    <h1>Little Worker</h1>
-    <p>Personal Information — 3 / 3</p>
-</div>
+<div class="page-wrapper">
 
-<p class="help-text">Get your detailed quote</p>
+    <div class="header-row">
+        <h1>H24 RENOVATION</h1>
+        <p>Personal Information — 3 / 3</p>
+    </div>
 
-<p class="quote-amount">Quote Amount: <strong>€</strong></p>
+    <p class="help-text">Get your detailed quote</p>
+    
+    <p class="note">
+        Enter your details to receive your precise quote by email.  
+        We only ask for your information to send your documents and contact you if needed.
+        Your data remains confidential.
+    </p>
 
-<p class="note">
-    Enter your details to receive your precise quote by email.  
-    We only ask for your information to send your documents and contact you if needed. Your data remains confidential.
-</p>
+    <div class="input-group">
 
-<div class="input-group">
-    <input type="text" name="first_name" placeholder="First Name" value="John">
-    <input type="text" name="last_name" placeholder="Last Name" value="Doe">
-    <input type="email" name="email" placeholder="Email Address" value="john.doe@littleworker.fr">
-    <input type="tel" name="phone" placeholder="Mobile Number" value="+33 06 01 23 45 67">
-</div>
+        <div class="input-field">
+            <label>First Name</label>
+            <input type="text" name="first_name">
+        </div>
 
-<div class="nav-buttons">
-    <button onclick="window.history.back()">← Previous</button>
-    <button onclick="alert('Your detailed quote will be sent!')">Receive my detailed quote →</button>
+        <div class="input-field">
+            <label>Last Name</label>
+            <input type="text" name="last_name">
+        </div>
+
+        <div class="input-field">
+            <label>Email Address</label>
+            <input type="email" name="email">
+        </div>
+
+        <div class="input-field">
+            <label>Mobile Number</label>
+            <input type="tel" name="phone">
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button onclick="window.history.back()">← Previous</button>
+        <button onclick="alert('Your detailed quote will be sent!')">
+            Receive my detailed quote →
+        </button>
+    </div>
+
 </div>
 
 </body>

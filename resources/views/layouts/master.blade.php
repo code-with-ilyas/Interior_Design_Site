@@ -150,15 +150,8 @@
 
                                         <a href="#"
                                             style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
-
                                     </div>
-
                                 </div>
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -231,19 +224,9 @@
             </div>
         </div>
     </footer>
-    <div class="grid-overlay style4">
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-    </div>
+   
 
-    <div class="scroll-top"><svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
-        </svg>
-    </div>
-
+   
     <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -494,6 +477,82 @@
 
 
     <style>
+        
+        .icon-box {
+            display: flex;
+            gap: 12px;
+        }
+
+        .slider-btn {
+            width: 90px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+            font-weight: 600;
+
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #fff;
+
+            border: none;
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            /* Disable all effects */
+            transition: none !important;
+            box-shadow: none;
+            outline: none;
+        }
+
+        /* Fully static — no hover / focus / active */
+        .slider-btn:hover,
+        .slider-btn:focus,
+        .slider-btn:active {
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #fff;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .th-btns {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 28px;
+            border-radius: 100px;
+
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+
+            border: none;
+            outline: none;
+
+            cursor: pointer;
+
+            /* Disable transitions */
+            transition: none !important;
+        }
+
+        /* Disable hover */
+        .th-btns:hover,
+        .th-btns:focus,
+        .th-btns:active,
+        .th-btns:visited {
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #fff;
+            text-decoration: none;
+            box-shadow: none;
+            transform: none;
+        }
+
+
         .text-custom {
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
             font-family: 'Playfair Display', serif !important;
@@ -502,21 +561,12 @@
 
 
 
-
-        .th-btn.black-border.text-custom:hover {
-            background-color: #003f3a !important;
-            color: #ffffff !important;
-            border-color: #003f3a !important;
-        }
-
-
-        /* FOOTER WHITE BACKGROUND */
         .footer-wrapper,
         .footer-wrapper .widget-area {
             background: #ffffff !important;
         }
 
-        /* Footer text */
+
         .footer-wrapper,
         .footer-wrapper p,
         .footer-wrapper span,
@@ -526,47 +576,34 @@
             color: #000000 !important;
         }
 
-        /* Footer links hover (keep nice effect) */
-        .footer-wrapper a:hover {
-            color: #4d65ff !important;
-        }
-
-        /* Social icons */
         .footer-wrapper .th-social i {
             color: #000000 !important;
         }
 
-        /* Copyright */
         .footer-wrapper .copyright-text {
             color: #000000 !important;
         }
 
-        /* Footer boxes (policy links box border fix) */
         .footer-wrapper div[style*="border"] {
             border-color: #000000 !important;
         }
 
-        /* HEADER WHITE BACKGROUND + CUSTOM GREEN TEXT */
         .th-header,
         .th-header .sticky-wrapper,
         .th-header .menu-area {
             background: #ffffff !important;
         }
 
-        /* Menu links */
         .th-header .main-menu ul li a {
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
             font-family: 'Playfair Display', serif;
         }
 
-        /* User icon */
         .th-header i,
         .th-header svg {
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
 
-
-        /* Dropdown menu */
         #user-dropdown-menu {
             background: #ffffff !important;
             border: 1px solid #dddddd !important;
@@ -602,11 +639,9 @@
 
         .our-services-section {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
             color: #fff;
             padding: 80px 20px;
         }
-
 
         .services-row {
             display: flex;
@@ -633,14 +668,12 @@
             transition: all 0.3s ease;
         }
 
-
         .service-card:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: #464646ff;
             transform: translateY(-8px);
             box-shadow: 0 8px 25px #464646ff;
         }
-
 
         .service-title {
             font-size: 22px;
@@ -655,7 +688,6 @@
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
 
-
         .h2-title {
             font-size: 46px;
             font-weight: 700;
@@ -668,7 +700,6 @@
             color: #4169e1;
             margin-bottom: 8px;
         }
-
 
         @media (max-width: 768px) {
             .h2-title {
@@ -715,7 +746,6 @@
             overflow: hidden;
         }
 
-
         .main-menu ul li a {
             font-family: "Playfair Display", serif;
             font-weight: 500;
@@ -732,13 +762,6 @@
 
         }
 
-
-        .main-menu ul li a.active {
-            color: #4d65ff;
-            font-weight: 600;
-        }
-
-
         h1,
         h2,
         h3,
@@ -746,7 +769,6 @@
         h5,
         h6 {
             font-family: "Playfair Display", serif;
-
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -754,7 +776,6 @@
             margin-bottom: 20px;
             font-size: 13.5px;
         }
-
 
         .sub-title,
         .h2-subtitle {
@@ -770,15 +791,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
-            font-family: 'lato';
-            background: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
 
         .clients {
             padding: 50px 0;
@@ -810,7 +822,6 @@
             color: #ffffffff;
         }
 
-
         .columns {
             display: flex;
             flex-wrap: wrap;
@@ -823,9 +834,7 @@
             max-width: 350px;
         }
 
-
         .card {
-
             background: #ffffffff;
             border-radius: 10px;
             padding: 25px;
@@ -835,11 +844,6 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px #898b8fff;
         }
 
         .card h5 {
@@ -910,7 +914,6 @@
             opacity: 1;
         }
 
-
         .fade-in {
             opacity: 0;
             transform: translateY(15px);
@@ -939,17 +942,8 @@
         .community-section {
             padding: 100px 20px;
             background-color: #ffffffff;
-
             color: #fff;
             text-align: center;
-        }
-
-        .community-title {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #4d65ff;
-
         }
 
         .community-subtitle {
@@ -1008,7 +1002,6 @@
 
         .freelancer-hero-section {
             background: #ffffff !important;
-
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -1026,20 +1019,15 @@
         }
 
         .freelancer-tag {
-            background: #024e48ff;
-
+            background-image: linear-gradient(65deg, #d16d45 0%, #222121ff 100%);
             padding: 5px 10px;
             border-radius: 6px;
             font-size: 10px;
             font-weight: 500;
             backdrop-filter: blur(8px);
             display: inline-block;
-        }
-
-        .freelancer-tag:hover {
-            background: #024e48ff;
-            color: #000000ff;
-            transform: translateY(-2px);
+            color: #ffffff;
+            /* text color for better contrast */
         }
 
         .freelancer-title {
@@ -1105,22 +1093,6 @@
             font-size: 16px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-        }
-
-        .freelancer-btn.primary {
-            background: #000;
-            color: #fff;
-            border-color: #fff;
-        }
-
-        .freelancer-btn.secondary {
-            background: #fff;
-            color: #000;
-        }
-
-        .freelancer-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px #898b8fff;
         }
 
         .btn-icon {
@@ -1247,15 +1219,6 @@
             margin-bottom: 60px;
         }
 
-        .h2-subtitle.blue {
-            color: #4d65ff;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-            text-transform: none;
-        }
-
         .h2.white {
             color: #fff;
             font-size: 48px;
@@ -1266,7 +1229,6 @@
         .h2-italicize {
             font-style: italic;
         }
-
 
         .freelances-group {
             margin-top: 40px;
@@ -1280,44 +1242,12 @@
             margin-bottom: 40px;
         }
 
-        .tab-link {
-            padding: 12px 24px;
-            background-color: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .tab-link:hover,
-        .tab-link.w--current {
-            background-color: #4d65ff;
-            border-color: #4d65ff;
-            color: #898b8fff;
-        }
-
-
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 24px;
         }
 
-        .profile.grey {
-            background-color: #ffffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .profile.grey:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px #898b8fff;
-        }
 
         .profile-header {
             height: 200px;
@@ -1344,14 +1274,6 @@
             border-radius: 20px;
             margin-right: 8px;
             margin-bottom: 8px;
-        }
-
-        .tag.blue {
-            background-color: #4d65ff;
-        }
-
-        .tag.grey {
-            background-color: #c4b4b4ff;
         }
 
         .sector_profile.white {
@@ -1476,7 +1398,6 @@
             }
         }
 
-
         .tabs-menu-freelance {
             display: flex;
             justify-content: space-between;
@@ -1513,12 +1434,6 @@
             font-style: italic;
             color: #00bfff;
         }
-
-
-        .w-tab-link div:hover {
-            color: #898b8fff;
-        }
-
 
         .playfair-display {
             font-family: "Playfair Display", serif;
@@ -1650,18 +1565,17 @@
 
         /* Filter menu buttons */
         .filter-menu.style2 .th-btn.th-border {
-            background-color: #ffffff !important;
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
             color: #000000 !important;
             border-color: #000000 !important;
         }
 
-        /* Hover state – light gray */
+        /* Remove hover effect */
         .filter-menu.style2 .th-btn.th-border:hover {
-            background-color: #f2f2f2 !important;
-            /* light gray */
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
             color: #000000 !important;
-            border-color: #bdbdbd !important;
-            /* softer gray border */
+            border-color: #000000 !important;
+            cursor: pointer;
         }
 
         /* Active button */

@@ -4,11 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Worker - Project Info</title>
+    <title>H24 RENOVATION</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
     <style>
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -26,7 +36,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -60,7 +70,8 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 50px;
+            max-width: 800px;
+            margin: 0 auto 40px;
         }
 
         .option-box {
@@ -71,7 +82,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 120px;
+            min-height: 180px;
             text-align: center;
             cursor: pointer;
             transition: 0.3s;
@@ -131,7 +142,11 @@
             .header-row {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 5px;
+                gap: 10px;
+            }
+
+            .help-text {
+                text-align: left;
             }
         }
     </style>
@@ -142,21 +157,33 @@
     <div class="container">
 
         <div class="header-row">
-            <h1>Little Worker</h1>
-            <p>Project Information — Step 2 of 3</p>
+            <h1>H24 RENOVATION</h1>
+            <p>Project Information --- 2 --- 3</p>
         </div>
+
 
         <p class="help-text">How can we help you?</p>
 
         <div class="options">
-            <div class="option-box">I need a quote</div>
+            <a href="{{ route('estimate.step1') }}" class="option-link">
+                <div class="option-box">I need a quote</div>
+            </a>
+            <a href="{{ route('estimate.step1') }}" class="option-link">
+                <div class="option-box">I would like an estimate</div>
+            </a>
 
-            <a href="{{ route('estimate.step1') }}" class="option-link"> <div class="option-box">I would like an estimate</div></a>
-
-            <a href="{{ route('estimate.step1') }}" class="option-link"><div class="option-box">I am looking for a company</div></a>
-            <a href="{{ route('estimate.step1') }}" class="option-link"><div class="option-box">I want to improve the energy performance rating (DPE)</div></a>
-          <a href="{{ route('estimate.step1') }}" class="option-link">  <div class="option-box">I am looking for inspiration</div></a>
-            <a href="{{ route('estimate.step1') }}" class="option-link"><div class="option-box">Other</div></a>
+            <a href="{{ route('estimate.step1') }}" class="option-link">
+                <div class="option-box">I am looking for a company</div>
+            </a>
+            <a href="{{ route('estimate.step1') }}" class="option-link">
+                <div class="option-box">I want to improve the energy performance rating (DPE)</div>
+            </a>
+            <a href="{{ route('estimate.step1') }}" class="option-link">
+                <div class="option-box">I am looking for inspiration</div>
+            </a>
+            <a href="{{ route('estimate.step1') }}" class="option-link">
+                <div class="option-box">Other</div>
+            </a>
         </div>
 
         <div class="nav-buttons">

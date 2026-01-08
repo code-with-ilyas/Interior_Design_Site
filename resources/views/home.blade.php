@@ -43,42 +43,60 @@
               class="playfair-display renovate-btn">
               I Want to Renovate a Property
             </a>
-
             <style>
               .renovate-btn {
                 display: inline-block;
                 font-family: 'Playfair Display', serif;
-                font-size: 16px;
-                font-weight: 500;
+                font-size: 50px;
+                font-weight: 700;
+                /* make text bold */
                 padding: 10px 25px;
-                border: 2px solid #003f3a;
-                background-color: transparent;
-                color: #000000ff;
+                border: 2px solid #a33c10ff;
+                background-color: #a03d12ff;
+                color: #ffffff;
+                /* simple white */
                 border-radius: 100px;
                 text-align: center;
                 cursor: pointer;
                 text-decoration: none;
-                transition: all 0.3s ease;
                 white-space: nowrap;
               }
 
+              /* Optional: keep hover exactly the same */
               .renovate-btn:hover {
-                background-color: #b5c2c0ff;
-                color: #000000ff;
+                color: #ffffff;
+                /* keep text white */
+                background-color: #a33d11ff;
+                /* same background */
+                border-color: #9c3e16ff;
+                /* same border */
               }
             </style>
 
 
 
             <a href="javascript:void(0);" id="demoBtn" class="playfair-display"
-              style="display:inline-block; font-family:'Playfair Display', serif; font-size:16px; font-weight:500; padding:10px 25px; border:2px solid #003f3a; background-color:transparent; color:#003f3a; border-radius:100px; text-align:center; cursor:pointer; text-decoration:none; transition:all 0.3s ease;"
-              onmouseover="this.style.backgroundColor='#b5c2c0ff'; this.style.color='#000000ff';"
-              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000000ff';">Request a Demo</a>
+              style="display:inline-block;
+          font-family:'Playfair Display', serif;
+          font-size:16px;
+          font-weight:500;
+          padding:10px 25px;
+          border:2px solid #a33c10ff;
+         background-color: #a03d12ff;
+          color:#ffffff;
+          border-radius:100px;
+          text-align:center;
+          cursor:pointer;
+          text-decoration:none;
+          transition:all 0.3s ease;">
+              Request a Demo
+            </a>
+
 
             <div id="demoFormOverlay" class="playfair-display">
               <div id="demoFormContainer">
                 <span id="closeForm" class="close-arrow">&#x2192;</span>
-                <h3 class="text-dark">Request a Demo</h3>
+                <h3 class="text-dark">REQUEST A DEMO</h3>
 
                 {{-- Success popup --}}
                 @if (session('success'))
@@ -133,9 +151,24 @@
                     <textarea class="text-dark" name="mesage" placeholder="Your Message"></textarea>
                   </div>
 
-                  <div class="form-row">
-                    <button type="submit" class="th-btn">Submit</button>
-                  </div>
+                  <button
+                    style="
+    width:30%;
+    margin:0 auto;
+    display:block;
+    background-color:#a03d12ff;
+    color:#fff;
+    border:none;
+    transition:background-color .2s ease;
+  "
+                    onmouseover="this.style.backgroundColor='#b94a1c'"
+                    onmouseout="this.style.backgroundColor='#a03d12ff'">
+                    Submit Request
+                  </button>
+
+
+
+
                 </form>
 
                 <div id="successPopup" style="
@@ -206,7 +239,7 @@
                 right: 20px;
                 font-size: 24px;
                 cursor: pointer;
-                color: #333;
+                color: #000000ff;
                 z-index: 10;
               }
 
@@ -237,22 +270,6 @@
                 flex: 1 1 100%;
               }
 
-              .th-btn {
-                padding: 11px 30px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-                transition: 0.3s;
-              }
-
-              .th-btn:hover {
-                background-color: #0056b3;
-              }
-
-              /* Responsive */
               @media(max-width:768px) {
                 .form-row {
                   flex-direction: column;
@@ -333,7 +350,7 @@
           top:35%;
           width:90px;
           padding:10px;
-          background:#003f3a;
+          background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
           
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
@@ -344,8 +361,8 @@
           justify-content:center;
           text-align:center;
         ">
-            <h6 style="margin:0; font-size:12px;" class="text-white">Stitching</h6>
-            <p style="margin:0;" class="text-white">Premium</p>
+            <h6 style="margin:0; font-size:12px;" class="text-white">Complete </h6>
+            <p style="margin:0;" class="text-white">Renovation</p>
           </div>
 
           <div
@@ -356,7 +373,7 @@
           top:5%;
           width:90px;
           padding:10px;
-          background:#003f3a;
+         background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -366,8 +383,8 @@
           justify-content:center;
           text-align:center;
         ">
-            <h6 style="margin:0; font-size:12px;" class="text-white">Perfect</h6>
-            <p style="margin:0;" class="text-white">Measurement</p>
+            <h6 style="margin:0; font-size:12px;" class="text-white">Interior </h6>
+            <p style="margin:0;" class="text-white">Remodeling</p>
           </div>
 
 
@@ -379,7 +396,7 @@
           bottom:5%;
           width:90px;
           padding:10px;
-         background: #003f3a;
+        background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -389,7 +406,7 @@
           justify-content:center;
           text-align:center;
         ">
-            <h6 style="margin:0; font-size:12px;" class="text-white">Delivery</h6>
+            <h6 style="margin:0; font-size:12px;" class="text-white">Custom</h6>
             <p style="margin:0;" class="text-white">Fast</p>
           </div>
 
@@ -467,7 +484,7 @@
 <br>
 <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
 
-  <!-- Image -->
+
   <div style="flex: 1; min-width: 350px;">
     <img
       src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
@@ -475,7 +492,6 @@
       style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
   </div>
 
-  <!-- Description -->
   <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
     <p style="font-size: 16px; line-height: 1.7; color: #000000ff;" class="text-custom">
       {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
@@ -555,10 +571,10 @@
 
     <div class="col-xl-6 mx-auto">
       <div class="filter-menu style2 filter-menu-active">
-        <button data-filter="*" class="th-btn th-border active text-custom" type="button">View All</button>
-        <button data-filter=".cat1" class="th-btn th-border text-custom" type="button">Residential</button>
-        <button data-filter=".cat2" class="th-btn th-border text-custom" type="button">Commercial</button>
-        <button data-filter=".cat3" class="th-btn th-border text-custom" type="button">Multipurpose</button>
+        <button data-filter="*" class="th-btns th-border active text-custom" type="button">View All</button>
+        <button data-filter=".cat1" class="th-btns th-border text-custom" type="button">Residential</button>
+        <button data-filter=".cat2" class="th-btns th-border text-custom" type="button">Commercial</button>
+        <button data-filter=".cat3" class="th-btns th-border text-custom" type="button">Multipurpose</button>
       </div>
     </div>
   </div>
@@ -573,7 +589,10 @@
       <div class="project-content">
         <h2 class="box-title text-size: 1px; text-custom">Minimalist Interior Design</h2>
         <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project1') }}" class="th-btn black-border th-icon text-custom">View Details</a>
+        <a href="{{ route('project1') }}" class="th-btns th-icon">
+          View Details
+        </a>
+
       </div>
     </div>
 
@@ -585,7 +604,9 @@
       <div class="project-content">
         <h2 class="box-title text-custom">Modern Dining Tables</h2>
         <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project2') }}" class="th-btn black-border th-icon text-custom">View Details</a>
+        <a href="{{ route('project2') }}" class="th-btns th-icon">
+          View Details
+        </a>
       </div>
     </div>
 
@@ -597,7 +618,9 @@
       <div class="project-content">
         <h2 class="box-title text-custom">Minimalist Bedroom Design</h2>
         <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project3') }}" class="th-btn black-border th-icon text-custom">View Details</a>
+        <a href="{{ route('project3') }}" class="th-btns th-icon">
+          View Details
+        </a>
       </div>
     </div>
   </div>
@@ -626,7 +649,7 @@
               <div class="blog-meta text-custom"><a href="blog.html" class="text-dark">By Alex John</a> <a href="blog.html" class="text-dark">Architecture</a></div>
               <h3 class="box-title text-custom"><a href="blog-details.html">Six Inspiring New Young Architects You Should be Following</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-custom">Aug 25, 2025</span> <a href="blog-details.html" class="th-btn black-border text-custom ">Read More</a></div>
+            <div class="box-wrapp"><span class="date text-custom">Aug 25, 2025</span> <a href="blog-details.html" class="th-btns black-border text-custom ">Read More</a></div>
           </div>
         </div>
         <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".5s">
@@ -636,7 +659,7 @@
               <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
               <h3 class="box-title text-custom"><a href="blog-details.html">Maximizing Space Smart Architecture Solutions for Small Homes</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-custom">Aug 26, 2025</span> <a href="blog-details.html" class="th-btn black-border text-custom">Read More</a></div>
+            <div class="box-wrapp"><span class="date text-custom">Aug 26, 2025</span> <a href="blog-details.html" class="th-btns black-border text-custom">Read More</a></div>
           </div>
         </div>
         <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".6s">
@@ -646,7 +669,7 @@
               <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
               <h3 class="box-title text-custom"><a href="blog-details.html">The Intersection of Art and Architecture to Creating Sculptural Buildings</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-custom">Aug 27, 2025</span> <a href="blog-details.html" class="th-btn black-border text-custom">Read More</a></div>
+            <div class="box-wrapp"><span class="date text-custom">Aug 27, 2025</span> <a href="blog-details.html" class="th-btns black-border text-custom">Read More</a></div>
           </div>
         </div>
       </div>
@@ -834,7 +857,7 @@
     <div class="row gy-4 flex-row-reverse">
       <div class="col-xl-6">
         <div class="ps-xl-5">
-        <form action="">
+          <form action="">
             <div class="title-area">
               <h2 class="sec-title style2 split-text text-custom">
                 Let’s
@@ -857,7 +880,7 @@
                 </select></div>
               <div class="form-group col-12"><textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
               <div class="col-12 form-group text-custom"><input type="checkbox" id="html"> <label for="html" class="text-custom">I agree with the privacy policy</label></div>
-              <div class="form-btn mt-20 col-12  text-custom"><button class="th-btn th-border text-custom">Submit Now</button></div>
+              <div class="form-btn mt-20 col-12  text-custom"><button class="th-btns th-border text-custom">Submit Now</button></div>
             </div>
             <p class="form-messages mb-0 mt-3"></p>
           </form>
@@ -1028,16 +1051,21 @@
         </div>
 
         <div class="icon-box">
-          <button data-slider-prev="#gallerySlider4" class="slider-arrow style2 default slider-prev">
-            <img src="{{ asset('assets/img/icon/right-arrow3.svg') }}" alt="">
+          <!-- Prev -->
+          <button data-slider-prev="#gallerySlider4"
+            class="slider-btn slider-prev"
+            aria-label="Previous">
+            &#8592;
           </button>
 
-
-
-          <button data-slider-next="#gallerySlider4" class="slider-arrow style2 default slider-next">
-            <img src="{{ asset('assets/img/icon/left-arrow2.svg') }}" alt="">
+          <!-- Next -->
+          <button data-slider-next="#gallerySlider4"
+            class="slider-btn slider-next"
+            aria-label="Next">
+            &#8594;
           </button>
         </div>
+
 
       </div>
     </div>

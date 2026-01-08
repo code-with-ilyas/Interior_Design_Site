@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Worker - Rooms</title>
+<title>H24 RENOVATION</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
@@ -89,6 +89,15 @@
         margin: 40px auto 0;
     }
 
+    .nav-buttons a {
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: #003f3a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
     .nav-buttons button {
         padding: 12px 30px;
         border-radius: 50px;
@@ -116,7 +125,7 @@
 <body>
 
 <div class="header-row">
-    <h1>Little Worker</h1>
+    <h1>H24 RENOVATION</h1>
     <p>Project Information — 2 / 3</p>
 </div>
 
@@ -160,6 +169,10 @@
     <button onclick="window.history.back()">← Previous</button>
     <a href="/estimate/step5">Next →</a>
 </div>
+
+
+
+
 
 <script>
     document.getElementById('nextBtn').addEventListener('click', () => {

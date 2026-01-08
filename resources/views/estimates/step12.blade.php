@@ -3,9 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Worker - Custom Carpentry</title>
+<title>H24 RENOVATION</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <style>
+
+      html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
     body {
         font-family: 'Playfair Display', serif;
         background: #f9f9f9;
@@ -42,12 +53,6 @@
         margin: auto;
     }
 
-    .input-field {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
 
     .input-field input[type="number"] {
         width: 100%;
@@ -98,7 +103,7 @@
 <body>
 
 <div class="header-row">
-    <h1>Little Worker</h1>
+    <h1>H24 RENOVATION</h1>
     <p>Project Information — 3 / 5</p>
 </div>
 
@@ -109,17 +114,17 @@
         <span class="label-text">Bookcase</span>
         <input type="number" name="custom_bookcase" placeholder="0" value="1">
     </div>
-
+<br>
     <div class="input-field">
         <span class="label-text">Wardrobe</span>
         <input type="number" name="custom_wardrobe" placeholder="0" value="1">
     </div>
-
+<br>
     <div class="input-field">
         <span class="label-text">Laundry Room Cabinet</span>
         <input type="number" name="custom_laundry" placeholder="0" value="1">
     </div>
-
+<br>
     <div class="input-field">
         <span class="label-text">Closet</span>
         <input type="number" name="custom_closet" placeholder="0" value="1">
