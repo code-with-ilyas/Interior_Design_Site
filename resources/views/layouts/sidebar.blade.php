@@ -95,45 +95,93 @@
                 </div>
             </div>
 
-            <a href="{{ route('admin.about.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                    {{ request()->routeIs('admin.about.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage About
+
+            <a href="{{ route('admin.services.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm rounded-md{{ request()->routeIs('admin.services.index')? 'bg-blue-50 text-blue-700':'text-gray-600 hover:bg-gray-50' }}">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M20.25 14.15v4.1a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25v-4.1m16.5 0a2.25 2.25 0 00-2.25-2.25H8.25A2.25 2.25 0 006 14.15m14.25 0V9.9A2.25 2.25 0 0018 7.65H6A2.25 2.25 0 003.75 9.9v4.25" />
+                </svg>
+                <span>Manage Services</span>
+            </a>
+
+
+            <a href="{{ route('admin.customers.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm rounded-md{{ request()->routeIs('admin.customers.index')? 'bg-blue-50 text-blue-700': 'text-gray-600 hover:bg-gray-50' }}">
+
+                <!-- Users Icon -->
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15 19.128a9.38 9.38 0 002.625.372
+                 9.337 9.337 0 004.121-.952
+                 4.125 4.125 0 00-7.533-2.493M15
+                 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15
+                 19.128v.106A12.318 12.318 0 018.624
+                 21c-2.331 0-4.512-.645-6.374-1.766
+                 0-1.113.285-2.16.786-3.07M8.624
+                 21v-.003c0-1.113.285-2.16.786-3.07M8.624
+                 21v.106M12 11.25a4.125 4.125 0
+                 100-8.25 4.125 4.125 0 000 8.25z" />
+                </svg>
+
+                <span>Manage Customers</span>
             </a>
 
 
 
-            <a href="{{ route('admin.services.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.services.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage Services
-            </a>
+            <a href="{{ route('admin.gallery.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.gallery.index')? 'bg-blue-50 text-blue-700': 'text-gray-600 hover:bg-gray-50' }}">
 
-            <a href="{{ route('admin.customers.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.customers.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage Customers
-            </a>
+                <!-- Gallery Icon -->
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 16.5V6.75A2.25 2.25 0
+                 015.25 4.5h13.5A2.25 2.25 0
+                 0121 6.75v9.75M3 16.5l4.72-4.72a2.25
+                 2.25 0 013.182 0l2.846 2.846
+                 5.06-5.06a2.25 2.25 0 013.182
+                 0L21 16.5M3 16.5v.75A2.25
+                 2.25 0 005.25 19.5h13.5A2.25
+                 2.25 0 0021 17.25v-.75" />
+                </svg>
 
-
-            <a href="{{ route('admin.gallery.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.gallery.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage Galleries
-            </a>
-
-            <a href="{{ route('admin.instagram.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.instagrams.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage Instagrams
+                <span>Manage Galleries</span>
             </a>
 
 
-            <a href="{{ route('admin.testimonials.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.testimonials.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage Testimonials
+
+            <a href="{{ route('admin.testimonials.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.testimonials.index')? 'bg-blue-50 text-blue-700': 'text-gray-600 hover:bg-gray-50' }}">
+
+                <!-- Testimonial Icon -->
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 20.25c4.97 0 9-3.694
+                 9-8.25s-4.03-8.25-9-8.25
+                 -9 3.694-9 8.25c0 2.27
+                 1.001 4.326 2.625 5.812V21l4.01-2.226
+                 c.45.095.92.146 1.365.146z" />
+                </svg>
+
+                <span>Manage Testimonials</span>
             </a>
+
+
+            <a href="{{ route('admin.site-settings.edit') }}"
+                class="flex items-center gap-2 px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.settings.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+
+                <!-- Settings Icon -->
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M19.5 12a7.5 7.5 0 01-.527 2.503l2.074 1.573a.75.75 0 01-.914 1.202l-2.447-1.856a7.472 7.472 0 01-2.036 1.178l-.37 2.66a.75.75 0 01-1.492-.124l-.37-2.66a7.472 7.472 0 01-2.036-1.178l-2.447 1.856a.75.75 0 01-.914-1.202l2.074-1.573A7.5 7.5 0 014.5 12a7.5 7.5 0 01.527-2.503L3.953 7.924a.75.75 0 01.914-1.202l2.447 1.856a7.472 7.472 0 012.036-1.178l.37-2.66a.75.75 0 011.492.124l.37 2.66a7.472 7.472 0 012.036 1.178l2.447-1.856a.75.75 0 01.914 1.202l-2.074 1.573A7.5 7.5 0 0119.5 12z" />
+                </svg>
+
+                <span>Settings</span>
+            </a>
+
+
 
             <!-- Permissions -->
             <a href="{{ route('admin.permissions.index') }}"
