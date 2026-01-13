@@ -26,7 +26,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/H24.svg') }}">
     <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/') }}">
@@ -49,16 +49,16 @@
 <body class="body-dark show-grid" id="show-grid">
 
 
-    <header class="th-header header-layout3 onepage-nav">
+    <header class="th-header header-layout3 onepage-nav text-dark">
         <div class="sticky-wrapper">
             <div class="container th-container4">
                 <div class="menu-area">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="  "></a></div>
+                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="  "></a></div>
                         </div>
                         <div class="col-auto">
-                            <nav class="main-menu d-none d-lg-inline-block playfair-display">
+                            <nav class="main-menu d-none d-lg-inline-block playfair-display ">
                                 <ul>
                                     <li>
                                         <a href="#hero-sec" class="playfair-display" style="font-size: 13.5px;">Home</a>
@@ -74,7 +74,7 @@
                                     <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
                                     <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
                                     <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
-                                   @auth
+                                    @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
                                             <i class="fas fa-user" style="font-size: 18px;"></i>
@@ -122,20 +122,21 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
-                                <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
+                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="Faren  "></a></div>
+                                <p class="about-text text-custom">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
                                 <div class="th-social">
-                                    <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                     <a href="#"><i class="fab fa-youtube"></i></a>
-                                    <a href="#"><i class="fab fa-whatsapp"></i></a> -->
+                                    <a href="#"><i class="fab fa-whatsapp"></i></a>
                                 </div>
-
+                                <br>
+                                <br>
                                 <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
 
                                     <div style="display:flex; flex-direction:column; gap:10px; border:1px solid #fff; padding:15px 20px; border-radius:8px; transition:0.3s;"
-                                        onmouseover="this.style.background='#7e7171ff'; this.style.transform='translateY(-2px)';"
+                                        onmouseover="this.style.background='#fafafaff'; this.style.transform='translateY(-2px)';"
                                         onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
 
                                         <a href="https://mesbatisseurs.fr/politiques/"
@@ -149,55 +150,48 @@
 
                                         <a href="#"
                                             style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
-
                                     </div>
-
                                 </div>
-
-
-
-
-
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
-                        <div class="widget widget_nav_menu footer-line footer-widget">
-                            <h3 class="widget_title">About Us</h3>
-                            <div class="menu-all-pages-container">
+                        <div class="widget widget_nav_menu  footer-widget">
+                            <h3 class="widget_title text-custom">About Us</h3>
+                            <div class="menu-all-pages-container text-custom">
                                 <ul class="menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="service.html">All Services</a></li>
-                                    <li><a href="team.html">Our Team Leaders</a></li>
-                                    <li><a href="contact.html">Rquest a Visit</a></li>
-                                    <li><a href="pricing.html">Our Pricing Plan</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="about.html" class="text-custom">About Us</a></li>
+                                    <li><a href="service.html" class="text-custom">All Services</a></li>
+                                    <li><a href="team.html" class="text-custom">Our Team Leaders</a></li>
+                                    <li><a href="contact.html" class="text-custom">Rquest a Visit</a></li>
+                                    <li><a href="pricing.html" class="text-custom">Our Pricing Plan</a></li>
+                                    <li><a href="faq.html" class="text-custom">FAQ</a></li>
+                                    <li><a href="contact.html" class="text-custom">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Our Projects</h3>
+                            <h3 class="widget_title text-custom">Our Projects</h3>
                             <div class="menu-all-pages-container">
-                                <ul class="menu">
-                                    <li><a href="project.html">All Projects</a></li>
-                                    <li><a href="contact.html">Residential Space</a></li>
-                                    <li><a href="contact.html">Multipurpose</a></li>
-                                    <li><a href="contact.html">Commercial Space</a></li>
-                                    <li><a href="contact.html">Minimalism</a></li>
-                                    <li><a href="contact.html">Urbanism</a></li>
-                                    <li><a href="contact.html">Villa Cabin</a></li>
+                                <ul class="menu text-custom">
+                                    <li><a href="project.html" class="text-custom">All Projects</a></li>
+                                    <li><a href="contact.html" class="text-custom">Residential Space</a></li>
+                                    <li><a href="contact.html" class="text-custom">Multipurpose</a></li>
+                                    <li><a href="contact.html" class="text-custom">Commercial Space</a></li>
+                                    <li><a href="contact.html" class="text-custom">Minimalism</a></li>
+                                    <li><a href="contact.html" class="text-custom">Urbanism</a></li>
+                                    <li><a href="contact.html" class="text-custom">Villa Cabin</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget footer-widget">
-                            <h3 class="widget_title">Get In Touch</h3>
+                            <h3 class="widget_title text-custom">Get In Touch</h3>
                             <div class="th-widget-about style2">
-                                <p class="footer-info">221 Rue LaFayette, 75010 Paris</p>
+                                <p class="footer-info text-custom">221 Rue LaFayette, 75010 Paris</p>
                                 <p class="footer-info"><span><a class="text-inherit d-block" href="tel:+01234567890">01 80 20 92 78</a></span></p>
                                 <p class="footer-info"><span><a class="text-inherit" href="mailto:contact@mesbatisseurs.fr">contact@mesbatisseurs.fr</a></span></p>
                             </div>
@@ -209,7 +203,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-6">
                                 <div class="copyright-wrap">
-                                    <p class="copyright-text">Copyright, H24 RENOVATION. All Rights Reserved.</p>
+                                    <p class="text-custom">Copyright, H24 RENOVATION. All Rights Reserved.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 text-center text-lg-end">
@@ -230,18 +224,9 @@
             </div>
         </div>
     </footer>
-    <div class="grid-overlay style4">
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-        <div class="grid-line"></div>
-    </div>
 
-    <div class="scroll-top"><svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
-        </svg>
-    </div>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
     <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
@@ -489,7 +474,114 @@
         });
     </script>
 
+
+
+
     <style>
+        .icon-box {
+            display: flex;
+            gap: 12px;
+        }
+
+        .slider-btn {
+            width: 90px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: none !important;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .slider-btn:hover,
+        .slider-btn:focus,
+        .slider-btn:active {
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #fff;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .th-btns {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 100px;
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #ffffff !important;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .text-custom {
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
+            font-family: 'Playfair Display', serif !important;
+            font-style: italic !important;
+        }
+
+        .footer-wrapper,
+        .footer-wrapper .widget-area {
+            background: #ffffff !important;
+        }
+
+        .footer-wrapper,
+        .footer-wrapper p,
+        .footer-wrapper span,
+        .footer-wrapper li,
+        .footer-wrapper a,
+        .footer-wrapper h3 {
+            color: #000000 !important;
+        }
+
+        .footer-wrapper .th-social i {
+            color: #000000 !important;
+        }
+
+        .footer-wrapper .copyright-text {
+            color: #000000 !important;
+        }
+
+        .footer-wrapper div[style*="border"] {
+            border-color: #000000 !important;
+        }
+
+        .th-header,
+        .th-header .sticky-wrapper,
+        .th-header .menu-area {
+            background: #ffffff !important;
+        }
+
+        .th-header .main-menu ul li a {
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .th-header i,
+        .th-header svg {
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
+        }
+
+        #user-dropdown-menu {
+            background: #ffffff !important;
+            border: 1px solid #dddddd !important;
+        }
+
+        #user-dropdown-menu a {
+            color: #000000 !important;
+        }
+
         @keyframes floatUp {
             0% {
                 transform: translateY(0);
@@ -516,11 +608,9 @@
 
         .our-services-section {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
             color: #fff;
             padding: 80px 20px;
         }
-
 
         .services-row {
             display: flex;
@@ -535,8 +625,8 @@
         }
 
         .service-card {
-            background: #121212;
-            border: 1px solid #333;
+            background: #ffffffff;
+            border: 1px solid #c5bebeff;
             border-radius: 10px;
             padding: 40px 30px;
             width: 100%;
@@ -547,28 +637,25 @@
             transition: all 0.3s ease;
         }
 
-
         .service-card:hover {
-            background: rgba(87, 87, 87, 0.15);
+            background: rgba(255, 255, 255, 0.15);
             border-color: #464646ff;
             transform: translateY(-8px);
             box-shadow: 0 8px 25px #464646ff;
         }
 
-
         .service-title {
             font-size: 22px;
             font-weight: 600;
             margin-bottom: 15px;
-            color: #fff;
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
 
         .service-description {
             font-size: 17px;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
-
 
         .h2-title {
             font-size: 46px;
@@ -582,7 +669,6 @@
             color: #4169e1;
             margin-bottom: 8px;
         }
-
 
         @media (max-width: 768px) {
             .h2-title {
@@ -598,7 +684,7 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: #1a1a1a;
+            background: #ffffffff;
             border: 1px solid #333;
             border-radius: 4px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -629,7 +715,6 @@
             overflow: hidden;
         }
 
-
         .main-menu ul li a {
             font-family: "Playfair Display", serif;
             font-weight: 500;
@@ -646,13 +731,6 @@
 
         }
 
-
-        .main-menu ul li a.active {
-            color: #4d65ff;
-            font-weight: 600;
-        }
-
-
         h1,
         h2,
         h3,
@@ -660,16 +738,13 @@
         h5,
         h6 {
             font-family: "Playfair Display", serif;
-
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #fff;
             margin-bottom: 20px;
             font-size: 13.5px;
-            /* Updated size */
         }
-
 
         .sub-title,
         .h2-subtitle {
@@ -677,7 +752,6 @@
             text-transform: none;
             color: rgba(255, 255, 255, 0.7);
             font-size: 13.5px;
-            /* Updated size */
             margin-bottom: 10px;
         }
 
@@ -686,15 +760,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
-            font-family: 'lato';
-            background: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
 
         .clients {
             padding: 50px 0;
@@ -726,7 +791,6 @@
             color: #ffffffff;
         }
 
-
         .columns {
             display: flex;
             flex-wrap: wrap;
@@ -739,23 +803,16 @@
             max-width: 350px;
         }
 
-
         .card {
-
-            background: #1a1a1a;
+            background: #ffffffff;
             border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             color: white;
             height: 100%;
             display: flex;
             flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px #898b8fff;
         }
 
         .card h5 {
@@ -826,7 +883,6 @@
             opacity: 1;
         }
 
-
         .fade-in {
             opacity: 0;
             transform: translateY(15px);
@@ -854,18 +910,9 @@
 
         .community-section {
             padding: 100px 20px;
-            background-color: #111;
-
+            background-color: #ffffffff;
             color: #fff;
             text-align: center;
-        }
-
-        .community-title {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #4d65ff;
-
         }
 
         .community-subtitle {
@@ -883,7 +930,7 @@
         }
 
         .company-box {
-            background: #1a1a1a;
+            background: #ffffffff;
             padding: 56px 42px;
             border-radius: 16px;
             min-width: 280px;
@@ -923,9 +970,7 @@
         }
 
         .freelancer-hero-section {
-            background: #111 !important;
-
-            color: #fff;
+            background: #ffffff !important;
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -943,20 +988,15 @@
         }
 
         .freelancer-tag {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background-image: linear-gradient(65deg, #d16d45 0%, #222121ff 100%);
             padding: 5px 10px;
             border-radius: 6px;
             font-size: 10px;
             font-weight: 500;
             backdrop-filter: blur(8px);
             display: inline-block;
-        }
-
-        .freelancer-tag:hover {
-            background: rgba(28, 29, 29, 0.3);
-            color: #000000ff;
-            transform: translateY(-2px);
+            color: #ffffff;
+            /* text color for better contrast */
         }
 
         .freelancer-title {
@@ -964,7 +1004,8 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 40px;
-            color: #fff;
+            color: #024e48ff;
+
         }
 
         .freelancer-title .highlight {
@@ -1000,7 +1041,7 @@
 
         .feature-text {
             font-size: 16px;
-            color: #fff;
+            color: #000000ff;
             line-height: 1.5;
         }
 
@@ -1021,22 +1062,6 @@
             font-size: 16px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-        }
-
-        .freelancer-btn.primary {
-            background: #000;
-            color: #fff;
-            border-color: #fff;
-        }
-
-        .freelancer-btn.secondary {
-            background: #fff;
-            color: #000;
-        }
-
-        .freelancer-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px #898b8fff;
         }
 
         .btn-icon {
@@ -1064,7 +1089,7 @@
             width: 100%;
             max-width: 500px;
             height: 400px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(61, 9, 9, 0.05);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -1135,10 +1160,10 @@
 
         body,
         html {
-            background: #111 !important;
-
-            background-image: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
         }
+
 
         * {
             margin: 0;
@@ -1148,13 +1173,10 @@
         }
 
         body {
-            background-color: #000;
+            background-color: #ffffffff;
             color: #fff;
             line-height: 1.6;
         }
-
-
-
 
         .expertise .hero {
             max-width: 1200px;
@@ -1164,15 +1186,6 @@
         .expertise .header {
             text-align: center;
             margin-bottom: 60px;
-        }
-
-        .h2-subtitle.blue {
-            color: #4d65ff;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-            text-transform: none;
         }
 
         .h2.white {
@@ -1186,7 +1199,6 @@
             font-style: italic;
         }
 
-
         .freelances-group {
             margin-top: 40px;
         }
@@ -1199,44 +1211,12 @@
             margin-bottom: 40px;
         }
 
-        .tab-link {
-            padding: 12px 24px;
-            background-color: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .tab-link:hover,
-        .tab-link.w--current {
-            background-color: #4d65ff;
-            border-color: #4d65ff;
-            color: #898b8fff;
-        }
-
-
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 24px;
         }
 
-        .profile.grey {
-            background-color: #1a1a1a;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .profile.grey:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px #898b8fff;
-        }
 
         .profile-header {
             height: 200px;
@@ -1263,14 +1243,6 @@
             border-radius: 20px;
             margin-right: 8px;
             margin-bottom: 8px;
-        }
-
-        .tag.blue {
-            background-color: #4d65ff;
-        }
-
-        .tag.grey {
-            background-color: #333;
         }
 
         .sector_profile.white {
@@ -1352,7 +1324,6 @@
 
         .client-references {
             padding: 20px 0;
-
             color: #fff;
         }
 
@@ -1395,7 +1366,6 @@
             }
         }
 
-
         .tabs-menu-freelance {
             display: flex;
             justify-content: space-between;
@@ -1415,7 +1385,9 @@
             flex: 1;
             position: relative;
             font-size: 16px;
+            color: #000;
         }
+
 
         .w-tab-link.w--current::after {
             content: "";
@@ -1424,18 +1396,13 @@
             bottom: 0;
             width: 100%;
             height: 2px;
-            background: #00bfff;
+            background: #000;
         }
 
 
         .w-tab-link.w--current div {
             font-style: italic;
-            color: #00bfff;
-        }
-
-
-        .w-tab-link div:hover {
-            color: #898b8fff;
+            color: #000;
         }
 
 
@@ -1452,22 +1419,18 @@
             font-family: "Playfair Display", lato !important;
         }
 
-
-
         .playfair-display a {
             font-family: 'Playfair Display', serif;
         }
 
-
         .playfair-display,
-        .playfair-display  {
+        .playfair-display {
             font-family: "Playfair Display", lato;
             font-optical-sizing: auto;
             font-weight: 400;
-            font-style: normal;
+            font-style: italic;
             font-size: 14px;
         }
-
 
         #demoFormOverlay {
             position: fixed;
@@ -1475,19 +1438,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(180, 175, 175, 0.5);
             backdrop-filter: blur(5px);
             display: none;
             z-index: 9998;
         }
-
 
         #demoFormContainer {
             position: fixed;
             top: 0;
             right: -50%;
             width: 50%;
-
             height: 100%;
             background: #fff;
             box-shadow: -3px 0 15px rgba(0, 0, 0, 0.3);
@@ -1510,7 +1471,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-
         #closeForm {
             font-size: 30px;
             cursor: pointer;
@@ -1523,7 +1483,6 @@
         #closeForm:hover {
             transform: rotate(180deg);
         }
-
 
         #demoFormContainer input,
         #demoFormContainer textarea {
@@ -1538,7 +1497,6 @@
             resize: vertical;
             min-height: 100px;
         }
-
 
         #demoFormContainer button {
             width: 100%;
@@ -1556,7 +1514,6 @@
             background: #484d4aff;
         }
 
-
         @media (max-width: 768px) {
             #demoFormContainer {
                 width: 100%;
@@ -1564,14 +1521,23 @@
             }
         }
 
+        .filter-menu.style2 .th-btn.th-border {
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #000000 !important;
+            border-color: #000000 !important;
+        }
 
+        .filter-menu.style2 .th-btn.th-border:hover {
+            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            color: #000000 !important;
+            border-color: #000000 !important;
+            cursor: pointer;
+        }
 
-        .th-btn.th-border:hover {
-            background-color: #003f3a;
-
-            color: #ffffff;
-            border-color: #003f3a;
-
+        .filter-menu.style2 .th-btn.th-border.active {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: #000000 !important;
         }
     </style>
 
