@@ -6,6 +6,17 @@
 <title>H24 RENOVATION</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 <style>
+
+      html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
     body {
         font-family: 'Playfair Display', serif;
         background: #f9f9f9;
@@ -38,11 +49,10 @@
     }
 
     .input-group {
-        max-width: 400px;
+        max-width: 500px;
         margin: auto;
     }
 
-  
 
     .input-field input[type="number"] {
         width: 100%;
@@ -97,21 +107,35 @@
     <p>Project Information — 3 / 5</p>
 </div>
 
-<p class="help-text">Do you want to repaint any rooms?</p>
+<p class="help-text">Do you want to create custom furniture?</p>
 
 <div class="input-group">
     <div class="input-field">
-        <span class="label-text">Floor area to repaint</span>
-        <input type="number" name="painting_area" placeholder="0" value="">
-        <span>m²</span>
+        <span class="label-text">Bookshelf</span>
+        <input type="number" name="custom_bookcase" placeholder="0" value="">
+    </div>
+<br>
+    <div class="input-field">
+        <span class="label-text">Dressing room</span>
+        <input type="number" name="custom_wardrobe" placeholder="0" value="">
+    </div>
+<br>
+    <div class="input-field">
+        <span class="label-text">Laundry unit</span>
+        <input type="number" name="custom_laundry" placeholder="0" value="">
+    </div>
+<br>
+    <div class="input-field">
+        <span class="label-text">Wardrobe</span>
+        <input type="number" name="custom_closet" placeholder="0" value="">
     </div>
 </div>
 
-<p class="note">Leave 0 if you do not want to repaint any rooms.</p>
+<p class="note">Leave 0 if you do not want any custom furniture.</p>
 
 <div class="nav-buttons">
     <button onclick="window.history.back()">← Previous</button>
-    <button onclick="window.location.href='/estimate/step12'">Next →</button>
+    <button onclick="window.location.href='/specific-works/step8'">Next →</button>
 </div>
 
 </body>

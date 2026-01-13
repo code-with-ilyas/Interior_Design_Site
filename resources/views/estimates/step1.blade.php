@@ -138,11 +138,11 @@
     <div class="options">
 
         <a href="{{ route('estimate.step2') }}" class="option-box"> Partial Renovation </a>
-        <a href="{{ route('estimate.step2') }}" class="option-box">Complete Renovation</a>
-        <a href="{{ route('estimate.step2') }}" class="option-box">Small Specific Works</a>
-        <a href="{{ route('estimate.step2') }}" class="option-box">Home Extension Upwards</a>
-         <a href="{{ route('estimate.step2') }}" class="option-box">Home elevation</a>
-        <a href="{{ route('estimate.step2') }}" class="option-box">Home Extension</a>
+        <a href="{{route('renovation.step1')}}" class="option-box">Complete Renovation</a>
+        <a href="{{route('energy-renovation.step1')}}" class="option-box">Energy renovation</a>
+        <a href="{{route('specific-works.step1')}}" class="option-box">Small Specific Works</a>
+        <a href="{{route('elevations.step1')}}" class="option-box">Home elevation</a>
+        <a  href="{{route('extensions.step1')}}" class="option-box">Home Extension</a>
     </div>
 
     <div class="nav-buttons">

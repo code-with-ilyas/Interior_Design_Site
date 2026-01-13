@@ -38,38 +38,41 @@
     }
 
     .input-group {
+        display: grid;
+        gap: 20px;
         max-width: 400px;
         margin: auto;
     }
 
-  
+   
 
-    .input-field input[type="number"] {
+    input[type="number"] {
         width: 100%;
         padding: 12px;
         border-radius: 10px;
         border: 1px solid #d3d3d3;
         font-size: 16px;
+        box-sizing: border-box;
         transition: all 0.3s ease;
     }
 
-    .input-field input[type="number"]:focus {
+    input[type="number"]:focus {
         border-color: #003f3a;
         outline: none;
         background-color: #e6f0ef;
     }
 
     .label-text {
-        min-width: 200px;
+        min-width: 180px;
         font-size: 16px;
         color: #003f3a;
     }
 
     .note {
         text-align: center;
+        margin-top: 10px;
         color: #555;
         font-size: 14px;
-        margin-top: 10px;
     }
 
     .nav-buttons {
@@ -88,6 +91,8 @@
         font-size: 16px;
         cursor: pointer;
     }
+
+    
 </style>
 </head>
 <body>
@@ -97,21 +102,27 @@
     <p>Project Information — 3 / 5</p>
 </div>
 
-<p class="help-text">Do you want to repaint any rooms?</p>
+<p class="help-text">Do you want to change your floors?</p>
 
 <div class="input-group">
     <div class="input-field">
-        <span class="label-text">Floor area to repaint</span>
-        <input type="number" name="painting_area" placeholder="0" value="">
-        <span>m²</span>
+        <span class="label-text">Area for tiles</span>
+        <input type="number" name="tiles_area" placeholder="0" value="">
+         <span class="unit">m²</span>
+    </div>
+
+    <div class="input-field">
+        <span class="label-text">Area for parquet</span>
+        <input type="number" name="parquet_area" placeholder="0" value="">
+         <span class="unit">m²</span>
     </div>
 </div>
 
-<p class="note">Leave 0 if you do not want to repaint any rooms.</p>
+<p class="note">Leave 0 if you do not want to change any floor.</p>
 
 <div class="nav-buttons">
     <button onclick="window.history.back()">← Previous</button>
-    <button onclick="window.location.href='/estimate/step12'">Next →</button>
+    <button onclick="window.location.href='/specific-works/step6'">Next →</button>
 </div>
 
 </body>

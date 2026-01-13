@@ -40,36 +40,31 @@
     .input-group {
         max-width: 400px;
         margin: auto;
+        display: flex;
+        gap: 10px;
+        align-items: center;
     }
 
-  
-
-    .input-field input[type="number"] {
+    input[type="number"] {
         width: 100%;
-        padding: 12px;
+        padding: 15px 12px;
         border-radius: 10px;
         border: 1px solid #d3d3d3;
         font-size: 16px;
+        box-sizing: border-box;
         transition: all 0.3s ease;
     }
 
-    .input-field input[type="number"]:focus {
+    input[type="number"]:focus {
         border-color: #003f3a;
         outline: none;
         background-color: #e6f0ef;
     }
 
-    .label-text {
-        min-width: 200px;
+    .unit {
         font-size: 16px;
         color: #003f3a;
-    }
-
-    .note {
-        text-align: center;
-        color: #555;
-        font-size: 14px;
-        margin-top: 10px;
+        white-space: nowrap;
     }
 
     .nav-buttons {
@@ -97,21 +92,17 @@
     <p>Project Information — 3 / 5</p>
 </div>
 
-<p class="help-text">Do you want to repaint any rooms?</p>
+<p class="help-text">What is the total surface area of your home?</p>
 
 <div class="input-group">
-    <div class="input-field">
-        <span class="label-text">Floor area to repaint</span>
-        <input type="number" name="painting_area" placeholder="0" value="">
-        <span>m²</span>
-    </div>
+    <input type="number" name="total_surface" placeholder="Surface" value="1000">
+    <span class="unit">m²</span>
 </div>
 
-<p class="note">Leave 0 if you do not want to repaint any rooms.</p>
 
 <div class="nav-buttons">
-    <button onclick="window.history.back()">← Previous</button>
-    <button onclick="window.location.href='/estimate/step12'">Next →</button>
+    <button onclick="window.location.href='/renovation/step5'">← Previous</button>
+    <button onclick="window.location.href='/renovation/step7'">Next →</button>
 </div>
 
 </body>

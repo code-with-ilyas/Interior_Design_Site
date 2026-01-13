@@ -38,31 +38,24 @@
     }
 
     .input-group {
-        max-width: 400px;
+        max-width: 500px;
         margin: auto;
     }
 
-  
-
-    .input-field input[type="number"] {
+    input[type="text"] {
         width: 100%;
-        padding: 12px;
+        padding: 15px 12px;
         border-radius: 10px;
         border: 1px solid #d3d3d3;
-        font-size: 16px;
+        font-size: 14px;
+        box-sizing: border-box;
         transition: all 0.3s ease;
     }
 
-    .input-field input[type="number"]:focus {
+    input[type="text"]:focus {
         border-color: #003f3a;
         outline: none;
         background-color: #e6f0ef;
-    }
-
-    .label-text {
-        min-width: 200px;
-        font-size: 16px;
-        color: #003f3a;
     }
 
     .note {
@@ -88,30 +81,42 @@
         font-size: 16px;
         cursor: pointer;
     }
+
+    .manual-link {
+        display: block;
+        margin-top: 10px;
+        color: #003f3a;
+        text-decoration: underline;
+        font-size: 14px;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
 
 <div class="header-row">
     <h1>H24 RENOVATION</h1>
-    <p>Project Information — 3 / 5</p>
+    <p>Project Information — 5 / 5</p>
 </div>
 
-<p class="help-text">Do you want to repaint any rooms?</p>
+<p class="help-text">One last step to finalize your project:</p>
 
 <div class="input-group">
-    <div class="input-field">
-        <span class="label-text">Floor area to repaint</span>
-        <input type="number" name="painting_area" placeholder="0" value="">
-        <span>m²</span>
-    </div>
+    <label for="Address">Site Address:</label>
+    <br>
+    <br>
+    
+    <input type="text" name="project_address" placeholder="Enter the construction site address...">
+    
 </div>
 
-<p class="note">Leave 0 if you do not want to repaint any rooms.</p>
+<p class="note">
+    We only ask for your address to verify that we operate in your area. Your information remains confidential.
+</p>
 
 <div class="nav-buttons">
     <button onclick="window.history.back()">← Previous</button>
-    <button onclick="window.location.href='/estimate/step12'">Next →</button>
+   <button onclick="window.location.href='/estimate/step14'">Next →</button>
 </div>
 
 </body>

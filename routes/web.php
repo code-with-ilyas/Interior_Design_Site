@@ -165,27 +165,74 @@ Route::resource('admin/testimonials', TestimonialController::class)
     ->names('admin.testimonials');
 
 Route::get('/renovate', function () {
-    return view('multi-forms'); 
+    return view('multi-forms');
 })->name('renovate');
 
+Route::prefix('estimate')->name('estimate.')->group(function () {
+    Route::view('/', 'estimates.step1')->name('step1');
+    Route::view('step2', 'estimates.step2')->name('step2');
+    Route::view('step3', 'estimates.step3')->name('step3');
+    Route::view('step4', 'estimates.step4')->name('step4');
+    Route::view('step5', 'estimates.step5')->name('step5');
+    Route::view('step6', 'estimates.step6')->name('step6');
+    Route::view('step7', 'estimates.step7')->name('step7');
+    Route::view('step8', 'estimates.step8')->name('step8');
+    Route::view('step9', 'estimates.step9')->name('step9');
+    Route::view('step10', 'estimates.step10')->name('step10');
+    Route::view('step11', 'estimates.step11')->name('step11');
+    Route::view('step12', 'estimates.step12')->name('step12');
+    Route::view('step13', 'estimates.step13')->name('step13');
+    Route::view('step14', 'estimates.step14')->name('step14');
+});
 
-Route::view('/estimate', 'estimates.step1')->name('estimate.step1');
-Route::view('/estimate/step2', 'estimates.step2')->name('estimate.step2');
-Route::view('/estimate/step3', 'estimates.step3')->name('estimate.step3');
-Route::view('/estimate/step4', 'estimates.step4')->name('estimate.step4');
-Route::view('/estimate/step5', 'estimates.step5')->name('estimate.step5');
-Route::view('/estimate/step6', 'estimates.step6')->name('estimate.step6');
-Route::view('/estimate/step7', 'estimates.step7')->name('estimate.step7');
-Route::view('/estimate/step8', 'estimates.step8')->name('estimate.step8');
-Route::view('/estimate/step9', 'estimates.step9')->name('estimate.step9');
-Route::view('/estimate/step10', 'estimates.step10')->name('estimate.step10');
-Route::view('/estimate/step11', 'estimates.step11')->name('estimate.step11');
-Route::view('/estimate/step12', 'estimates.step12')->name('estimate.step12');
-Route::view('/estimate/step13', 'estimates.step13')->name('estimate.step13');
-Route::view('/estimate/step14', 'estimates.step14')->name('estimate.step14');
+Route::prefix('renovation')->name('renovation.')->group(function () {
+    Route::view('step1', 'renovation.step1')->name('step1');
+    Route::view('step2', 'renovation.step2')->name('step2');
+    Route::view('step3', 'renovation.step3')->name('step3');
+    Route::view('step4', 'renovation.step4')->name('step4');
+    Route::view('step5', 'renovation.step5')->name('step5');
+    Route::view('step6', 'renovation.step6')->name('step6');
+    Route::view('step7', 'renovation.step7')->name('step7');
+    Route::view('step8', 'renovation.step8')->name('step8');
+});
+
+Route::prefix('energy-renovation')->name('energy-renovation.')->group(function () {
+    Route::view('step1', 'energy-renovation.step1')->name('step1');
+    Route::view('step2', 'energy-renovation.step2')->name('step2');
+});
+
+Route::prefix('specific-works')->name('specific-works.')->group(function () {
+    Route::view('step1', 'specific-works.step1')->name('step1');
+    Route::view('step2', 'specific-works.step2')->name('step2');
+    Route::view('step3', 'specific-works.step3')->name('step3');
+    Route::view('step4', 'specific-works.step4')->name('step4');
+    Route::view('step5', 'specific-works.step5')->name('step5');
+    Route::view('step6', 'specific-works.step6')->name('step6');
+    Route::view('step7', 'specific-works.step7')->name('step7');
+    Route::view('step8', 'specific-works.step8')->name('step8');
+});
+
+Route::prefix('elevations')->name('elevations.')->group(function () {
+    Route::view('step1', 'elevations.step1')->name('step1');
+    Route::view('step2', 'elevations.step2')->name('step2');
+    Route::view('step3', 'elevations.step3')->name('step3');
+    Route::view('step4', 'elevations.step4')->name('step4');
+    Route::view('step5', 'elevations.step5')->name('step5');
+    Route::view('step6', 'elevations.step6')->name('step6');
+    Route::view('step7', 'elevations.step7')->name('step7');
+ 
+});
 
 
+Route::prefix('extensions')->name('extensions.')->group(function () {
+    Route::view('step1', 'extensions.step1')->name('step1');
+    Route::view('step2', 'extensions.step2')->name('step2');
+    Route::view('step3', 'extensions.step3')->name('step3');
+    Route::view('step4', 'extensions.step4')->name('step4');
+    Route::view('step5', 'extensions.step5')->name('step5');
+    Route::view('step6', 'extensions.step6')->name('step6');
+    Route::view('step7', 'extensions.step7')->name('step7');
 
-
+});
 
 require __DIR__ . '/auth.php';

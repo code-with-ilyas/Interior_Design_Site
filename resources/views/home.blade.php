@@ -49,12 +49,10 @@
                 font-family: 'Playfair Display', serif;
                 font-size: 50px;
                 font-weight: 700;
-                /* make text bold */
                 padding: 10px 25px;
-                border: 2px solid #a33c10ff;
-                background-color: #a03d12ff;
+                border: 2px solid #812c08ff;
+                background-color: #963810ff;
                 color: #ffffff;
-                /* simple white */
                 border-radius: 100px;
                 text-align: center;
                 cursor: pointer;
@@ -62,14 +60,10 @@
                 white-space: nowrap;
               }
 
-              /* Optional: keep hover exactly the same */
               .renovate-btn:hover {
                 color: #ffffff;
-                /* keep text white */
                 background-color: #a33d11ff;
-                /* same background */
                 border-color: #9c3e16ff;
-                /* same border */
               }
             </style>
 
@@ -81,8 +75,8 @@
           font-size:16px;
           font-weight:500;
           padding:10px 25px;
-          border:2px solid #a33c10ff;
-         background-color: #a03d12ff;
+          border:2px solid #812c08ff;
+          background-color: #963810ff;
           color:#ffffff;
           border-radius:100px;
           text-align:center;
@@ -162,13 +156,9 @@
     transition:background-color .2s ease;
   "
                     onmouseover="this.style.backgroundColor='#b94a1c'"
-                    onmouseout="this.style.backgroundColor='#a03d12ff'">
+                    onmouseout="this.style.backgroundColor='#963810ff'">
                     Submit Request
                   </button>
-
-
-
-
                 </form>
 
                 <div id="successPopup" style="
@@ -348,14 +338,13 @@
           position:absolute;
           left:-60px;
           top:35%;
-          width:90px;
+          width:100px;
           padding:10px;
           background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
-          
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
-          height:80px;          /* vertical shape */
+          height:60px;          /* vertical shape */
           display:flex;
           flex-direction:column;
           justify-content:center;
@@ -371,7 +360,7 @@
           position:absolute;
           right:-60px;
           top:5%;
-          width:90px;
+          width:100px;
           padding:10px;
          background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
           border-radius:10px;
@@ -394,7 +383,7 @@
           position:absolute;
           right:-60px;
           bottom:5%;
-          width:90px;
+          width:100px;
           padding:10px;
         background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
           border-radius:10px;
@@ -571,17 +560,18 @@
 
     <div class="col-xl-6 mx-auto">
       <div class="filter-menu style2 filter-menu-active">
-        <button data-filter="*" class="th-btns th-border active text-custom" type="button">View All</button>
-        <button data-filter=".cat1" class="th-btns th-border text-custom" type="button">Residential</button>
-        <button data-filter=".cat2" class="th-btns th-border text-custom" type="button">Commercial</button>
-        <button data-filter=".cat3" class="th-btns th-border text-custom" type="button">Multipurpose</button>
+        <button data-filter="*" class="th-btns th-border active text-white" type="button">View All</button>
+        <button data-filter=".cat1" class="th-btns th-border text-white" type="button">Residential</button>
+        <button data-filter=".cat2" class="th-btns th-border text-white" type="button">Commercial</button>
+        <button data-filter=".cat3" class="th-btns th-border text-white" type="button">Multipurpose</button>
       </div>
     </div>
   </div>
 
 
-  <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center mt-4">
-    <div class="project-item col-12 filter-item cat2 cat3">
+  <div class="row gallery-row filter-active align-items-center mt-4">
+
+    <div class="project-item filter-item cat2 cat3">
       <div class="project-item_wrapp">
         <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
         <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
@@ -624,6 +614,39 @@
       </div>
     </div>
   </div>
+  <script>
+    window.addEventListener('load', function() {
+
+      var grid = document.querySelector('.filter-active');
+      if (!grid || typeof Isotope === 'undefined') {
+        console.error('Isotope not found');
+        return;
+      }
+
+      var iso = new Isotope(grid, {
+        itemSelector: '.filter-item',
+        layoutMode: 'fitRows'
+      });
+
+      document.querySelectorAll('.filter-menu button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+
+          document.querySelectorAll('.filter-menu button')
+            .forEach(b => b.classList.remove('active'));
+
+          this.classList.add('active');
+
+          iso.arrange({
+            filter: this.getAttribute('data-filter')
+          });
+        });
+      });
+
+    });
+  </script>
+
+
+
 </section>
 
 

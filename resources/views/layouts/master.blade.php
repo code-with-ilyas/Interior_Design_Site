@@ -224,9 +224,10 @@
             </div>
         </div>
     </footer>
-   
 
-   
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
     <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -477,7 +478,6 @@
 
 
     <style>
-        
         .icon-box {
             display: flex;
             gap: 12px;
@@ -486,29 +486,21 @@
         .slider-btn {
             width: 90px;
             height: 60px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             font-size: 20px;
             font-weight: 600;
-
             background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
             color: #fff;
-
             border: none;
             border-radius: 50%;
-
             cursor: pointer;
-
-            /* Disable all effects */
             transition: none !important;
             box-shadow: none;
             outline: none;
         }
 
-        /* Fully static — no hover / focus / active */
         .slider-btn:hover,
         .slider-btn:focus,
         .slider-btn:active {
@@ -522,36 +514,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             padding: 12px 28px;
             border-radius: 100px;
-
             background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
-            color: #fff;
+            color: #ffffff !important;
             font-weight: 500;
             text-decoration: none;
-
             border: none;
             outline: none;
-
             cursor: pointer;
-
-            /* Disable transitions */
-            transition: none !important;
         }
-
-        /* Disable hover */
-        .th-btns:hover,
-        .th-btns:focus,
-        .th-btns:active,
-        .th-btns:visited {
-            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
-            color: #fff;
-            text-decoration: none;
-            box-shadow: none;
-            transform: none;
-        }
-
 
         .text-custom {
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
@@ -559,13 +531,10 @@
             font-style: italic !important;
         }
 
-
-
         .footer-wrapper,
         .footer-wrapper .widget-area {
             background: #ffffff !important;
         }
-
 
         .footer-wrapper,
         .footer-wrapper p,
@@ -1355,7 +1324,6 @@
 
         .client-references {
             padding: 20px 0;
-
             color: #fff;
         }
 
@@ -1417,7 +1385,9 @@
             flex: 1;
             position: relative;
             font-size: 16px;
+            color: #000;
         }
+
 
         .w-tab-link.w--current::after {
             content: "";
@@ -1426,14 +1396,15 @@
             bottom: 0;
             width: 100%;
             height: 2px;
-            background: #00bfff;
+            background: #000;
         }
 
 
         .w-tab-link.w--current div {
             font-style: italic;
-            color: #00bfff;
+            color: #000;
         }
+
 
         .playfair-display {
             font-family: "Playfair Display", serif;
@@ -1448,12 +1419,9 @@
             font-family: "Playfair Display", lato !important;
         }
 
-
-
         .playfair-display a {
             font-family: 'Playfair Display', serif;
         }
-
 
         .playfair-display,
         .playfair-display {
@@ -1462,10 +1430,7 @@
             font-weight: 400;
             font-style: italic;
             font-size: 14px;
-
-
         }
-
 
         #demoFormOverlay {
             position: fixed;
@@ -1479,13 +1444,11 @@
             z-index: 9998;
         }
 
-
         #demoFormContainer {
             position: fixed;
             top: 0;
             right: -50%;
             width: 50%;
-
             height: 100%;
             background: #fff;
             box-shadow: -3px 0 15px rgba(0, 0, 0, 0.3);
@@ -1508,7 +1471,6 @@
             font-family: 'Playfair Display', serif;
         }
 
-
         #closeForm {
             font-size: 30px;
             cursor: pointer;
@@ -1521,7 +1483,6 @@
         #closeForm:hover {
             transform: rotate(180deg);
         }
-
 
         #demoFormContainer input,
         #demoFormContainer textarea {
@@ -1536,7 +1497,6 @@
             resize: vertical;
             min-height: 100px;
         }
-
 
         #demoFormContainer button {
             width: 100%;
@@ -1554,7 +1514,6 @@
             background: #484d4aff;
         }
 
-
         @media (max-width: 768px) {
             #demoFormContainer {
                 width: 100%;
@@ -1562,15 +1521,12 @@
             }
         }
 
-
-        /* Filter menu buttons */
         .filter-menu.style2 .th-btn.th-border {
             background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
             color: #000000 !important;
             border-color: #000000 !important;
         }
 
-        /* Remove hover effect */
         .filter-menu.style2 .th-btn.th-border:hover {
             background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
             color: #000000 !important;
@@ -1578,7 +1534,6 @@
             cursor: pointer;
         }
 
-        /* Active button */
         .filter-menu.style2 .th-btn.th-border.active {
             background-color: #ffffff !important;
             color: #000000 !important;

@@ -111,7 +111,7 @@
 
 <div class="nav-buttons">
     <button onclick="window.history.back()">← Previous</button>
-    <button onclick="window.location.href='/estimate/step12'">Next →</button>
+    <button onclick="window.location.href='/specific-works/step7'">Next →</button>
 </div>
 
 </body>

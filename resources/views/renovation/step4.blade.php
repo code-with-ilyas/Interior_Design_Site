@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>H24 RENOVATION</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
 <style>
     body {
         font-family: 'Playfair Display', serif;
@@ -33,43 +35,45 @@
 
     .help-text {
         font-size: 18px;
-        margin: 40px 0 20px;
+        margin: 40px 0 30px;
         font-weight: 500;
     }
 
-    .input-group {
-        max-width: 400px;
+    .options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 600px;
         margin: auto;
     }
 
-  
-
-    .input-field input[type="number"] {
+    input[type="number"] {
         width: 100%;
-        padding: 12px;
-        border-radius: 10px;
+        padding: 15px;
+        border-radius: 12px;
         border: 1px solid #d3d3d3;
         font-size: 16px;
+        box-sizing: border-box;
         transition: all 0.3s ease;
     }
 
-    .input-field input[type="number"]:focus {
+    input[type="number"]:focus {
         border-color: #003f3a;
         outline: none;
         background-color: #e6f0ef;
     }
 
-    .label-text {
-        min-width: 200px;
+    label {
         font-size: 16px;
-        color: #003f3a;
+        margin-bottom: 5px;
+        display: block;
+        font-weight: 500;
     }
 
     .note {
         text-align: center;
+        margin-top: 20px;
         color: #555;
-        font-size: 14px;
-        margin-top: 10px;
     }
 
     .nav-buttons {
@@ -78,6 +82,15 @@
         max-width: 500px;
         margin: 40px auto 0;
     }
+
+    .nav-buttons a {
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: #003f3a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
 
     .nav-buttons button {
         padding: 12px 30px;
@@ -88,30 +101,51 @@
         font-size: 16px;
         cursor: pointer;
     }
+
+    @media (max-width: 700px) {
+        .options {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 </head>
+
 <body>
 
 <div class="header-row">
     <h1>H24 RENOVATION</h1>
-    <p>Project Information — 3 / 5</p>
+    <p>Project Information — 2 / 3</p>
 </div>
 
-<p class="help-text">Do you want to repaint any rooms?</p>
+<p class="help-text">Bathroom – Do you want to change any equipment?</p>
 
-<div class="input-group">
-    <div class="input-field">
-        <span class="label-text">Floor area to repaint</span>
-        <input type="number" name="painting_area" placeholder="0" value="">
-        <span>m²</span>
+<div class="options">
+    <div>
+        <label for="shower">Shower</label>
+        <input type="number" id="shower" name="shower" placeholder="0">
+    </div>
+
+    <div>
+        <label for="bathtub">Bathtub</label>
+        <input type="number" id="bathtub" name="bathtub" placeholder="0">
+    </div>
+
+    <div>
+        <label for="single-vanity">Single Vanity Unit</label>
+        <input type="number" id="single-vanity" name="single_vanity" placeholder="0">
+    </div>
+
+    <div>
+        <label for="double-vanity">Double Vanity Unit</label>
+        <input type="number" id="double-vanity" name="double_vanity" placeholder="0">
     </div>
 </div>
 
-<p class="note">Leave 0 if you do not want to repaint any rooms.</p>
+<p class="note">Leave 0 if you do not want any equipment in your bathroom.</p>
 
 <div class="nav-buttons">
-    <button onclick="window.history.back()">← Previous</button>
-    <button onclick="window.location.href='/estimate/step12'">Next →</button>
+    <a href="/renovation/step3" class="prev">← Previous</a>
+   <a href="/renovation/step5">Next →</a>
 </div>
 
 </body>
