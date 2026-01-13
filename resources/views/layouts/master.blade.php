@@ -26,7 +26,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/H24.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/H24.svg') }}">
     <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/') }}">
@@ -55,7 +55,7 @@
                 <div class="menu-area">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="  "></a></div>
+                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="  "></a></div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block playfair-display ">
@@ -122,7 +122,7 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.png') }}" alt="Faren  "></a></div>
+                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="Faren  "></a></div>
                                 <p class="about-text text-custom">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
                                 <div class="th-social">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
