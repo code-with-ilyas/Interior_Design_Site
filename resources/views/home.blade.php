@@ -40,49 +40,13 @@
 
 
             <a href="{{ route('renovate') }}"
-              class="playfair-display renovate-btn">
+              class="th-btns black-border playfair-display" style="display:inline-block; text-decoration:none;">
               I Want to Renovate a Property
             </a>
-            <style>
-              .renovate-btn {
-                display: inline-block;
-                font-family: 'Playfair Display', serif;
-                font-size: 50px;
-                font-weight: 700;
-                padding: 10px 25px;
-                border: 2px solid #812c08ff;
-                background-color: #963810ff;
-                color: #ffffff;
-                border-radius: 100px;
-                text-align: center;
-                cursor: pointer;
-                text-decoration: none;
-                white-space: nowrap;
-              }
-
-              .renovate-btn:hover {
-                color: #ffffff;
-                background-color: #a33d11ff;
-                border-color: #9c3e16ff;
-              }
-            </style>
 
 
 
-            <a href="javascript:void(0);" id="demoBtn" class="playfair-display"
-              style="display:inline-block;
-          font-family:'Playfair Display', serif;
-          font-size:16px;
-          font-weight:500;
-          padding:10px 25px;
-          border:2px solid #812c08ff;
-          background-color: #963810ff;
-          color:#ffffff;
-          border-radius:100px;
-          text-align:center;
-          cursor:pointer;
-          text-decoration:none;
-          transition:all 0.3s ease;">
+            <a href="javascript:void(0);" id="demoBtn" class="th-btns black-border playfair-display" style="display:inline-block; text-decoration:none;">
               Request a Demo
             </a>
 
@@ -145,18 +109,7 @@
                     <textarea class="text-dark" name="mesage" placeholder="Your Message"></textarea>
                   </div>
 
-                  <button
-                    style="
-    width:30%;
-    margin:0 auto;
-    display:block;
-    background-color:#a03d12ff;
-    color:#fff;
-    border:none;
-    transition:background-color .2s ease;
-  "
-                    onmouseover="this.style.backgroundColor='#b94a1c'"
-                    onmouseout="this.style.backgroundColor='#963810ff'">
+                  <button class="th-btns black-border" style="display:block; margin:0 auto;">
                     Submit Request
                   </button>
                 </form>
@@ -326,8 +279,8 @@
             src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg"
             alt="Man wearing glasses in 3-piece suit"
             style="
-          width:100%; 
-          border-radius:12px; 
+          width:100%;
+          border-radius:12px;
           animation: floatUpDown 4s ease-in-out infinite;
         ">
 
@@ -340,7 +293,7 @@
           top:35%;
           width:100px;
           padding:10px;
-          background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+          background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -362,7 +315,7 @@
           top:5%;
           width:100px;
           padding:10px;
-         background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+         background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -385,7 +338,7 @@
           bottom:5%;
           width:100px;
           padding:10px;
-        background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
           border-radius:10px;
           box-shadow:0 4px 12px rgba(0,0,0,0.15);
           font-size:11px;
@@ -569,81 +522,230 @@
   </div>
 
 
-  <div class="row gallery-row filter-active align-items-center mt-4">
+  <div class="container">
+    <div class="row gallery-row filter-active mt-4">
 
-    <div class="project-item filter-item cat2 cat3">
-      <div class="project-item_wrapp">
-        <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
-        <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
+      <div class="col-12 project-item filter-item cat2 cat3">
+        <div class="project-item-container d-flex" style="gap: 30px; align-items: center;">
+          <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center;">
+            <div class="box-img global-img" style="flex: 1; max-width: 48%;">
+              <img src="assets/img/project/project_3_1.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+            <div class="box-img global-img" style="flex: 1; max-width: 48%;">
+              <img src="assets/img/project/project_3_2.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+          </div>
+          <div class="project-content" style="flex: 0 0 300px;">
+            <h2 class="box-title text-custom" style="font-size: 28px; font-weight: 600; margin: 0 0 15px; color: #000;">Minimalist Interior Design</h2>
+            <p class="box-text text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+            <a href="{{ route('project1') }}" class="th-btns black-border" style="display: inline-block; text-decoration: none;">
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="project-content">
-        <h2 class="box-title text-size: 1px; text-custom">Minimalist Interior Design</h2>
-        <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project1') }}" class="th-btns th-icon">
-          View Details
-        </a>
 
+      <div class="col-12 project-item filter-item cat2 cat1">
+        <div class="project-item-container d-flex" style="gap: 30px; align-items: center;">
+          <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center;">
+            <div class="box-img global-img" style="flex: 1; max-width: 48%;">
+              <img src="assets/img/project/project_3_3.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+            <div class="box-img global-img" style="flex: 1; max-width: 48%;">
+              <img src="assets/img/project/project_3_4.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+          </div>
+          <div class="project-content" style="flex: 0 0 300px;">
+            <h2 class="box-title text-custom" style="font-size: 28px; font-weight: 600; margin: 0 0 15px; color: #000;">Modern Dining Tables</h2>
+            <p class="box-text text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+            <a href="{{ route('project2') }}" class="th-btns black-border" style="display: inline-block; text-decoration: none;">
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="project-item col-12 filter-item cat2 cat1">
-      <div class="project-item_wrapp">
-        <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
-        <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
-      </div>
-      <div class="project-content">
-        <h2 class="box-title text-custom">Modern Dining Tables</h2>
-        <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project2') }}" class="th-btns th-icon">
-          View Details
-        </a>
-      </div>
-    </div>
-
-    <div class="project-item col-12 filter-item cat1 cat3">
-      <div class="project-item_wrapp">
-        <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
-        <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
-      </div>
-      <div class="project-content">
-        <h2 class="box-title text-custom">Minimalist Bedroom Design</h2>
-        <p class="box-text text-custom">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-        <a href="{{ route('project3') }}" class="th-btns th-icon">
-          View Details
-        </a>
+      <div class="col-12 project-item filter-item cat1 cat3">
+        <div class="project-item-container d-flex" style="gap: 30px; align-items: center;">
+          <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center;">
+            <div class="box-img global-img" style="flex: 1; max-width: 48%;">
+              <img src="assets/img/project/project_3_5.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+            <div class="box-img global-img" style="flex: 1; max-width: 48%;">
+              <img src="assets/img/project/project_3_6.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+          </div>
+          <div class="project-content" style="flex: 0 0 300px;">
+            <h2 class="box-title text-custom" style="font-size: 28px; font-weight: 600; margin: 0 0 15px; color: #000;">Minimalist Bedroom Design</h2>
+            <p class="box-text text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+            <a href="{{ route('project3') }}" class="th-btns black-border" style="display: inline-block; text-decoration: none;">
+              Read More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
   <script>
-    window.addEventListener('load', function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait for Isotope to be available
+      function initializeFilters() {
+        var grid = document.querySelector('.filter-active');
+        if (!grid) {
+          console.error('Filter grid not found');
+          return;
+        }
 
-      var grid = document.querySelector('.filter-active');
-      if (!grid || typeof Isotope === 'undefined') {
-        console.error('Isotope not found');
-        return;
-      }
+        if (typeof Isotope === 'undefined') {
+          console.error('Isotope library not loaded');
+          return;
+        }
 
-      var iso = new Isotope(grid, {
-        itemSelector: '.filter-item',
-        layoutMode: 'fitRows'
-      });
+        // Initialize Isotope
+        var iso = new Isotope(grid, {
+          itemSelector: '.filter-item',
+          layoutMode: 'fitRows',
+          transitionDuration: '0.6s'
+        });
 
-      document.querySelectorAll('.filter-menu button').forEach(function(btn) {
-        btn.addEventListener('click', function() {
+        // Add click event listeners to filter buttons
+        var filterButtons = document.querySelectorAll('.filter-menu button[data-filter]');
+        filterButtons.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
 
-          document.querySelectorAll('.filter-menu button')
-            .forEach(b => b.classList.remove('active'));
+            // Remove active class from all buttons
+            filterButtons.forEach(function(button) {
+              button.classList.remove('active');
+            });
 
-          this.classList.add('active');
+            // Add active class to clicked button
+            this.classList.add('active');
 
-          iso.arrange({
-            filter: this.getAttribute('data-filter')
+            // Get filter value
+            var filterValue = this.getAttribute('data-filter');
+
+            // Apply filter
+            iso.arrange({
+              filter: filterValue
+            });
+
+            console.log('Filter applied:', filterValue);
           });
         });
-      });
 
+        console.log('Project filters initialized successfully');
+      }
+
+      // Try to initialize immediately
+      initializeFilters();
+
+      // Also try after window load as backup
+      window.addEventListener('load', initializeFilters);
     });
   </script>
+
+  <style>
+    /* Project Section Alignment - Reference Site Match */
+
+    /* Main project item layout to match reference site */
+    .project-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        margin-bottom: 60px !important;
+        padding: 0 !important;
+    }
+
+    /* Image wrapper styling to match reference */
+    .project-item_wrapp {
+        display: flex !important;
+        gap: 30px !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    /* Individual image styling */
+    .project-item .box-img {
+        width: 100% !important;
+        max-width: calc(50% - 15px) !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+    }
+
+    .project-item .box-img img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+    }
+
+    /* Project content alignment to match reference */
+    .project-item .project-content {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        margin-top: 20px !important;
+    }
+
+    /* Title styling to match reference site */
+    .project-item .box-title {
+        font-size: 28px !important;
+        font-weight: 600 !important;
+        margin: 15px 0 !important;
+        color: #000 !important;
+    }
+
+    /* Description styling */
+    .project-item .box-text {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        color: #666 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Button styling to match reference */
+    .project-item .th-btns {
+        background: #2d5550 !important;
+        color: white !important;
+        padding: 10px 20px !important;
+        border-radius: 4px !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .project-item .th-btns:hover {
+        background: #4a6b66 !important;
+        color: white !important;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .project-item_wrapp {
+            flex-direction: column !important;
+            gap: 15px !important;
+        }
+
+        .project-item .box-img {
+            max-width: 100% !important;
+        }
+    }
+
+    /* Override any conflicting Bootstrap classes */
+    .project-item.col-12 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Ensure proper spacing in the gallery row */
+    .gallery-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+  </style>
 
 
 
@@ -672,7 +774,7 @@
               <div class="blog-meta text-custom"><a href="blog.html" class="text-dark">By Alex John</a> <a href="blog.html" class="text-dark">Architecture</a></div>
               <h3 class="box-title text-custom"><a href="blog-details.html">Six Inspiring New Young Architects You Should be Following</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-custom">Aug 25, 2025</span> <a href="blog-details.html" class="th-btns black-border text-custom ">Read More</a></div>
+            <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;"><span class="date text-custom">Aug 25, 2025</span> <a href="blog-details.html" class="th-btns black-border">Read More</a></div>
           </div>
         </div>
         <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".5s">
@@ -682,7 +784,7 @@
               <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
               <h3 class="box-title text-custom"><a href="blog-details.html">Maximizing Space Smart Architecture Solutions for Small Homes</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-custom">Aug 26, 2025</span> <a href="blog-details.html" class="th-btns black-border text-custom">Read More</a></div>
+            <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;"><span class="date text-custom">Aug 26, 2025</span> <a href="blog-details.html" class="th-btns black-border">Read More</a></div>
           </div>
         </div>
         <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".6s">
@@ -692,7 +794,7 @@
               <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
               <h3 class="box-title text-custom"><a href="blog-details.html">The Intersection of Art and Architecture to Creating Sculptural Buildings</a></h3>
             </div>
-            <div class="box-wrapp"><span class="date text-custom">Aug 27, 2025</span> <a href="blog-details.html" class="th-btns black-border text-custom">Read More</a></div>
+            <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;"><span class="date text-custom">Aug 27, 2025</span> <a href="blog-details.html" class="th-btns black-border">Read More</a></div>
           </div>
         </div>
       </div>
@@ -903,7 +1005,7 @@
                 </select></div>
               <div class="form-group col-12"><textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
               <div class="col-12 form-group text-custom"><input type="checkbox" id="html"> <label for="html" class="text-custom">I agree with the privacy policy</label></div>
-              <div class="form-btn mt-20 col-12  text-custom"><button class="th-btns th-border text-custom">Submit Now</button></div>
+              <div class="form-btn mt-20 col-12  text-custom"><button class="th-btns black-border text-custom">Submit Now</button></div>
             </div>
             <p class="form-messages mb-0 mt-3"></p>
           </form>

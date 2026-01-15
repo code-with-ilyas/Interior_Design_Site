@@ -55,25 +55,25 @@
                 <div class="menu-area">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="  "></a></div>
+                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation"></a></div>
                         </div>
                         <div class="col-auto">
-                            <nav class="main-menu d-none d-lg-inline-block playfair-display ">
+                            <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li>
-                                        <a href="#hero-sec" class="playfair-display" style="font-size: 13.5px;">Home</a>
+                                        <a href="#hero-sec" style="font-size: 16px;">Home</a>
                                     </li>
 
-                                    <li><a href="#about-title" class="playfair-display">About Us</a></li>
-                                    <li><a href="#service-sec" class="playfair-display">Services</a></li>
-                                    <li><a href="#project-sec" class="playfair-display">Projects</a></li>
-                                    <li><a href="#blog-sec" class="playfair-display">Blog</a></li>
-                                    <li><a href="#experts-sec" class="link-experts playfair-display">Experts</a></li>
-                                    <li><a href="#customers-sec" class="link-customers playfair-display">Customers</a></li>
-                                    <li><a href="#community-sec" class="link-community playfair-display">Community</a></li>
-                                    <li><a href="#contact-sec" class="playfair-display">Contact Us</a></li>
-                                    <li><a href="#instagram-sec" class="playfair-display">Instagram</a></li>
-                                    <li><a href="#gallery-sec" class="playfair-display">Gallery</a></li>
+                                    <li><a href="#about-title">About Us</a></li>
+                                    <li><a href="#service-sec">Services</a></li>
+                                    <li><a href="#project-sec">Projects</a></li>
+                                    <li><a href="#blog-sec">Blog</a></li>
+                                    <li><a href="#experts-sec" class="link-experts">Experts</a></li>
+                                    <li><a href="#customers-sec" class="link-customers">Customers</a></li>
+                                    <li><a href="#community-sec" class="link-community">Community</a></li>
+                                    <li><a href="#contact-sec">Contact Us</a></li>
+                                    <li><a href="#instagram-sec">Instagram</a></li>
+                                    <li><a href="#gallery-sec">Gallery</a></li>
                                     @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
@@ -101,7 +101,7 @@
                             </nav>
                         </div>
                         <div class="col-auto">
-
+                            <!-- Empty column to balance layout -->
                         </div>
                     </div>
                 </div>
@@ -491,7 +491,7 @@
             justify-content: center;
             font-size: 20px;
             font-weight: 600;
-            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -504,7 +504,7 @@
         .slider-btn:hover,
         .slider-btn:focus,
         .slider-btn:active {
-            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
             color: #fff;
             box-shadow: none;
             transform: none;
@@ -516,7 +516,7 @@
             justify-content: center;
             padding: 12px 28px;
             border-radius: 100px;
-            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
+            background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
             color: #ffffff !important;
             font-weight: 500;
             text-decoration: none;
@@ -529,6 +529,14 @@
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
             font-family: 'Playfair Display', serif !important;
             font-style: italic !important;
+        }
+
+        /* Override text-custom for project titles to prevent wrapping */
+        .gallery-row .project-item .box-title.text-custom {
+            font-style: normal !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
         }
 
         .footer-wrapper,
@@ -700,13 +708,14 @@
         #user-dropdown-menu li a {
             display: block;
             padding: 10px 15px;
-            color: #fff;
+            color: #000 !important;
             text-decoration: none;
             transition: background 0.3s ease;
         }
 
         #user-dropdown-menu li a:hover {
             background: #333;
+            color: #fff !important;
         }
 
         .service-grid {
@@ -716,19 +725,109 @@
         }
 
         .main-menu ul li a {
-            font-family: "Playfair Display", serif;
-            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+            font-weight: 400;
             text-transform: none;
             letter-spacing: 0.5px;
-            color: #fff;
+            color: #000 !important;
             transition: color 0.3s ease;
-            font-size: 14px;
-
+            font-size: 16px;
+            padding: 10px 15px;
         }
 
         .main-menu ul li a:hover {
             color: #898b8fff;
 
+        }
+
+        /* Navigation menu styles matching littleworker.fr */
+        /* Header and navigation alignment */
+        .header-logo img {
+            max-height: 50px;
+            width: auto;
+        }
+
+        .menu-area .row {
+            display: flex;
+            align-items: center;
+            min-height: 80px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+
+        .th-header .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-menu ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+
+        .main-menu ul li {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-menu ul li a {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            color: #000 !important;
+            transition: color 0.3s ease;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 10px 15px;
+            position: relative;
+            display: block;
+        }
+
+        .main-menu ul li a:hover {
+            color: #898b8fff !important;
+        }
+
+        /* Underline effect on hover */
+        .main-menu ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .main-menu ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu styles */
+        .main-menu.d-lg-inline-block {
+            display: block !important;
+        }
+
+        @media (min-width: 992px) {
+            .main-menu.d-lg-inline-block {
+                display: inline-block !important;
+            }
         }
 
         h1,
@@ -988,7 +1087,7 @@
         }
 
         .freelancer-tag {
-            background-image: linear-gradient(65deg, #d16d45 0%, #222121ff 100%);
+            background-image: linear-gradient(65deg, #003f3a 0%, #222121ff 100%);
             padding: 5px 10px;
             border-radius: 6px;
             font-size: 10px;
@@ -1522,22 +1621,183 @@
         }
 
         .filter-menu.style2 .th-btn.th-border {
-            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
-            color: #000000 !important;
-            border-color: #000000 !important;
+            background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
+            color: #ffffff !important;
+            border: 2px solid #003f3a !important;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
         }
 
         .filter-menu.style2 .th-btn.th-border:hover {
-            background: linear-gradient(65deg, #d16d45 0%, #000000 100%);
-            color: #000000 !important;
-            border-color: #000000 !important;
+            background: linear-gradient(65deg, #4a6b66 0%, #000000 100%) !important;
+            color: #ffffff !important;
+            border-color: #4a6b66 !important;
             cursor: pointer;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 63, 58, 0.3);
         }
 
-        .filter-menu.style2 .th-btn.th-border.active {
-            background-color: #ffffff !important;
-            color: #000000 !important;
-            border-color: #000000 !important;
+        .filter-menu.style2 .th-btn.th-border.active,
+        .filter-menu.style2 .th-btns.th-border.active {
+            background: linear-gradient(65deg, #ffffff 0%, #f0f0f0 100%) !important;
+            color: #003f3a !important;
+            border: 2px solid #003f3a !important;
+            font-weight: 700 !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 63, 58, 0.4) !important;
+        }
+
+        .filter-menu.style2 .th-btn.th-border.active:hover,
+        .filter-menu.style2 .th-btns.th-border.active:hover {
+            background: linear-gradient(65deg, #f8f8f8 0%, #e8e8e8 100%) !important;
+            color: #003f3a !important;
+            border-color: #003f3a !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 63, 58, 0.5) !important;
+        }
+
+        /* Project filter styles */
+        .filter-active {
+            transition: all 0.6s ease;
+        }
+
+        .filter-item {
+            transition: all 0.6s ease;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .filter-item.isotope-hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        /* Project item title alignment and layout - Enhanced specificity */
+        .gallery-row .project-item {
+            margin-bottom: 30px !important;
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            border: 1px solid transparent; /* For debugging */
+        }
+
+        .gallery-row .project-item .project-item_wrapp {
+            display: flex !important;
+            gap: 15px !important;
+            margin-bottom: 20px !important;
+            flex-wrap: wrap !important;
+        }
+
+        .gallery-row .project-item .project-content {
+            padding: 20px 0 !important;
+            flex: 1 !important;
+            width: 100% !important;
+        }
+
+        .gallery-row .project-item .box-title,
+        .gallery-row .project-item h2.box-title,
+        .gallery-row .project-item .box-title.text-custom {
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            margin-bottom: 15px !important;
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            word-wrap: normal !important;
+            word-break: normal !important;
+            font-style: normal !important;
+            text-align: left !important;
+        }
+
+        .gallery-row .project-item .box-text {
+            margin-bottom: 20px !important;
+            line-height: 1.6 !important;
+        }
+
+        /* Responsive adjustments for project titles */
+        @media (max-width: 768px) {
+            .gallery-row .project-item .box-title,
+            .gallery-row .project-item h2.box-title,
+            .gallery-row .project-item .box-title.text-custom {
+                font-size: 20px !important;
+                white-space: normal !important;
+                overflow: visible !important;
+                text-overflow: unset !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-row .project-item .box-title,
+            .gallery-row .project-item h2.box-title,
+            .gallery-row .project-item .box-title.text-custom {
+                font-size: 18px !important;
+            }
+        }
+
+        /* Blog & News Read More button styling */
+        .blog-card .th-btns.black-border {
+            background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
+            color: #ffffff !important;
+            border: 2px solid #003f3a !important;
+            padding: 8px 20px !important;
+            border-radius: 25px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            white-space: nowrap !important;
+        }
+
+        .blog-card .th-btns.black-border:hover {
+            background: linear-gradient(65deg, #4a6b66 0%, #000000 100%) !important;
+            color: #ffffff !important;
+            border-color: #4a6b66 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(0, 63, 58, 0.3) !important;
+        }
+
+        /* Apply same styling to all buttons on home page */
+        .th-btns.black-border {
+            background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
+            color: #ffffff !important;
+            border: 2px solid #003f3a !important;
+            padding: 8px 20px !important;
+            border-radius: 25px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            white-space: nowrap !important;
+        }
+
+        .th-btns.black-border:hover {
+            background: linear-gradient(65deg, #4a6b66 0%, #000000 100%) !important;
+            color: #ffffff !important;
+            border-color: #4a6b66 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(0, 63, 58, 0.3) !important;
+        }
+
+        /* Additional styling for box-wrapp layout */
+        .blog-card .box-wrapp {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            gap: 10px !important;
+            margin-top: 15px !important;
         }
     </style>
 
