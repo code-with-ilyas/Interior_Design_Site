@@ -751,12 +751,14 @@
             display: flex;
             align-items: center;
             min-height: 80px;
+            height: 80px;
         }
 
         .header-logo {
             display: flex;
             align-items: center;
             height: 80px;
+            padding: 10px 0;
         }
 
         .main-menu {
@@ -768,6 +770,26 @@
         .th-header .container {
             display: flex;
             align-items: center;
+            height: 80px;
+        }
+
+        .header-logo a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .sticky-wrapper {
+            height: 80px;
+        }
+
+        /* Ensure proper alignment between logo and menu */
+        .th-header.header-layout3 {
+            height: 80px;
+        }
+
+        .header-logo img {
+            vertical-align: middle;
         }
 
         .main-menu ul {
@@ -775,7 +797,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 30px;
+            gap: 15px;
         }
 
         .main-menu ul li {
@@ -793,7 +815,7 @@
             transition: color 0.3s ease;
             font-size: 16px;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 10px 8px;
             position: relative;
             display: block;
         }
@@ -826,7 +848,7 @@
 
         @media (min-width: 992px) {
             .main-menu.d-lg-inline-block {
-                display: inline-block !important;
+                display: flex !important;
             }
         }
 
