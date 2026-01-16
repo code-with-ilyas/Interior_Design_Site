@@ -1903,7 +1903,7 @@
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
-        
+
         /* Freelancer tags styling for uniform rounded borders */
         .freelancer-tag {
             display: inline-block !important;
@@ -1917,7 +1917,7 @@
             border: 1px solid #003f3a !important;
             transition: all 0.3s ease !important;
         }
-        
+
         .freelancer-tag:hover {
             background-color: #4a6b66 !important;
             border-color: #4a6b66 !important;
