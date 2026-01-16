@@ -1821,6 +1821,109 @@
             gap: 10px !important;
             margin-top: 15px !important;
         }
+
+        /* Consistent spacing for all sections */
+        section,
+        .text-custom[id] {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        /* Heading styles for consistency */
+        .title-area h2,
+        .title-area h4,
+        .title-area h5 {
+            font-size: 22px !important;
+            margin-bottom: 15px !important;
+        }
+
+        .title-area span {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Service section spacing */
+        #service-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Project section spacing */
+        #project-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Blog section spacing */
+        #blog-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Experts section spacing */
+        #experts-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Customers section spacing */
+        #customers-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Community section spacing */
+        #community-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Contact section spacing */
+        #contact-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Testimonials section spacing */
+        #testi-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Instagram section spacing */
+        #instagram-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Gallery section spacing */
+        #gallery-sec {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Freelancer tags styling for uniform rounded borders */
+        .freelancer-tag {
+            display: inline-block !important;
+            padding: 8px 16px !important;
+            background-color: #003f3a !important;
+            color: white !important;
+            border-radius: 25px !important;
+            margin: 0 5px 10px 5px !important;
+            font-size: 14px !important;
+            text-align: center !important;
+            border: 1px solid #003f3a !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .freelancer-tag:hover {
+            background-color: #4a6b66 !important;
+            border-color: #4a6b66 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0, 63, 58, 0.2) !important;
+        }
     </style>
 
 </body>

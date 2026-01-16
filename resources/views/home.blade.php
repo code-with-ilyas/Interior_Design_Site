@@ -4,7 +4,7 @@
 
 <section class="freelancer-hero-section" id="hero-sec">
   <div class="container">
-    <div class="row align-items-center">
+    <div class="row align-items-center" style="margin-top: 5px;">
       <div class="col-lg-6">
         <div class="freelancer-hero-content">
           <div class="freelancer-tags">
@@ -19,19 +19,19 @@
           <div class="freelancer-features">
             <div class="feature-item">
               <div class="feature-icon">
-                <img src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/66e18f7269802b9bae5f221d_Selection.png" alt="Selection">
+                <i class="fas fa-check-circle" style="font-size: 24px; color: #003f3a;"></i>
               </div>
               <span class="feature-text playfair-display">A rigorous selection methodology.</span>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
-                <img src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/66e19056705c5d35241fec5d_e%CC%81cran.png" alt="Platform">
+                <i class="fas fa-th-large" style="font-size: 24px; color: #003f3a;"></i>
               </div>
               <span class="feature-text playfair-display">A single platform to manage your business.</span>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
-                <img src="https://cdn.prod.website-files.com/66d6caf319433c5d7718043c/66e18f91deb42b7fa54ce51a_offres.png" alt="Offers">
+                <i class="fas fa-gift" style="font-size: 24px; color: #003f3a;"></i>
               </div>
               <span class="feature-text playfair-display">Offers to suit all your needs.</span>
             </div>
@@ -502,13 +502,13 @@
 <section class="project-area position-relative space-bottom playfair-display" id="project-sec">
   <div class="container text-center">
 
-    <h5 style="font-size: 14px; margin-bottom: 14px;" class="text-custom">Our Projects</h5>
+    <h5 style="font-size: 22px; margin-bottom: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;" class="text-custom">Our Projects</h5>
 
 
-    <p class="text-custom" style="font-size: 20px; line-height: 1.4; margin-bottom: 10px;">Complete Solutions for Your Outdoor Projects</p>
+    <p class="text-custom" style="font-size: 20px; line-height: 1.4; margin-bottom: 10px; font-weight: normal;">Complete Solutions for Your Outdoor Projects</p>
 
 
-    <p class="text-custom" style="font-size: 20px; line-height: 1.6; margin-bottom: 20px;">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+    <p class="text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-weight: normal; opacity: 0.8;">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
 
 
     <div class="col-xl-6 mx-auto">
