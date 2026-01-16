@@ -15,7 +15,7 @@
             <span class="freelancer-tag playfair-display text-white">IT</span>
             <span class="freelancer-tag playfair-display text-white">Digital</span>
           </div>
-          <h1 class="freelancer-title playfair-display" style="font-size: 45px;">H24 RENOVATION</h1>
+          <h1 class="freelancer-title playfair-display" style="font-size: 36px;">Renovate your property, according to your desires!</h1>
           <div class="freelancer-features">
             <div class="feature-item">
               <div class="feature-icon">
@@ -416,16 +416,10 @@
   </div>
 </section>
 
-<br>
-<br>
-<br>
-
 <h5 id="about-title" class="text-custom" style="text-align: center; scroll-margin-top: 100px; font-size: 14px; color:#000000;">
   {{ $about?->name ?? 'About Us' }}
 </h5>
-<br>
 <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
-
 
   <div style="flex: 1; min-width: 350px;">
     <img
@@ -442,10 +436,6 @@
 
 </div>
 </section>
-
-<br>
-<br>
-<br>
 
 
 <div class="text-custom" id="service-sec">
@@ -485,22 +475,10 @@
       </div>
       @endforeach
     </div>
-    <br><br>
     @endforeach
   </div>
   </div>
 </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 <section class="project-area position-relative space-bottom playfair-display" id="project-sec">
   <div class="container text-center">
 
@@ -760,8 +738,6 @@
     <div class="row align-items-center justify-content-center">
       <div class="col-xl-5">
         <div class="title-area text-center"><span class=" style2 text-custom">Blog & News</span>
-          <br>
-          <br>
 
           <h2 class="text-custom">Browse Our Latest Articles & News</h2>
         </div>
@@ -824,9 +800,6 @@
           @endforeach
         </div>
         <div class="tabs-content-2 w-tab-content">
-          <br>
-          <br>
-          <br>
           @foreach($expertsByCategory as $index => $category)
           <div data-w-tab="Tab {{ $index + 1 }}" class="w-tab-pane {{ $index == 0 ? 'w--tab-active' : '' }}">
             <div class="w-layout-grid grid-4">
@@ -871,9 +844,6 @@
     </div>
   </div>
 </div>
-
-<br>
-<br>
 
 <section id="customers-sec" class="clients">
 
@@ -977,9 +947,6 @@
 <div class="overflow-hidden space-top playfair-display" id="contact-sec">
   <h5 style="text-align: center;" class="text-dark">Contact Us</h5>
   <p style="text-align: center;" class="text-custom">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We’re here to help and will get back to you as soon as possible.</p>
-
-  <br>
-  <br>
   <div class="container">
     <div class="row gy-4 flex-row-reverse">
       <div class="col-xl-6">
@@ -1022,10 +989,6 @@
     </div>
   </div>
 </div>
-
-<br>
-<br>
-<br>
 
 
 
@@ -1106,11 +1069,6 @@
   </div>
   </div>
 </section>
-
-
-<br>
-<br>
-
 
 <div class="overflow-hidden space-bottom overflow-hidden playfair-display" id="instagram-sec">
   <div class="container">
