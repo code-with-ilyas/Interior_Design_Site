@@ -449,10 +449,11 @@
 
 
 <div class="text-custom" id="service-sec">
-  <div class="services-header">
-    <h5 class="text-primary">Our services</h5>
-    <h4 class="text-custom" style="font-size: 20px;">Support for all your transformation challenges</h4>
-  </div>
+  <div class="container">
+    <div class="services-header">
+      <h5 class="text-primary">Our services</h5>
+      <h4 class="text-custom" style="font-size: 20px;">Support for all your transformation challenges</h4>
+    </div>
 
   <div class="services-grid">
     @php
@@ -486,6 +487,7 @@
     </div>
     <br><br>
     @endforeach
+  </div>
   </div>
 </div>
 

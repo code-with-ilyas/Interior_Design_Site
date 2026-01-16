@@ -46,7 +46,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="body-dark show-grid" id="show-grid">
+<body class="show-grid" id="show-grid">
 
 
     <header class="th-header header-layout3 onepage-nav text-dark">
@@ -69,11 +69,11 @@
                                     <li><a href="#project-sec">Projects</a></li>
                                     <li><a href="#blog-sec">Blog</a></li>
                                     <li><a href="#experts-sec" class="link-experts">Experts</a></li>
-                                    <li><a href="#customers-sec" class="link-customers">Customers</a></li>
-                                    <li><a href="#community-sec" class="link-community">Community</a></li>
+                                    {{-- <li><a href="#customers-sec" class="link-customers">Customers</a></li> --}}
+                                    {{-- <li><a href="#community-sec" class="link-community">Community</a></li> --}}
                                     <li><a href="#contact-sec">Contact Us</a></li>
-                                    <li><a href="#instagram-sec">Instagram</a></li>
-                                    <li><a href="#gallery-sec">Gallery</a></li>
+                                    {{-- <li><a href="#instagram-sec">Instagram</a></li> --}}
+                                    {{-- <li><a href="#gallery-sec">Gallery</a></li> --}}
                                     @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
@@ -1903,7 +1903,7 @@
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
-        
+
         /* Freelancer tags styling for uniform rounded borders */
         .freelancer-tag {
             display: inline-block !important;
@@ -1917,12 +1917,63 @@
             border: 1px solid #003f3a !important;
             transition: all 0.3s ease !important;
         }
-        
+
         .freelancer-tag:hover {
             background-color: #4a6b66 !important;
             border-color: #4a6b66 !important;
             transform: translateY(-2px) !important;
             box-shadow: 0 4px 8px rgba(0, 63, 58, 0.2) !important;
+        }
+
+        /* Global spacing for all sections */
+        .container,
+        .th-container4 {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            max-width: 1320px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        /* Vertical spacing for all sections */
+        section,
+        .text-custom[id] {
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+        }
+
+        /* Responsive horizontal padding */
+        @media (min-width: 768px) {
+            .container,
+            .th-container4 {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container,
+            .th-container4 {
+                padding-left: 40px !important;
+                padding-right: 40px !important;
+            }
+        }
+
+        /* Responsive vertical spacing */
+        @media (min-width: 768px) {
+            section,
+            .text-custom[id] {
+                padding-top: 64px !important;
+                padding-bottom: 64px !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            section,
+            .text-custom[id] {
+                padding-top: 80px !important;
+                padding-bottom: 80px !important;
+            }
         }
     </style>
 
