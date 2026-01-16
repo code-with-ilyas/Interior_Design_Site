@@ -69,11 +69,11 @@
                                     <li><a href="#project-sec">Projects</a></li>
                                     <li><a href="#blog-sec">Blog</a></li>
                                     <li><a href="#experts-sec" class="link-experts">Experts</a></li>
-                                    <li><a href="#customers-sec" class="link-customers">Customers</a></li>
-                                    <li><a href="#community-sec" class="link-community">Community</a></li>
+                                    {{-- <li><a href="#customers-sec" class="link-customers">Customers</a></li> --}}
+                                    {{-- <li><a href="#community-sec" class="link-community">Community</a></li> --}}
                                     <li><a href="#contact-sec">Contact Us</a></li>
-                                    <li><a href="#instagram-sec">Instagram</a></li>
-                                    <li><a href="#gallery-sec">Gallery</a></li>
+                                    {{-- <li><a href="#instagram-sec">Instagram</a></li> --}}
+                                    {{-- <li><a href="#gallery-sec">Gallery</a></li> --}}
                                     @auth
                                     <li class="menu-item-has-children" id="user-dropdown">
                                         <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
