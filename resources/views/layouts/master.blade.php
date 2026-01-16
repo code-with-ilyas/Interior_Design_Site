@@ -46,7 +46,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="body-dark show-grid" id="show-grid">
+<body class="show-grid" id="show-grid">
 
 
     <header class="th-header header-layout3 onepage-nav text-dark">
