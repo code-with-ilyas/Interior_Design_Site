@@ -568,7 +568,7 @@
         .th-header,
         .th-header .sticky-wrapper,
         .th-header .menu-area {
-            background: #ffffff !important;
+            background: #F7F5F2 !important;
         }
 
         .th-header .main-menu ul li a {
@@ -1091,7 +1091,7 @@
         }
 
         .freelancer-hero-section {
-            background: #ffffff !important;
+            background: #F7F5F2 !important;
             padding: 100px 0;
             position: relative;
             overflow: hidden;
