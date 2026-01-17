@@ -974,6 +974,20 @@
 #experts-sec .tag.grey {
     background-color: #f5f5f5;
 }
+
+/* Expert section tabs styling */
+#experts-sec .tab-link {
+    cursor: pointer; /* Pointer cursor on hover */
+    font-style: normal !important; /* Normal font style by default */
+}
+
+#experts-sec .tab-link.w--current {
+    font-style: italic !important; /* Italic when selected */
+}
+
+#experts-sec .tab-link:hover {
+    font-style: normal !important; /* Normal font style on hover */
+}
 </style>
 
 <section id="customers-sec" class="clients">
