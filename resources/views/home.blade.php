@@ -906,6 +906,63 @@
     </div>
 </section>
 
+<style>
+/* Expert section styling */
+#experts-sec .profile {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #000000;
+}
+
+#experts-sec .profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#experts-sec .profile-header {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#experts-sec .image-126 {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+#experts-sec .profile:hover .image-126 {
+    border-color: #003f3a;
+    transform: scale(1.02);
+}
+
+#experts-sec .sector_profile,
+#experts-sec .previously_profile {
+    color: #000000 !important;
+}
+
+#experts-sec .tag {
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    padding: 4px 8px;
+    margin: 2px;
+}
+
+#experts-sec .tag.blue {
+    background-color: #e6f0ef;
+}
+
+#experts-sec .tag.grey {
+    background-color: #f5f5f5;
+}
+</style>
+
 <section id="customers-sec" class="clients">
 
     <div class="hero">
