@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             SuperAdminPermissionSeeder::class,
             AdminUserSeeder::class,
+            CompanySeeder::class,
         ]);
 
         // Check if the test user already exists

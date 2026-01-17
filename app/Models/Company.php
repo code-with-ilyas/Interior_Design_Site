@@ -14,5 +14,5 @@ class Company extends Model
      *
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = ['name', 'logo', 'website_url'];
 }

@@ -860,7 +860,7 @@
         h6 {
             font-family: "Playfair Display", serif;
             font-weight: 700;
-            text-transform: uppercase;
+           /*  text-transform: uppercase; */
             letter-spacing: 1px;
             color: #fff;
             margin-bottom: 20px;
@@ -1092,7 +1092,7 @@
 
         .freelancer-hero-section {
             background: #F7F5F2 !important;
-            padding: 100px 0;
+           /*  padding: 100px 0; */
             position: relative;
             overflow: hidden;
         }
@@ -1449,8 +1449,8 @@
         }
 
         .reference-heading {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 400;
         }
 
         .marquee-area {
@@ -1823,13 +1823,13 @@
         }
 
         /* Consistent spacing for all sections */
-        section,
+       /*  section,
         .text-custom[id] {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
             padding-top: 1rem !important;
             padding-bottom: 1rem !important;
-        }
+        } */
 
         /* Heading styles for consistency */
         .title-area h2,
@@ -1951,30 +1951,30 @@
             }
         }
 
-        @media (min-width: 1024px) {
+        /* @media (min-width: 1024px) {
             .container,
             .th-container4 {
                 padding-left: 40px !important;
                 padding-right: 40px !important;
             }
-        }
+        } */
 
         /* Responsive vertical spacing */
-        @media (min-width: 768px) {
+        /* @media (min-width: 768px) {
             section,
             .text-custom[id] {
                 padding-top: 64px !important;
                 padding-bottom: 64px !important;
             }
-        }
+        } */
 
-        @media (min-width: 1024px) {
+        /* @media (min-width: 1024px) {
             section,
             .text-custom[id] {
                 padding-top: 80px !important;
                 padding-bottom: 80px !important;
             }
-        }
+        } */
     </style>
 
 </body>

@@ -27362,9 +27362,9 @@ span.select2-selection.select2-selection--single:focus {
     --duration: 100s
 }
 
-.marquee:last-child {
+/* .marquee:last-child {
     --duration: 80s
-}
+} */
 
 .marquee.marquee--reverse .marquee-group {
     --gap: 35px;
