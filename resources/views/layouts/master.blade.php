@@ -115,7 +115,7 @@
     </main>
 
 
-    <footer class="footer-wrapper footer-layout3 playfair-display">
+    <footer class="footer-wrapper footer-layout3 bg-primary-500">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
@@ -123,7 +123,7 @@
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="Faren  "></a></div>
-                                <p class="about-text text-custom">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
+                                <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
                                 <div class="th-social">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -133,25 +133,6 @@
                                 </div>
                                 <br>
                                 <br>
-                                <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
-
-                                    <div style="display:flex; flex-direction:column; gap:10px; border:1px solid #fff; padding:15px 20px; border-radius:8px; transition:0.3s;"
-                                        onmouseover="this.style.background='#fafafaff'; this.style.transform='translateY(-2px)';"
-                                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
-
-                                        <a href="https://mesbatisseurs.fr/politiques/"
-                                            style="color:#fff; text-decoration:none; font-size:14px;">Privacy Policy</a>
-
-                                        <a href="https://mesbatisseurs.fr/conditions-2/"
-                                            style="color:#fff; text-decoration:none; font-size:14px;">General Terms and Conditions</a>
-
-                                        <a href="https://mesbatisseurs.fr/legales/"
-                                            style="color:#fff; text-decoration:none; font-size:14px;">Legal Notices</a>
-
-                                        <a href="#"
-                                            style="color:#fff; text-decoration:none; font-size:14px;">FAQ</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -160,13 +141,13 @@
                             <h3 class="widget_title text-custom">About Us</h3>
                             <div class="menu-all-pages-container text-custom">
                                 <ul class="menu">
-                                    <li><a href="about.html" class="text-custom">About Us</a></li>
-                                    <li><a href="service.html" class="text-custom">All Services</a></li>
-                                    <li><a href="team.html" class="text-custom">Our Team Leaders</a></li>
-                                    <li><a href="contact.html" class="text-custom">Rquest a Visit</a></li>
-                                    <li><a href="pricing.html" class="text-custom">Our Pricing Plan</a></li>
-                                    <li><a href="faq.html" class="text-custom">FAQ</a></li>
-                                    <li><a href="contact.html" class="text-custom">Contact Us</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="service.html">All Services</a></li>
+                                    <li><a href="team.html">Our Team Leaders</a></li>
+                                    <li><a href="contact.html">Rquest a Visit</a></li>
+                                    <li><a href="pricing.html">Our Pricing Plan</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -176,13 +157,13 @@
                             <h3 class="widget_title text-custom">Our Projects</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu text-custom">
-                                    <li><a href="project.html" class="text-custom">All Projects</a></li>
-                                    <li><a href="contact.html" class="text-custom">Residential Space</a></li>
-                                    <li><a href="contact.html" class="text-custom">Multipurpose</a></li>
-                                    <li><a href="contact.html" class="text-custom">Commercial Space</a></li>
-                                    <li><a href="contact.html" class="text-custom">Minimalism</a></li>
-                                    <li><a href="contact.html" class="text-custom">Urbanism</a></li>
-                                    <li><a href="contact.html" class="text-custom">Villa Cabin</a></li>
+                                    <li><a href="project.html">All Projects</a></li>
+                                    <li><a href="contact.html">Residential Space</a></li>
+                                    <li><a href="contact.html">Multipurpose</a></li>
+                                    <li><a href="contact.html">Commercial Space</a></li>
+                                    <li><a href="contact.html">Minimalism</a></li>
+                                    <li><a href="contact.html">Urbanism</a></li>
+                                    <li><a href="contact.html">Villa Cabin</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -191,7 +172,7 @@
                         <div class="widget footer-widget">
                             <h3 class="widget_title text-custom">Get In Touch</h3>
                             <div class="th-widget-about style2">
-                                <p class="footer-info text-custom">221 Rue LaFayette, 75010 Paris</p>
+                                <p class="footer-info">221 Rue LaFayette, 75010 Paris</p>
                                 <p class="footer-info"><span><a class="text-inherit d-block" href="tel:+01234567890">01 80 20 92 78</a></span></p>
                                 <p class="footer-info"><span><a class="text-inherit" href="mailto:contact@mesbatisseurs.fr">contact@mesbatisseurs.fr</a></span></p>
                             </div>
@@ -203,7 +184,7 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-6">
                                 <div class="copyright-wrap">
-                                    <p class="text-custom">Copyright, H24 RENOVATION. All Rights Reserved.</p>
+                                    <p>Copyright, H24 RENOVATION. All Rights Reserved.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 text-center text-lg-end">
@@ -539,30 +520,70 @@
             text-overflow: ellipsis !important;
         }
 
-        .footer-wrapper,
-        .footer-wrapper .widget-area {
+        .bg-primary-500 {
+            --tw-bg-opacity: 1;
+            background-color: rgba(0, 63, 58, var(--tw-bg-opacity)) !important;
+        }
+
+        .footer-wrapper.bg-primary-500,
+        .footer-wrapper.bg-primary-500 .widget-area {
+            background: rgba(0, 63, 58, var(--tw-bg-opacity)) !important;
+        }
+
+        .footer-wrapper:not(.bg-primary-500),
+        .footer-wrapper:not(.bg-primary-500) .widget-area {
             background: #ffffff !important;
         }
 
-        .footer-wrapper,
-        .footer-wrapper p,
-        .footer-wrapper span,
-        .footer-wrapper li,
-        .footer-wrapper a,
-        .footer-wrapper h3 {
+        .footer-wrapper:not(.bg-primary-500),
+        .footer-wrapper:not(.bg-primary-500) p,
+        .footer-wrapper:not(.bg-primary-500) span,
+        .footer-wrapper:not(.bg-primary-500) li,
+        .footer-wrapper:not(.bg-primary-500) a,
+        .footer-wrapper:not(.bg-primary-500) h3 {
             color: #000000 !important;
         }
 
-        .footer-wrapper .th-social i {
+        .footer-wrapper:not(.bg-primary-500) .th-social i {
             color: #000000 !important;
         }
 
-        .footer-wrapper .copyright-text {
+        .footer-wrapper:not(.bg-primary-500) .copyright-text {
             color: #000000 !important;
         }
 
-        .footer-wrapper div[style*="border"] {
+        .footer-wrapper:not(.bg-primary-500) div[style*="border"] {
             border-color: #000000 !important;
+        }
+
+        .footer-wrapper.bg-primary-500,
+        .footer-wrapper.bg-primary-500 .widget-area {
+            background: rgba(0, 63, 58, var(--tw-bg-opacity)) !important;
+        }
+
+        .footer-wrapper.bg-primary-500,
+        .footer-wrapper.bg-primary-500 p,
+        .footer-wrapper.bg-primary-500 span,
+        .footer-wrapper.bg-primary-500 li,
+        .footer-wrapper.bg-primary-500 a,
+        .footer-wrapper.bg-primary-500 h3 {
+            color: #ffffff !important;
+        }
+
+        .footer-wrapper.bg-primary-500 .th-social i {
+            color: #ffffff !important;
+        }
+
+        .footer-wrapper.bg-primary-500 .copyright-text {
+            color: #ffffff !important;
+        }
+
+        .footer-wrapper.bg-primary-500 div[style*="border"] {
+            border-color: #ffffff !important;
+        }
+
+        .footer-wrapper .text-custom {
+            font-style: normal !important;
         }
 
         .th-header,
