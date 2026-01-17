@@ -915,6 +915,8 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #000000;
+    display: flex;
+    flex-direction: column;
 }
 
 #experts-sec .profile:hover {
@@ -926,20 +928,31 @@
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 15px;
+    width: 100%;
+    height: 300px; /* Fixed height increased by ~35px */
+    flex-shrink: 0; /* Prevents flex item from shrinking */
 }
 
 #experts-sec .image-126 {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
     border-radius: 10px;
     border: 3px solid #f0f0f0;
     transition: all 0.3s ease;
+    display: block; /* Ensures no extra space from inline elements */
 }
 
 #experts-sec .profile:hover .image-126 {
     border-color: #003f3a;
     transform: scale(1.02);
+}
+
+#experts-sec .profile-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Explicitly set padding to 0 */
 }
 
 #experts-sec .sector_profile,
