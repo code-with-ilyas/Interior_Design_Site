@@ -507,9 +507,9 @@
         }
 
         .text-custom {
-            color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
             font-family: 'Playfair Display', serif !important;
             font-style: italic !important;
+            font-size:18px;
         }
 
         /* Override text-custom for project titles to prevent wrapping */
@@ -674,14 +674,14 @@
         }
 
         .service-title {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
 
         .service-description {
-            font-size: 17px;
+            font-size: 14px;
             line-height: 1.6;
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
         }
@@ -879,12 +879,12 @@
         h4,
         h5,
         h6 {
-            font-family: "Playfair Display", serif;
-            font-weight: 700;
+           /*  font-family: "Playfair Display", serif;
+            font-weight: 700; */
            /*  text-transform: uppercase; */
             letter-spacing: 1px;
             color: #fff;
-            margin-bottom: 20px;
+           /*  margin-bottom: 20px; */
             font-size: 13.5px;
         }
 

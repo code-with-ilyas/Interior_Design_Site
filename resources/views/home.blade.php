@@ -15,7 +15,7 @@
                         <span class="freelancer-tag text-white">IT</span>
                         <span class="freelancer-tag text-white">Digital</span>
                     </div>
-                    <h1 class="freelancer-title" style="font-size: 36px;">Renovate your property, according to your desires!</h1>
+                    <h1 class="freelancer-title playfair-display" style="font-size: 36px;">Renovate your property, according to your desires!</h1>
                     <div class="freelancer-features">
                         <div class="feature-item">
                             <div class="feature-icon">
@@ -287,7 +287,6 @@
 
                     <div
                         style="
-             font-style: italic;
           position:absolute;
           left:-60px;
           top:35%;
@@ -309,7 +308,6 @@
 
                     <div
                         style="
-            font-style: italic;
           position:absolute;
           right:-60px;
           top:5%;
@@ -332,7 +330,6 @@
 
                     <div
                         style="
-             font-style: italic;
           position:absolute;
           right:-60px;
           bottom:5%;
@@ -471,6 +468,7 @@
         0% {
             transform: translateX(0);
         }
+
         100% {
             transform: translateX(-100%);
         }
@@ -478,83 +476,84 @@
 </style>
 
 <section id="about-sec">
-<h5 id="about-title" class="text-custom" style="text-align: center; scroll-margin-top: 100px; font-size: 14px; color:#000000;">
-    {{ $about?->name ?? 'About Us' }}
-</h5>
-<div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
-
-    <div style="flex: 1; min-width: 350px;">
-        <img
-            src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
-            alt="{{ $about?->name ?? 'About Image' }}"
-            style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+    <div class="services-header">
+        <h5 id="about-title"
+            class="title-heading"
+            style="scroll-margin-top: 100px;">
+            {{ $about?->name ?? 'About Us' }}
+        </h5>
+        <p class="text-custom text-light-green">Minimalist luxury interiors rarely go out of fashion.</p>
     </div>
+    <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
 
-    <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
-        <p style="font-size: 16px; line-height: 1.7; color: #000000ff;" class="text-custom">
-            {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
-        </p>
+        <div style="flex: 1; min-width: 350px;">
+            <img
+                src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
+                alt="{{ $about?->name ?? 'About Image' }}"
+                style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        </div>
+
+        <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
+            <p style="font-size: 16px; line-height: 1.7; color: #000000ff;">
+                {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
+            </p>
+        </div>
+
     </div>
-
-</div>
 </section>
 
 
 <section id="services-sec">
-<div class="text-custom">
-    <div class="container">
-        <div class="services-header">
-            <h5 class="text-primary">Our services</h5>
-            <h4 class="text-custom" style="font-size: 20px;">Support for all your transformation challenges</h4>
-        </div>
+    <div>
+        <div class="container">
+            <div class="services-header">
+                <h5 class="title-heading">Our services</h5>
+                <p class="text-custom text-light-green">Support for all your transformation challenges</p>
+            </div>
 
-        <div class="services-grid">
-            @php
-            // Fetch all services from DB
-            $dbServices = $services ?? collect();
+            <div class="services-grid">
+                @php
+                // Fetch all services from DB
+                $dbServices = $services ?? collect();
 
-            // Default services (shown if DB is empty)
-            $defaultServices = [
-            ['service_title' => 'Project management', 'service_description' => "From PMO to experienced interim manager, to bring your company's major projects to fruition."],
-            ['service_title' => 'Technical Assistance', 'service_description' => "More than 100K experts available for contract work throughout France"],
-            ['service_title' => 'Tech Factories', 'service_description' => "Build up your centers of excellence and teams in record time (Digital Factory, IA Factory)"],
-            ['service_title' => 'Consulting', 'service_description' => "Industry experts to meet your operational and strategic challenges."],
-            ['service_title' => 'Training', 'service_description' => "Call on freelance experts to train your teams on the latest technological topics."],
-            ['service_title' => 'Portage', 'service_description' => "Wear all your consultants in minutes thanks to our automated platform."],
-            ];
+                // Default services (shown if DB is empty)
+                $defaultServices = [
+                ['service_title' => 'Project management', 'service_description' => "From PMO to experienced interim manager, to bring your company's major projects to fruition."],
+                ['service_title' => 'Technical Assistance', 'service_description' => "More than 100K experts available for contract work throughout France"],
+                ['service_title' => 'Tech Factories', 'service_description' => "Build up your centers of excellence and teams in record time (Digital Factory, IA Factory)"],
+                ['service_title' => 'Consulting', 'service_description' => "Industry experts to meet your operational and strategic challenges."],
+                ['service_title' => 'Training', 'service_description' => "Call on freelance experts to train your teams on the latest technological topics."],
+                ['service_title' => 'Portage', 'service_description' => "Wear all your consultants in minutes thanks to our automated platform."],
+                ];
 
-            // Display DB services if exists, else default services
-            $displayServices = $dbServices->isEmpty() ? collect($defaultServices) : $dbServices;
-            @endphp
+                // Display DB services if exists, else default services
+                $displayServices = $dbServices->isEmpty() ? collect($defaultServices) : $dbServices;
+                @endphp
 
-            @foreach($displayServices->chunk(3) as $row)
-            <div class="services-row">
-                @foreach($row as $service)
-                <div class="service-column">
-                    <div class="service-card">
-                        <h5 class="service-title text-custom">{{ $service->service_title ?? $service['service_title'] }}</h5>
-                        <div class="service-description text-custom">{{ $service->service_description ?? $service['service_description'] }}</div>
+                @foreach($displayServices->chunk(3) as $row)
+                <div class="services-row mb-3">
+                    @foreach($row as $service)
+                    <div class="service-column">
+                        <div class="service-card">
+                            <h5 class="service-title">{{ $service->service_title ?? $service['service_title'] }}</h5>
+                            <div class="service-description">{{ $service->service_description ?? $service['service_description'] }}</div>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
                 @endforeach
             </div>
-            @endforeach
         </div>
     </div>
-</div>
 </section>
 
-<section class="project-area position-relative space-bottom playfair-display" id="project-sec">
-    <div class="container text-center">
-
-        <h5 style="font-size: 22px; margin-bottom: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;" class="text-custom">Our Projects</h5>
-
-
-        <p class="text-custom" style="font-size: 20px; line-height: 1.4; margin-bottom: 10px; font-weight: normal;">Complete Solutions for Your Outdoor Projects</p>
-
-
-        <p class="text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-weight: normal; opacity: 0.8;">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
-
+<section class="project-area position-relative space-bottom" id="project-sec">
+    <div class="container">
+        <div class="services-header">
+            <h5 class="title-heading">Our Projects</h5>
+            <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
+            <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+        </div>
 
         <div class="col-xl-6 mx-auto">
             <div class="filter-menu style2 filter-menu-active">
@@ -800,9 +799,9 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-xl-5">
-                <div class="title-area text-center"><span class=" style2 text-custom">Blog & News</span>
-
-                    <h2 class="text-custom">Browse Our Latest Articles & News</h2>
+                <div class="services-header">
+                    <h5 class="title-heading">Blog & News</h5>
+                    <p class="text-custom text-light-green">Browse Our Latest Articles & News</p>
                 </div>
             </div>
         </div>
@@ -846,10 +845,9 @@
 
 <section id="experts-sec" class="expertise">
     <div class="hero">
-        <div class="header">
-
-            <h3 class="text-dark">our experts</h3>
-            <h1 class=" playfair-display text-dark">The best experts in each field</h1>
+        <div class="services-header">
+            <h5 class="title-heading">Our Experts</h5>
+            <p class="text-custom text-light-green">The best experts in each field</p>
         </div>
         <div class="freelances-group">
             <div data-duration-in="500" data-duration-out="200" data-current="Tab 1" data-easing="ease" class="w-tabs">
@@ -907,87 +905,95 @@
 </section>
 
 <style>
-/* Expert section styling */
-#experts-sec .profile {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #000000;
-    display: flex;
-    flex-direction: column;
-}
+    /* Expert section styling */
+    #experts-sec .profile {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: #000000;
+        display: flex;
+        flex-direction: column;
+    }
 
-#experts-sec .profile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
+    #experts-sec .profile:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
 
-#experts-sec .profile-header {
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 15px;
-    width: 100%;
-    height: 300px; /* Fixed height increased by ~35px */
-    flex-shrink: 0; /* Prevents flex item from shrinking */
-}
+    #experts-sec .profile-header {
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        width: 100%;
+        height: 300px;
+        /* Fixed height increased by ~35px */
+        flex-shrink: 0;
+        /* Prevents flex item from shrinking */
+    }
 
-#experts-sec .image-126 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 3px solid #f0f0f0;
-    transition: all 0.3s ease;
-    display: block; /* Ensures no extra space from inline elements */
-}
+    #experts-sec .image-126 {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 3px solid #f0f0f0;
+        transition: all 0.3s ease;
+        display: block;
+        /* Ensures no extra space from inline elements */
+    }
 
-#experts-sec .profile:hover .image-126 {
-    border-color: #003f3a;
-    transform: scale(1.02);
-}
+    #experts-sec .profile:hover .image-126 {
+        border-color: #003f3a;
+        transform: scale(1.02);
+    }
 
-#experts-sec .profile-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 0; /* Explicitly set padding to 0 */
-}
+    #experts-sec .profile-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        /* Explicitly set padding to 0 */
+    }
 
-#experts-sec .sector_profile,
-#experts-sec .previously_profile {
-    color: #000000 !important;
-}
+    #experts-sec .sector_profile,
+    #experts-sec .previously_profile {
+        color: #000000 !important;
+    }
 
-#experts-sec .tag {
-    background-color: #f0f0f0;
-    border-radius: 6px;
-    padding: 4px 8px;
-    margin: 2px;
-}
+    #experts-sec .tag {
+        background-color: #f0f0f0;
+        border-radius: 6px;
+        padding: 4px 8px;
+        margin: 2px;
+    }
 
-#experts-sec .tag.blue {
-    background-color: #e6f0ef;
-}
+    #experts-sec .tag.blue {
+        background-color: #e6f0ef;
+    }
 
-#experts-sec .tag.grey {
-    background-color: #f5f5f5;
-}
+    #experts-sec .tag.grey {
+        background-color: #f5f5f5;
+    }
 
-/* Expert section tabs styling */
-#experts-sec .tab-link {
-    cursor: pointer; /* Pointer cursor on hover */
-    font-style: normal !important; /* Normal font style by default */
-}
+    /* Expert section tabs styling */
+    #experts-sec .tab-link {
+        cursor: pointer;
+        /* Pointer cursor on hover */
+        font-style: normal !important;
+        /* Normal font style by default */
+    }
 
-#experts-sec .tab-link.w--current {
-    font-style: italic !important; /* Italic when selected */
-}
+    #experts-sec .tab-link.w--current {
+        font-style: italic !important;
+        /* Italic when selected */
+    }
 
-#experts-sec .tab-link:hover {
-    font-style: normal !important; /* Normal font style on hover */
-}
+    #experts-sec .tab-link:hover {
+        font-style: normal !important;
+        /* Normal font style on hover */
+    }
 </style>
 
 <section id="customers-sec" class="clients">
