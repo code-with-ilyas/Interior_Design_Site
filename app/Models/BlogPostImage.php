@@ -9,18 +9,14 @@ class BlogPostImage extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
+    protected $fillable = [
+        'blog_post_id',
+        'image',
+        'caption',
+    ];
 
-    /**
-     * Get the blog post that owns the image.
-     */
-    public function blogPost()
+    public function post()
     {
-        return $this->belongsTo(BlogPost::class);
+        return $this->belongsTo(BlogPost::class, 'blog_post_id');
     }
 }

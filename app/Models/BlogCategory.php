@@ -9,18 +9,18 @@ class BlogCategory extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'slug',
+    ];
 
-    /**
-     * Get the blog posts for the category.
-     */
-    public function blogPosts()
+    public function posts()
     {
-        return $this->hasMany(BlogPost::class);
+        return $this->hasMany(BlogPost::class, 'blog_category_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

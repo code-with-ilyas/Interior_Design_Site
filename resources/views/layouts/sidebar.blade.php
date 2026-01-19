@@ -128,6 +128,33 @@
                 </div>
             </div>
 
+            <!-- Blog & News Dropdown -->
+            <div x-data="{ open: {{ request()->routeIs('admin.blog-*') ? 'true' : 'false' }} }">
+                <button @click="open = !open"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.blog-*') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                    <div class="flex items-center">
+                        <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                        </svg>
+                        Blog & News
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="mt-1 ml-4 space-y-1">
+                    <a href="{{ route('admin.blog-posts.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.blog-posts.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Blog Posts
+                    </a>
+                    <a href="{{ route('admin.blog-categories.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.blog-categories.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Blog Categories
+                    </a>
+                </div>
+            </div>
+
             <a href="{{ route('admin.about.index') }}"
                 class="block px-4 py-2 text-sm rounded-md
                     {{ request()->routeIs('admin.about.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">

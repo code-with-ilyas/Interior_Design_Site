@@ -140,6 +140,40 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     Route::post('/permissions/assign-to-user', [\App\Http\Controllers\Admin\PermissionController::class, 'assignToUser'])->name('admin.permissions.assign-to-user');
     Route::get('/permissions/user-permissions', [\App\Http\Controllers\Admin\PermissionController::class, 'getUserPermissions'])->name('admin.permissions.user-permissions');
     Route::get('/permissions/role-permissions', [\App\Http\Controllers\Admin\PermissionController::class, 'getRolePermissions'])->name('admin.permissions.role-permissions');
+
+    // Blog management routes
+    Route::resource('blog-categories', \App\Http\Controllers\Admin\BlogCategoryController::class)->names([
+        'index' => 'admin.blog-categories.index',
+        'create' => 'admin.blog-categories.create',
+        'store' => 'admin.blog-categories.store',
+        'show' => 'admin.blog-categories.show',
+        'edit' => 'admin.blog-categories.edit',
+        'update' => 'admin.blog-categories.update',
+        'destroy' => 'admin.blog-categories.destroy',
+    ]);
+
+    Route::resource('blog-posts', \App\Http\Controllers\Admin\BlogPostController::class)->names([
+        'index' => 'admin.blog-posts.index',
+        'create' => 'admin.blog-posts.create',
+        'store' => 'admin.blog-posts.store',
+        'show' => 'admin.blog-posts.show',
+        'edit' => 'admin.blog-posts.edit',
+        'update' => 'admin.blog-posts.update',
+        'destroy' => 'admin.blog-posts.destroy',
+    ]);
+
+    // Blog Post Images management routes
+    Route::prefix('blog-posts/{blog_post}')->group(function () {
+        Route::resource('images', \App\Http\Controllers\Admin\BlogPostImageController::class)->names([
+            'index' => 'admin.blog-posts.images.index',
+            'create' => 'admin.blog-posts.images.create',
+            'store' => 'admin.blog-posts.images.store',
+            'show' => 'admin.blog-posts.images.show',
+            'edit' => 'admin.blog-posts.images.edit',
+            'update' => 'admin.blog-posts.images.update',
+            'destroy' => 'admin.blog-posts.images.destroy',
+        ]);
+    });
 });
 
 
@@ -220,7 +254,7 @@ Route::prefix('elevations')->name('elevations.')->group(function () {
     Route::view('step5', 'elevations.step5')->name('step5');
     Route::view('step6', 'elevations.step6')->name('step6');
     Route::view('step7', 'elevations.step7')->name('step7');
- 
+
 });
 
 

@@ -4,40 +4,55 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class BlogPost extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
+    protected $fillable = [
+        'blog_category_id',
+        'title',
+        'slug',
+        'excerpt',
+        'body',
+        'image',
+        'published_at',
+    ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'published_at' => 'datetime',
     ];
 
-    /**
-     * Get the category that owns the blog post.
-     */
-    public function blogCategory()
+    public function category()
     {
-        return $this->belongsTo(BlogCategory::class);
+        return $this->belongsTo(BlogCategory::class, 'blog_category_id');
     }
 
-    /**
-     * Get the images for the blog post.
-     */
-    public function blogPostImages()
+    public function images()
     {
-        return $this->hasMany(BlogPostImage::class);
+        return $this->hasMany(BlogPostImage::class, 'blog_post_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($post) {
+            if (empty($post->slug)) {
+                $post->slug = Str::slug($post->title);
+            }
+        });
+
+        static::updating(function ($post) {
+            if (empty($post->slug)) {
+                $post->slug = Str::slug($post->title);
+            }
+        });
     }
 }
