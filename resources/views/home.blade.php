@@ -997,23 +997,17 @@
 </style>
 
 <section id="customers-sec" class="clients">
-
-    <div class="hero">
-        <div class="h2-subtitle fade-in playfair-display"></div>
-        <h4 class="playfair-display text-dark">Customers</h4>
-        <h3 class="playfair-display text-dark">Who are our customers and partners</h3>
+    <div class="services-header">
+        <h5 class="title-heading">Customers</h5>
+        <p class="text-custom text-light-green">Who are our customers and partners</p>
     </div>
-
     <div class="columns">
         @php
         $customers = \App\Models\Customer::all();
         @endphp
-
         @foreach($customers as $customer)
         <div class="column fade-in">
             <div class="card">
-
-
                 <div class="company-names">
                     <div class="company-list playfair-display">
                         <div class="company-name playfair-display">{{ $customer->name }}</div>
@@ -1041,60 +1035,43 @@
 </section>
 
 <section id="community-sec" class="clients">
-    <div class="header" style="text-align:center; margin-bottom:40px;">
-
-        <h4 class="subtitle blue text-custom">Our Community</h4>
-        <h3 class="text-custom">Experts in the technologies you need for your projects</h3>
+    <div class="services-header">
+        <h5 class="title-heading">Our Community</h5>
+        <p class="text-custom text-light-green">Experts in the technologies you need for your projects</p>
     </div>
-
     <div class="services-row" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;">
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
         </div>
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
         </div>
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
         </div>
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
         </div>
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
         </div>
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
         </div>
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
         </div>
-
-
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
         </div>
-
     </div>
 </section>
 
 <section class="overflow-hidden space-top playfair-display" id="contact-sec">
-    <h5 style="text-align: center;" class="text-dark">Contact Us</h5>
-    <p style="text-align: center;" class="text-custom">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We're here to help and will get back to you as soon as possible.</p>
+    <div class="services-header">
+        <h5 class="title-heading">Contact Us</h5>
+        <p class="text-custom text-light-green">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We're here to help and will get back to you as soon as possible.</p>
+    </div>
     <div class="container">
         <div class="row gy-4 flex-row-reverse">
             <div class="col-xl-6">
