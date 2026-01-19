@@ -33,12 +33,14 @@ class HomeController extends Controller
 
         $companies = \App\Models\Company::all();
 
+        // Fetch customers
+        $customers = Customer::all();
 
         $galleries = Gallery::latest()->get();
 
         $instagrams = Instagram::latest()->get();
 
-        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'galleries', 'instagrams'));
+        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'galleries', 'instagrams'));
     }
 
     /**
