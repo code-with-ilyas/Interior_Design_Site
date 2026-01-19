@@ -32,9 +32,9 @@ Route::get('/project/3', function () {
 })->name('project3');
 
 // Blog routes
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog.index');
+Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/category/{category:slug}', [\App\Http\Controllers\BlogController::class, 'category'])->name('blog.category');
+Route::get('/blog/{blog:slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
 
 Route::get('/gallery', function () {
     return view('gallery');

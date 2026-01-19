@@ -807,36 +807,42 @@
         </div>
         <div class="row gx-24 gy-30">
             <div class="col-12">
-                <div class="blog-card style2 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_1.jpg') }}" alt="blog image"></div>
-                    <div class="box-content">
-                        <div>
-                            <div class="blog-meta text-custom"><a href="blog.html" class="text-dark">By Alex John</a> <a href="blog.html" class="text-dark">Architecture</a></div>
-                            <h3 class="box-title text-custom"><a href="blog-details.html">Six Inspiring New Young Architects You Should be Following</a></h3>
+                @forelse($blogPosts as $index => $post)
+                    @php
+                        $delay = '.' . (3 + ($index * 2)) . 's';
+                    @endphp
+                    <div class="blog-card style2 wow fadeInUp {{ $index > 0 ? 'mt-30' : '' }}" data-wow-delay="{{ $delay }}">
+                        <div class="blog-img global-img">
+                            @if($post->image)
+                                <img src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}">
+                            @else
+                                <img src="{{ asset('assets/img/blog/blog-placeholder.jpg') }}" alt="Blog placeholder">
+                            @endif
                         </div>
-                        <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;"><span class="date text-custom">Aug 25, 2025</span> <a href="blog-details.html" class="th-btns black-border">Read More</a></div>
-                    </div>
-                </div>
-                <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_2.jpg') }}" alt="blog image"></div>
-                    <div class="box-content">
-                        <div>
-                            <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
-                            <h3 class="box-title text-custom"><a href="blog-details.html">Maximizing Space Smart Architecture Solutions for Small Homes</a></h3>
+                        <div class="box-content">
+                            <div>
+                                <div class="blog-meta text-custom">
+                                    <a href="#" class="text-dark">By Admin</a>
+                                    <a href="#" class="text-dark">{{ $post->category->name ?? 'General' }}</a>
+                                </div>
+                                <h3 class="box-title text-custom">
+                                    <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>
+                                </h3>
+                            </div>
+                            <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                                <span class="date text-custom">
+                                    {{ $post->published_at ? $post->published_at->format('M d, Y') : $post->created_at->format('M d, Y') }}
+                                </span>
+                                <a href="{{ route('blog.show', $post) }}" class="th-btns black-border">Read More</a>
+                            </div>
                         </div>
-                        <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;"><span class="date text-custom">Aug 26, 2025</span> <a href="blog-details.html" class="th-btns black-border">Read More</a></div>
                     </div>
-                </div>
-                <div class="blog-card style2 mt-30 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="blog-img global-img"><img src=" {{ asset( 'assets/img/blog/blog_4_3.jpg') }}" alt="blog image"></div>
-                    <div class="box-content">
-                        <div>
-                            <div class="blog-meta"><a href="blog.html" class="text-custom">By Michel Bruis</a> <a href="blog.html" class="text-dark">Architecture</a></div>
-                            <h3 class="box-title text-custom"><a href="blog-details.html">The Intersection of Art and Architecture to Creating Sculptural Buildings</a></h3>
-                        </div>
-                        <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;"><span class="date text-custom">Aug 27, 2025</span> <a href="blog-details.html" class="th-btns black-border">Read More</a></div>
+                @empty
+                    <div class="text-center py-12">
+                        <h3 class="text-xl text-gray-500">No blog posts available</h3>
+                        <p class="text-gray-400 mt-2">Check back later for updates</p>
                     </div>
-                </div>
+                @endforelse
             </div>
         </div>
         <hr class="line">
