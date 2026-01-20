@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
@@ -25,49 +26,75 @@ class CustomerController extends Controller
     // Store a new customer
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = $request->only('name', 'description');
 
-        if ($request->hasFile('logo')) {
-            $data['logo'] = $request->file('logo')->store('customers', 'public');
+        // Handle multiple logo uploads
+        $logoUrls = [];
+        if ($request->hasFile('logo_images')) {
+            foreach ($request->file('logo_images') as $logo) {
+                $logoUrls[] = $logo->store('customers', 'public');
+            }
         }
+
+        // Store as JSON array (empty array if no logos)
+        $data['logo'] = json_encode($logoUrls);
 
         Customer::create($data);
 
         return redirect()->route('admin.customers.index')->with('success', 'Customer added successfully.');
     }
 
+    // Show customer details
+    public function show(Customer $customer)
+    {
+        return view('admin.customers.show', compact('customer'));
+    }
+
     // Show form to edit customer
     public function edit(Customer $customer)
     {
-        return view('admin.customers.edit', compact('customer'));
+        // Decode logos for the edit form
+        $customerLogos = json_decode($customer->logo, true) ?: [];
+        return view('admin.customers.edit', compact('customer', 'customerLogos'));
     }
 
     // Update customer
     public function update(Request $request, Customer $customer)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = $request->only('name', 'description');
 
-        // Handle logo upload
-        if ($request->hasFile('logo')) {
-            // Delete old logo if exists
-            if ($customer->logo && Storage::disk('public')->exists($customer->logo)) {
-                Storage::disk('public')->delete($customer->logo);
-            }
+        // Get existing logos
+        $existingLogos = json_decode($customer->logo, true) ?: [];
 
-            $data['logo'] = $request->file('logo')->store('customers', 'public');
+        // Handle logo uploads
+        if ($request->hasFile('logo_images')) {
+            foreach ($request->file('logo_images') as $logo) {
+                $existingLogos[] = $logo->store('customers', 'public');
+            }
         }
+
+        // Remove logos that were marked for deletion
+        if ($request->has('remove_logos')) {
+            $logosToRemove = $request->input('remove_logos', []);
+            $existingLogos = array_values(array_filter($existingLogos, function($logo, $index) use ($logosToRemove) {
+                return !in_array($index, $logosToRemove);
+            }, ARRAY_FILTER_USE_BOTH));
+        }
+
+        // Store as JSON array (always store an array, even if empty)
+        $data['logo'] = json_encode($existingLogos);
 
         $customer->update($data);
 
@@ -77,9 +104,14 @@ class CustomerController extends Controller
     // Delete customer
     public function destroy(Customer $customer)
     {
-        // Delete logo file if exists
-        if ($customer->logo && Storage::disk('public')->exists($customer->logo)) {
-            Storage::disk('public')->delete($customer->logo);
+        // Delete logo files if they exist
+        $logos = json_decode($customer->logo, true);
+        if ($logos && is_array($logos)) {
+            foreach ($logos as $logoPath) {
+                if ($logoPath && Storage::disk('public')->exists($logoPath)) {
+                    Storage::disk('public')->delete($logoPath);
+                }
+            }
         }
 
         $customer->delete();
@@ -87,4 +119,3 @@ class CustomerController extends Controller
         return redirect()->route('admin.customers.index')->with('success', 'Customer deleted successfully.');
     }
 }
-

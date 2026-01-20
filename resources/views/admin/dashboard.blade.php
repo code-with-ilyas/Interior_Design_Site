@@ -86,7 +86,7 @@
                             <a href="{{ route('admin.skills.index') }}" class="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600">Manage Skills</a>
                             <a href="{{ route('admin.project-categories.index') }}" class="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600">Manage Project Categories</a>
                             <a href="{{ route('admin.permissions.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Manage Permissions</a>
-                           
+                            <a href="/" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Visit Home Page</a>
                         </div>
                     </div>
                 </div>

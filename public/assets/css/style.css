@@ -44,6 +44,17 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased
 }
+.title-heading {
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 900;
+    --tw-text-opacity: 1;
+    color: rgba(0, 15, 10, var(--tw-text-opacity));
+}
+.text-light-green {
+   color:#9ebdb4;
+}
 
 body.body-dark {
     background-color: #0E0E0E
@@ -9025,11 +9036,11 @@ ol.widget_recent_comments,
 }
 
 .header-layout3 .sticky-wrapper.sticky {
-    /* background-color: var(--title-color) */
+    background-color: #F7F5F2;
 }
 
 .header-layout3 .menu-area {
-    padding: 18px 0
+    /* padding: 18px 0 */
 }
 
 .header-layout3 .header-button .th-btn {
@@ -27362,9 +27373,9 @@ span.select2-selection.select2-selection--single:focus {
     --duration: 100s
 }
 
-.marquee:last-child {
+/* .marquee:last-child {
     --duration: 80s
-}
+} */
 
 .marquee.marquee--reverse .marquee-group {
     --gap: 35px;

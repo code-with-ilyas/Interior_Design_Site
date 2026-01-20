@@ -9,6 +9,7 @@ use App\Models\Customer;
 use App\Models\Gallery;
 use App\Models\Instagram;
 use App\Models\ExpertCategory;
+use App\Models\BlogPost;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,14 +32,24 @@ class HomeController extends Controller
 
         $services = Service::all();
 
-        $customers = Customer::all();
+        $companies = \App\Models\Company::all();
 
+        // Fetch customers
+        $customers = Customer::all();
 
         $galleries = Gallery::latest()->get();
 
         $instagrams = Instagram::latest()->get();
 
-        return view('home', compact('expertsByCategory', 'about', 'services', 'customers', 'galleries', 'instagrams'));
+        // Fetch latest published blog posts
+        $blogPosts = BlogPost::with('category')
+            ->where('published_at', '<=', now())
+            ->orWhereNull('published_at')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'galleries', 'instagrams', 'blogPosts'));
     }
 
     /**

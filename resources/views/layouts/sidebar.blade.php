@@ -10,6 +10,15 @@
                 Dashboard
             </a>
 
+            <!-- Home Page -->
+            <a href="/"
+                class="flex items-center px-4 py-3 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-100">
+                <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+                Home Page
+            </a>
+
             <!-- Projects Dropdown -->
             <div x-data="{ open: {{ request()->routeIs('admin.projects.*') || request()->routeIs('admin.project-categories.*') ? 'true' : 'false' }} }">
                 <button @click="open = !open"
@@ -68,6 +77,30 @@
                 </div>
             </div>
 
+            <!-- Customers Dropdown -->
+            <div x-data="{ open: {{ request()->routeIs('admin.customers.*') ? 'true' : 'false' }} }">
+                <button @click="open = !open"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.customers.*') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                    <div class="flex items-center">
+                        <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                        </svg>
+                        Customers
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="mt-1 ml-4 space-y-1">
+                    <a href="{{ route('admin.customers.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.customers.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Customers List
+                    </a>
+                </div>
+            </div>
+
             <!-- Quotes Dropdown -->
             <div x-data="{ open: {{ request()->routeIs('admin.quotes.*') ? 'true' : 'false' }} }">
                 <button @click="open = !open"
@@ -95,6 +128,33 @@
                 </div>
             </div>
 
+            <!-- Blog & News Dropdown -->
+            <div x-data="{ open: {{ request()->routeIs('admin.blog-*') ? 'true' : 'false' }} }">
+                <button @click="open = !open"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.blog-*') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                    <div class="flex items-center">
+                        <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                        </svg>
+                        Blog & News
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="mt-1 ml-4 space-y-1">
+                    <a href="{{ route('admin.blog-posts.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.blog-posts.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Blog Posts
+                    </a>
+                    <a href="{{ route('admin.blog-categories.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.blog-categories.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Blog Categories
+                    </a>
+                </div>
+            </div>
+
             <a href="{{ route('admin.about.index') }}"
                 class="block px-4 py-2 text-sm rounded-md
                     {{ request()->routeIs('admin.about.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
@@ -108,13 +168,6 @@
                    {{ request()->routeIs('admin.services.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
                 Manage Services
             </a>
-
-            <a href="{{ route('admin.customers.index') }}"
-                class="block px-4 py-2 text-sm rounded-md
-                   {{ request()->routeIs('admin.customers.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                Manage Customers
-            </a>
-
 
             <a href="{{ route('admin.gallery.index') }}"
                 class="block px-4 py-2 text-sm rounded-md
