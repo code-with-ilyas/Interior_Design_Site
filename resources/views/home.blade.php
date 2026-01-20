@@ -812,11 +812,11 @@
                         $delay = '.' . (3 + ($index * 2)) . 's';
                     @endphp
                     <div class="blog-card style2 wow fadeInUp {{ $index > 0 ? 'mt-30' : '' }}" data-wow-delay="{{ $delay }}">
-                        <div class="blog-img global-img">
+                        <div class="blog-img global-img" style="width: 100%; max-width: 730px; height: 315px; overflow: hidden;">
                             @if($post->image)
-                                <img src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}">
+                                <img src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 100%; object-fit: cover;">
                             @else
-                                <img src="{{ asset('assets/img/blog/blog-placeholder.jpg') }}" alt="Blog placeholder">
+                                <img src="{{ asset('assets/img/blog/blog-placeholder.jpg') }}" alt="Blog placeholder" style="width: 100%; height: 100%; object-fit: cover;">
                             @endif
                         </div>
                         <div class="box-content">
@@ -848,6 +848,44 @@
         <hr class="line">
     </div>
 </section>
+
+<style>
+    /* Blog section styling */
+    #blog-sec .blog-img {
+        width: 100%;
+        max-width: 730px;
+        height: 315px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    #blog-sec .blog-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Fix: Ensure blog section header is always visible */
+    #blog-sec .services-header {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    #blog-sec .services-header .title-heading,
+    #blog-sec .services-header .text-light-green {
+        opacity: 1 !important;
+        visibility: visible !important;
+        color: inherit !important;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        #blog-sec .blog-img {
+            height: 200px;
+            max-width: 100%;
+        }
+    }
+</style>
 
 <section id="experts-sec" class="expertise">
     <div class="hero">
@@ -915,7 +953,7 @@
     #experts-sec .profile {
         background: #ffffff;
         border-radius: 12px;
-        padding: 20px;
+        padding: 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         color: #000000;

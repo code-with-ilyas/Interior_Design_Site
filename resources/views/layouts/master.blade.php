@@ -873,21 +873,6 @@
             }
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-           /*  font-family: "Playfair Display", serif;
-            font-weight: 700; */
-           /*  text-transform: uppercase; */
-            letter-spacing: 1px;
-            color: #fff;
-           /*  margin-bottom: 20px; */
-            font-size: 13.5px;
-        }
-
         .sub-title,
         .h2-subtitle {
             font-weight: 500;
