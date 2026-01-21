@@ -55,6 +55,9 @@ body {
 .text-light-green {
    color:#9ebdb4;
 }
+.renovation-bg-color {
+    background-color: #F7F5F2!important;
+}
 
 body.body-dark {
     background-color: #0E0E0E
