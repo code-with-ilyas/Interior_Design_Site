@@ -503,7 +503,7 @@
 </section>
 
 
-<section id="services-sec">
+<section id="services-sec" class="renovation-bg-color">
     <div>
         <div class="container">
             <div class="services-header">
@@ -605,7 +605,7 @@
     </div>
 </section>
 
-<section class="positive-relative overflow-hidden space overflow-hidden" id="blog-sec">
+<section class="renovation-bg-color positive-relative overflow-hidden space overflow-hidden" id="blog-sec">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-xl-5">
@@ -850,7 +850,7 @@
     }
 </style>
 
-<section id="customers-sec" class="clients bg-white">
+<section id="customers-sec" class="renovation-bg-color">
     <div class="services-header">
         <h5 class="title-heading">CUSTOMER</h5>
         <p class="text-custom text-light-green">Who are our customers and partners</p>
