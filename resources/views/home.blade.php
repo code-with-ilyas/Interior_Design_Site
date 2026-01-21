@@ -1118,15 +1118,6 @@
             <div class="col-xl-6">
                 <div class="ps-xl-5">
                     <form action="">
-                        <div class="title-area">
-                            <h2 class="sec-title style2 split-text text-custom">
-                                Let's
-                                <span class="title1 text-custom">Work</span>
-                                <span class="title4 text-custom">Together</span>
-                            </h2>
-
-                            <p class="contact-text text-custom mt-30">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those who appreciate both functionality.</p>
-                        </div>
                         <div class="row">
                             <div class="form-group col-md-6"><input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> <i class="fa-solid fa-user"></i></div>
                             <div class="form-group col-md-6"><input type="email" class="form-control" name="email" id="email" placeholder="Email Address"> <i class="fa-solid fa-envelope"></i></div>
@@ -1138,7 +1129,8 @@
                                     <option value="Skin & Hair Specialists">Skin & Hair Specialists</option>
                                     <option value="Child Specialists">Child Specialists</option>
                                 </select></div>
-                            <div class="form-group col-12"><textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
+                            <div class="form-group col-12">
+                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
                             <div class="col-12 form-group text-custom"><input type="checkbox" id="html"> <label for="html" class="text-custom">I agree with the privacy policy</label></div>
                             <div class="form-btn mt-20 col-12  text-custom"><button class="th-btns black-border text-custom">Submit Now</button></div>
                         </div>
@@ -1148,8 +1140,8 @@
             </div>
             <div class="col-xl-6">
                 <div class="contact-image2" data-mask-src="assets/img/normal/contact-shape.png">
-                    <div class="img1 img-anim-left"><img src="assets/img/normal/contact-1-1.jpg" alt=""></div>
-                    <div class="contact-shape"><img src="assets/img/normal/contact-shape2.png" alt=""></div>
+                    <div class="img1 img-anim-left"><img style="height:500px!important;" src="assets/img/normal/contact-1-1.jpg" alt=""></div>
+                    <div class="contact-shape"><img style="height:500px!important;" src="assets/img/normal/contact-shape2.png" alt=""></div>
                 </div>
             </div>
         </div>
