@@ -227,7 +227,6 @@
     <script src="assets/js/SplitText.js"></script>
     <script src="assets/js/SplitType.js"></script>
     <script src="assets/js/lenis.min.js"></script>
-    <script src="assets/js/CustomEase.min.js"></script>
     <script src="assets/js/main.js"></script>
 
     <script>
@@ -1981,6 +1980,64 @@
             }
         } */
     </style>
+
+    <script>
+        // Fix for the getTotalLength error in main.js
+        // Ensure SVG path exists before trying to manipulate it
+        document.addEventListener('DOMContentLoaded', function() {
+            // Safe way to handle the scroll-top functionality
+            if (document.querySelector('.scroll-top')) {
+                var scrollTopElement = document.querySelector('.scroll-top');
+                var pathElement = scrollTopElement.querySelector('path');
+
+                if (pathElement && typeof pathElement.getTotalLength === 'function') {
+                    try {
+                        var pathLength = pathElement.getTotalLength();
+                        pathElement.style.strokeDasharray = pathLength + ' ' + pathLength;
+                        pathElement.style.strokeDashoffset = pathLength;
+                    } catch (e) {
+                        console.warn('Could not calculate SVG path length:', e.message);
+                    }
+                }
+            }
+
+            // Re-initialize the scroll functionality with proper checks
+            var scrollElement = document.querySelector('.scroll-top');
+            if (scrollElement) {
+                // Add scroll event listener
+                window.addEventListener('scroll', function() {
+                    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > 50) {
+                        scrollElement.classList.add('show');
+                    } else {
+                        scrollElement.classList.remove('show');
+                    }
+
+                    // Update SVG path if it exists
+                    var pathElement = scrollElement.querySelector('path');
+                    if (pathElement && typeof pathElement.getTotalLength === 'function') {
+                        try {
+                            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                            var pathLength = pathElement.getTotalLength();
+                            var offset = pathLength - (scrollTop * pathLength / docHeight);
+                            pathElement.style.strokeDashoffset = offset;
+                        } catch (e) {
+                            console.warn('Could not update SVG path:', e.message);
+                        }
+                    }
+                });
+
+                // Add click handler for scroll to top
+                scrollElement.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
 
 </body>
 

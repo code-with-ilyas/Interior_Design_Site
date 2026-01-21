@@ -12,6 +12,7 @@ use App\Models\ExpertCategory;
 use App\Models\BlogPost;
 use App\Models\Project;
 use App\Models\ProjectCategory;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -63,7 +64,12 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'galleries', 'instagrams', 'blogPosts', 'projects', 'projectCategories'));
+        // Fetch active testimonials ordered by sort order
+        $testimonials = Testimonial::where('is_active', 1)
+            ->orderBy('sort_order')
+            ->get();
+
+        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'galleries', 'instagrams', 'blogPosts', 'projects', 'projectCategories', 'testimonials'));
     }
 
     /**

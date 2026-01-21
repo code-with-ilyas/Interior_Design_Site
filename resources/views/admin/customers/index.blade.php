@@ -47,13 +47,34 @@
                                             {{ $count }} logo(s)
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('admin.customers.show', $customer) }}" class="text-blue-600 hover:text-blue-900 mr-3">View</a>
-                                            <a href="{{ route('admin.customers.edit', $customer) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <form action="{{ route('admin.customers.destroy', $customer) }}" method="POST" class="inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Are you sure you want to delete this customer?')">Delete</button>
-                                            </form>
+                                            <x-dropdown align="right" width="48">
+                                                <x-slot name="trigger">
+                                                    <button class="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                                        Actions
+                                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                </x-slot>
+
+                                                <x-slot name="content">
+                                                    <x-dropdown-link href="{{ route('admin.customers.show', $customer) }}">
+                                                        View
+                                                    </x-dropdown-link>
+
+                                                    <x-dropdown-link href="{{ route('admin.customers.edit', $customer) }}">
+                                                        Edit
+                                                    </x-dropdown-link>
+
+                                                    <form method="POST" action="{{ route('admin.customers.destroy', $customer) }}" class="inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <x-dropdown-link href="#" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this customer?')) { this.closest('form').submit(); }">
+                                                            Delete
+                                                        </x-dropdown-link>
+                                                    </form>
+                                                </x-slot>
+                                            </x-dropdown>
                                         </td>
                                     </tr>
                                 @empty

@@ -560,46 +560,46 @@
                 <div class="filter-menu style2 light filter-menu-active">
                     <button data-filter="*" class="th-btns black-border active" type="button">View All</button>
                     @foreach($projectCategories as $index => $category)
-                        <button data-filter=".cat{{ $index + 1 }}" class="th-btns black-border" type="button">{{ $category->name }}</button>
+                    <button data-filter=".cat{{ $index + 1 }}" class="th-btns black-border" type="button">{{ $category->name }}</button>
                     @endforeach
                 </div>
             </div>
         </div>
         <div class="gallery-row filter-active row">
             @foreach($projects as $project)
-                @php
-                    // Get the filter class for this project based on its category
-                    $filterClass = 'cat-none'; // default
-                    if($project->projectCategory) {
-                        // Find the category index
-                        $categoryIndex = $projectCategories->search(function($item) use ($project) {
-                            return $item->id === $project->project_category_id;
-                        });
-                        if($categoryIndex !== false) {
-                            $filterClass = 'cat' . ($categoryIndex + 1);
-                        }
-                    }
-                @endphp
-                <div class="project-item col-12 filter-item {{ $filterClass }}">
-                    <div class="project-item-container d-flex" style="align-items: center; gap: 30px; flex-wrap: nowrap; width: 100%;">
-                        <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center; flex-wrap: nowrap;">
-                            @foreach($project->projectImages->take(2) as $index => $image)
-                                <div class="box-img global-img {{ $index === 0 ? 'project-img-first' : 'project-img-second' }}">
-                                    <img src="{{ Storage::url($image->image) }}" alt="{{ $project->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                                </div>
-                            @endforeach
+            @php
+            // Get the filter class for this project based on its category
+            $filterClass = 'cat-none'; // default
+            if($project->projectCategory) {
+            // Find the category index
+            $categoryIndex = $projectCategories->search(function($item) use ($project) {
+            return $item->id === $project->project_category_id;
+            });
+            if($categoryIndex !== false) {
+            $filterClass = 'cat' . ($categoryIndex + 1);
+            }
+            }
+            @endphp
+            <div class="project-item col-12 filter-item {{ $filterClass }}">
+                <div class="project-item-container d-flex" style="align-items: center; gap: 30px; flex-wrap: nowrap; width: 100%;">
+                    <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center; flex-wrap: nowrap;">
+                        @foreach($project->projectImages->take(2) as $index => $image)
+                        <div class="box-img global-img {{ $index === 0 ? 'project-img-first' : 'project-img-second' }}">
+                            <img src="{{ Storage::url($image->image) }}" alt="{{ $project->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                         </div>
-                        <div class="project-content" style="flex: 0 0 300px;">
-                            <h2 class="box-title">{{ $project->title }}</h2>
-                            @if($project->short_description)
-                                <p class="box-text">{{ $project->short_description }}</p>
-                            @endif
-                            <div class="btn-group mt-45">
-                                <a href="{{ route('projects.show', $project) }}" class="th-btns black-border" style="display:inline-block; text-decoration:none;">View Details</a>
-                            </div>
+                        @endforeach
+                    </div>
+                    <div class="project-content" style="flex: 0 0 300px;">
+                        <h2 class="box-title">{{ $project->title }}</h2>
+                        @if($project->short_description)
+                        <p class="box-text">{{ $project->short_description }}</p>
+                        @endif
+                        <div class="btn-group mt-45">
+                            <a href="{{ route('projects.show', $project) }}" class="th-btns black-border" style="display:inline-block; text-decoration:none;">View Details</a>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
@@ -919,8 +919,8 @@
         }
 
         .text-light-green {
-            color: #9ebdb4!important;
-            text-align: center!important;
+            color: #9ebdb4 !important;
+            text-align: center !important;
         }
 
         /* Customer logo container */
@@ -1130,7 +1130,8 @@
                                     <option value="Child Specialists">Child Specialists</option>
                                 </select></div>
                             <div class="form-group col-12">
-                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i></div>
+                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i>
+                            </div>
                             <div class="col-12 form-group text-custom"><input type="checkbox" id="html"> <label for="html" class="text-custom">I agree with the privacy policy</label></div>
                             <div class="form-btn mt-20 col-12  text-custom"><button class="th-btns black-border text-custom">Submit Now</button></div>
                         </div>
@@ -1148,81 +1149,112 @@
     </div>
 </section>
 
-<section class="overflow-hidden overflow-hidden playfair-display" id="testi-sec">
+
+
+<section class="overflow-hidden overflow-hidden" id="testi-sec">
     <div class="container">
-        <div class="row gy-24 justify-content-center">
+        <div class="services-header">
+            <h5 class="title-heading">Testimonials</h5>
+            <p class="text-custom text-light-green">What our clients have to say about our services.</p>
+        </div>
+        <div class="row gy-5 justify-content-between align-items-center">
             <div class="col-xl-8">
-
-                <h4 class="text-center text-dark">TESTIMONIALS</h4>
-
-                <h2 class="style2 split-text text-custom">Client Feedback & <span class="fs-160"></span><span class="title3">Success Stories</span></h2>
-            </div>
-        </div>
-    </div>
-    <div class="row gy-5 justify-content-between align-items-center">
-        <div class="col-xl-8">
-            <div class="testi-area">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="testi-box-tab" data-slider-tab="#testiSlide3">
-                            <div class="tab-btn active"><img src="assets/img/testimonial/testi-1-1.jpg" alt="avater"></div>
-                            <div class="tab-btn"><img src="assets/img/testimonial/testi-1-2.jpg" alt="avater"></div>
-                            <div class="tab-btn"><img src="assets/img/testimonial/testi-1-3.jpg" alt="avater"></div>
-                            <div class="tab-btn"><img src="assets/img/testimonial/testi-1-4.jpg" alt="avater"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-
-                    </div>
-                </div>
-                <div class="icon-box"><button data-slider-prev="#testiSlide3" class="slider-arrow default slider-prev"><img src="assets/img/icon/left-arrow2.svg" alt=""></button> <button data-slider-next="#testiSlide3" class="slider-arrow default slider-next"><img src="assets/img/icon/right-arrow3.svg" alt=""></button></div><span class="testi-line"></span>
-            </div>
-        </div>
-        <div class="col-xl-4">
-            <div class="slider-wrap">
-                <div class="swiper th-slider testiSlide3 has-shadow" id="testiSlide3" data-slider-options='{"effect":"slide","loop":true}'>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testi-box">
-                                <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                                <p class="box-text text-custom">"John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative."</p>
-                                <div class="box-profile">
-                                    <div class="box-author"><img src="assets/img/testimonial/testi_3_1.jpg" alt="Avater"></div>
-                                    <div class="box-info">
-                                        <h3 class="box-title text-custom">Alex James</h3><span class="box-desig text-custom   ">Company Owner</span>
-                                    </div>
+                <div class="testi-area light">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="testi-box-tab" data-slider-tab="#testiSlide3">
+                                @forelse($testimonials as $index => $testimonial)
+                                <div class="tab-btn {{ $index === 0 ? 'active' : '' }}">
+                                    @if($testimonial->client_image)
+                                    @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
+                                    <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}">
+                                    @else
+                                    <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}">
+                                    @endif
+                                    @else
+                                    <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="{{ $testimonial->client_name }}">
+                                    @endif
                                 </div>
+                                @empty
+                                <div class="tab-btn active">
+                                    <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="Default Testimonial">
+                                </div>
+                                @endforelse
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="testi-box">
-                                <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                                <p class="box-text text-custom">"John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative."</p>
-                                <div class="box-profile">
-                                    <div class="box-author"><img src="assets/img/testimonial/testi_3_2.jpg" alt="Avater"></div>
-                                    <div class="box-info">
-                                        <h3 class="box-title text-custom">James Thompson</h3><span class="box-desig text-custom">Company Owner</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testi-box">
-                                <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                                <p class="box-text text-custom">"John was wonderful to work with and more than capable in all aspects. I found him and his employees to be very creative, organized and professional…. I see John as an architect who truly loves his work. John has a true passion in the creative."</p>
-                                <div class="box-profile">
-                                    <div class="box-author"><img src="assets/img/testimonial/testi_3_3.jpg" alt="Avater"></div>
-                                    <div class="box-info">
-                                        <h3 class="box-title text-custom">Aditi Banerjee</h3><span class="box-desig text-custom">Company Owner</span>
-                                    </div>
-                                </div>
+                        <div class="col-lg-5">
+                            <div class="testi-img global-img">
+                                @forelse($testimonials as $index => $testimonial)
+                                @if($testimonial->client_image)
+                                @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
+                                <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
+                                @else
+                                <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
+                                @endif
+                                @else
+                                <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
+                                @endif
+                                @empty
+                                <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="Default Testimonial">
+                                @endforelse
                             </div>
                         </div>
                     </div>
+                    <div class="icon-box"><button data-slider-prev="#testiSlide3" class="slider-arrow default slider-prev"><img src="assets/img/icon/left-arrow2.svg" alt=""></button> <button data-slider-next="#testiSlide3" class="slider-arrow default slider-next"><img src="assets/img/icon/right-arrow3.svg" alt=""></button></div><span class="testi-line"></span>
                 </div>
             </div>
+            <div class="col-xl-4">
+                <div class="slider-wrap">
+                    <div class="swiper th-slider testiSlide3 has-shadow" id="testiSlide3" data-slider-options='{"effect":"slide","loop":true}'>
+                        <div class="swiper-wrapper">
+                            @forelse($testimonials as $testimonial)
+                            <div class="swiper-slide">
+                                <div class="testi-box light">
+                                    <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
+                                    <p class="box-text">"{{ $testimonial->testimonial_text }}"</p>
+                                    <div class="box-profile">
+                                        <div class="box-author">
+                                            @if($testimonial->client_image)
+                                            @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
+                                            <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}">
+                                            @else
+                                            <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}">
+                                            @endif
+                                            @else
+                                            <img src="{{ asset('assets/img/testimonial/testi_3_1.jpg') }}" alt="{{ $testimonial->client_name }}">
+                                            @endif
+                                        </div>
+                                        <div class="box-info">
+                                            <h3 class="box-title">{{ $testimonial->client_name }}</h3>
+                                            @if($testimonial->designation)
+                                            <span class="box-desig">{{ $testimonial->designation }}</span>
+                                            @else
+                                            <span class="box-desig">Client</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @empty
+                            <div class="swiper-slide">
+                                <div class="testi-box light">
+                                    <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
+                                    <p class="box-text">"We'd love to showcase your testimonial here. Please share your experience with us!"</p>
+                                    <div class="box-profile">
+                                        <div class="box-author"><img src="{{ asset('assets/img/testimonial/testi_3_1.jpg') }}" alt="Default"></div>
+                                        <div class="box-info">
+                                            <h3 class="box-title">Be Our First</h3>
+                                            <span class="box-desig">Share Your Experience</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforelse
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -1314,6 +1346,203 @@
 </section>
 
 <style>
+    /* Testimonial section styling - adjusted to match theme */
+    .testi-box-tab .tab-btn img,
+    .box-author img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .testi-box-tab .tab-btn {
+        min-width: 150px;
+        max-height: 150px;
+        cursor: pointer;
+    }
+
+    .box-author {
+        max-width: 150px;
+        border-radius: 0px;
+    }
+
+    /* Additional testimonial styles */
+    .testi-area.light {
+        position: relative;
+        z-index: 2;
+    }
+
+    .testi-img.global-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .testi-line {
+        width: 70%;
+        height: 0px;
+        border: 1px solid rgba(108, 109, 113, 0.5);
+        display: block;
+        margin-top: -20px;
+    }
+
+    .testi-box.light {
+        background: #ffffff;
+        color: #333;
+    }
+
+    .testi-box.light .box-text {
+        color: #333 !important; /* Make text visible */
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+        margin-bottom: 50px;
+        line-height: 1.6;
+    }
+
+    .testi-box.light .box-title {
+        font-family: var(--title-font2);
+        font-weight: 400;
+        font-size: 40px;
+        letter-spacing: 0.02em;
+        color: #333 !important; /* Make title visible */
+        margin-bottom: 0;
+    }
+
+    .testi-box.light .box-desig {
+        font-weight: 400;
+        font-size: 14px;
+        color: #666666 !important; /* Make designation visible */
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .testi-img {
+        position: relative; /* Change positioning */
+        z-index: 1; /* Ensure it doesn't overlap text */
+    }
+
+    /* Ensure testimonial content is visible and properly positioned */
+    #testi-sec {
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Ensure testimonial box content is visible */
+    .testi-box.light {
+        background: #ffffff;
+        color: #333;
+        padding: 30px;
+        border-radius: 8px;
+    }
+
+    .testi-box.light .box-text {
+        color: #333 !important; /* Make text visible */
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+        margin-bottom: 50px;
+        line-height: 1.6;
+    }
+
+    .testi-box.light .box-title {
+        font-family: var(--title-font2);
+        font-weight: 400;
+        font-size: 40px;
+        letter-spacing: 0.02em;
+        color: #333 !important; /* Make title visible */
+        margin-bottom: 0;
+    }
+
+    .testi-box.light .box-desig {
+        font-weight: 400;
+        font-size: 14px;
+        color: #666666 !important; /* Make designation visible */
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Position the testi-img properly */
+    .col-lg-5 .testi-img {
+        margin-top: 0;
+    }
+
+    .testi-box.light .box-profile {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .testi-area.light .icon-box .slider-arrow {
+        border: 1px solid rgba(14, 14, 14, 0.3);
+    }
+
+    .testi-area.light .icon-box .slider-arrow img {
+        -webkit-filter: none;
+        filter: none;
+        -webkit-transition: none;
+        transition: none;
+    }
+
+    .testi-area.light .icon-box .slider-arrow:hover img {
+        -webkit-filter: none;
+        filter: none;
+    }
+
+    .testi-area .icon-box {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-top: 50px;
+        margin-right: 95px;
+    }
+
+    .testi-area .icon-box .slider-arrow {
+        width: 90px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 600;
+        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
+        color: #fff;
+        border: 2px solid #003f3a;
+        border-radius: 25px !important;
+        cursor: pointer;
+        transition: none !important;
+        box-shadow: none;
+        outline: none;
+        -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+
+    .testi-area .icon-box .slider-arrow:hover,
+    .testi-area .icon-box .slider-arrow:focus,
+    .testi-area .icon-box .slider-arrow:active {
+        background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
+        color: #fff !important;
+        border-color: #003f3a !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Ensure testimonial section has proper z-index */
+    #testi-sec {
+        position: relative;
+        z-index: 10;
+    }
+
     /* Project section styling */
     .project-img-first {
         width: 300px;
@@ -1514,7 +1743,7 @@
 
     /* Better vertical alignment */
     .project-item-container {
-        align-items: self-start!important;
+        align-items: self-start !important;
     }
 
     .project-item_wrapp {
@@ -1523,57 +1752,241 @@
 </style>
 
 <script>
+    // Wait for DOM to be fully loaded and jQuery to be available
     document.addEventListener('DOMContentLoaded', function() {
-        // Update selector to match new button class
-        const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
-        const projectItems = document.querySelectorAll('.project-item');
+        // Check if jQuery is loaded
+        if (typeof $ === 'undefined') {
+            console.error('jQuery is not loaded');
+            return;
+        }
 
-        // Initialize all projects as visible
-        projectItems.forEach(item => {
-            item.style.display = 'block';
-            item.style.opacity = '1';
+        // Initialize testimonial slider
+        if (document.querySelector('.testiSlide3')) {
+            const testimonialSwiper = new Swiper('.testiSlide3', {
+                loop: true,
+                effect: 'slide',
+                speed: 600,
+                autoplay: {
+                    delay: 4000, // Auto-slide every 4 seconds
+                    disableOnInteraction: false, // Continue auto-sliding after user interactions
+                },
+                navigation: {
+                    nextEl: '[data-slider-next="#testiSlide3"]',
+                    prevEl: '[data-slider-prev="#testiSlide3"]',
+                },
+                on: {
+                    slideChange: function() {
+                        // Update tab buttons when slide changes
+                        const activeIndex = this.realIndex;
+                        const tabButtons = document.querySelectorAll('.testi-box-tab .tab-btn');
+
+                        tabButtons.forEach((btn, index) => {
+                            btn.classList.toggle('active', index === activeIndex);
+                        });
+
+                        // Update main image when slide changes
+                        updateMainImage(activeIndex);
+                    }
+                }
+            });
+
+            // Function to update the main image
+            function updateMainImage(index) {
+                const allImages = document.querySelectorAll('.testi-area .testi-img img');
+                if (allImages.length > 0) {
+                    // Hide all images
+                    allImages.forEach(img => {
+                        img.style.display = 'none';
+                    });
+
+                    // Show the image at the current index
+                    if (allImages[index]) {
+                        allImages[index].style.display = 'block';
+                    }
+                }
+            }
+
+            // Initialize the first image
+            if (document.querySelector('.testi-area .testi-img img')) {
+                const allImages = document.querySelectorAll('.testi-area .testi-img img');
+                allImages.forEach((img, idx) => {
+                    if (idx !== 0) {
+                        img.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Initialize the testimonial section using the theme's built-in functionality
+        if ($('.testi-box-tab').length > 0) {
+            $('.testi-box-tab').activateSliderThumbs({
+                sliderTab: true,
+                tabButton: '.tab-btn'
+            });
+        }
+
+        // Handle testimonial image loading errors
+        document.querySelectorAll('.testi-area img, .testi-box img').forEach(img => {
+            img.addEventListener('error', function() {
+                // Replace with placeholder
+                this.src = '{{ asset("assets/img/testimonial/testi-1-1.jpg") }}';
+            });
         });
 
-        // Add click event listeners to filter buttons
-        filterButtons.forEach(button => {
+        // Add click handlers for navigation buttons
+        document.querySelectorAll('[data-slider-prev="#testiSlide3"], [data-slider-next="#testiSlide3"]').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                const filterValue = this.getAttribute('data-filter');
+                const targetSliderId = this.getAttribute('data-slider-prev') || this.getAttribute('data-slider-next');
+                const targetSlider = document.querySelector(targetSliderId);
 
-                // Update active button - remove active class from all and add to current
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                if (targetSlider && targetSlider.swiper) {
+                    if (this.getAttribute('data-slider-prev')) {
+                        targetSlider.swiper.slidePrev();
+                    } else {
+                        targetSlider.swiper.slideNext();
+                    }
+                }
+            });
+        });
+
+        // Add tab button click handlers
+        document.querySelectorAll('.testi-box-tab .tab-btn').forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.testi-box-tab .tab-btn').forEach(tabBtn => {
+                    tabBtn.classList.remove('active');
+                });
+
+                // Add active class to clicked button
                 this.classList.add('active');
 
-                console.log('Filter clicked:', filterValue);
+                // Update the slider if it exists
+                if (document.querySelector('.testiSlide3') && document.querySelector('.testiSlide3').swiper) {
+                    document.querySelector('.testiSlide3').swiper.slideTo(index);
+                }
 
-                // Apply filtering
-                projectItems.forEach(item => {
-                    if (filterValue === '*') {
-                        // Show all projects
-                        item.style.display = 'block';
-                        item.style.opacity = '1';
-                        item.style.position = 'relative';
-                        item.style.visibility = 'visible';
-                    } else {
-                        // Check if project has the filter class
-                        const filterClass = filterValue.replace('.', '');
+                // Update the main image
+                updateMainImage(index);
+            });
+        });
+    });
 
-                        if (item.classList.contains(filterClass)) {
+    // Project filtering script - only execute when jQuery is ready
+    if (typeof $ !== 'undefined') {
+        $(document).ready(function() {
+            const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            // Initialize all projects as visible
+            projectItems.forEach(item => {
+                item.style.display = 'block';
+                item.style.opacity = '1';
+            });
+
+            // Add click event listeners to filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Update active button - remove active class from all and add to current
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    console.log('Filter clicked:', filterValue);
+
+                    // Apply filtering
+                    projectItems.forEach(item => {
+                        if (filterValue === '*') {
+                            // Show all projects
                             item.style.display = 'block';
                             item.style.opacity = '1';
                             item.style.position = 'relative';
                             item.style.visibility = 'visible';
                         } else {
-                            item.style.display = 'none';
-                            item.style.opacity = '0';
-                            item.style.position = 'absolute';
-                            item.style.visibility = 'hidden';
+                            // Check if project has the filter class
+                            const filterClass = filterValue.replace('.', '');
+
+                            if (item.classList.contains(filterClass)) {
+                                item.style.display = 'block';
+                                item.style.opacity = '1';
+                                item.style.position = 'relative';
+                                item.style.visibility = 'visible';
+                            } else {
+                                item.style.display = 'none';
+                                item.style.opacity = '0';
+                                item.style.position = 'absolute';
+                                item.style.visibility = 'hidden';
+                            }
                         }
-                    }
+                    });
                 });
             });
         });
-    });
+    } else {
+        // Fallback if jQuery is not loaded yet
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a bit more for jQuery to load
+            setTimeout(function() {
+                if (typeof $ !== 'undefined') {
+                    const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
+                    const projectItems = document.querySelectorAll('.project-item');
+
+                    // Initialize all projects as visible
+                    projectItems.forEach(item => {
+                        item.style.display = 'block';
+                        item.style.opacity = '1';
+                    });
+
+                    // Add click event listeners to filter buttons
+                    filterButtons.forEach(button => {
+                        button.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const filterValue = this.getAttribute('data-filter');
+
+                            // Update active button - remove active class from all and add to current
+                            filterButtons.forEach(btn => btn.classList.remove('active'));
+                            this.classList.add('active');
+
+                            console.log('Filter clicked:', filterValue);
+
+                            // Apply filtering
+                            projectItems.forEach(item => {
+                                if (filterValue === '*') {
+                                    // Show all projects
+                                    item.style.display = 'block';
+                                    item.style.opacity = '1';
+                                    item.style.position = 'relative';
+                                    item.style.visibility = 'visible';
+                                } else {
+                                    // Check if project has the filter class
+                                    const filterClass = filterValue.replace('.', '');
+
+                                    if (item.classList.contains(filterClass)) {
+                                        item.style.display = 'block';
+                                        item.style.opacity = '1';
+                                        item.style.position = 'relative';
+                                        item.style.visibility = 'visible';
+                                    } else {
+                                        item.style.display = 'none';
+                                        item.style.opacity = '0';
+                                        item.style.position = 'absolute';
+                                        item.style.visibility = 'hidden';
+                                    }
+                                }
+                            });
+                        });
+                    });
+                }
+            }, 500);
+        });
+    }
 </script>
 
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+<!-- Swiper JS -->
+<script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
 @endsection
