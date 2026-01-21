@@ -555,12 +555,12 @@
             <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
             <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
         </div>
-        <div class="row justify-content-between align-items-end">
+        <div class="row justify-content-center align-items-end">
             <div class="col-xl-6">
                 <div class="filter-menu style2 light filter-menu-active">
-                    <button data-filter="*" class="th-btn th-border active" type="button">View All</button>
+                    <button data-filter="*" class="th-btns black-border active" type="button">View All</button>
                     @foreach($projectCategories as $index => $category)
-                        <button data-filter=".cat{{ $index + 1 }}" class="th-btn th-border" type="button">{{ $category->name }}</button>
+                        <button data-filter=".cat{{ $index + 1 }}" class="th-btns black-border" type="button">{{ $category->name }}</button>
                     @endforeach
                 </div>
             </div>
@@ -1424,10 +1424,27 @@
     }
 
     /* Filter button active state */
-    .filter-menu .th-btn.active {
-        background-color: #003f3a;
-        color: white;
-        border-color: #003f3a;
+    .filter-menu .th-btns.black-border {
+        display: inline-block;
+        text-decoration: none;
+        background: transparent;
+        border: 2px solid #000000;
+        color: #000000;
+        padding: 12px 28px;
+        border-radius: 100px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-right: 10px;
+    }
+
+    .filter-menu .th-btns.black-border:hover {
+        background: #000000;
+        color: #ffffff;
+    }
+
+    .filter-menu .th-btns.black-border.active {
+        background: #000000;
+        color: #ffffff;
     }
 
     /* Project filtering styles */
@@ -1460,9 +1477,6 @@
     }
 
     /* Fix layout for few items */
-    .gallery-row {
-        gap: 30px;
-    }
 
     .project-item {
         margin-bottom: 0;
@@ -1518,8 +1532,8 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Force fallback implementation - Isotope seems to have issues
-        const filterButtons = document.querySelectorAll('.filter-menu .th-btn');
+        // Update selector to match new button class
+        const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
         const projectItems = document.querySelectorAll('.project-item');
 
         // Initialize all projects as visible
@@ -1534,7 +1548,7 @@
                 e.preventDefault();
                 const filterValue = this.getAttribute('data-filter');
 
-                // Update active button
+                // Update active button - remove active class from all and add to current
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
