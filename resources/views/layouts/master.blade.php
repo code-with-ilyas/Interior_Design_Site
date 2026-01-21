@@ -65,7 +65,7 @@
                                     </li>
 
                                     <li><a href="#about-title">About Us</a></li>
-                                    <li><a href="#service-sec">Services</a></li>
+                                    <li><a href="#services-sec">Services</a></li>
                                     <li><a href="#project-sec">Projects</a></li>
                                     <li><a href="#blog-sec">Blog</a></li>
                                     <li><a href="#experts-sec" class="link-experts">Experts</a></li>
