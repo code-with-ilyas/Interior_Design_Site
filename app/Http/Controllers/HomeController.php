@@ -10,6 +10,8 @@ use App\Models\Gallery;
 use App\Models\Instagram;
 use App\Models\ExpertCategory;
 use App\Models\BlogPost;
+use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -49,7 +51,19 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'galleries', 'instagrams', 'blogPosts'));
+        // Fetch project categories that have projects
+        $projectCategories = ProjectCategory::whereHas('projects')
+            ->withCount('projects')
+            ->orderBy('name')
+            ->get();
+
+        // Fetch projects with their images and categories
+        $projects = Project::with(['projectImages', 'projectCategory'])
+            ->orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
+
+        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'galleries', 'instagrams', 'blogPosts', 'projects', 'projectCategories'));
     }
 
     /**

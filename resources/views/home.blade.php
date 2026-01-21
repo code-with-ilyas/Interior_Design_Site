@@ -547,252 +547,62 @@
     </div>
 </section>
 
-<section class="project-area position-relative space-bottom" id="project-sec">
+
+<section class="project-area position-relative space-bottom overflow-hidden" id="project-sec">
     <div class="container">
         <div class="services-header">
             <h5 class="title-heading">Our Projects</h5>
             <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
             <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
         </div>
-
-        <div class="col-xl-6 mx-auto">
-            <div class="filter-menu style2 filter-menu-active">
-                <button data-filter="*" class="th-btns th-border active text-white" type="button">View All</button>
-                <button data-filter=".cat1" class="th-btns th-border text-white" type="button">Residential</button>
-                <button data-filter=".cat2" class="th-btns th-border text-white" type="button">Commercial</button>
-                <button data-filter=".cat3" class="th-btns th-border text-white" type="button">Multipurpose</button>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container">
-        <div class="row gallery-row filter-active mt-4">
-
-            <div class="col-12 project-item filter-item cat2 cat3">
-                <div class="project-item-container d-flex" style="gap: 30px; align-items: center;">
-                    <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center;">
-                        <div class="box-img global-img" style="flex: 1; max-width: 48%;">
-                            <img src="assets/img/project/project_3_1.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
-                        </div>
-                        <div class="box-img global-img" style="flex: 1; max-width: 48%;">
-                            <img src="assets/img/project/project_3_2.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
-                        </div>
-                    </div>
-                    <div class="project-content" style="flex: 0 0 300px;">
-                        <h2 class="box-title text-custom" style="font-size: 28px; font-weight: 600; margin: 0 0 15px; color: #000;">Minimalist Interior Design</h2>
-                        <p class="box-text text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                        <a href="{{ route('project1') }}" class="th-btns black-border" style="display: inline-block; text-decoration: none;">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 project-item filter-item cat2 cat1">
-                <div class="project-item-container d-flex" style="gap: 30px; align-items: center;">
-                    <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center;">
-                        <div class="box-img global-img" style="flex: 1; max-width: 48%;">
-                            <img src="assets/img/project/project_3_3.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
-                        </div>
-                        <div class="box-img global-img" style="flex: 1; max-width: 48%;">
-                            <img src="assets/img/project/project_3_4.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
-                        </div>
-                    </div>
-                    <div class="project-content" style="flex: 0 0 300px;">
-                        <h2 class="box-title text-custom" style="font-size: 28px; font-weight: 600; margin: 0 0 15px; color: #000;">Modern Dining Tables</h2>
-                        <p class="box-text text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                        <a href="{{ route('project2') }}" class="th-btns black-border" style="display: inline-block; text-decoration: none;">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 project-item filter-item cat1 cat3">
-                <div class="project-item-container d-flex" style="gap: 30px; align-items: center;">
-                    <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center;">
-                        <div class="box-img global-img" style="flex: 1; max-width: 48%;">
-                            <img src="assets/img/project/project_3_5.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
-                        </div>
-                        <div class="box-img global-img" style="flex: 1; max-width: 48%;">
-                            <img src="assets/img/project/project_3_6.jpg" alt="project image" style="width: 100%; height: auto; border-radius: 8px;">
-                        </div>
-                    </div>
-                    <div class="project-content" style="flex: 0 0 300px;">
-                        <h2 class="box-title text-custom" style="font-size: 28px; font-weight: 600; margin: 0 0 15px; color: #000;">Minimalist Bedroom Design</h2>
-                        <p class="box-text text-custom" style="font-size: 16px; line-height: 1.6; margin-bottom: 20px;">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                        <a href="{{ route('project3') }}" class="th-btns black-border" style="display: inline-block; text-decoration: none;">
-                            Read More
-                        </a>
-                    </div>
+        <div class="row justify-content-between align-items-end">
+            <div class="col-xl-6">
+                <div class="filter-menu style2 light filter-menu-active">
+                    <button data-filter="*" class="th-btn th-border active" type="button">View All</button>
+                    @foreach($projectCategories as $index => $category)
+                        <button data-filter=".cat{{ $index + 1 }}" class="th-btn th-border" type="button">{{ $category->name }}</button>
+                    @endforeach
                 </div>
             </div>
         </div>
+        <div class="gallery-row filter-active row">
+            @foreach($projects as $project)
+                @php
+                    // Get the filter class for this project based on its category
+                    $filterClass = 'cat-none'; // default
+                    if($project->projectCategory) {
+                        // Find the category index
+                        $categoryIndex = $projectCategories->search(function($item) use ($project) {
+                            return $item->id === $project->project_category_id;
+                        });
+                        if($categoryIndex !== false) {
+                            $filterClass = 'cat' . ($categoryIndex + 1);
+                        }
+                    }
+                @endphp
+                <div class="project-item col-12 filter-item {{ $filterClass }}">
+                    <div class="project-item-container d-flex" style="align-items: center; gap: 30px; flex-wrap: nowrap; width: 100%;">
+                        <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center; flex-wrap: nowrap;">
+                            @foreach($project->projectImages->take(2) as $index => $image)
+                                <div class="box-img global-img {{ $index === 0 ? 'project-img-first' : 'project-img-second' }}">
+                                    <img src="{{ Storage::url($image->image) }}" alt="{{ $project->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="project-content" style="flex: 0 0 300px;">
+                            <h2 class="box-title">{{ $project->title }}</h2>
+                            @if($project->short_description)
+                                <p class="box-text">{{ $project->short_description }}</p>
+                            @endif
+                            <div class="btn-group mt-45">
+                                <a href="{{ route('projects.show', $project) }}" class="th-btns black-border" style="display:inline-block; text-decoration:none;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait for Isotope to be available
-            function initializeFilters() {
-                var grid = document.querySelector('.filter-active');
-                if (!grid) {
-                    console.error('Filter grid not found');
-                    return;
-                }
-
-                if (typeof Isotope === 'undefined') {
-                    console.error('Isotope library not loaded');
-                    return;
-                }
-
-                // Initialize Isotope
-                var iso = new Isotope(grid, {
-                    itemSelector: '.filter-item',
-                    layoutMode: 'fitRows',
-                    transitionDuration: '0.6s'
-                });
-
-                // Add click event listeners to filter buttons
-                var filterButtons = document.querySelectorAll('.filter-menu button[data-filter]');
-                filterButtons.forEach(function(btn) {
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-
-                        // Remove active class from all buttons
-                        filterButtons.forEach(function(button) {
-                            button.classList.remove('active');
-                        });
-
-                        // Add active class to clicked button
-                        this.classList.add('active');
-
-                        // Get filter value
-                        var filterValue = this.getAttribute('data-filter');
-
-                        // Apply filter
-                        iso.arrange({
-                            filter: filterValue
-                        });
-
-                        console.log('Filter applied:', filterValue);
-                    });
-                });
-
-                console.log('Project filters initialized successfully');
-            }
-
-            // Try to initialize immediately
-            initializeFilters();
-
-            // Also try after window load as backup
-            window.addEventListener('load', initializeFilters);
-        });
-    </script>
-
-    <style>
-        /* Project Section Alignment - Reference Site Match */
-
-        /* Main project item layout to match reference site */
-        .project-item {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 20px !important;
-            margin-bottom: 60px !important;
-            padding: 0 !important;
-        }
-
-        /* Image wrapper styling to match reference */
-        .project-item_wrapp {
-            display: flex !important;
-            gap: 30px !important;
-            align-items: center !important;
-            width: 100% !important;
-        }
-
-        /* Individual image styling */
-        .project-item .box-img {
-            width: 100% !important;
-            max-width: calc(50% - 15px) !important;
-            border-radius: 8px !important;
-            overflow: hidden !important;
-        }
-
-        .project-item .box-img img {
-            width: 100% !important;
-            height: auto !important;
-            object-fit: cover !important;
-        }
-
-        /* Project content alignment to match reference */
-        .project-item .project-content {
-            width: 100% !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            margin-top: 20px !important;
-        }
-
-        /* Title styling to match reference site */
-        .project-item .box-title {
-            font-size: 28px !important;
-            font-weight: 600 !important;
-            margin: 15px 0 !important;
-            color: #000 !important;
-        }
-
-        /* Description styling */
-        .project-item .box-text {
-            font-size: 16px !important;
-            line-height: 1.6 !important;
-            color: #666 !important;
-            margin-bottom: 20px !important;
-        }
-
-        /* Button styling to match reference */
-        .project-item .th-btns {
-            background: #2d5550 !important;
-            color: white !important;
-            padding: 10px 20px !important;
-            border-radius: 4px !important;
-            text-decoration: none !important;
-            display: inline-block !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .project-item .th-btns:hover {
-            background: #4a6b66 !important;
-            color: white !important;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .project-item_wrapp {
-                flex-direction: column !important;
-                gap: 15px !important;
-            }
-
-            .project-item .box-img {
-                max-width: 100% !important;
-            }
-        }
-
-        /* Override any conflicting Bootstrap classes */
-        .project-item.col-12 {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
-
-        /* Ensure proper spacing in the gallery row */
-        .gallery-row {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-        }
-    </style>
-
-
-
 </section>
 
 <section class="positive-relative overflow-hidden space overflow-hidden" id="blog-sec">
@@ -808,40 +618,40 @@
         <div class="row gx-24 gy-30">
             <div class="col-12">
                 @forelse($blogPosts as $index => $post)
-                    @php
-                        $delay = '.' . (3 + ($index * 2)) . 's';
-                    @endphp
-                    <div class="blog-card style2 wow fadeInUp {{ $index > 0 ? 'mt-30' : '' }}" data-wow-delay="{{ $delay }}">
-                        <div class="blog-img global-img" style="width: 100%; max-width: 730px; height: 315px; overflow: hidden;">
-                            @if($post->image)
-                                <img src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 100%; object-fit: cover;">
-                            @else
-                                <img src="{{ asset('assets/img/blog/blog-placeholder.jpg') }}" alt="Blog placeholder" style="width: 100%; height: 100%; object-fit: cover;">
-                            @endif
+                @php
+                $delay = '.' . (3 + ($index * 2)) . 's';
+                @endphp
+                <div class="blog-card style2 wow fadeInUp {{ $index > 0 ? 'mt-30' : '' }}" data-wow-delay="{{ $delay }}">
+                    <div class="blog-img global-img" style="width: 100%; max-width: 730px; height: 315px; overflow: hidden;">
+                        @if($post->image)
+                        <img src="{{ Storage::url($post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        @else
+                        <img src="{{ asset('assets/img/blog/blog-placeholder.jpg') }}" alt="Blog placeholder" style="width: 100%; height: 100%; object-fit: cover;">
+                        @endif
+                    </div>
+                    <div class="box-content">
+                        <div>
+                            <div class="blog-meta text-custom">
+                                <a href="#" class="text-dark">By Admin</a>
+                                <a href="#" class="text-dark">{{ $post->category->name ?? 'General' }}</a>
+                            </div>
+                            <h3 class="box-title text-custom">
+                                <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>
+                            </h3>
                         </div>
-                        <div class="box-content">
-                            <div>
-                                <div class="blog-meta text-custom">
-                                    <a href="#" class="text-dark">By Admin</a>
-                                    <a href="#" class="text-dark">{{ $post->category->name ?? 'General' }}</a>
-                                </div>
-                                <h3 class="box-title text-custom">
-                                    <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>
-                                </h3>
-                            </div>
-                            <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                                <span class="date text-custom">
-                                    {{ $post->published_at ? $post->published_at->format('M d, Y') : $post->created_at->format('M d, Y') }}
-                                </span>
-                                <a href="{{ route('blog.show', $post) }}" class="th-btns black-border">Read More</a>
-                            </div>
+                        <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <span class="date text-custom">
+                                {{ $post->published_at ? $post->published_at->format('M d, Y') : $post->created_at->format('M d, Y') }}
+                            </span>
+                            <a href="{{ route('blog.show', $post) }}" class="th-btns black-border">Read More</a>
                         </div>
                     </div>
+                </div>
                 @empty
-                    <div class="text-center py-12">
-                        <h3 class="text-xl text-gray-500">No blog posts available</h3>
-                        <p class="text-gray-400 mt-2">Check back later for updates</p>
-                    </div>
+                <div class="text-center py-12">
+                    <h3 class="text-xl text-gray-500">No blog posts available</h3>
+                    <p class="text-gray-400 mt-2">Check back later for updates</p>
+                </div>
                 @endforelse
             </div>
         </div>
@@ -1054,32 +864,31 @@
 
                 <div class="customer-logo-container flex justify-center items-center min-h-[100px]" data-logos='{{ json_encode($logos ?? []) }}'>
                     @php
-                        $logos = json_decode($customer->logo, true);
+                    $logos = json_decode($customer->logo, true);
                     @endphp
 
                     <div class="logo-stack relative w-32 h-20 overflow-hidden">
                         @if($logos && count($logos) > 0)
-                            @foreach($logos as $index => $logoPath)
-                                @php
-                                    $cleanPath = str_replace('\\', '/', ltrim($logoPath, '/'));
-                                    $imageUrl = url('storage/' . $cleanPath);
-                                @endphp
-                                <div class="logo-item absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out transform {{ $index === 0 ? 'opacity-100 rotate-x-0' : 'opacity-0 rotate-x-90' }}"
-                                     data-index="{{ $index }}">
-                                    <img
-                                        src="{{ $imageUrl }}"
-                                        alt="{{ $customer->name }} Logo {{ $index + 1 }}"
-                                        class="max-h-16 max-w-full object-contain"
-                                        onerror="this.onerror=null; this.src='https://via.placeholder.com/120x80?text=Logo+Error';"
-                                    >
-                                </div>
-                            @endforeach
+                        @foreach($logos as $index => $logoPath)
+                        @php
+                        $cleanPath = str_replace('\\', '/', ltrim($logoPath, '/'));
+                        $imageUrl = url('storage/' . $cleanPath);
+                        @endphp
+                        <div class="logo-item absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out transform {{ $index === 0 ? 'opacity-100 rotate-x-0' : 'opacity-0 rotate-x-90' }}"
+                            data-index="{{ $index }}">
+                            <img
+                                src="{{ $imageUrl }}"
+                                alt="{{ $customer->name }} Logo {{ $index + 1 }}"
+                                class="max-h-16 max-w-full object-contain"
+                                onerror="this.onerror=null; this.src='https://via.placeholder.com/120x80?text=Logo+Error';">
+                        </div>
+                        @endforeach
                         @else
-                            <div class="logo-item absolute inset-0 flex items-center justify-center opacity-100">
-                                <div class="bg-gray-200 border-2 border-dashed rounded-lg w-20 h-20 flex items-center justify-center text-sm text-gray-500">
-                                    No Logo
-                                </div>
+                        <div class="logo-item absolute inset-0 flex items-center justify-center opacity-100">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-lg w-20 h-20 flex items-center justify-center text-sm text-gray-500">
+                                No Logo
                             </div>
+                        </div>
                         @endif
                     </div>
                 </div>
@@ -1110,8 +919,8 @@
         }
 
         .text-light-green {
-            color: #9ebdb4;
-            text-align: center;
+            color: #9ebdb4!important;
+            text-align: center!important;
         }
 
         /* Customer logo container */
@@ -1158,6 +967,7 @@
                 transform: rotateX(90deg);
                 opacity: 0;
             }
+
             100% {
                 transform: rotateX(0deg);
                 opacity: 1;
@@ -1169,6 +979,7 @@
                 transform: rotateX(0deg);
                 opacity: 1;
             }
+
             100% {
                 transform: rotateX(-90deg);
                 opacity: 0;
@@ -1509,5 +1320,254 @@
         </div>
     </div>
 </section>
+
+<style>
+    /* Project section styling */
+    .project-img-first {
+        width: 300px;
+        height: 300px;
+        flex-shrink: 0;
+    }
+
+    .project-img-second {
+        width: 565px;
+        height: 300px;
+        flex-shrink: 0;
+    }
+
+    /* Ensure project content stays inline and visible */
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: transparent !important;
+        color: #000000 !important;
+        min-height: auto;
+        flex: 0 0 250px;
+    }
+
+    .project-content .box-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 0 10px 0;
+        color: #000000 !important;
+        font-weight: bold;
+    }
+
+    .project-content .box-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 0 15px 0;
+        line-height: 1.4;
+        color: #000000 !important;
+    }
+
+    /* Align content in one line */
+    .project-item-container {
+        flex-wrap: nowrap;
+    }
+
+    /* Detail button styling to match homepage buttons */
+    .project-content .th-btn.white-border.th-icon {
+        background: transparent;
+        border: 2px solid #003f3a;
+        color: #003f3a;
+        padding: 10px 25px;
+        border-radius: 100px;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .project-content .th-btn.white-border.th-icon:hover {
+        background: #003f3a;
+        color: white;
+    }
+
+    /* Project item container flex layout */
+    .project-item-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .project-item_wrapp {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        flex: 1;
+        flex-wrap: nowrap;
+    }
+
+    /* Ensure images are properly aligned in a row */
+    .project-item_wrapp .box-img {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    /* Ensure content stays in one line */
+    .project-content {
+        flex: 0 0 250px;
+        min-width: 250px;
+        flex-shrink: 0;
+    }
+
+    /* Force images to stay inline */
+    .box-img.global-img {
+        display: block;
+        float: left;
+    }
+
+    /* Filter button active state */
+    .filter-menu .th-btn.active {
+        background-color: #003f3a;
+        color: white;
+        border-color: #003f3a;
+    }
+
+    /* Project filtering styles */
+    .project-item {
+        transition: all 0.6s ease;
+    }
+
+    .gallery-row .project-item {
+        margin-bottom: 30px;
+        opacity: 1;
+    }
+
+    /* Isotope filtering */
+    .gallery-row.isotope .project-item {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .gallery-row.isotope .project-item.is-hidden {
+        opacity: 0;
+        transform: scale(0.001);
+        pointer-events: none;
+        display: none;
+    }
+
+    /* Ensure project items visibility */
+    .filter-item {
+        display: block;
+    }
+
+    /* Fix layout for few items */
+    .gallery-row {
+        gap: 30px;
+    }
+
+    .project-item {
+        margin-bottom: 0;
+    }
+
+    /* Ensure content alignment */
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Remove Bootstrap row gutters when filtering */
+    @media (min-width: 768px) {
+        .gallery-row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .project-item {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+
+    /* Detail button styling to match homepage buttons */
+    .project-content .th-btns.black-border {
+        display: inline-block;
+        text-decoration: none;
+        background: transparent;
+        border: 2px solid #000000;
+        color: #000000;
+        padding: 12px 28px;
+        border-radius: 100px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .project-content .th-btns.black-border:hover {
+        background: #000000;
+        color: #ffffff;
+    }
+
+    /* Better vertical alignment */
+    .project-item-container {
+        align-items: self-start!important;
+    }
+
+    .project-item_wrapp {
+        align-items: center !important;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Force fallback implementation - Isotope seems to have issues
+        const filterButtons = document.querySelectorAll('.filter-menu .th-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        // Initialize all projects as visible
+        projectItems.forEach(item => {
+            item.style.display = 'block';
+            item.style.opacity = '1';
+        });
+
+        // Add click event listeners to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const filterValue = this.getAttribute('data-filter');
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                console.log('Filter clicked:', filterValue);
+
+                // Apply filtering
+                projectItems.forEach(item => {
+                    if (filterValue === '*') {
+                        // Show all projects
+                        item.style.display = 'block';
+                        item.style.opacity = '1';
+                        item.style.position = 'relative';
+                        item.style.visibility = 'visible';
+                    } else {
+                        // Check if project has the filter class
+                        const filterClass = filterValue.replace('.', '');
+
+                        if (item.classList.contains(filterClass)) {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.position = 'relative';
+                            item.style.visibility = 'visible';
+                        } else {
+                            item.style.display = 'none';
+                            item.style.opacity = '0';
+                            item.style.position = 'absolute';
+                            item.style.visibility = 'hidden';
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 @endsection

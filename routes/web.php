@@ -19,17 +19,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 // Project routes
-Route::get('/project/1', function () {
-    return view('project1');
-})->name('project1');
-
-Route::get('/project/2', function () {
-    return view('project2');
-})->name('project2');
-
-Route::get('/project/3', function () {
-    return view('project3');
-})->name('project3');
+Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{project:slug}', [App\Http\Controllers\ProjectController::class, 'show'])->name('projects.show');
 
 // Blog routes
 Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');

@@ -1726,7 +1726,7 @@
 
         .gallery-row .project-item .project-content {
             padding: 20px 0 !important;
-            flex: 1 !important;
+            flex: 0.4 !important;
             width: 100% !important;
         }
 
