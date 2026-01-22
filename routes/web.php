@@ -179,6 +179,16 @@ Route::resource('admin/services', ServiceController::class)
 Route::resource('admin/customers', CustomerController::class)
     ->names('admin.customers');
 
+Route::resource('admin/companies', \App\Http\Controllers\Admin\CompanyController::class)->names([
+        'index' => 'admin.companies.index',
+        'create' => 'admin.companies.create',
+        'store' => 'admin.companies.store',
+        'show' => 'admin.companies.show',
+        'edit' => 'admin.companies.edit',
+        'update' => 'admin.companies.update',
+        'destroy' => 'admin.companies.destroy',
+    ]);
+
 Route::resource('admin/gallery', GalleryController::class)
     ->names('admin.gallery');
 
