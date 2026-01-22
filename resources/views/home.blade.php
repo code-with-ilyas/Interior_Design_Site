@@ -701,7 +701,7 @@
                             @foreach($category->experts ?? [] as $expert)
                             <div class="profile grey">
                                 <div class="profile-header">
-                                    <img loading="lazy" src="{{ $expert->image ? asset('storage/' . $expert->image) : 'https://via.placeholder.com/300' }}" alt="{{ $expert->designation }}" class="image-126">
+                                    <img loading="lazy" src="{{ $expert->image ? asset('storage/' . $expert->image) : asset('assets/img/expert-placeholder.jpg') }}" alt="{{ $expert->designation }}" class="image-126">
                                 </div>
                                 <div class="profile-body">
                                     <div class="profiles-infos">
@@ -721,10 +721,10 @@
                                         <div class="box-logo-profile">
                                             @if($expert->company_url)
                                             <a href="{{ $expert->company_url }}" target="_blank">
-                                                <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
+                                                <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : asset('assets/img/company-logo-placeholder.png') }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
                                             </a>
                                             @else
-                                            <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
+                                            <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : asset('assets/img/company-logo-placeholder.png') }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
                                             @endif
                                         </div>
                                     </div>
@@ -854,7 +854,16 @@
                         @foreach($logos as $index => $logoPath)
                         @php
                         $cleanPath = str_replace('\\', '/', ltrim($logoPath, '/'));
-                        $imageUrl = url('storage/' . $cleanPath);
+                        // Check if the path is already a full URL or a local asset path
+                        if (filter_var($logoPath, FILTER_VALIDATE_URL)) {
+                            $imageUrl = $logoPath;
+                        } elseif (str_starts_with($logoPath, 'assets/')) {
+                            // Local asset path - use asset() without storage prefix
+                            $imageUrl = asset($cleanPath);
+                        } else {
+                            // Assume it's a stored file path
+                            $imageUrl = asset('storage/' . $cleanPath);
+                        }
                         @endphp
                         <div class="logo-item absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out transform {{ $index === 0 ? 'opacity-100 rotate-x-0' : 'opacity-0 rotate-x-90' }}"
                             data-index="{{ $index }}">
@@ -862,7 +871,7 @@
                                 src="{{ $imageUrl }}"
                                 alt="{{ $customer->name }} Logo {{ $index + 1 }}"
                                 class="max-h-16 max-w-full object-contain"
-                                onerror="this.onerror=null; this.src='https://via.placeholder.com/120x80?text=Logo+Error';">
+                                onerror="this.onerror=null; this.src='/assets/img/logo-placeholder.png';">
                         </div>
                         @endforeach
                         @else
@@ -1273,61 +1282,148 @@
     </div>
 </section>
 
-<section class="space playfair-display" id="gallery-sec">
+<section class="overflow-hidden space" id="gallery-sec" data-bg-src="{{ asset('assets/img/bg/gallery_bg_1.jpg') }}">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-8">
-                <div class="title-area text-center">
-                    <h4 class="text-anime text-dark">OUR GALLERY</h4>
-                    <h4 class="text-dark">Through a Unique Combination of Engineering</h4>
+            <div class="col-xl-7">
+                <div class="title-area text-center"><span class="sub-title style2 text-anime">recent gallery</span>
+                    <h2 class="sec-title split-text">Through a Unique Combination of <span class="text-theme">Engineering</span></h2>
+                </div>
+                <div class="filter-menu indicator-active mb-60 filter-menu-active">
+                    <button data-filter="*" class="tab-btn active" type="button">View All</button>
+                    @foreach($galleryCategories as $index => $category)
+                    <button data-filter=".cat{{ $index + 1 }}" class="tab-btn" type="button">{{ $category->name }}</button>
+                    @endforeach
                 </div>
             </div>
         </div>
-
-        <div class="slider-wrap text-center">
-            <div class="swiper th-slider gallery-slider4" id="gallerySlider4"
-                data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":1.3},"991":{"slidesPerView":1.5},"1200":{"slidesPerView":2},"1600":{"slidesPerView":3.3}},"effect":"coverflow","coverflowEffect":{"rotate":17,"stretch":190,"depth":190,"modifier":1},"centeredSlides":true,"initialSlide":0}'>
-
-                <div class="swiper-wrapper">
-                    @forelse($galleries as $gallery)
-                    <div class="swiper-slide">
-                        <div class="gallery-item2">
-                            <div class="box-img">
-                                <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title ?? 'Gallery Image' }}">
-                                <a href="{{ asset($gallery->image) }}" class="icon-btn th-popup-image">
-                                    <i class="far fa-plus"></i>
-                                </a>
-                            </div>
+        <div class="row gy-4 gallery-row filter-active">
+            @forelse($galleries as $gallery)
+            @php
+            // Get the filter classes for this gallery based on its category
+            $filterClasses = 'cat-none'; // default
+            if($gallery->category) {
+                $categoryIndex = $galleryCategories->search(function($item) use ($gallery) {
+                    return $item->id === $gallery->category->id;
+                });
+                if($categoryIndex !== false) {
+                    $filterClasses = 'cat' . ($categoryIndex + 1);
+                }
+            }
+            @endphp
+            <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item {{ $filterClasses }}">
+                <div class="gallery-card">
+                    <div class="box-img global-img">
+                        <img class="wow clippy-img" data-wow-delay=".1s" src="{{ asset($gallery->image) }}" alt="{{ $gallery->title ?? 'gallery image' }}">
+                        <a href="{{ asset($gallery->image) }}" class="icon-btn th-popup-image">
+                            <i class="far fa-plus"></i>
+                        </a>
+                        <div class="shape">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
                         </div>
                     </div>
-                    @empty
-
-                    @endforelse
+                    <div class="gallery-content">
+                        <h2 class="box-title">{{ $gallery->title ?? 'Open Kitchen Interior Design' }}</h2>
+                    </div>
                 </div>
-
-                <div class="icon-box">
-                    <!-- Prev -->
-                    <button data-slider-prev="#gallerySlider4"
-                        class="slider-btn slider-prev"
-                        aria-label="Previous">
-                        &#8592;
-                    </button>
-
-                    <!-- Next -->
-                    <button data-slider-next="#gallerySlider4"
-                        class="slider-btn slider-next"
-                        aria-label="Next">
-                        &#8594;
-                    </button>
-                </div>
-
-
             </div>
+            @empty
+            <div class="col-12">
+                <p class="text-center">No galleries available.</p>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>
 
 <style>
+    /* Gallery section styling - ensure content visibility */
+    #gallery-sec {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 100px 0;
+        color: white;
+    }
+
+    #gallery-sec .title-area,
+    #gallery-sec .sub-title,
+    #gallery-sec .sec-title,
+    #gallery-sec .text-theme {
+        color: white !important;
+    }
+
+    #gallery-sec .filter-menu button {
+        color: white !important;
+        background: transparent !important;
+        border: 1px solid white !important;
+        padding: 10px 20px !important;
+        margin: 0 5px !important;
+        border-radius: 4px !important;
+    }
+
+    #gallery-sec .filter-menu button.active {
+        background: white !important;
+        color: #000 !important;
+    }
+
+    #gallery-sec .gallery-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    #gallery-sec .gallery-content {
+        background: white;
+        padding: 15px;
+    }
+
+    #gallery-sec .box-title {
+        color: #000 !important;
+        margin: 0;
+        font-size: 16px;
+    }
+
+    #gallery-sec .gallery-card .icon-btn {
+        background: #003f3a;
+        color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 2;
+        opacity: 0;
+    }
+
+    #gallery-sec .gallery-card:hover .icon-btn {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    #gallery-sec .gallery-card:hover .clippy-img {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    #gallery-sec .box-img.global-img {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #gallery-sec .clippy-img {
+        transition: transform 0.3s ease;
+    }
+
     /* Testimonial section styling - adjusted to match theme */
     .testi-box-tab .tab-btn img,
     .box-author img {
@@ -1734,236 +1830,273 @@
 </style>
 
 <script>
+    // Apply background image to gallery section
+    document.addEventListener('DOMContentLoaded', function() {
+        const gallerySection = document.getElementById('gallery-sec');
+        if(gallerySection && gallerySection.dataset.bgSrc) {
+            gallerySection.style.backgroundImage = `url(${gallerySection.dataset.bgSrc})`;
+            gallerySection.style.backgroundSize = 'cover';
+            gallerySection.style.backgroundPosition = 'center';
+            gallerySection.style.backgroundRepeat = 'no-repeat';
+            gallerySection.style.padding = '100px 0';
+        }
+    });
+
+    // Rest of the script remains the same
     // Wait for DOM to be fully loaded and jQuery to be available
     document.addEventListener('DOMContentLoaded', function() {
         // Check if jQuery is loaded
-        if (typeof $ === 'undefined') {
-            console.error('jQuery is not loaded');
-            return;
-        }
+        if (typeof $ !== 'undefined') {
+            // Initialize testimonial slider
+            if (document.querySelector('.testiSlide3')) {
+                const testimonialSwiper = new Swiper('.testiSlide3', {
+                    loop: true,
+                    effect: 'slide',
+                    speed: 600,
+                    autoplay: {
+                        delay: 4000, // Auto-slide every 4 seconds
+                        disableOnInteraction: false, // Continue auto-sliding after user interactions
+                    },
+                    navigation: {
+                        nextEl: '[data-slider-next="#testiSlide3"]',
+                        prevEl: '[data-slider-prev="#testiSlide3"]',
+                    },
+                    on: {
+                        slideChange: function() {
+                            // Update tab buttons when slide changes
+                            const activeIndex = this.realIndex;
+                            const tabButtons = document.querySelectorAll('.testi-box-tab .tab-btn');
 
-        // Initialize testimonial slider
-        if (document.querySelector('.testiSlide3')) {
-            const testimonialSwiper = new Swiper('.testiSlide3', {
-                loop: true,
-                effect: 'slide',
-                speed: 600,
-                autoplay: {
-                    delay: 4000, // Auto-slide every 4 seconds
-                    disableOnInteraction: false, // Continue auto-sliding after user interactions
-                },
-                navigation: {
-                    nextEl: '[data-slider-next="#testiSlide3"]',
-                    prevEl: '[data-slider-prev="#testiSlide3"]',
-                },
-                on: {
-                    slideChange: function() {
-                        // Update tab buttons when slide changes
-                        const activeIndex = this.realIndex;
-                        const tabButtons = document.querySelectorAll('.testi-box-tab .tab-btn');
+                            tabButtons.forEach((btn, index) => {
+                                btn.classList.toggle('active', index === activeIndex);
+                            });
 
-                        tabButtons.forEach((btn, index) => {
-                            btn.classList.toggle('active', index === activeIndex);
-                        });
-
-                        // Update main image when slide changes
-                        updateMainImage(activeIndex);
-                    }
-                }
-            });
-
-            // Function to update the main image
-            function updateMainImage(index) {
-                const allImages = document.querySelectorAll('.testi-area .testi-img img');
-                if (allImages.length > 0) {
-                    // Hide all images
-                    allImages.forEach(img => {
-                        img.style.display = 'none';
-                    });
-
-                    // Show the image at the current index
-                    if (allImages[index]) {
-                        allImages[index].style.display = 'block';
-                    }
-                }
-            }
-
-            // Initialize the first image
-            if (document.querySelector('.testi-area .testi-img img')) {
-                const allImages = document.querySelectorAll('.testi-area .testi-img img');
-                allImages.forEach((img, idx) => {
-                    if (idx !== 0) {
-                        img.style.display = 'none';
+                            // Update main image when slide changes
+                            updateMainImage(activeIndex);
+                        }
                     }
                 });
+
+                // Function to update the main image
+                function updateMainImage(index) {
+                    const allImages = document.querySelectorAll('.testi-area .testi-img img');
+                    if (allImages.length > 0) {
+                        // Hide all images
+                        allImages.forEach(img => {
+                            img.style.display = 'none';
+                        });
+
+                        // Show the image at the current index
+                        if (allImages[index]) {
+                            allImages[index].style.display = 'block';
+                        }
+                    }
+                }
+
+                // Initialize the first image
+                if (document.querySelector('.testi-area .testi-img img')) {
+                    const allImages = document.querySelectorAll('.testi-area .testi-img img');
+                    allImages.forEach((img, idx) => {
+                        if (idx !== 0) {
+                            img.style.display = 'none';
+                        }
+                    });
+                }
+            }
+
+            // Initialize the testimonial section using the theme's built-in functionality
+            if (typeof $.fn.activateSliderThumbs === 'function') {
+                if (document.querySelector('.testi-box-tab')) {
+                    $('.testi-box-tab').activateSliderThumbs({
+                        sliderTab: true,
+                        tabButton: '.tab-btn'
+                    });
+                }
             }
         }
+        // Don't log error messages for missing jQuery - this is normal during page load
+    });
 
-        // Initialize the testimonial section using the theme's built-in functionality
+    // Initialize the testimonial section using the theme's built-in functionality
+    if (typeof $ !== 'undefined' && typeof $.fn.activateSliderThumbs === 'function') {
         if ($('.testi-box-tab').length > 0) {
             $('.testi-box-tab').activateSliderThumbs({
                 sliderTab: true,
                 tabButton: '.tab-btn'
             });
         }
+    } else if (typeof $ !== 'undefined') {
+        console.warn('activateSliderThumbs function is not available');
+    }
+    // Don't log error when jQuery is not loaded - this is handled gracefully
 
-        // Handle testimonial image loading errors
-        document.querySelectorAll('.testi-area img, .testi-box img').forEach(img => {
-            img.addEventListener('error', function() {
-                // Replace with placeholder
-                this.src = '{{ asset("assets/img/testimonial/testi-1-1.jpg") }}';
-            });
-        });
-
-        // Add click handlers for navigation buttons
-        document.querySelectorAll('[data-slider-prev="#testiSlide3"], [data-slider-next="#testiSlide3"]').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetSliderId = this.getAttribute('data-slider-prev') || this.getAttribute('data-slider-next');
-                const targetSlider = document.querySelector(targetSliderId);
-
-                if (targetSlider && targetSlider.swiper) {
-                    if (this.getAttribute('data-slider-prev')) {
-                        targetSlider.swiper.slidePrev();
-                    } else {
-                        targetSlider.swiper.slideNext();
-                    }
-                }
-            });
-        });
-
-        // Add tab button click handlers
-        document.querySelectorAll('.testi-box-tab .tab-btn').forEach((btn, index) => {
-            btn.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.testi-box-tab .tab-btn').forEach(tabBtn => {
-                    tabBtn.classList.remove('active');
-                });
-
-                // Add active class to clicked button
-                this.classList.add('active');
-
-                // Update the slider if it exists
-                if (document.querySelector('.testiSlide3') && document.querySelector('.testiSlide3').swiper) {
-                    document.querySelector('.testiSlide3').swiper.slideTo(index);
-                }
-
-                // Update the main image
-                updateMainImage(index);
-            });
-        });
-    });
+    // Ensure WOW animations are properly initialized
+    if (typeof WOW !== 'undefined') {
+        new WOW().init();
+    }
 
     // Project filtering script - only execute when jQuery is ready
-    if (typeof $ !== 'undefined') {
-        $(document).ready(function() {
-            const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
-            const projectItems = document.querySelectorAll('.project-item');
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof $ !== 'undefined') {
+            $(document).ready(function() {
+                const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
+                const projectItems = document.querySelectorAll('.project-item');
 
-            // Initialize all projects as visible
-            projectItems.forEach(item => {
-                item.style.display = 'block';
-                item.style.opacity = '1';
-            });
+                // Initialize all projects as visible
+                projectItems.forEach(item => {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                });
 
-            // Add click event listeners to filter buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const filterValue = this.getAttribute('data-filter');
+                // Add click event listeners to filter buttons
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const filterValue = this.getAttribute('data-filter');
 
-                    // Update active button - remove active class from all and add to current
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
+                        // Update active button - remove active class from all and add to current
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
 
-                    console.log('Filter clicked:', filterValue);
+                        console.log('Filter clicked:', filterValue);
 
-                    // Apply filtering
-                    projectItems.forEach(item => {
-                        if (filterValue === '*') {
-                            // Show all projects
-                            item.style.display = 'block';
-                            item.style.opacity = '1';
-                            item.style.position = 'relative';
-                            item.style.visibility = 'visible';
-                        } else {
-                            // Check if project has the filter class
-                            const filterClass = filterValue.replace('.', '');
-
-                            if (item.classList.contains(filterClass)) {
+                        // Apply filtering
+                        projectItems.forEach(item => {
+                            if (filterValue === '*') {
+                                // Show all projects
                                 item.style.display = 'block';
                                 item.style.opacity = '1';
                                 item.style.position = 'relative';
                                 item.style.visibility = 'visible';
                             } else {
-                                item.style.display = 'none';
-                                item.style.opacity = '0';
-                                item.style.position = 'absolute';
-                                item.style.visibility = 'hidden';
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    } else {
-        // Fallback if jQuery is not loaded yet
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait a bit more for jQuery to load
-            setTimeout(function() {
-                if (typeof $ !== 'undefined') {
-                    const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
-                    const projectItems = document.querySelectorAll('.project-item');
+                                // Check if project has the filter class
+                                const filterClass = filterValue.replace('.', '');
 
-                    // Initialize all projects as visible
-                    projectItems.forEach(item => {
-                        item.style.display = 'block';
-                        item.style.opacity = '1';
-                    });
-
-                    // Add click event listeners to filter buttons
-                    filterButtons.forEach(button => {
-                        button.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const filterValue = this.getAttribute('data-filter');
-
-                            // Update active button - remove active class from all and add to current
-                            filterButtons.forEach(btn => btn.classList.remove('active'));
-                            this.classList.add('active');
-
-                            console.log('Filter clicked:', filterValue);
-
-                            // Apply filtering
-                            projectItems.forEach(item => {
-                                if (filterValue === '*') {
-                                    // Show all projects
+                                if (item.classList.contains(filterClass)) {
                                     item.style.display = 'block';
                                     item.style.opacity = '1';
                                     item.style.position = 'relative';
                                     item.style.visibility = 'visible';
                                 } else {
-                                    // Check if project has the filter class
-                                    const filterClass = filterValue.replace('.', '');
+                                    item.style.display = 'none';
+                                    item.style.opacity = '0';
+                                    item.style.position = 'absolute';
+                                    item.style.visibility = 'hidden';
+                                }
+                            }
+                        });
+                    });
+                });
+            });
+        } else {
+            // Pure JavaScript fallback if jQuery is not loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                // Wait a bit more for jQuery to load, or use pure JavaScript implementation
+                setTimeout(function() {
+                    if (typeof $ !== 'undefined') {
+                        const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
+                        const projectItems = document.querySelectorAll('.project-item');
 
-                                    if (item.classList.contains(filterClass)) {
+                        // Initialize all projects as visible
+                        projectItems.forEach(item => {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                        });
+
+                        // Add click event listeners to filter buttons
+                        filterButtons.forEach(button => {
+                            button.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const filterValue = this.getAttribute('data-filter');
+
+                                // Update active button - remove active class from all and add to current
+                                filterButtons.forEach(btn => btn.classList.remove('active'));
+                                this.classList.add('active');
+
+                                console.log('Filter clicked:', filterValue);
+
+                                // Apply filtering
+                                projectItems.forEach(item => {
+                                    if (filterValue === '*') {
+                                        // Show all projects
                                         item.style.display = 'block';
                                         item.style.opacity = '1';
                                         item.style.position = 'relative';
                                         item.style.visibility = 'visible';
                                     } else {
-                                        item.style.display = 'none';
-                                        item.style.opacity = '0';
-                                        item.style.position = 'absolute';
-                                        item.style.visibility = 'hidden';
+                                        // Check if project has the filter class
+                                        const filterClass = filterValue.replace('.', '');
+
+                                        if (item.classList.contains(filterClass)) {
+                                            item.style.display = 'block';
+                                            item.style.opacity = '1';
+                                            item.style.position = 'relative';
+                                            item.style.visibility = 'visible';
+                                        } else {
+                                            item.style.display = 'none';
+                                            item.style.opacity = '0';
+                                            item.style.position = 'absolute';
+                                            item.style.visibility = 'hidden';
+                                        }
                                     }
-                                }
+                                });
                             });
                         });
-                    });
-                }
-            }, 500);
-        });
-    }
+                    } else {
+                        // Pure JavaScript fallback implementation
+                        const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
+                        const projectItems = document.querySelectorAll('.project-item');
+
+                        // Initialize all projects as visible
+                        projectItems.forEach(item => {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                        });
+
+                        // Add click event listeners to filter buttons
+                        filterButtons.forEach(button => {
+                            button.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const filterValue = this.getAttribute('data-filter');
+
+                                // Update active button - remove active class from all and add to current
+                                filterButtons.forEach(btn => btn.classList.remove('active'));
+                                this.classList.add('active');
+
+                                console.log('Filter clicked:', filterValue);
+
+                                // Apply filtering
+                                projectItems.forEach(item => {
+                                    if (filterValue === '*') {
+                                        // Show all projects
+                                        item.style.display = 'block';
+                                        item.style.opacity = '1';
+                                        item.style.position = 'relative';
+                                        item.style.visibility = 'visible';
+                                    } else {
+                                        // Check if project has the filter class
+                                        const filterClass = filterValue.replace('.', '');
+
+                                        if (item.classList.contains(filterClass)) {
+                                            item.style.display = 'block';
+                                            item.style.opacity = '1';
+                                            item.style.position = 'relative';
+                                            item.style.visibility = 'visible';
+                                        } else {
+                                            item.style.display = 'none';
+                                            item.style.opacity = '0';
+                                            item.style.position = 'absolute';
+                                            item.style.visibility = 'hidden';
+                                        }
+                                    }
+                                });
+                            });
+                        });
+                    }
+                }, 500);
+            });
+        }
+    });
 </script>
 
 <style>

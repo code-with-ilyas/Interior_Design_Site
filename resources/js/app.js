@@ -6,6 +6,9 @@ import Alpine from 'alpinejs';
 import TomSelect from 'tom-select';
 window.TomSelect = TomSelect;
 
+// Import scroll-top fix
+import '../js/fixes/scroll-top-fix.js';
+
 window.Alpine = Alpine;
 
 // Function to initialize TomSelect on elements
