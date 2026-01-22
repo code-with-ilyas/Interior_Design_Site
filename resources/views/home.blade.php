@@ -512,31 +512,13 @@
             </div>
 
             <div class="services-grid">
-                @php
-                // Fetch all services from DB
-                $dbServices = $services ?? collect();
-
-                // Default services (shown if DB is empty)
-                $defaultServices = [
-                ['service_title' => 'Project management', 'service_description' => "From PMO to experienced interim manager, to bring your company's major projects to fruition."],
-                ['service_title' => 'Technical Assistance', 'service_description' => "More than 100K experts available for contract work throughout France"],
-                ['service_title' => 'Tech Factories', 'service_description' => "Build up your centers of excellence and teams in record time (Digital Factory, IA Factory)"],
-                ['service_title' => 'Consulting', 'service_description' => "Industry experts to meet your operational and strategic challenges."],
-                ['service_title' => 'Training', 'service_description' => "Call on freelance experts to train your teams on the latest technological topics."],
-                ['service_title' => 'Portage', 'service_description' => "Wear all your consultants in minutes thanks to our automated platform."],
-                ];
-
-                // Display DB services if exists, else default services
-                $displayServices = $dbServices->isEmpty() ? collect($defaultServices) : $dbServices;
-                @endphp
-
-                @foreach($displayServices->chunk(3) as $row)
+                @foreach($services->chunk(3) as $row)
                 <div class="services-row mb-3">
                     @foreach($row as $service)
                     <div class="service-column">
-                        <div class="service-card">
-                            <h5 class="service-title">{{ $service->service_title ?? $service['service_title'] }}</h5>
-                            <div class="service-description">{{ $service->service_description ?? $service['service_description'] }}</div>
+                        <div class="service-card home-service-card">
+                            <h5 class="service-title">{{ $service->title }}</h5>
+                            <div class="service-description">{{ $service->short_description }}</div>
                         </div>
                     </div>
                     @endforeach
@@ -1984,6 +1966,70 @@
     }
 </script>
 
+<style>
+/* Custom styles for home page services section */
+.home-service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.home-service-card .service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #003f3a;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.home-service-card .service-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.services-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-column {
+    margin-bottom: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .services-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">

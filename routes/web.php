@@ -165,16 +165,23 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
             'destroy' => 'admin.blog-posts.images.destroy',
         ]);
     });
+
+    // Service management routes
+    Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)->names([
+        'index' => 'admin.services.index',
+        'create' => 'admin.services.create',
+        'store' => 'admin.services.store',
+        'show' => 'admin.services.show',
+        'edit' => 'admin.services.edit',
+        'update' => 'admin.services.update',
+        'destroy' => 'admin.services.destroy',
+    ]);
 });
 
 
 
 Route::resource('admin/about', AboutController::class)
     ->names('admin.about');
-
-Route::resource('admin/services', ServiceController::class)
-    ->names('admin.services');
-
 
 Route::resource('admin/customers', CustomerController::class)
     ->names('admin.customers');
@@ -191,6 +198,9 @@ Route::resource('admin/companies', \App\Http\Controllers\Admin\CompanyController
 
 Route::resource('admin/gallery', GalleryController::class)
     ->names('admin.gallery');
+
+Route::resource('admin/gallery-categories', \App\Http\Controllers\Admin\GalleryCategoryController::class)
+    ->names('admin.gallery-categories');
 
 Route::resource('admin/instagram', InstagramController::class)
     ->names('admin.instagram');
