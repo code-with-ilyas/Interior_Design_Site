@@ -37,17 +37,24 @@
                         </div>
                     </div>
                     <div class="">
+
+
                         <a href="{{ route('renovate') }}"
                             class="th-btns black-border" style="display:inline-block; text-decoration:none;">
                             I Want to Renovate a Property
                         </a>
+
+
+
                         <a href="javascript:void(0);" id="demoBtn" class="th-btns black-border" style="display:inline-block; text-decoration:none;">
                             Request a Demo
                         </a>
+
+
                         <div id="demoFormOverlay">
                             <div id="demoFormContainer">
                                 <span id="closeForm" class="close-arrow">&#x2192;</span>
-                                <h3 class="text-dark">Request a demo</h3>
+                                <h3 class="text-dark">REQUEST A DEMO</h3>
 
                                 {{-- Success popup --}}
                                 @if (session('success'))
@@ -72,32 +79,33 @@
 
                                 <form action="{{ route('admin.quotes.store') }}" method="POST">
                                     @csrf
-                                    <div class="form-row mb-3">
+
+                                    <div class="form-row">
                                         <input class="text-dark" type="text" name="name" placeholder="Your Name" required>
                                         <input class="text-dark" type="text" name="first_name" placeholder="First Name" required>
                                     </div>
 
-                                    <div class="form-row mb-3">
+                                    <div class="form-row">
                                         <input class="text-dark" type="email" name="email" placeholder="Your Email" required>
                                         <input class="text-dark" type="tel" name="phone" placeholder="Your Phone">
                                     </div>
 
-                                    <div class="form-row mb-3">
+                                    <div class="form-row">
                                         <input class="text-dark" type="text" name="company" placeholder="Your Company">
                                         <input class="text-dark" type="text" name="cities" placeholder="Preferred Cities">
                                     </div>
 
-                                    <div class="form-row mb-3">
+                                    <div class="form-row">
                                         <input class="text-dark" type="text" name="address" placeholder="Street Address">
                                         <input class="text-dark" type="text" name="postal_code" placeholder="Postal/ZIP Code">
                                     </div>
 
-                                    <div class="form-row mb-3">
+                                    <div class="form-row">
                                         <input class="text-dark" type="text" name="city" placeholder="City">
                                         <input class="text-dark" type="text" name="country" placeholder="Country">
                                     </div>
 
-                                    <div class="form-row mb-3">
+                                    <div class="form-row">
                                         <textarea class="text-dark" name="mesage" placeholder="Your Message"></textarea>
                                     </div>
 
@@ -522,55 +530,55 @@
 </section>
 
 <section class="project-area position-relative space-bottom" id="project-sec">
-    <div class="container">
-        <div class="row justify-content-between align-items-end">
-            <div class="services-header">
-                <h5 class="title-heading">Our Projects</h5>
-                <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
-                <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+        <div class="container">
+            <div class="row justify-content-between align-items-end">
+                <div class="services-header">
+                    <h5 class="title-heading">Our Projects</h5>
+                    <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
+                    <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+                </div>
+                <div class="col-xl-6">
+                    <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
+                </div>
             </div>
-            <div class="col-xl-6">
-                <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
+            <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
+                <div class="project-item col-12 filter-item cat2 cat3">
+                    <div class="project-item_wrapp">
+                        <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
+                        <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
+                    </div>
+                    <div class="project-content">
+                        <h2 class="box-title">Minimalist Interior Design</h2>
+                        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+                        <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
+                    </div>
+                </div>
+                <div class="project-item col-12 filter-item cat2 cat1">
+                    <div class="project-item_wrapp">
+                        <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
+                        <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
+                    </div>
+                    <div class="project-content">
+                        <h2 class="box-title">Modern Dining Tables</h2>
+                        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+                        <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
+                    </div>
+                </div>
+                <div class="project-item col-12 filter-item cat1 cat3">
+                    <div class="project-item_wrapp">
+                        <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
+                        <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
+                    </div>
+                    <div class="project-content">
+                        <h2 class="box-title">Minimalist Bedroom Design</h2>
+                        <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
+                        <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
-            <div class="project-item col-12 filter-item cat2 cat3">
-                <div class="project-item_wrapp">
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
-                </div>
-                <div class="project-content">
-                    <h2 class="box-title">Minimalist Interior Design</h2>
-                    <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                    <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
-                </div>
-            </div>
-            <div class="project-item col-12 filter-item cat2 cat1">
-                <div class="project-item_wrapp">
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
-                </div>
-                <div class="project-content">
-                    <h2 class="box-title">Modern Dining Tables</h2>
-                    <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                    <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
-                </div>
-            </div>
-            <div class="project-item col-12 filter-item cat1 cat3">
-                <div class="project-item_wrapp">
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
-                </div>
-                <div class="project-content">
-                    <h2 class="box-title">Minimalist Bedroom Design</h2>
-                    <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                    <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{{--
+    </section>
+ {{--
     <section class="project-area position-relative space-bottom overflow-hidden" id="project-sec">
     <div class="container">
         <div class="services-header">
@@ -584,48 +592,48 @@
                     <button data-filter="*" class="th-btns black-border active" type="button">View All</button>
                     @foreach($projectCategories as $index => $category)
                     <button data-filter=".cat{{ $index + 1 }}" class="th-btns black-border" type="button">{{ $category->name }}</button>
-@endforeach
-</div>
-</div>
-</div>
-<div class="gallery-row filter-active row">
-    @foreach($projects as $project)
-    @php
-    // Get the filter class for this project based on its category
-    $filterClass = 'cat-none'; // default
-    if($project->projectCategory) {
-    // Find the category index
-    $categoryIndex = $projectCategories->search(function($item) use ($project) {
-    return $item->id === $project->project_category_id;
-    });
-    if($categoryIndex !== false) {
-    $filterClass = 'cat' . ($categoryIndex + 1);
-    }
-    }
-    @endphp
-    <div class="project-item col-12 filter-item {{ $filterClass }}">
-        <div class="project-item-container d-flex" style="align-items: center; gap: 30px; flex-wrap: nowrap; width: 100%;">
-            <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center; flex-wrap: nowrap;">
-                @foreach($project->projectImages->take(2) as $index => $image)
-                <div class="box-img global-img {{ $index === 0 ? 'project-img-first' : 'project-img-second' }}">
-                    <img src="{{ Storage::url($image->image) }}" alt="{{ $project->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
-                @endforeach
-            </div>
-            <div class="project-content" style="flex: 0 0 300px;">
-                <h2 class="box-title">{{ $project->title }}</h2>
-                @if($project->short_description)
-                <p class="box-text">{{ $project->short_description }}</p>
-                @endif
-                <div class="btn-group mt-45">
-                    <a href="{{ route('projects.show', $project) }}" class="th-btns black-border" style="display:inline-block; text-decoration:none;">View Details</a>
+                    @endforeach
                 </div>
             </div>
         </div>
+        <div class="gallery-row filter-active row">
+            @foreach($projects as $project)
+            @php
+            // Get the filter class for this project based on its category
+            $filterClass = 'cat-none'; // default
+            if($project->projectCategory) {
+            // Find the category index
+            $categoryIndex = $projectCategories->search(function($item) use ($project) {
+            return $item->id === $project->project_category_id;
+            });
+            if($categoryIndex !== false) {
+            $filterClass = 'cat' . ($categoryIndex + 1);
+            }
+            }
+            @endphp
+            <div class="project-item col-12 filter-item {{ $filterClass }}">
+                <div class="project-item-container d-flex" style="align-items: center; gap: 30px; flex-wrap: nowrap; width: 100%;">
+                    <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center; flex-wrap: nowrap;">
+                        @foreach($project->projectImages->take(2) as $index => $image)
+                        <div class="box-img global-img {{ $index === 0 ? 'project-img-first' : 'project-img-second' }}">
+                            <img src="{{ Storage::url($image->image) }}" alt="{{ $project->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="project-content" style="flex: 0 0 300px;">
+                        <h2 class="box-title">{{ $project->title }}</h2>
+                        @if($project->short_description)
+                        <p class="box-text">{{ $project->short_description }}</p>
+                        @endif
+                        <div class="btn-group mt-45">
+                            <a href="{{ route('projects.show', $project) }}" class="th-btns black-border" style="display:inline-block; text-decoration:none;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
-    @endforeach
-</div>
-</div>
 </section>
 --}}
 
@@ -1341,7 +1349,7 @@
                     <div class="gallery-card">
                         <div class="box-img global-img">
                             <img class="wow clippy-img" src="assets/img/gallery/gallery_2_1.jpg" alt="gallery image">
-                            <a href="assets/img/gallery/gallery_2_1.jpg" class="icon-btn th-popup-image">
+                             <a href="assets/img/gallery/gallery_2_1.jpg" class="icon-btn th-popup-image">
                                 <i class="far fa-plus"></i></a>
                             <div class="shape">
                                 <div class="dot"></div>
@@ -1420,7 +1428,503 @@
     </div>
 </section>
 
+<style>
+    /* Gallery section styling - ensure content visibility */
+   /*  #gallery-sec {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 100px 0;
+        color: white;
+    } */
 
+    /*  #gallery-sec .title-area,
+    #gallery-sec .sub-title,
+    #gallery-sec .sec-title,
+    #gallery-sec .text-theme {
+        color: white !important;
+    } */
+
+    /* #gallery-sec .filter-menu button {
+
+        background: transparent !important;
+        border: 1px solid white !important;
+        padding: 10px 20px !important;
+        margin: 0 5px !important;
+        border-radius: 4px !important;
+    } */
+
+   /*  #gallery-sec .filter-menu button.active {
+        background: white !important;
+        color: #000 !important;
+    } */
+
+   /*  #gallery-sec .gallery-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        overflow: hidden;
+    } */
+
+    /* #gallery-sec .gallery-content {
+        background: white;
+        padding: 15px;
+    } */
+
+    /* #gallery-sec .box-title {
+        color: #000 !important;
+        margin: 0;
+        font-size: 16px;
+    } */
+
+   /*  #gallery-sec .gallery-card .icon-btn {
+        background: #003f3a;
+        color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 2;
+        opacity: 0;
+    }
+
+    #gallery-sec .gallery-card:hover .icon-btn {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    #gallery-sec .gallery-card:hover .clippy-img {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    #gallery-sec .box-img.global-img {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #gallery-sec .clippy-img {
+        transition: transform 0.3s ease;
+    } */
+
+    /* Testimonial section styling - adjusted to match theme */
+    .testi-box-tab .tab-btn img,
+    .box-author img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .testi-box-tab .tab-btn {
+        min-width: 150px;
+        max-height: 150px;
+        cursor: pointer;
+    }
+
+    .box-author {
+        max-width: 150px;
+        border-radius: 0px;
+    }
+
+    /* Additional testimonial styles */
+    .testi-area.light {
+        position: relative;
+        z-index: 2;
+    }
+
+    .testi-img.global-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .testi-line {
+        width: 70%;
+        height: 0px;
+        border: 1px solid rgba(108, 109, 113, 0.5);
+        display: block;
+        margin-top: -20px;
+    }
+
+    .testi-box.light {
+        background: #ffffff;
+        color: #333;
+    }
+
+    .testi-box.light .box-text {
+        color: #333 !important;
+        /* Make text visible */
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+        margin-bottom: 50px;
+        line-height: 1.6;
+    }
+
+    .testi-box.light .box-title {
+        font-family: var(--title-font2);
+        font-weight: 400;
+        font-size: 40px;
+        letter-spacing: 0.02em;
+        color: #333 !important;
+        /* Make title visible */
+        margin-bottom: 0;
+    }
+
+    .testi-box.light .box-desig {
+        font-weight: 400;
+        font-size: 14px;
+        color: #666666 !important;
+        /* Make designation visible */
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .testi-img {
+        position: relative;
+        /* Change positioning */
+        z-index: 1;
+        /* Ensure it doesn't overlap text */
+    }
+
+    /* Ensure testimonial content is visible and properly positioned */
+    #testi-sec {
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Ensure testimonial box content is visible */
+    .testi-box.light {
+        background: #ffffff;
+        color: #333;
+        padding: 30px;
+        border-radius: 8px;
+    }
+
+    .testi-box.light .box-text {
+        color: #333 !important;
+        /* Make text visible */
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+        margin-bottom: 50px;
+        line-height: 1.6;
+    }
+
+    .testi-box.light .box-title {
+        font-family: var(--title-font2);
+        font-weight: 400;
+        font-size: 40px;
+        letter-spacing: 0.02em;
+        color: #333 !important;
+        /* Make title visible */
+        margin-bottom: 0;
+    }
+
+    .testi-box.light .box-desig {
+        font-weight: 400;
+        font-size: 14px;
+        color: #666666 !important;
+        /* Make designation visible */
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Position the testi-img properly */
+    .col-lg-5 .testi-img {
+        margin-top: 0;
+    }
+
+    .testi-box.light .box-profile {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .testi-area.light .icon-box .slider-arrow {
+        border: 1px solid rgba(14, 14, 14, 0.3);
+    }
+
+    .testi-area.light .icon-box .slider-arrow img {
+        -webkit-filter: none;
+        filter: none;
+        -webkit-transition: none;
+        transition: none;
+    }
+
+    .testi-area.light .icon-box .slider-arrow:hover img {
+        -webkit-filter: none;
+        filter: none;
+    }
+
+    .testi-area .icon-box {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-top: 50px;
+        margin-right: 95px;
+    }
+
+    .testi-area .icon-box .slider-arrow {
+        width: 90px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 600;
+        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
+        color: #fff;
+        border: 2px solid #003f3a;
+        border-radius: 25px !important;
+        cursor: pointer;
+        transition: none !important;
+        box-shadow: none;
+        outline: none;
+        -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+
+    .testi-area .icon-box .slider-arrow:hover,
+    .testi-area .icon-box .slider-arrow:focus,
+    .testi-area .icon-box .slider-arrow:active {
+        background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
+        color: #fff !important;
+        border-color: #003f3a !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Ensure testimonial section has proper z-index */
+    #testi-sec {
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Project section styling */
+    .project-img-first {
+        width: 300px;
+        height: 300px;
+        flex-shrink: 0;
+    }
+
+    .project-img-second {
+        width: 565px;
+        height: 300px;
+        flex-shrink: 0;
+    }
+
+    /* Ensure project content stays inline and visible */
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: transparent !important;
+        color: #000000 !important;
+        min-height: auto;
+        flex: 0 0 250px;
+    }
+
+    .project-content .box-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 0 10px 0;
+        color: #000000 !important;
+        font-weight: bold;
+    }
+
+    .project-content .box-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 0 15px 0;
+        line-height: 1.4;
+        color: #000000 !important;
+    }
+
+    /* Align content in one line */
+    .project-item-container {
+        flex-wrap: nowrap;
+    }
+
+    /* Detail button styling to match homepage buttons */
+    .project-content .th-btn.white-border.th-icon {
+        background: transparent;
+        border: 2px solid #003f3a;
+        color: #003f3a;
+        padding: 10px 25px;
+        border-radius: 100px;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .project-content .th-btn.white-border.th-icon:hover {
+        background: #003f3a;
+        color: white;
+    }
+
+    /* Project item container flex layout */
+    .project-item-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .project-item_wrapp {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        flex: 1;
+        flex-wrap: nowrap;
+    }
+
+    /* Ensure images are properly aligned in a row */
+    .project-item_wrapp .box-img {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    /* Ensure content stays in one line */
+    .project-content {
+        flex: 0 0 250px;
+        min-width: 250px;
+        flex-shrink: 0;
+    }
+
+    /* Force images to stay inline */
+    .box-img.global-img {
+        display: block;
+        float: left;
+    }
+
+    /* Filter button active state */
+    .filter-menu .th-btns.black-border {
+        display: inline-block;
+        text-decoration: none;
+        background: transparent;
+        border: 2px solid #000000;
+        color: #000000;
+        padding: 12px 28px;
+        border-radius: 100px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-right: 10px;
+    }
+
+    .filter-menu .th-btns.black-border:hover {
+        background: #000000;
+        color: #ffffff;
+    }
+
+    .filter-menu .th-btns.black-border.active {
+        background: #000000;
+        color: #ffffff;
+    }
+
+    /* Project filtering styles */
+    .project-item {
+        transition: all 0.6s ease;
+    }
+
+    .gallery-row .project-item {
+        margin-bottom: 30px;
+        opacity: 1;
+    }
+
+    /* Isotope filtering */
+    .gallery-row.isotope .project-item {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .gallery-row.isotope .project-item.is-hidden {
+        opacity: 0;
+        transform: scale(0.001);
+        pointer-events: none;
+        display: none;
+    }
+
+    /* Ensure project items visibility */
+    .filter-item {
+        display: block;
+    }
+
+    /* Fix layout for few items */
+
+    .project-item {
+        margin-bottom: 0;
+    }
+
+    /* Ensure content alignment */
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Remove Bootstrap row gutters when filtering */
+    @media (min-width: 768px) {
+        .gallery-row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .project-item {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+
+    /* Detail button styling to match homepage buttons */
+    .project-content .th-btns.black-border {
+        display: inline-block;
+        text-decoration: none;
+        background: transparent;
+        border: 2px solid #000000;
+        color: #000000;
+        padding: 12px 28px;
+        border-radius: 100px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .project-content .th-btns.black-border:hover {
+        background: #000000;
+        color: #ffffff;
+    }
+
+    /* Better vertical alignment */
+    .project-item-container {
+        align-items: self-start !important;
+    }
+
+    .project-item_wrapp {
+        align-items: center !important;
+    }
+</style>
 
 <script>
     // Rest of the script remains the same
