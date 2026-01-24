@@ -158,7 +158,7 @@
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col-md-7 col-xl-4">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation"></a></div>
@@ -681,7 +681,7 @@
             background: #ffffffff;
             border: 1px solid #c5bebeff;
             border-radius: 10px;
-            padding: 40px 30px;
+            padding: 25px 30px;
             width: 100%;
             height: 100%;
             display: flex;
@@ -1898,6 +1898,9 @@
             }
         });
     </script>
+
+    @stack('styles')
+    @stack('scripts')
 
 </body>
 

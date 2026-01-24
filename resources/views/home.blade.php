@@ -494,7 +494,6 @@
     </div>
 </section>
 
-
 <section id="services-sec" class="renovation-bg-color">
     <div>
         <div class="container">
@@ -523,111 +522,96 @@
 
 <section class="project-area position-relative space-bottom" id="project-sec">
     <div class="container">
+
         <div class="row justify-content-between align-items-end">
             <div class="services-header">
                 <h5 class="title-heading">Our Projects</h5>
                 <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
-                <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
+                <p class="text-custom text-light-green">
+                    Discover how we can transform your outdoor space with our specialist landscaping and construction services.
+                </p>
             </div>
+
             <div class="col-xl-6">
-                <div class="filter-menu style2 filter-menu-active"><button data-filter="*" class="th-btn th-border active" type="button">View All</button> <button data-filter=".cat1" class="th-btn th-border" type="button">Residential</button> <button data-filter=".cat2" class="th-btn th-border" type="button">Commercial</button> <button data-filter=".cat3" class="th-btn th-border" type="button">Multipurpose</button></div>
+                <div class="filter-menu style2 filter-menu-active">
+                    <button data-filter="*" class="th-btn th-border active" type="button">
+                        View All
+                    </button>
+                    @foreach($projectCategories as $category)
+                        <button data-filter=".cat{{ $category->id }}"
+                                class="th-btn th-border"
+                                type="button">
+                            {{ $category->name }}
+                        </button>
+                    @endforeach
+                </div>
             </div>
         </div>
+
         <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
-            <div class="project-item col-12 filter-item cat2 cat3">
-                <div class="project-item_wrapp">
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_1.jpg" alt="project image"></div>
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_2.jpg" alt="project image"></div>
-                </div>
-                <div class="project-content">
-                    <h2 class="box-title">Minimalist Interior Design</h2>
-                    <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                    <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
-                </div>
-            </div>
-            <div class="project-item col-12 filter-item cat2 cat1">
-                <div class="project-item_wrapp">
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_3.jpg" alt="project image"></div>
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_4.jpg" alt="project image"></div>
-                </div>
-                <div class="project-content">
-                    <h2 class="box-title">Modern Dining Tables</h2>
-                    <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                    <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
-                </div>
-            </div>
-            <div class="project-item col-12 filter-item cat1 cat3">
-                <div class="project-item_wrapp">
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_5.jpg" alt="project image"></div>
-                    <div class="box-img global-img"><img src="assets/img/project/project_3_6.jpg" alt="project image"></div>
-                </div>
-                <div class="project-content">
-                    <h2 class="box-title">Minimalist Bedroom Design</h2>
-                    <p class="box-text">Minimalist & Luxury Interiors combine the clean simplicity of minimalism with the refined elegance of luxury design. This style is perfect for those.</p>
-                    <div class="btn-group mt-45"><a href="project.html" class="th-btn white-border th-icon">View Details</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{{--
-    <section class="project-area position-relative space-bottom overflow-hidden" id="project-sec">
-    <div class="container">
-        <div class="services-header">
-            <h5 class="title-heading">Our Projects</h5>
-            <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
-            <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
-        </div>
-        <div class="row justify-content-center align-items-end">
-            <div class="col-xl-6">
-                <div class="filter-menu style2 light filter-menu-active">
-                    <button data-filter="*" class="th-btns black-border active" type="button">View All</button>
-                    @foreach($projectCategories as $index => $category)
-                    <button data-filter=".cat{{ $index + 1 }}" class="th-btns black-border" type="button">{{ $category->name }}</button>
-@endforeach
-</div>
-</div>
-</div>
-<div class="gallery-row filter-active row">
-    @foreach($projects as $project)
-    @php
-    // Get the filter class for this project based on its category
-    $filterClass = 'cat-none'; // default
-    if($project->projectCategory) {
-    // Find the category index
-    $categoryIndex = $projectCategories->search(function($item) use ($project) {
-    return $item->id === $project->project_category_id;
-    });
-    if($categoryIndex !== false) {
-    $filterClass = 'cat' . ($categoryIndex + 1);
-    }
-    }
-    @endphp
-    <div class="project-item col-12 filter-item {{ $filterClass }}">
-        <div class="project-item-container d-flex" style="align-items: center; gap: 30px; flex-wrap: nowrap; width: 100%;">
-            <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center; flex-wrap: nowrap;">
-                @foreach($project->projectImages->take(2) as $index => $image)
-                <div class="box-img global-img {{ $index === 0 ? 'project-img-first' : 'project-img-second' }}">
-                    <img src="{{ Storage::url($image->image) }}" alt="{{ $project->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                </div>
+
+            @foreach($projectCategories as $category)
+                @foreach($category->projects as $project)
+
+                    @php
+                        $projectImages = $project->projectImages->values();
+
+                        $firstImage = $project->cover_image
+                            ?? optional($projectImages->get(0))->image
+                            ?? 'assets/img/project/default.jpg';
+
+                        $secondImage = $project->cover_image
+                            ? optional($projectImages->get(1))->image
+                            : optional($projectImages->get(1))->image
+                                ?? optional($projectImages->get(0))->image
+                                ?? 'assets/img/project/default.jpg';
+
+                        $plainText = trim(strip_tags($project->short_description));
+                    @endphp
+
+                    <div class="project-item col-12 filter-item cat{{ $category->id }}">
+
+                        <div class="project-item_wrapp">
+                            <div class="box-img global-img">
+                                <img src="{{ asset($firstImage) }}" alt="project image">
+                            </div>
+                            <div class="box-img global-img">
+                                <img src="{{ asset($secondImage) }}" alt="project image">
+                            </div>
+                        </div>
+
+                        <div class="project-content mt-2">
+                            <h2 class="box-title">
+                                <a href="{{ url('projects/' . $project->slug) }}">
+                                    {{ $project->title }}
+                                </a>
+                            </h2>
+
+                            <p class="box-text service-description mt-4">
+                                {{ mb_strlen($plainText) > 149
+                                    ? mb_substr($plainText, 0, 149) . '...'
+                                    : $plainText
+                                }}
+                            </p>
+
+                            <div class="btn-group mt-45">
+                                <a href="{{ url('projects/' . $project->slug) }}"
+                                   class="th-btns black-border">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
                 @endforeach
-            </div>
-            <div class="project-content" style="flex: 0 0 300px;">
-                <h2 class="box-title">{{ $project->title }}</h2>
-                @if($project->short_description)
-                <p class="box-text">{{ $project->short_description }}</p>
-                @endif
-                <div class="btn-group mt-45">
-                    <a href="{{ route('projects.show', $project) }}" class="th-btns black-border" style="display:inline-block; text-decoration:none;">View Details</a>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
-    @endforeach
-</div>
-</div>
 </section>
---}}
+
+
 
 <section class="renovation-bg-color positive-relative overflow-hidden space overflow-hidden" id="blog-sec">
     <div class="container">
@@ -655,19 +639,19 @@
                     </div>
                     <div class="box-content">
                         <div>
-                            <div class="blog-meta text-custom">
+                            <div class="blog-meta">
                                 <a href="#" class="text-dark">By Admin</a>
-                                <a href="#" class="text-dark">{{ $post->category->name ?? 'General' }}</a>
+                                <a href="#" class="text-dark">{{ $post->category?->name ?? 'General' }}</a>
                             </div>
-                            <h3 class="box-title text-custom">
+                            <h2 class="box-title">
                                 <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>
-                            </h3>
+                            </h2>
                         </div>
                         <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                            <span class="date text-custom">
+                            <span class="date">
                                 {{ $post->published_at ? $post->published_at->format('M d, Y') : $post->created_at->format('M d, Y') }}
                             </span>
-                            <a href="{{ route('blog.show', $post) }}" class="th-btns black-border">Read More</a>
+                            <a href="{{ route('blog.show', $post) }}" class="th-btns black-border mb-2">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -709,7 +693,7 @@
     #blog-sec .services-header .text-light-green {
         opacity: 1 !important;
         visibility: visible !important;
-        color: inherit !important;
+       /*  color: inherit !important; */
     }
 
     /* Responsive adjustments */
@@ -748,18 +732,18 @@
                                 <div class="profile-body">
                                     <div class="profiles-infos">
                                         <div class="tag blue">
-                                            <div class="sector_profile white playfair-display">{{ $expert->designation }}</div>
+                                            <div class="sector_profile white">{{ $expert->designation }}</div>
                                         </div>
                                         <div class="skills-profil">
                                             @foreach($expert->skills->take(2) as $skill)
                                             <div class="tag grey">
-                                                <div class="sector_profile white playfair-display">{{ $skill->name }}</div>
+                                                <div class="sector_profile white">{{ $skill->name }}</div>
                                             </div>
                                             @endforeach
                                         </div>
                                     </div>
                                     <div class="div_logo_profile">
-                                        <div class="previously_profile white playfair-display">Worked for</div>
+                                        <div class="previously_profile white">Worked for</div>
                                         <div class="box-logo-profile">
                                             @if($expert->company_url)
                                             <a href="{{ $expert->company_url }}" target="_blank">
@@ -1036,6 +1020,72 @@
         }
     </style>
 
+
+
+    <style>
+        /* Custom styles for home page services section */
+        .home-service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .home-service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .home-service-card .service-title {
+            font-weight: 600;
+            color: #003f3a;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .home-service-card .service-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .services-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-column {
+            margin-bottom: 0 !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .services-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Initializing customer logo rotation');
@@ -1150,148 +1200,206 @@
         <div class="row gy-4 flex-row-reverse">
             <div class="col-xl-6">
                 <div class="ps-xl-5">
-                    <form action="">
+                    <!-- Alert Messages -->
+                    <div id="contact-alert" class="alert" role="alert" style="display: none;">
+                        <span id="contact-alert-message"></span>
+                    </div>
+
+                    <form id="contactForm" action="{{ route('contact.store') }}" method="POST">
+                        @csrf
                         <div class="row">
-                            <div class="form-group col-md-6"><input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> <i class="fa-solid fa-user"></i></div>
-                            <div class="form-group col-md-6"><input type="email" class="form-control" name="email" id="email" placeholder="Email Address"> <i class="fa-solid fa-envelope"></i></div>
-                            <div class="form-group col-md-6"><input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number"> <i class="fa-solid fa-phone"></i></div>
-                            <div class="form-group col-md-6"><select name="subject" id="subject" class="form-select nice-select">
-                                    <option value="" disabled="disabled" selected="selected" hidden>Inquire Services</option>
-                                    <option value="General Medicinet">General Medicine</option>
-                                    <option value="Heart Specialists">Heart Specialists</option>
-                                    <option value="Skin & Hair Specialists">Skin & Hair Specialists</option>
-                                    <option value="Child Specialists">Child Specialists</option>
-                                </select></div>
-                            <div class="form-group col-12">
-                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Full Name*">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="invalid-feedback" id="name-error"></div>
                             </div>
-                            <div class="col-12 form-group text-custom"><input type="checkbox" id="html"> <label for="html" class="text-custom">I agree with the privacy policy</label></div>
-                            <div class="form-btn col-12"><button class="th-btns black-border">Submit Now</button></div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email Address*">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div class="invalid-feedback" id="email-error"></div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone Number*">
+                                <i class="fa-solid fa-phone"></i>
+                                <div class="invalid-feedback" id="phone-error"></div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject*" maxlength="150">
+                                <i class="fa-solid fa-tag"></i>
+                                <div class="invalid-feedback" id="subject-error"></div>
+                                <small class="form-text text-muted">Maximum 150 characters</small>
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Your Message*"></textarea>
+                                <i class="fa-solid fa-pencil"></i>
+                                <div class="invalid-feedback" id="message-error"></div>
+                            </div>
+                            <div class="form-btn col-12">
+                                <button type="submit" class="th-btns black-border" id="submitBtn">
+                                    <span class="btn-text">Submit Now</span>
+                                    <span class="btn-loading" style="display: none;"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>
+                                </button>
+                            </div>
                         </div>
-                        <p class="form-messages mb-0 mt-3"></p>
                     </form>
                 </div>
             </div>
             <div class="col-xl-6">
-                <div class="contact-image2" data-mask-src="assets/img/normal/contact-shape.png">
-                    <div class="img1 img-anim-left"><img style="height:500px!important;" src="assets/img/normal/contact-1-1.jpg" alt=""></div>
-                    <div class="contact-shape"><img style="height:500px!important;" src="assets/img/normal/contact-shape2.png" alt=""></div>
+                <div class="contact-image2">
+                    <div class="img1 img-anim-left">
+                        <img style="height:500px!important;" src="assets/img/normal/contact-3-1.jpg" alt="">
+                    </div>
+                    <div class="contact-shape">
+                        <img style="height:500px!important;" src="assets/img/normal/contact-3-1.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+@php
+// Collect all gallery images from random categories
+$randomGalleryImages = collect();
 
+if(isset($galleryCategories) && $galleryCategories->count()) {
+$randomGalleryImages = $galleryCategories
+->shuffle() // random categories
+->flatMap(function ($cat) { // merge galleries
+return $cat->galleries;
+})
+->shuffle()
+->take(2)
+->values();
+}
 
+// Fallback images
+$fallbackImages = [
+asset('assets/img/testimonial/testi-img1.jpg'),
+asset('assets/img/testimonial/testi-img2.jpg'),
+];
 
-<section class="overflow-hidden overflow-hidden" id="testi-sec">
+$image1 = $randomGalleryImages[0]->image ?? $fallbackImages[0];
+$image2 = $randomGalleryImages[1]->image ?? $fallbackImages[1];
+$imageOneTitle = $randomGalleryImages[0]->title ?? 'Excellence Residence';
+$imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
+@endphp
+
+<section class="overflow-hidden space overflow-hidden" id="testi-sec">
     <div class="container">
+
         <div class="services-header">
             <h5 class="title-heading">Testimonials</h5>
-            <p class="text-custom text-light-green">What our clients have to say about our services.</p>
+            <p class="text-custom text-light-green">
+                What our clients have to say about our services.
+            </p>
         </div>
-        <div class="row gy-5 justify-content-between align-items-center">
-            <div class="col-xl-8">
-                <div class="testi-area light">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="testi-box-tab" data-slider-tab="#testiSlide3">
-                                @forelse($testimonials as $index => $testimonial)
-                                <div class="tab-btn {{ $index === 0 ? 'active' : '' }}">
-                                    @if($testimonial->client_image)
-                                    @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
-                                    <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}">
-                                    @else
-                                    <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}">
-                                    @endif
-                                    @else
-                                    <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="{{ $testimonial->client_name }}">
-                                    @endif
-                                </div>
-                                @empty
-                                <div class="tab-btn active">
-                                    <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="Default Testimonial">
-                                </div>
-                                @endforelse
-                            </div>
+
+        <div class="row gy-24 align-items-center">
+
+            {{-- LEFT STATIC IMAGE BLOCK (kept same) --}}
+            <div class="col-xl-5">
+                <div class="testi-image_wrapp">
+                    <div class="testi-review">
+                        <div class="testi-img1 global-img">
+                            <img src="{{ asset($image1) }}" alt="image">
                         </div>
-                        <div class="col-lg-5">
-                            <div class="testi-img global-img">
-                                @forelse($testimonials as $index => $testimonial)
-                                @if($testimonial->client_image)
-                                @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
-                                <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
-                                @else
-                                <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
-                                @endif
-                                @else
-                                <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
-                                @endif
-                                @empty
-                                <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="Default Testimonial">
-                                @endforelse
-                            </div>
+                        <div class="box-content">
+                            <h3 class="box-title">{{ $imageOneTitle }}</h3>
+                            <p class="box-text">{{ $imageTwoTitle }}</p>
                         </div>
                     </div>
-                    <div class="icon-box"><button data-slider-prev="#testiSlide3" class="slider-arrow default slider-prev"><img src="assets/img/icon/left-arrow2.svg" alt=""></button> <button data-slider-next="#testiSlide3" class="slider-arrow default slider-next"><img src="assets/img/icon/right-arrow3.svg" alt=""></button></div><span class="testi-line"></span>
+                    <div class="testi-img2 global-img">
+                        <img src="{{ asset($image2) }}" alt="image">
+                    </div>
                 </div>
             </div>
-            <div class="col-xl-4">
+
+            {{-- RIGHT SLIDER --}}
+            <div class="col-xl-7">
                 <div class="slider-wrap">
-                    <div class="swiper th-slider testiSlide3 has-shadow" id="testiSlide3" data-slider-options='{"effect":"slide","loop":true}'>
+                    <div class="swiper th-slider testiSlide1 has-shadow"
+                        id="testiSlide1"
+                        data-slider-options='{"effect":"slide","loop":true}'>
+
                         <div class="swiper-wrapper">
-                            @forelse($testimonials as $testimonial)
+
+                            @foreach($testimonials as $testimonial)
                             <div class="swiper-slide">
-                                <div class="testi-box light">
-                                    <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                                    <p class="box-text">"{{ $testimonial->testimonial_text }}"</p>
+                                <div class="testi-card style1">
+
+                                    <div class="box-wrapp">
+                                        <div class="box-quote">
+                                            <img src="{{ asset('assets/img/icon/quote2.svg') }}" alt="">
+                                        </div>
+
+                                        {{-- STATIC RATING (kept same) --}}
+                                        <div class="box-rating">
+                                            <span class="rating">5.0/5.0</span>
+                                            <span class="review">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p class="mb-20">
+                                        “{{ $testimonial->testimonial_text }}”
+                                    </p>
+
                                     <div class="box-profile">
                                         <div class="box-author">
-                                            @if($testimonial->client_image)
-                                            @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
-                                            <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}">
-                                            @else
-                                            <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}">
-                                            @endif
-                                            @else
-                                            <img src="{{ asset('assets/img/testimonial/testi_3_1.jpg') }}" alt="{{ $testimonial->client_name }}">
-                                            @endif
+                                            <img src="{{ asset($testimonial->client_image) }}"
+                                                alt="{{ $testimonial->client_name }}">
                                         </div>
                                         <div class="box-info">
-                                            <h3 class="box-title">{{ $testimonial->client_name }}</h3>
-                                            @if($testimonial->designation)
-                                            <span class="box-desig">{{ $testimonial->designation }}</span>
-                                            @else
-                                            <span class="box-desig">Client</span>
-                                            @endif
+                                            <h3 class="box-title">
+                                                {{ $testimonial->client_name }}
+                                            </h3>
+                                            <span class="box-desig">
+                                                {{ $testimonial->designation }}
+                                            </span>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
-                            @empty
-                            <div class="swiper-slide">
-                                <div class="testi-box light">
-                                    <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                                    <p class="box-text">"We'd love to showcase your testimonial here. Please share your experience with us!"</p>
-                                    <div class="box-profile">
-                                        <div class="box-author"><img src="{{ asset('assets/img/testimonial/testi_3_1.jpg') }}" alt="Default"></div>
-                                        <div class="box-info">
-                                            <h3 class="box-title">Be Our First</h3>
-                                            <span class="box-desig">Share Your Experience</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforelse
+                            @endforeach
+
                         </div>
+
+                        {{-- Slider Arrows (unchanged) --}}
+                        <div class="icon-box">
+                            <button data-slider-prev="#testiSlide1"
+                                class="slider-arrow style4 default slider-prev">
+                                <img src="{{ asset('assets/img/icon/right-arrow4.svg') }}"
+                                    style="display: unset!important;" alt="arrow-previous">
+                            </button>
+                            <button data-slider-next="#testiSlide1"
+                                class="slider-arrow style4 default slider-next">
+                                <img src="{{ asset('assets/img/icon/left-arrow4.svg') }}"
+                                    style="display: unset!important;" alt="arrow-next">
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
+    </div>
+
+    <div class="shape-mockup d-none d-xxl-block"
+        data-bottom="0%"
+        data-left="0%">
+        <img src="{{ asset('assets/img/shape/element-4.png') }}" alt="">
     </div>
 </section>
 
-<section class="overflow-hidden space-bottom overflow-hidden playfair-display" id="instagram-sec">
+
+<section class="overflow-hidden space-bottom overflow-hidden playfair-display renovation-bg-color" id="instagram-sec">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-7">
@@ -1325,7 +1433,7 @@
 </section>
 
 <section class="overflow-hidden space" id="gallery-sec">
-    <div class="overflow-hidden space">
+    <div class="overflow-hidden">
         <div class="container">
             <div class="services-header">
                 <h5 class="title-heading">Gallery</h5>
@@ -1333,453 +1441,413 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-xl-7">
-                    <div class="filter-menu indicator-active filter-menu-active"><button data-filter="*" class="tab-btn active" type="button">View All</button> <button data-filter=".cat1" class="tab-btn" type="button">Interior</button> <button data-filter=".cat2" class="tab-btn" type="button">Architecture</button> <button data-filter=".cat3" class="tab-btn" type="button">Building</button> <button data-filter=".cat4" class="tab-btn" type="button">Exterior</button> <button data-filter=".cat5" class="tab-btn" type="button">Shape</button></div>
+                    <div class="filter-menu indicator-active filter-menu-active">
+
+                        <button data-filter="*" class="tab-btn active" type="button">
+                            View All
+                        </button>
+                        @foreach($galleryCategories as $index => $category)
+                        <button
+                            data-filter=".cat{{ $category->id }}"
+                            class="tab-btn"
+                            type="button">
+                            {{ $category->name }}
+                        </button>
+                        @endforeach
+
+                    </div>
                 </div>
             </div>
             <div class="row gy-4 gallery-row filter-active">
-                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat2 cat5">
+                @foreach($galleryCategories as $category)
+                @foreach($category->galleries as $gallery)
+                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat{{ $category->id }}">
+
                     <div class="gallery-card">
                         <div class="box-img global-img">
-                            <img class="wow clippy-img" src="assets/img/gallery/gallery_2_1.jpg" alt="gallery image">
-                            <a href="assets/img/gallery/gallery_2_1.jpg" class="icon-btn th-popup-image">
-                                <i class="far fa-plus"></i></a>
-                            <div class="shape">
-                                <div class="dot"></div>
-                            </div>
-                        </div>
-                        <div class="gallery-content">
-                            <h2 class="box-title">Open Kitchen Interior Design</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat3 cat2">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><img class="wow clippy-img" src="assets/img/gallery/gallery_2_2.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_2_2.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
-                            <div class="shape">
-                                <div class="dot"></div>
-                            </div>
-                        </div>
-                        <div class="gallery-content">
-                            <h2 class="box-title">Open Kitchen Interior Design</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat3 cat5">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><img class="wow clippy-img" src="assets/img/gallery/gallery_2_3.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_2_3.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
-                            <div class="shape">
-                                <div class="dot"></div>
-                            </div>
-                        </div>
-                        <div class="gallery-content">
-                            <h2 class="box-title">Open Kitchen Interior Design</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat1 cat5">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><img class="wow clippy-img" src="assets/img/gallery/gallery_2_4.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_2_4.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
-                            <div class="shape">
-                                <div class="dot"></div>
+                            <img
+                                class="wow clippy-img"
+                                src="{{ asset($gallery->image) }}"
+                                alt="gallery image">
 
-                            </div>
-                        </div>
-                        <div class="gallery-content">
-                            <h2 class="box-title">Open Kitchen Interior Design</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat4 cat2 cat1">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><img class="wow clippy-img" src="assets/img/gallery/gallery_2_5.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_2_5.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
+                            <a href="{{ asset($gallery->image) }}"
+                                class="icon-btn th-popup-image">
+                                <i class="far fa-plus"></i>
+                            </a>
+
                             <div class="shape">
                                 <div class="dot"></div>
-
                             </div>
                         </div>
-                        <div class="gallery-content">
-                            <h2 class="box-title">Open Kitchen Interior Design</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat4 cat3 cat1">
-                    <div class="gallery-card">
-                        <div class="box-img global-img"><img class="wow clippy-img" src="assets/img/gallery/gallery_2_6.jpg" alt="gallery image"> <a href="assets/img/gallery/gallery_2_6.jpg" class="icon-btn th-popup-image"><i class="far fa-plus"></i></a>
-                            <div class="shape">
-                                <div class="dot"></div>
 
-                            </div>
-                        </div>
                         <div class="gallery-content">
-                            <h2 class="box-title">Open Kitchen Interior Design</h2>
+                            <h2 class="box-title">
+                                {{ $gallery->title }}
+                            </h2>
                         </div>
                     </div>
+
                 </div>
+                @endforeach
+                @endforeach
             </div>
         </div>
     </div>
 </section>
-
-
-
-<script>
-    // Rest of the script remains the same
-    // Wait for DOM to be fully loaded and jQuery to be available
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if jQuery is loaded
-        if (typeof $ !== 'undefined') {
-            // Initialize testimonial slider
-            if (document.querySelector('.testiSlide3')) {
-                const testimonialSwiper = new Swiper('.testiSlide3', {
-                    loop: true,
-                    effect: 'slide',
-                    speed: 600,
-                    autoplay: {
-                        delay: 4000, // Auto-slide every 4 seconds
-                        disableOnInteraction: false, // Continue auto-sliding after user interactions
-                    },
-                    navigation: {
-                        nextEl: '[data-slider-next="#testiSlide3"]',
-                        prevEl: '[data-slider-prev="#testiSlide3"]',
-                    },
-                    on: {
-                        slideChange: function() {
-                            // Update tab buttons when slide changes
-                            const activeIndex = this.realIndex;
-                            const tabButtons = document.querySelectorAll('.testi-box-tab .tab-btn');
-
-                            tabButtons.forEach((btn, index) => {
-                                btn.classList.toggle('active', index === activeIndex);
-                            });
-
-                            // Update main image when slide changes
-                            updateMainImage(activeIndex);
-                        }
-                    }
-                });
-
-                // Function to update the main image
-                function updateMainImage(index) {
-                    const allImages = document.querySelectorAll('.testi-area .testi-img img');
-                    if (allImages.length > 0) {
-                        // Hide all images
-                        allImages.forEach(img => {
-                            img.style.display = 'none';
-                        });
-
-                        // Show the image at the current index
-                        if (allImages[index]) {
-                            allImages[index].style.display = 'block';
-                        }
-                    }
-                }
-
-                // Initialize the first image
-                if (document.querySelector('.testi-area .testi-img img')) {
-                    const allImages = document.querySelectorAll('.testi-area .testi-img img');
-                    allImages.forEach((img, idx) => {
-                        if (idx !== 0) {
-                            img.style.display = 'none';
-                        }
-                    });
-                }
-            }
-
-            // Initialize the testimonial section using the theme's built-in functionality
-            if (typeof $.fn.activateSliderThumbs === 'function') {
-                if (document.querySelector('.testi-box-tab')) {
-                    $('.testi-box-tab').activateSliderThumbs({
-                        sliderTab: true,
-                        tabButton: '.tab-btn'
-                    });
-                }
-            }
-        }
-        // Don't log error messages for missing jQuery - this is normal during page load
-    });
-
-    // Initialize the testimonial section using the theme's built-in functionality
-    if (typeof $ !== 'undefined' && typeof $.fn.activateSliderThumbs === 'function') {
-        if ($('.testi-box-tab').length > 0) {
-            $('.testi-box-tab').activateSliderThumbs({
-                sliderTab: true,
-                tabButton: '.tab-btn'
-            });
-        }
-    } else if (typeof $ !== 'undefined') {
-        console.warn('activateSliderThumbs function is not available');
-    }
-    // Don't log error when jQuery is not loaded - this is handled gracefully
-
-    // Ensure WOW animations are properly initialized
-    if (typeof WOW !== 'undefined') {
-        new WOW().init();
-    }
-
-    // Gallery and Project filtering script - only execute when jQuery is ready
-    document.addEventListener('DOMContentLoaded', function() {
-        if (typeof $ !== 'undefined') {
-            $(document).ready(function() {
-                // Handle all filter menus on the page
-                const filterMenus = document.querySelectorAll('.filter-menu-active');
-
-                filterMenus.forEach(menu => {
-                    const filterButtons = menu.querySelectorAll('.th-btns');
-                    // Target both project items and gallery items within the same container
-                    const parentContainer = menu.closest('.container') || document;
-                    const projectItems = parentContainer.querySelectorAll('.project-item');
-                    const galleryItems = parentContainer.querySelectorAll('.filter-item');
-
-                    // Combine both arrays
-                    const allItems = [...projectItems, ...galleryItems];
-
-                    // Initialize all items as visible
-                    allItems.forEach(item => {
-                        item.style.display = 'block';
-                        item.style.opacity = '1';
-                    });
-
-                    // Add click event listeners to filter buttons
-                    filterButtons.forEach(button => {
-                        button.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const filterValue = this.getAttribute('data-filter');
-
-                            // Update active button - remove active class from all and add to current
-                            filterButtons.forEach(btn => btn.classList.remove('active'));
-                            this.classList.add('active');
-
-                            console.log('Filter clicked:', filterValue);
-
-                            // Apply filtering to all items
-                            allItems.forEach(item => {
-                                if (filterValue === '*') {
-                                    // Show all items
-                                    item.style.display = 'block';
-                                    item.style.opacity = '1';
-                                    item.style.position = 'relative';
-                                    item.style.visibility = 'visible';
-                                } else {
-                                    // Check if item has the filter class
-                                    const filterClass = filterValue.replace('.', '');
-
-                                    if (item.classList.contains(filterClass)) {
-                                        item.style.display = 'block';
-                                        item.style.opacity = '1';
-                                        item.style.position = 'relative';
-                                        item.style.visibility = 'visible';
-                                    } else {
-                                        item.style.display = 'none';
-                                        item.style.opacity = '0';
-                                        item.style.position = 'absolute';
-                                        item.style.visibility = 'hidden';
-                                    }
-                                }
-                            });
-                        });
-                    });
-                });
-            });
-        } else {
-            // Pure JavaScript fallback if jQuery is not loaded
-            document.addEventListener('DOMContentLoaded', function() {
-                // Wait a bit more for jQuery to load, or use pure JavaScript implementation
-                setTimeout(function() {
-                    if (typeof $ !== 'undefined') {
-                        // Handle all filter menus on the page
-                        const filterMenus = document.querySelectorAll('.filter-menu-active');
-
-                        filterMenus.forEach(menu => {
-                            const filterButtons = menu.querySelectorAll('.th-btns');
-                            // Target both project items and gallery items within the same container
-                            const parentContainer = menu.closest('.container') || document;
-                            const projectItems = parentContainer.querySelectorAll('.project-item');
-                            const galleryItems = parentContainer.querySelectorAll('.filter-item');
-
-                            // Combine both arrays
-                            const allItems = [...projectItems, ...galleryItems];
-
-                            // Initialize all items as visible
-                            allItems.forEach(item => {
-                                item.style.display = 'block';
-                                item.style.opacity = '1';
-                            });
-
-                            // Add click event listeners to filter buttons
-                            filterButtons.forEach(button => {
-                                button.addEventListener('click', function(e) {
-                                    e.preventDefault();
-                                    const filterValue = this.getAttribute('data-filter');
-
-                                    // Update active button - remove active class from all and add to current
-                                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                                    this.classList.add('active');
-
-                                    console.log('Filter clicked:', filterValue);
-
-                                    // Apply filtering to all items
-                                    allItems.forEach(item => {
-                                        if (filterValue === '*') {
-                                            // Show all items
-                                            item.style.display = 'block';
-                                            item.style.opacity = '1';
-                                            item.style.position = 'relative';
-                                            item.style.visibility = 'visible';
-                                        } else {
-                                            // Check if item has the filter class
-                                            const filterClass = filterValue.replace('.', '');
-
-                                            if (item.classList.contains(filterClass)) {
-                                                item.style.display = 'block';
-                                                item.style.opacity = '1';
-                                                item.style.position = 'relative';
-                                                item.style.visibility = 'visible';
-                                            } else {
-                                                item.style.display = 'none';
-                                                item.style.opacity = '0';
-                                                item.style.position = 'absolute';
-                                                item.style.visibility = 'hidden';
-                                            }
-                                        }
-                                    });
-                                });
-                            });
-                        });
-                    } else {
-                        // Pure JavaScript fallback implementation
-                        // Handle all filter menus on the page
-                        const filterMenus = document.querySelectorAll('.filter-menu-active');
-
-                        filterMenus.forEach(menu => {
-                            const filterButtons = menu.querySelectorAll('.th-btns');
-                            // Target both project items and gallery items within the same container
-                            const parentContainer = menu.closest('.container') || document;
-                            const projectItems = parentContainer.querySelectorAll('.project-item');
-                            const galleryItems = parentContainer.querySelectorAll('.filter-item');
-
-                            // Combine both arrays
-                            const allItems = [...projectItems, ...galleryItems];
-
-                            // Initialize all items as visible
-                            allItems.forEach(item => {
-                                item.style.display = 'block';
-                                item.style.opacity = '1';
-                            });
-
-                            // Add click event listeners to filter buttons
-                            filterButtons.forEach(button => {
-                                button.addEventListener('click', function(e) {
-                                    e.preventDefault();
-                                    const filterValue = this.getAttribute('data-filter');
-
-                                    // Update active button - remove active class from all and add to current
-                                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                                    this.classList.add('active');
-
-                                    console.log('Filter clicked:', filterValue);
-
-                                    // Apply filtering to all items
-                                    allItems.forEach(item => {
-                                        if (filterValue === '*') {
-                                            // Show all items
-                                            item.style.display = 'block';
-                                            item.style.opacity = '1';
-                                            item.style.position = 'relative';
-                                            item.style.visibility = 'visible';
-                                        } else {
-                                            // Check if item has the filter class
-                                            const filterClass = filterValue.replace('.', '');
-
-                                            if (item.classList.contains(filterClass)) {
-                                                item.style.display = 'block';
-                                                item.style.opacity = '1';
-                                                item.style.position = 'relative';
-                                                item.style.visibility = 'visible';
-                                            } else {
-                                                item.style.display = 'none';
-                                                item.style.opacity = '0';
-                                                item.style.position = 'absolute';
-                                                item.style.visibility = 'hidden';
-                                            }
-                                        }
-                                    });
-                                });
-                            });
-                        });
-                    }
-                }, 500);
-            });
-        }
-    });
-</script>
-
-<style>
-    /* Custom styles for home page services section */
-    .home-service-card {
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .home-service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .home-service-card .service-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #003f3a;
-        margin-bottom: 15px;
-        line-height: 1.4;
-    }
-
-    .home-service-card .service-description {
-        font-size: 0.9rem;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-    }
-
-    .services-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
-
-    .service-column {
-        margin-bottom: 0 !important;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .services-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .services-row {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
-<!-- Swiper JS -->
-<script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
 @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    // Contact form submission with AJAX
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+
+        // Prevent multiple submissions
+        var submitBtn = $('#submitBtn');
+        if (submitBtn.prop('disabled') || submitBtn.hasClass('disabled')) {
+            return false;
+        }
+
+        // Clear previous errors
+        $('.invalid-feedback').text('').hide();
+        $('.form-control, .form-select').removeClass('is-invalid');
+        hideAlert();
+
+        // Get form data
+        var formData = {
+            _token: $('input[name=_token]').val(),
+            name: $('#name').val().trim(),
+            email: $('#email').val().trim(),
+            phone: $('#phone').val().trim(),
+            subject: $('#subject').val(),
+            message: $('#message').val().trim()
+        };
+
+        // Client-side validation
+        var isValid = true;
+        var errors = {};
+
+        // Validate name
+        if (!formData.name) {
+            errors.name = 'Name is required.';
+            isValid = false;
+        } else if (formData.name.length < 2) {
+            errors.name = 'Name must be at least 2 characters long.';
+            isValid = false;
+        }
+
+        // Validate email
+        if (!formData.email) {
+            errors.email = 'Email is required.';
+            isValid = false;
+        } else if (!isValidEmail(formData.email)) {
+            errors.email = 'Please enter a valid email address.';
+            isValid = false;
+        }
+
+        // Validate phone
+        if (!formData.phone) {
+            errors.phone = 'Phone number is required.';
+            isValid = false;
+        } else if (!isValidPhone(formData.phone)) {
+            errors.phone = 'Please enter a valid phone number.';
+            isValid = false;
+        }
+
+        // Validate subject
+        if (!formData.subject) {
+            errors.subject = 'Subject is required.';
+            isValid = false;
+        } else if (formData.subject.length > 150) {
+            errors.subject = 'Subject must be no more than 150 characters.';
+            isValid = false;
+        }
+
+        // Validate message
+        if (!formData.message) {
+            errors.message = 'Message is required.';
+            isValid = false;
+        } else if (formData.message.length < 10) {
+            errors.message = 'Message must be at least 10 characters long.';
+            isValid = false;
+        }
+
+        // Display validation errors
+        if (!isValid) {
+            $.each(errors, function(field, message) {
+                $('#' + field + '-error').text(message).show();
+                $('#' + field).addClass('is-invalid');
+            });
+            showAlert('Please correct the errors below.', 'danger');
+            return;
+        }
+
+        // Disable submit button and show loading
+        var submitBtn = $('#submitBtn');
+        var btnText = $('.btn-text');
+        var btnLoading = $('.btn-loading');
+
+        // Prevent multiple clicks by adding multiple disable methods
+        submitBtn.prop('disabled', true);
+        submitBtn.attr('disabled', 'disabled');
+        submitBtn.addClass('disabled');
+        submitBtn.css('pointer-events', 'none');
+        btnText.hide();
+        btnLoading.show();
+
+        // Submit form via AJAX
+        $.ajax({
+            url: $(this).attr('action'),
+            method: 'POST',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    // Show success message
+                    showAlert(response.message, 'success');
+
+                    // Reset form
+                    $('#contactForm')[0].reset();
+
+                    // Reset nice-select if used
+                    if ($.fn.niceSelect) {
+                        $('#subject').niceSelect('update');
+                    }
+                } else {
+                    showAlert(response.message || 'Something went wrong. Please try again.', 'danger');
+                }
+            },
+            error: function(xhr) {
+                if (xhr.status === 422) {
+                    // Validation errors
+                    var errors = xhr.responseJSON.errors;
+                    $.each(errors, function(field, messages) {
+                        $('#' + field + '-error').text(messages[0]).show();
+                        $('#' + field).addClass('is-invalid');
+                    });
+                    showAlert('Please correct the errors below.', 'danger');
+                } else {
+                    // Other errors
+                    showAlert('Something went wrong. Please try again.', 'danger');
+                }
+            },
+            complete: function() {
+                // Re-enable submit button with multiple methods
+                submitBtn.prop('disabled', false);
+                submitBtn.removeAttr('disabled');
+                submitBtn.removeClass('disabled');
+                submitBtn.css('pointer-events', 'auto');
+                btnText.show();
+                btnLoading.hide();
+            }
+        });
+    });
+
+    // Email validation function
+    function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Phone validation function
+    function isValidPhone(phone) {
+        var phoneRegex = /^[+]?[0-9\s\-\(\)]{10,20}$/;
+        return phoneRegex.test(phone);
+    }
+
+    // Show alert message
+    function showAlert(message, type) {
+        var alertDiv = $('#contact-alert');
+        var alertMessage = $('#contact-alert-message');
+
+        alertDiv.removeClass('alert-success alert-danger alert-warning alert-info')
+               .addClass('alert-' + type);
+        alertMessage.text(message);
+        alertDiv.show();
+
+        // Scroll to alert
+        $('html, body').animate({
+            scrollTop: $('#contact-sec').offset().top - 100
+        }, 500);
+
+        // Auto hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(function() {
+                hideAlert();
+            }, 5000);
+        }
+    }
+
+    // Hide alert message
+    function hideAlert() {
+        $('#contact-alert').hide();
+    }
+
+    // Real-time validation on input blur
+    $('#name, #email, #phone, #subject, #message').on('blur', function() {
+        var field = $(this);
+        var fieldName = field.attr('id');
+        var errorDiv = $('#' + fieldName + '-error');
+
+        // Clear error when user starts typing
+        field.removeClass('is-invalid');
+        errorDiv.hide();
+
+        // Validate on blur
+        var value = field.val().trim();
+        var error = '';
+
+        switch(fieldName) {
+            case 'name':
+                if (!value) error = 'Name is required.';
+                else if (value.length < 2) error = 'Name must be at least 2 characters.';
+                break;
+            case 'email':
+                if (!value) error = 'Email is required.';
+                else if (!isValidEmail(value)) error = 'Please enter a valid email.';
+                break;
+            case 'phone':
+                if (!value) error = 'Phone number is required.';
+                else if (!isValidPhone(value)) error = 'Please enter a valid phone number.';
+                break;
+            case 'subject':
+                if (!value) error = 'Subject is required.';
+                else if (value.length > 150) error = 'Subject must be no more than 150 characters.';
+                break;
+            case 'message':
+                if (!value) error = 'Message is required.';
+                else if (value.length < 10) error = 'Message must be at least 10 characters.';
+                break;
+        }
+
+        if (error) {
+            errorDiv.text(error).show();
+            field.addClass('is-invalid');
+        }
+    });
+
+    // Clear validation on input focus
+    $('#name, #email, #phone, #subject, #message').on('focus', function() {
+        $(this).removeClass('is-invalid');
+        $('#' + $(this).attr('id') + '-error').hide();
+    });
+});
+</script>
+@endpush
+
+@push('styles')
+<style>
+/* Contact Form Validation Styles */
+.form-control.is-invalid, .form-select.is-invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+
+.form-control.is-invalid:focus, .form-select.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Alert Styles */
+.alert {
+    position: relative;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.alert-warning {
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+}
+
+.alert-info {
+    color: #055160;
+    background-color: #cff4fc;
+    border-color: #b6effb;
+}
+
+/* Loading Button Styles */
+.btn-loading {
+    display: inline-block;
+}
+
+/* Disabled button styles */
+#submitBtn.disabled,
+#submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+#submitBtn.disabled:hover,
+#submitBtn:disabled:hover {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    background-color: inherit;
+    border-color: inherit;
+    color: inherit;
+}
+
+/* Form Icon Positioning */
+.form-group {
+    position: relative;
+}
+
+.form-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.form-control, .form-select {
+    padding-right: 40px;
+}
+
+/* Character counter styling */
+.form-text {
+    font-size: 0.875em;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .alert {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+</style>
+@endpush

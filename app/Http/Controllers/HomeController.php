@@ -40,7 +40,7 @@ class HomeController extends Controller
         // Fetch customers
         $customers = Customer::all();
 
-        $galleries = Gallery::with('category')->latest()->get();
+       // $galleries = Gallery::with('category')->latest()->get();
 
         // Only get gallery categories that have at least one gallery
         $galleryCategories = \App\Models\GalleryCategory::whereHas('galleries')
@@ -74,7 +74,7 @@ class HomeController extends Controller
             ->orderBy('sort_order')
             ->get();
 
-        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'galleries', 'instagrams', 'blogPosts', 'projects', 'projectCategories', 'testimonials', 'galleryCategories'));
+        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'instagrams', 'blogPosts', 'projects', 'projectCategories', 'testimonials', 'galleryCategories'));
     }
 
     /**

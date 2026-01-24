@@ -12,7 +12,7 @@
     --smoke-color4: #E9F5ED;
     --black-color: #000000;
     --black-color2: #0A0A0A;
-    --gray-color: #D8DBDC;
+    --gray-color: #4b4c4d;
     --white-color: #ffffff;
     --light-color: #B7BEC8;
     --yellow-color: #FFB539;
@@ -35,6 +35,58 @@ html,
 body {
     scroll-behavior: auto !important
 }
+
+/* ================= Desktop: fixed widths/heights ================= */
+.project-item_wrapp {
+    display: flex;
+    gap: 15px; /* optional spacing */
+}
+
+/* First image box */
+.project-item_wrapp .box-img:first-child {
+    width: 300px !important;
+    height: 300px !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+/* Second image box */
+.project-item_wrapp .box-img:last-child {
+    width: 525px !important;
+    height: 300px !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+/* Images always fill their container */
+.project-item_wrapp .box-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ================= Tablet (<= 1199px) ================= */
+@media (max-width: 1199px) {
+    .project-item_wrapp {
+        flex-direction: column;
+    }
+
+    .project-item_wrapp .box-img:first-child,
+    .project-item_wrapp .box-img:last-child {
+        width: 100% !important;
+        height: 280px !important;
+    }
+}
+
+/* ================= Mobile (<= 767px) ================= */
+@media (max-width: 767px) {
+    .project-item_wrapp .box-img:first-child,
+    .project-item_wrapp .box-img:last-child {
+        height: 220px !important;
+    }
+}
+
 
 body {
     font-family: var(--body-font);
@@ -1627,7 +1679,8 @@ textarea {
     min-height: 150px;
     padding-top: 16px;
     padding-bottom: 17px;
-    border-radius: 5px
+    border-radius: 5px;
+    border: 1px solid #6c7280;
 }
 
 textarea.form-control.style2,
@@ -21836,7 +21889,7 @@ span.select2-selection.select2-selection--single:focus {
 
 .blog-card .box-title {
     font-family: var(--title-font2);
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 400
 }
 
@@ -21909,7 +21962,6 @@ span.select2-selection.select2-selection--single:focus {
 
 .blog-card.style2 .box-title {
     font-family: var(--title-font);
-    font-weight: 700;
     max-width: 718px
 }
 
@@ -26722,9 +26774,9 @@ span.select2-selection.select2-selection--single:focus {
     visibility: visible
 }
 
-.project-area {
+/* .project-area {
     margin-top: -210px
-}
+} */
 
 @media (max-width: 991px) {
     .project-area {
@@ -26746,8 +26798,8 @@ span.select2-selection.select2-selection--single:focus {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center;
-    gap: 80px
+    align-items: start;
+    gap: 40px
 }
 
 @media (max-width: 1399px) {
@@ -26817,11 +26869,10 @@ span.select2-selection.select2-selection--single:focus {
 }
 
 .project-item .box-title {
-    font-family: var(--title-font2);
+   font-family: var(--title-font);
     font-weight: 400;
-    font-size: 40px;
+    font-size: 24px;
     letter-spacing: 0.02em;
-    color: var(--white-color)
 }
 
 .project-item .box-text {
