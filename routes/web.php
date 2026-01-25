@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/test-mail', function () {
+    Mail::raw('This is a test email from Laravel via Plesk SMTP', function ($message) {
+        $message->to('saeed.histone@gmail.com')
+                ->subject('Test Email');
+    });
+
+    return 'Test email sent!';
+});
+
 // Contact form route
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])
     ->name('contact.store');
