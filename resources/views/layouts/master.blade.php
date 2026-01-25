@@ -14,22 +14,22 @@
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/H24.svg') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -40,16 +40,56 @@
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
-
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="show-grid" id="show-grid">
+    <div class="th-menu-wrapper">
+        <div class="th-menu-area text-center"><button class="th-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation"></a></div>
+            <div class="th-mobile-menu">
+                <ul>
+                    <li>
+                        <a class="renovation-link" href="#hero-sec">Home</a>
+                    </li>
+                    <li><a class="renovation-link" href="#about-title">About Us</a></li>
+                    <li><a class="renovation-link" href="#services-sec">Services</a></li>
+                    <li><a class="renovation-link" href="#project-sec">Projects</a></li>
+                    <li><a class="renovation-link" href="#blog-sec">Blog</a></li>
+                    <li><a class="renovation-link" href="#experts-sec" class="link-experts">Experts</a></li>
+                    {{-- <li><a href="#customers-sec" class="link-customers">Customers</a></li> --}}
+                    {{-- <li><a href="#community-sec" class="link-community">Community</a></li> --}}
+                    <li><a class="renovation-link" href="#contact-sec">Contact Us</a></li>
+                    {{-- <li><a href="#instagram-sec">Instagram</a></li> --}}
+                    <li><a class="renovation-link" href="#gallery-sec">Gallery</a></li>
+                    @auth
+                    <li class="menu-item-has-children"><a href="#">
+                            <i class="fas fa-user" style="font-size: 18px;"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            @if(Auth::user()->hasRole('super-admin'))
+                            <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            @else
+                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                            @endif
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    @endauth
+                </ul>
+            </div>
+        </div>
+    </div>
 
-
-    <header class="th-header header-layout3 onepage-nav text-dark">
+    <header class="th-header header-layout3 onepage-nav">
         <div class="sticky-wrapper">
             <div class="container th-container4">
                 <div class="menu-area">
@@ -61,25 +101,23 @@
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li>
-                                        <a href="#hero-sec" style="font-size: 16px;">Home</a>
+                                        <a class="renovation-link" href="#hero-sec">Home</a>
                                     </li>
-
-                                    <li><a href="#about-title">About Us</a></li>
-                                    <li><a href="#services-sec">Services</a></li>
-                                    <li><a href="#project-sec">Projects</a></li>
-                                    <li><a href="#blog-sec">Blog</a></li>
-                                    <li><a href="#experts-sec" class="link-experts">Experts</a></li>
-                                    {{-- <li><a href="#customers-sec" class="link-customers">Customers</a></li> --}}
-                                    {{-- <li><a href="#community-sec" class="link-community">Community</a></li> --}}
-                                    <li><a href="#contact-sec">Contact Us</a></li>
-                                    {{-- <li><a href="#instagram-sec">Instagram</a></li> --}}
-                                    {{-- <li><a href="#gallery-sec">Gallery</a></li> --}}
+                                    <li><a class="renovation-link" href="#about-title">About Us</a></li>
+                                    <li><a class="renovation-link" href="#services-sec">Services</a></li>
+                                    <li><a class="renovation-link" href="#project-sec">Projects</a></li>
+                                    <li><a class="renovation-link" href="#blog-sec">Blog</a></li>
+                                    <li><a class="renovation-link" href="#experts-sec">Experts</a></li>
+                                    {{-- <li><a href="#customers-sec" class="link-customers renovation-link">Customers</a></li> --}}
+                                    {{-- <li><a href="#community-sec" class="link-community renovation-link">Community</a></li> --}}
+                                    <li><a class="renovation-link" href="#contact-sec">Contact Us</a></li>
+                                    {{-- <li><a href="#instagram-sec" class="renovation-link">Instagram</a></li> --}}
+                                    <li><a class="renovation-link" href="#gallery-sec">Gallery</a></li>
                                     @auth
-                                    <li class="menu-item-has-children" id="user-dropdown">
-                                        <a href="javascript:void(0)" style="display: flex; align-items: center; padding: 10px;" onclick="toggleDropdown()">
+                                    <li class="menu-item-has-children"><a href="#">
                                             <i class="fas fa-user" style="font-size: 18px;"></i>
                                         </a>
-                                        <ul class="sub-menu" id="user-dropdown-menu" style="display: none;">
+                                        <ul class="sub-menu">
                                             @if(Auth::user()->hasRole('super-admin'))
                                             <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                             @else
@@ -99,9 +137,13 @@
                                     @endauth
                                 </ul>
                             </nav>
-                        </div>
-                        <div class="col-auto">
-                            <!-- Empty column to balance layout -->
+                            <div class="col-auto">
+                                <div class="header-button">
+                                    <button type="button" class="th-menu-toggle d-inline-block d-lg-none">
+                                        <i class="far fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,20 +151,17 @@
         </div>
     </header>
 
-
     <main>
         @yield('content')
     </main>
-
-
     <footer class="footer-wrapper footer-layout3 bg-primary-500">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
-                    <div class="col-md-6 col-xl-3">
+                    <div class="col-md-7 col-xl-4">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="Faren  "></a></div>
+                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation"></a></div>
                                 <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
                                 <div class="th-social">
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -205,29 +244,33 @@
             </div>
         </div>
     </footer>
+    <script src="{{ asset('assets/js/vendor/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/circle-progress.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/js/threesixty.min.js') }}"></script>
+    <script src="{{ asset('assets/js/panolens.min.js') }}"></script>
+    <script src="{{ asset('assets/js/gsap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
+    <script src="{{ asset('assets/js/SplitText.js') }}"></script>
+    <script src="{{ asset('assets/js/SplitType.js') }}"></script>
+    <script src="{{ asset('assets/js/lenis.min.js') }}"></script>
+    <script src="{{ asset('assets/js/CustomEase.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
-
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-
-    <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/circle-progress.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/nice-select.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/threesixty.min.js"></script>
-    <script src="assets/js/panolens.min.js"></script>
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-    <script src="assets/js/SplitText.js"></script>
-    <script src="assets/js/SplitType.js"></script>
-    <script src="assets/js/lenis.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Scroll Top Button -->
+    <div class="scroll-top cursor-pointer" style="display: none;">
+        <svg class="w-100 h-100" viewBox="0 0 500 500">
+            <path d="M50,250 C50,100 450,100 450,250 C450,400 50,400 50,250 Z" stroke-width="2" fill="none"></path>
+        </svg>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -386,10 +429,6 @@
 
 
         document.addEventListener('DOMContentLoaded', function() {
-
-            console.log('Freelancer section loaded');
-
-
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -403,11 +442,7 @@
                 });
             });
         });
-
-
         const companies = ["Airbus", "Renault", "Accor", "Vinci", "Google", "Microsoft", "Tesla", "Amazon"];
-
-
         const boxes = document.querySelectorAll(".company-box");
 
         let indices = [0, 1, 2, 3];
@@ -418,19 +453,11 @@
                 box.textContent = companies[indices[i]];
             });
         }
-
-
         setInterval(changeCompanies, 2000);
-
-
-
-
         document.addEventListener("contextmenu", function(e) {
             e.stopPropagation();
 
         }, true);
-
-
         document.oncontextmenu = null;
         window.oncontextmenu = null;
     </script>
@@ -444,8 +471,6 @@
                 dropdownMenu.style.display = 'none';
             }
         }
-
-
         document.addEventListener('click', function(event) {
             var dropdown = document.getElementById('user-dropdown');
             if (dropdown && !dropdown.contains(event.target)) {
@@ -453,11 +478,11 @@
             }
         });
     </script>
-
-
-
-
     <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
         .icon-box {
             display: flex;
             gap: 12px;
@@ -508,7 +533,7 @@
         .text-custom {
             font-family: 'Playfair Display', serif !important;
             font-style: italic !important;
-            font-size:18px;
+            font-size: 18px;
         }
 
         /* Override text-custom for project titles to prevent wrapping */
@@ -591,10 +616,10 @@
             background: #F7F5F2 !important;
         }
 
-        .th-header .main-menu ul li a {
+        /* .th-header .main-menu ul li a {
             color: rgba(0, 63, 58, var(--tw-text-opacity)) !important;
             font-family: 'Playfair Display', serif;
-        }
+        } */
 
         .th-header i,
         .th-header svg {
@@ -656,7 +681,7 @@
             background: #ffffffff;
             border: 1px solid #c5bebeff;
             border-radius: 10px;
-            padding: 40px 30px;
+            padding: 25px 30px;
             width: 100%;
             height: 100%;
             display: flex;
@@ -752,12 +777,23 @@
             color: #000 !important;
             transition: color 0.3s ease;
             font-size: 16px;
-            padding: 10px 15px;
+            padding: 0px 15px;
+        }
+
+        .main-menu ul li a.renovation-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #000;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .main-menu ul li a:hover {
             color: #898b8fff;
-
         }
 
         /* Navigation menu styles matching littleworker.fr */
@@ -767,30 +803,11 @@
             width: auto;
         }
 
-        .menu-area .row {
-            display: flex;
-            align-items: center;
-            min-height: 80px;
-            height: 80px;
-        }
-
         .header-logo {
             display: flex;
             align-items: center;
             height: 80px;
             padding: 10px 0;
-        }
-
-        .main-menu {
-            display: flex;
-            align-items: center;
-            height: 80px;
-        }
-
-        .th-header .container {
-            display: flex;
-            align-items: center;
-            height: 80px;
         }
 
         .header-logo a {
@@ -812,13 +829,13 @@
             vertical-align: middle;
         }
 
-        .main-menu ul {
+        /*  .main-menu ul {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
             gap: 15px;
-        }
+        } */
 
         .main-menu ul li {
             position: relative;
@@ -826,45 +843,15 @@
             padding: 0;
         }
 
-        .main-menu ul li a {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0.5px;
-            color: #000 !important;
-            transition: color 0.3s ease;
-            font-size: 16px;
-            text-decoration: none;
-            padding: 10px 8px;
-            position: relative;
-            display: block;
-        }
-
         .main-menu ul li a:hover {
             color: #898b8fff !important;
         }
 
-        /* Underline effect on hover */
-        .main-menu ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: #000;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
 
         .main-menu ul li a:hover::after {
             width: 100%;
         }
 
-        /* Mobile menu styles */
-        .main-menu.d-lg-inline-block {
-            display: block !important;
-        }
 
         @media (min-width: 992px) {
             .main-menu.d-lg-inline-block {
@@ -879,12 +866,6 @@
             color: rgba(255, 255, 255, 0.7);
             font-size: 13.5px;
             margin-bottom: 10px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         .clients {
@@ -1097,7 +1078,7 @@
 
         .freelancer-hero-section {
             background: #F7F5F2 !important;
-           /*  padding: 100px 0; */
+            /*  padding: 100px 0; */
             position: relative;
             overflow: hidden;
         }
@@ -1290,19 +1271,11 @@
             color: #000000 !important;
         }
 
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
+        /* body {
             background-color: #ffffffff;
             color: #fff;
             line-height: 1.6;
-        }
+        } */
 
         .expertise .hero {
             max-width: 1200px;
@@ -1574,7 +1547,7 @@
             position: fixed;
             top: 0;
             right: -50%;
-            width: 50%;
+            /*  width: 50%; */
             height: 100%;
             background: #fff;
             box-shadow: -3px 0 15px rgba(0, 0, 0, 0.3);
@@ -1610,42 +1583,7 @@
             transform: rotate(180deg);
         }
 
-        #demoFormContainer input,
-        #demoFormContainer textarea {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
 
-        #demoFormContainer textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        #demoFormContainer button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            background: #114135ff;
-            color: #fff;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        #demoFormContainer button:hover {
-            background: #484d4aff;
-        }
-
-        @media (max-width: 768px) {
-            #demoFormContainer {
-                width: 100%;
-                right: -100%;
-            }
-        }
 
         .filter-menu.style2 .th-btn.th-border {
             background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
@@ -1688,88 +1626,6 @@
             border-color: #003f3a !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 63, 58, 0.5) !important;
-        }
-
-        /* Project filter styles */
-        .filter-active {
-            transition: all 0.6s ease;
-        }
-
-        .filter-item {
-            transition: all 0.6s ease;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .filter-item.isotope-hidden {
-            opacity: 0;
-            transform: scale(0.8);
-            pointer-events: none;
-        }
-
-        /* Project item title alignment and layout - Enhanced specificity */
-        .gallery-row .project-item {
-            margin-bottom: 30px !important;
-            width: 100% !important;
-            display: flex !important;
-            flex-direction: column !important;
-            border: 1px solid transparent; /* For debugging */
-        }
-
-        .gallery-row .project-item .project-item_wrapp {
-            display: flex !important;
-            gap: 15px !important;
-            margin-bottom: 20px !important;
-            flex-wrap: wrap !important;
-        }
-
-        .gallery-row .project-item .project-content {
-            flex: 0.4 !important;
-            width: 100% !important;
-        }
-
-        .gallery-row .project-item .box-title,
-        .gallery-row .project-item h2.box-title,
-        .gallery-row .project-item .box-title.text-custom {
-            white-space: nowrap !important;
-            overflow: hidden !important;
-            text-overflow: ellipsis !important;
-            margin-bottom: 15px !important;
-            font-size: 24px !important;
-            font-weight: 600 !important;
-            line-height: 1.2 !important;
-            display: block !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            word-wrap: normal !important;
-            word-break: normal !important;
-            font-style: normal !important;
-            text-align: left !important;
-        }
-
-        .gallery-row .project-item .box-text {
-            margin-bottom: 20px !important;
-            line-height: 1.6 !important;
-        }
-
-        /* Responsive adjustments for project titles */
-        @media (max-width: 768px) {
-            .gallery-row .project-item .box-title,
-            .gallery-row .project-item h2.box-title,
-            .gallery-row .project-item .box-title.text-custom {
-                font-size: 20px !important;
-                white-space: normal !important;
-                overflow: visible !important;
-                text-overflow: unset !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-row .project-item .box-title,
-            .gallery-row .project-item h2.box-title,
-            .gallery-row .project-item .box-title.text-custom {
-                font-size: 18px !important;
-            }
         }
 
         /* Blog & News Read More button styling */
@@ -1827,7 +1683,7 @@
         }
 
         /* Consistent spacing for all sections */
-       /*  section,
+        /*  section,
         .text-custom[id] {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
@@ -1855,10 +1711,10 @@
         }
 
         /* Project section spacing */
-        #project-sec {
+        /*  #project-sec {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
-        }
+        } */
 
         /* Blog section spacing */
         #blog-sec {
@@ -1948,6 +1804,7 @@
 
         /* Responsive horizontal padding */
         @media (min-width: 768px) {
+
             .container,
             .th-container4 {
                 padding-left: 24px !important;
@@ -1986,8 +1843,11 @@
         // Ensure SVG path exists before trying to manipulate it
         document.addEventListener('DOMContentLoaded', function() {
             // Safe way to handle the scroll-top functionality
-            if (document.querySelector('.scroll-top')) {
-                var scrollTopElement = document.querySelector('.scroll-top');
+            var scrollTopElement = document.querySelector('.scroll-top');
+            if (scrollTopElement) {
+                // Make sure element is visible after DOM loads
+                scrollTopElement.style.display = 'block';
+
                 var pathElement = scrollTopElement.querySelector('path');
 
                 if (pathElement && typeof pathElement.getTotalLength === 'function') {
@@ -2038,6 +1898,9 @@
             }
         });
     </script>
+
+    @stack('styles')
+    @stack('scripts')
 
 </body>
 

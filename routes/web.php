@@ -9,14 +9,19 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InstagramController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Frontend\QuoteController as FrontendQuoteController;
 
 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Contact form route
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])
+    ->name('contact.store');
 
-
+Route::post('/request-demo', FrontendQuoteController::class)
+    ->name('quotes.store');
 
 // Project routes
 Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
@@ -165,6 +170,17 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
             'destroy' => 'admin.blog-posts.images.destroy',
         ]);
     });
+
+    // Service management routes
+    Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)->names([
+        'index' => 'admin.services.index',
+        'create' => 'admin.services.create',
+        'store' => 'admin.services.store',
+        'show' => 'admin.services.show',
+        'edit' => 'admin.services.edit',
+        'update' => 'admin.services.update',
+        'destroy' => 'admin.services.destroy',
+    ]);
 });
 
 
@@ -172,15 +188,24 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
 Route::resource('admin/about', AboutController::class)
     ->names('admin.about');
 
-Route::resource('admin/services', ServiceController::class)
-    ->names('admin.services');
-
-
 Route::resource('admin/customers', CustomerController::class)
     ->names('admin.customers');
 
+Route::resource('admin/companies', \App\Http\Controllers\Admin\CompanyController::class)->names([
+        'index' => 'admin.companies.index',
+        'create' => 'admin.companies.create',
+        'store' => 'admin.companies.store',
+        'show' => 'admin.companies.show',
+        'edit' => 'admin.companies.edit',
+        'update' => 'admin.companies.update',
+        'destroy' => 'admin.companies.destroy',
+    ]);
+
 Route::resource('admin/gallery', GalleryController::class)
     ->names('admin.gallery');
+
+Route::resource('admin/gallery-categories', \App\Http\Controllers\Admin\GalleryCategoryController::class)
+    ->names('admin.gallery-categories');
 
 Route::resource('admin/instagram', InstagramController::class)
     ->names('admin.instagram');

@@ -12,25 +12,7 @@ class Quote extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [
-        'name',
-        'first_name',
-        'email',
-        'phone',
-        'company',
-        'cities',
-        'address',
-        'postal_code',
-        'city',
-        'country',
-        'mesage',
-        'status',
-        'start_date_preference',
-        'attachments',
-        'gdpr_consent',
-        'marketing_consent',
-    ];
-
+    protected $guarded = [];
     /**
      * The attributes that should be cast to native types.
      */

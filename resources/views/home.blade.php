@@ -37,75 +37,67 @@
                         </div>
                     </div>
                     <div class="">
-
-
                         <a href="{{ route('renovate') }}"
-                            class="th-btns black-border" style="display:inline-block; text-decoration:none;">
+                            class="th-btns black-border mb-2" style="display:inline-block; text-decoration:none;">
                             I Want to Renovate a Property
                         </a>
-
-
-
                         <a href="javascript:void(0);" id="demoBtn" class="th-btns black-border" style="display:inline-block; text-decoration:none;">
                             Request a Demo
                         </a>
-
-
                         <div id="demoFormOverlay">
                             <div id="demoFormContainer">
                                 <span id="closeForm" class="close-arrow">&#x2192;</span>
-                                <h3 class="text-dark">REQUEST A DEMO</h3>
+                                <h3 class="text-dark">Request a demo</h3>
 
                                 {{-- Success popup --}}
                                 @if (session('success'))
                                 <div id="successPopup" style="
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #28a745;
-                color: white;
-                padding: 15px 20px;
-                border-radius: 6px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                z-index: 2000;
-                font-size: 14px;
-                opacity: 0;
-                transform: translateY(-20px);
-                transition: all 0.5s ease;
-            ">
+                                    position: fixed;
+                                    top: 20px;
+                                    right: 20px;
+                                    background: #28a745;
+                                    color: white;
+                                    padding: 15px 20px;
+                                    border-radius: 6px;
+                                    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                                    z-index: 2000;
+                                    font-size: 14px;
+                                    opacity: 0;
+                                    transform: translateY(-20px);
+                                    transition: all 0.5s ease;
+                                ">
                                     {{ session('success') }}
                                 </div>
                                 @endif
 
-                                <form action="{{ route('admin.quotes.store') }}" method="POST">
+                                <form action="{{ route('quotes.store') }}" method="POST">
                                     @csrf
-
-                                    <div class="form-row">
-                                        <input class="text-dark" type="text" name="name" placeholder="Your Name" required>
+                                    <div class="form-row mb-3">
                                         <input class="text-dark" type="text" name="first_name" placeholder="First Name" required>
+                                        <input class="text-dark" type="text" name="last_name" placeholder="Last Name" required>
                                     </div>
 
-                                    <div class="form-row">
+                                    <div class="form-row mb-3">
                                         <input class="text-dark" type="email" name="email" placeholder="Your Email" required>
                                         <input class="text-dark" type="tel" name="phone" placeholder="Your Phone">
                                     </div>
 
-                                    <div class="form-row">
+                                    <div class="form-row mb-3">
                                         <input class="text-dark" type="text" name="company" placeholder="Your Company">
                                         <input class="text-dark" type="text" name="cities" placeholder="Preferred Cities">
                                     </div>
 
-                                    <div class="form-row">
+                                    <div class="form-row mb-3">
                                         <input class="text-dark" type="text" name="address" placeholder="Street Address">
                                         <input class="text-dark" type="text" name="postal_code" placeholder="Postal/ZIP Code">
                                     </div>
 
-                                    <div class="form-row">
+                                    <div class="form-row mb-3">
                                         <input class="text-dark" type="text" name="city" placeholder="City">
                                         <input class="text-dark" type="text" name="country" placeholder="Country">
                                     </div>
 
-                                    <div class="form-row">
+                                    <div class="form-row mb-3">
                                         <textarea class="text-dark" name="mesage" placeholder="Your Message"></textarea>
                                     </div>
 
@@ -115,25 +107,23 @@
                                 </form>
 
                                 <div id="successPopup" style="
-      display: none;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #28a745;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-size: 14px;
-      z-index: 2000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    ">
+                                    display: none;
+                                    position: absolute;
+                                    top: 10px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    background: #28a745;
+                                    color: white;
+                                    padding: 12px 20px;
+                                    border-radius: 6px;
+                                    font-size: 14px;
+                                    z-index: 2000;
+                                    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                                    ">
                                     Your request has been submitted successfully!
                                 </div>
                             </div>
                         </div>
-
-
                         <style>
                             .form-row:has(button) button {
                                 flex: 0 0 25%;
@@ -330,21 +320,21 @@
 
                     <div
                         style="
-          position:absolute;
-          right:-60px;
-          bottom:5%;
-          width:100px;
-          padding:10px;
-        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
-          border-radius:10px;
-          box-shadow:0 4px 12px rgba(0,0,0,0.15);
-          font-size:11px;
-          height:60px;
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          text-align:center;
-        ">
+                        position:absolute;
+                        right:-60px;
+                        bottom:5%;
+                        width:100px;
+                        padding:10px;
+                        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
+                        border-radius:10px;
+                        box-shadow:0 4px 12px rgba(0,0,0,0.15);
+                        font-size:11px;
+                        height:60px;
+                        display:flex;
+                        flex-direction:column;
+                        justify-content:center;
+                        text-align:center;
+                        ">
                         <h6 style="margin:0; font-size:12px;" class="text-white">Custom</h6>
                         <p style="margin:0;" class="text-white">Fast</p>
                     </div>
@@ -502,7 +492,6 @@
     </div>
 </section>
 
-
 <section id="services-sec" class="renovation-bg-color">
     <div>
         <div class="container">
@@ -512,31 +501,13 @@
             </div>
 
             <div class="services-grid">
-                @php
-                // Fetch all services from DB
-                $dbServices = $services ?? collect();
-
-                // Default services (shown if DB is empty)
-                $defaultServices = [
-                ['service_title' => 'Project management', 'service_description' => "From PMO to experienced interim manager, to bring your company's major projects to fruition."],
-                ['service_title' => 'Technical Assistance', 'service_description' => "More than 100K experts available for contract work throughout France"],
-                ['service_title' => 'Tech Factories', 'service_description' => "Build up your centers of excellence and teams in record time (Digital Factory, IA Factory)"],
-                ['service_title' => 'Consulting', 'service_description' => "Industry experts to meet your operational and strategic challenges."],
-                ['service_title' => 'Training', 'service_description' => "Call on freelance experts to train your teams on the latest technological topics."],
-                ['service_title' => 'Portage', 'service_description' => "Wear all your consultants in minutes thanks to our automated platform."],
-                ];
-
-                // Display DB services if exists, else default services
-                $displayServices = $dbServices->isEmpty() ? collect($defaultServices) : $dbServices;
-                @endphp
-
-                @foreach($displayServices->chunk(3) as $row)
+                @foreach($services->chunk(3) as $row)
                 <div class="services-row mb-3">
                     @foreach($row as $service)
                     <div class="service-column">
-                        <div class="service-card">
-                            <h5 class="service-title">{{ $service->service_title ?? $service['service_title'] }}</h5>
-                            <div class="service-description">{{ $service->service_description ?? $service['service_description'] }}</div>
+                        <div class="service-card home-service-card">
+                            <h5 class="service-title">{{ $service->title }}</h5>
+                            <div class="service-description">{{ $service->short_description }}</div>
                         </div>
                     </div>
                     @endforeach
@@ -547,63 +518,98 @@
     </div>
 </section>
 
-
-<section class="project-area position-relative space-bottom overflow-hidden" id="project-sec">
+<section class="project-area position-relative space-bottom" id="project-sec">
     <div class="container">
-        <div class="services-header">
-            <h5 class="title-heading">Our Projects</h5>
-            <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
-            <p class="text-custom text-light-green">Discover how we can transform your outdoor space with our specialist landscaping and construction services.</p>
-        </div>
-        <div class="row justify-content-center align-items-end">
+
+        <div class="row justify-content-between align-items-end">
+            <div class="services-header">
+                <h5 class="title-heading">Our Projects</h5>
+                <p class="text-custom text-light-green">Complete Solutions for Your Outdoor Projects</p>
+                <p class="text-custom text-light-green">
+                    Discover how we can transform your outdoor space with our specialist landscaping and construction services.
+                </p>
+            </div>
+
             <div class="col-xl-6">
-                <div class="filter-menu style2 light filter-menu-active">
-                    <button data-filter="*" class="th-btns black-border active" type="button">View All</button>
-                    @foreach($projectCategories as $index => $category)
-                    <button data-filter=".cat{{ $index + 1 }}" class="th-btns black-border" type="button">{{ $category->name }}</button>
+                <div class="filter-menu style2 filter-menu-active">
+                    <button data-filter="*" class="th-btn th-border active" type="button">
+                        View All
+                    </button>
+                    @foreach($projectCategories as $category)
+                    <button data-filter=".cat{{ $category->id }}"
+                        class="th-btn th-border"
+                        type="button">
+                        {{ $category->name }}
+                    </button>
                     @endforeach
                 </div>
             </div>
         </div>
-        <div class="gallery-row filter-active row">
-            @foreach($projects as $project)
+
+        <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
+
+            @foreach($projectCategories as $category)
+            @foreach($category->projects as $project)
+
             @php
-            // Get the filter class for this project based on its category
-            $filterClass = 'cat-none'; // default
-            if($project->projectCategory) {
-            // Find the category index
-            $categoryIndex = $projectCategories->search(function($item) use ($project) {
-            return $item->id === $project->project_category_id;
-            });
-            if($categoryIndex !== false) {
-            $filterClass = 'cat' . ($categoryIndex + 1);
-            }
-            }
+            $projectImages = $project->projectImages->values();
+
+            $firstImage = $project->cover_image
+            ?? optional($projectImages->get(0))->image
+            ?? 'assets/img/project/default.jpg';
+
+            $secondImage = $project->cover_image
+            ? optional($projectImages->get(1))->image
+            : optional($projectImages->get(1))->image
+            ?? optional($projectImages->get(0))->image
+            ?? 'assets/img/project/default.jpg';
+
+            $plainText = trim(strip_tags($project->short_description));
             @endphp
-            <div class="project-item col-12 filter-item {{ $filterClass }}">
-                <div class="project-item-container d-flex" style="align-items: center; gap: 30px; flex-wrap: nowrap; width: 100%;">
-                    <div class="project-item_wrapp d-flex" style="flex: 1; gap: 30px; align-items: center; flex-wrap: nowrap;">
-                        @foreach($project->projectImages->take(2) as $index => $image)
-                        <div class="box-img global-img {{ $index === 0 ? 'project-img-first' : 'project-img-second' }}">
-                            <img src="{{ Storage::url($image->image) }}" alt="{{ $project->title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-                        </div>
-                        @endforeach
+
+            <div class="project-item col-12 filter-item cat{{ $category->id }}">
+
+                <div class="project-item_wrapp">
+                    <div class="box-img global-img">
+                        <img src="{{ asset($firstImage) }}" alt="project image">
                     </div>
-                    <div class="project-content" style="flex: 0 0 300px;">
-                        <h2 class="box-title">{{ $project->title }}</h2>
-                        @if($project->short_description)
-                        <p class="box-text">{{ $project->short_description }}</p>
-                        @endif
-                        <div class="btn-group mt-45">
-                            <a href="{{ route('projects.show', $project) }}" class="th-btns black-border" style="display:inline-block; text-decoration:none;">View Details</a>
-                        </div>
+                    <div class="box-img global-img">
+                        <img src="{{ asset($secondImage) }}" alt="project image">
                     </div>
                 </div>
+
+                <div class="project-content mt-2">
+                    <h2 class="box-title">
+                        <a href="{{ url('projects/' . $project->slug) }}">
+                            {{ $project->title }}
+                        </a>
+                    </h2>
+
+                    <p class="box-text service-description mt-4">
+                        {{ mb_strlen($plainText) > 149
+                                    ? mb_substr($plainText, 0, 149) . '...'
+                                    : $plainText
+                                }}
+                    </p>
+
+                    <div class="btn-group mt-45">
+                        <a href="{{ url('projects/' . $project->slug) }}"
+                            class="th-btns black-border">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+
             </div>
+
             @endforeach
+            @endforeach
+
         </div>
     </div>
 </section>
+
+
 
 <section class="renovation-bg-color positive-relative overflow-hidden space overflow-hidden" id="blog-sec">
     <div class="container">
@@ -631,19 +637,19 @@
                     </div>
                     <div class="box-content">
                         <div>
-                            <div class="blog-meta text-custom">
+                            <div class="blog-meta">
                                 <a href="#" class="text-dark">By Admin</a>
-                                <a href="#" class="text-dark">{{ $post->category->name ?? 'General' }}</a>
+                                <a href="#" class="text-dark">{{ $post->category?->name ?? 'General' }}</a>
                             </div>
-                            <h3 class="box-title text-custom">
+                            <h2 class="box-title">
                                 <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>
-                            </h3>
+                            </h2>
                         </div>
                         <div class="box-wrapp" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                            <span class="date text-custom">
+                            <span class="date">
                                 {{ $post->published_at ? $post->published_at->format('M d, Y') : $post->created_at->format('M d, Y') }}
                             </span>
-                            <a href="{{ route('blog.show', $post) }}" class="th-btns black-border">Read More</a>
+                            <a href="{{ route('blog.show', $post) }}" class="th-btns black-border mb-2">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -685,7 +691,7 @@
     #blog-sec .services-header .text-light-green {
         opacity: 1 !important;
         visibility: visible !important;
-        color: inherit !important;
+        /*  color: inherit !important; */
     }
 
     /* Responsive adjustments */
@@ -719,30 +725,30 @@
                             @foreach($category->experts ?? [] as $expert)
                             <div class="profile grey">
                                 <div class="profile-header">
-                                    <img loading="lazy" src="{{ $expert->image ? asset('storage/' . $expert->image) : 'https://via.placeholder.com/300' }}" alt="{{ $expert->designation }}" class="image-126">
+                                    <img loading="lazy" src="{{ $expert->image ? asset('storage/' . $expert->image) : asset('assets/img/expert-placeholder.jpg') }}" alt="{{ $expert->designation }}" class="image-126">
                                 </div>
                                 <div class="profile-body">
                                     <div class="profiles-infos">
                                         <div class="tag blue">
-                                            <div class="sector_profile white playfair-display">{{ $expert->designation }}</div>
+                                            <div class="sector_profile white">{{ $expert->designation }}</div>
                                         </div>
                                         <div class="skills-profil">
                                             @foreach($expert->skills->take(2) as $skill)
                                             <div class="tag grey">
-                                                <div class="sector_profile white playfair-display">{{ $skill->name }}</div>
+                                                <div class="sector_profile white">{{ $skill->name }}</div>
                                             </div>
                                             @endforeach
                                         </div>
                                     </div>
                                     <div class="div_logo_profile">
-                                        <div class="previously_profile white playfair-display">Worked for</div>
+                                        <div class="previously_profile white">Worked for</div>
                                         <div class="box-logo-profile">
                                             @if($expert->company_url)
                                             <a href="{{ $expert->company_url }}" target="_blank">
-                                                <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
+                                                <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : '' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
                                             </a>
                                             @else
-                                            <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : 'https://via.placeholder.com/100x50?text=Company' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
+                                            <img src="{{ $expert->company_logo ? asset('storage/' . $expert->company_logo) : '' }}" alt="{{ $expert->company }}" loading="lazy" class="logo_profile_custom {{ strtolower(str_replace(' ', '-', $expert->company)) }} black">
                                             @endif
                                         </div>
                                     </div>
@@ -872,7 +878,16 @@
                         @foreach($logos as $index => $logoPath)
                         @php
                         $cleanPath = str_replace('\\', '/', ltrim($logoPath, '/'));
-                        $imageUrl = url('storage/' . $cleanPath);
+                        // Check if the path is already a full URL or a local asset path
+                        if (filter_var($logoPath, FILTER_VALIDATE_URL)) {
+                        $imageUrl = $logoPath;
+                        } elseif (str_starts_with($logoPath, 'assets/')) {
+                        // Local asset path - use asset() without storage prefix
+                        $imageUrl = asset($cleanPath);
+                        } else {
+                        // Assume it's a stored file path
+                        $imageUrl = asset('storage/' . $cleanPath);
+                        }
                         @endphp
                         <div class="logo-item absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out transform {{ $index === 0 ? 'opacity-100 rotate-x-0' : 'opacity-0 rotate-x-90' }}"
                             data-index="{{ $index }}">
@@ -880,7 +895,7 @@
                                 src="{{ $imageUrl }}"
                                 alt="{{ $customer->name }} Logo {{ $index + 1 }}"
                                 class="max-h-16 max-w-full object-contain"
-                                onerror="this.onerror=null; this.src='https://via.placeholder.com/120x80?text=Logo+Error';">
+                                onerror="this.onerror=null; this.src='';">
                         </div>
                         @endforeach
                         @else
@@ -1003,6 +1018,72 @@
         }
     </style>
 
+
+
+    <style>
+        /* Custom styles for home page services section */
+        .home-service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .home-service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .home-service-card .service-title {
+            font-weight: 600;
+            color: #003f3a;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .home-service-card .service-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .services-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-column {
+            margin-bottom: 0 !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .services-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Initializing customer logo rotation');
@@ -1108,7 +1189,7 @@
     </div>
 </section>
 
-<section class="overflow-hidden space-top playfair-display" id="contact-sec">
+<section class="overflow-hidden space-top renovation-bg-color" id="contact-sec">
     <div class="services-header">
         <h5 class="title-heading">Contact Us</h5>
         <p class="text-custom text-light-green">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We're here to help and will get back to you as soon as possible.</p>
@@ -1117,148 +1198,206 @@
         <div class="row gy-4 flex-row-reverse">
             <div class="col-xl-6">
                 <div class="ps-xl-5">
-                    <form action="">
+                    <!-- Alert Messages -->
+                    <div id="contact-alert" class="alert" role="alert" style="display: none;">
+                        <span id="contact-alert-message"></span>
+                    </div>
+
+                    <form id="contactForm" action="{{ route('contact.store') }}" method="POST">
+                        @csrf
                         <div class="row">
-                            <div class="form-group col-md-6"><input type="text" class="form-control" name="name" id="name" placeholder="Full Name"> <i class="fa-solid fa-user"></i></div>
-                            <div class="form-group col-md-6"><input type="email" class="form-control" name="email" id="email" placeholder="Email Address"> <i class="fa-solid fa-envelope"></i></div>
-                            <div class="form-group col-md-6"><input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number"> <i class="fa-solid fa-phone"></i></div>
-                            <div class="form-group col-md-6"><select name="subject" id="subject" class="form-select nice-select">
-                                    <option value="" disabled="disabled" selected="selected" hidden>Inquire Services</option>
-                                    <option value="General Medicinet">General Medicine</option>
-                                    <option value="Heart Specialists">Heart Specialists</option>
-                                    <option value="Skin & Hair Specialists">Skin & Hair Specialists</option>
-                                    <option value="Child Specialists">Child Specialists</option>
-                                </select></div>
-                            <div class="form-group col-12">
-                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea> <i class="fa-solid fa-pencil"></i>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Full Name*">
+                                <i class="fa-solid fa-user"></i>
+                                <div class="invalid-feedback" id="name-error"></div>
                             </div>
-                            <div class="col-12 form-group text-custom"><input type="checkbox" id="html"> <label for="html" class="text-custom">I agree with the privacy policy</label></div>
-                            <div class="form-btn mt-20 col-12  text-custom"><button class="th-btns black-border text-custom">Submit Now</button></div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email Address*">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div class="invalid-feedback" id="email-error"></div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone Number*">
+                                <i class="fa-solid fa-phone"></i>
+                                <div class="invalid-feedback" id="phone-error"></div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject*" maxlength="150">
+                                <i class="fa-solid fa-tag"></i>
+                                <div class="invalid-feedback" id="subject-error"></div>
+                                <small class="form-text text-muted">Maximum 150 characters</small>
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Your Message*"></textarea>
+                                <i class="fa-solid fa-pencil"></i>
+                                <div class="invalid-feedback" id="message-error"></div>
+                            </div>
+                            <div class="form-btn col-12">
+                                <button type="submit" class="th-btns black-border" id="submitBtn">
+                                    <span class="btn-text">Submit Now</span>
+                                    <span class="btn-loading" style="display: none;"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>
+                                </button>
+                            </div>
                         </div>
-                        <p class="form-messages mb-0 mt-3"></p>
                     </form>
                 </div>
             </div>
             <div class="col-xl-6">
-                <div class="contact-image2" data-mask-src="assets/img/normal/contact-shape.png">
-                    <div class="img1 img-anim-left"><img style="height:500px!important;" src="assets/img/normal/contact-1-1.jpg" alt=""></div>
-                    <div class="contact-shape"><img style="height:500px!important;" src="assets/img/normal/contact-shape2.png" alt=""></div>
+                <div class="contact-image2">
+                    <div class="img1 img-anim-left">
+                        <img style="height:500px!important;" src="assets/img/normal/contact-3-1.jpg" alt="">
+                    </div>
+                    <div class="contact-shape">
+                        <img style="height:500px!important;" src="assets/img/normal/contact-3-1.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+@php
+// Collect all gallery images from random categories
+$randomGalleryImages = collect();
 
+if(isset($galleryCategories) && $galleryCategories->count()) {
+$randomGalleryImages = $galleryCategories
+->shuffle() // random categories
+->flatMap(function ($cat) { // merge galleries
+return $cat->galleries;
+})
+->shuffle()
+->take(2)
+->values();
+}
 
+// Fallback images
+$fallbackImages = [
+asset('assets/img/testimonial/testi-img1.jpg'),
+asset('assets/img/testimonial/testi-img2.jpg'),
+];
 
-<section class="overflow-hidden overflow-hidden" id="testi-sec">
+$image1 = $randomGalleryImages[0]->image ?? $fallbackImages[0];
+$image2 = $randomGalleryImages[1]->image ?? $fallbackImages[1];
+$imageOneTitle = $randomGalleryImages[0]->title ?? 'Excellence Residence';
+$imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
+@endphp
+
+<section class="overflow-hidden space overflow-hidden" id="testi-sec">
     <div class="container">
+
         <div class="services-header">
             <h5 class="title-heading">Testimonials</h5>
-            <p class="text-custom text-light-green">What our clients have to say about our services.</p>
+            <p class="text-custom text-light-green">
+                What our clients have to say about our services.
+            </p>
         </div>
-        <div class="row gy-5 justify-content-between align-items-center">
-            <div class="col-xl-8">
-                <div class="testi-area light">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="testi-box-tab" data-slider-tab="#testiSlide3">
-                                @forelse($testimonials as $index => $testimonial)
-                                <div class="tab-btn {{ $index === 0 ? 'active' : '' }}">
-                                    @if($testimonial->client_image)
-                                    @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
-                                    <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}">
-                                    @else
-                                    <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}">
-                                    @endif
-                                    @else
-                                    <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="{{ $testimonial->client_name }}">
-                                    @endif
-                                </div>
-                                @empty
-                                <div class="tab-btn active">
-                                    <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="Default Testimonial">
-                                </div>
-                                @endforelse
-                            </div>
+
+        <div class="row gy-24 align-items-center">
+
+            {{-- LEFT STATIC IMAGE BLOCK (kept same) --}}
+            <div class="col-xl-5">
+                <div class="testi-image_wrapp">
+                    <div class="testi-review">
+                        <div class="testi-img1 global-img">
+                            <img src="{{ asset($image1) }}" alt="image">
                         </div>
-                        <div class="col-lg-5">
-                            <div class="testi-img global-img">
-                                @forelse($testimonials as $index => $testimonial)
-                                @if($testimonial->client_image)
-                                @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
-                                <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
-                                @else
-                                <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
-                                @endif
-                                @else
-                                <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="{{ $testimonial->client_name }}" style="@if($index !== 0) display: none; @endif">
-                                @endif
-                                @empty
-                                <img src="{{ asset('assets/img/testimonial/testi-2-1.jpg') }}" alt="Default Testimonial">
-                                @endforelse
-                            </div>
+                        <div class="box-content">
+                            <h3 class="box-title">{{ $imageOneTitle }}</h3>
+                            <p class="box-text">{{ $imageTwoTitle }}</p>
                         </div>
                     </div>
-                    <div class="icon-box"><button data-slider-prev="#testiSlide3" class="slider-arrow default slider-prev"><img src="assets/img/icon/left-arrow2.svg" alt=""></button> <button data-slider-next="#testiSlide3" class="slider-arrow default slider-next"><img src="assets/img/icon/right-arrow3.svg" alt=""></button></div><span class="testi-line"></span>
+                    <div class="testi-img2 global-img">
+                        <img src="{{ asset($image2) }}" alt="image">
+                    </div>
                 </div>
             </div>
-            <div class="col-xl-4">
+
+            {{-- RIGHT SLIDER --}}
+            <div class="col-xl-7">
                 <div class="slider-wrap">
-                    <div class="swiper th-slider testiSlide3 has-shadow" id="testiSlide3" data-slider-options='{"effect":"slide","loop":true}'>
+                    <div class="swiper th-slider testiSlide1 has-shadow"
+                        id="testiSlide1"
+                        data-slider-options='{"effect":"slide","loop":true}'>
+
                         <div class="swiper-wrapper">
-                            @forelse($testimonials as $testimonial)
+
+                            @foreach($testimonials as $testimonial)
                             <div class="swiper-slide">
-                                <div class="testi-box light">
-                                    <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                                    <p class="box-text">"{{ $testimonial->testimonial_text }}"</p>
+                                <div class="testi-card style1">
+
+                                    <div class="box-wrapp">
+                                        <div class="box-quote">
+                                            <img src="{{ asset('assets/img/icon/quote2.svg') }}" alt="">
+                                        </div>
+
+                                        {{-- STATIC RATING (kept same) --}}
+                                        <div class="box-rating">
+                                            <span class="rating">5.0/5.0</span>
+                                            <span class="review">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p class="mb-20">
+                                        “{{ $testimonial->testimonial_text }}”
+                                    </p>
+
                                     <div class="box-profile">
                                         <div class="box-author">
-                                            @if($testimonial->client_image)
-                                            @if(filter_var($testimonial->client_image, FILTER_VALIDATE_URL))
-                                            <img src="{{ $testimonial->client_image }}" alt="{{ $testimonial->client_name }}">
-                                            @else
-                                            <img src="{{ asset('storage/' . $testimonial->client_image) }}" alt="{{ $testimonial->client_name }}">
-                                            @endif
-                                            @else
-                                            <img src="{{ asset('assets/img/testimonial/testi_3_1.jpg') }}" alt="{{ $testimonial->client_name }}">
-                                            @endif
+                                            <img src="{{ asset($testimonial->client_image) }}"
+                                                alt="{{ $testimonial->client_name }}">
                                         </div>
                                         <div class="box-info">
-                                            <h3 class="box-title">{{ $testimonial->client_name }}</h3>
-                                            @if($testimonial->designation)
-                                            <span class="box-desig">{{ $testimonial->designation }}</span>
-                                            @else
-                                            <span class="box-desig">Client</span>
-                                            @endif
+                                            <h3 class="box-title">
+                                                {{ $testimonial->client_name }}
+                                            </h3>
+                                            <span class="box-desig">
+                                                {{ $testimonial->designation }}
+                                            </span>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
-                            @empty
-                            <div class="swiper-slide">
-                                <div class="testi-box light">
-                                    <div class="box-quote"><img src="assets/img/icon/quote3.svg" alt=""></div>
-                                    <p class="box-text">"We'd love to showcase your testimonial here. Please share your experience with us!"</p>
-                                    <div class="box-profile">
-                                        <div class="box-author"><img src="{{ asset('assets/img/testimonial/testi_3_1.jpg') }}" alt="Default"></div>
-                                        <div class="box-info">
-                                            <h3 class="box-title">Be Our First</h3>
-                                            <span class="box-desig">Share Your Experience</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforelse
+                            @endforeach
+
                         </div>
+
+                        {{-- Slider Arrows (unchanged) --}}
+                        <div class="icon-box">
+                            <button data-slider-prev="#testiSlide1"
+                                class="slider-arrow style4 default slider-prev">
+                                <img src="{{ asset('assets/img/icon/right-arrow4.svg') }}"
+                                    style="display: unset!important;" alt="arrow-previous">
+                            </button>
+                            <button data-slider-next="#testiSlide1"
+                                class="slider-arrow style4 default slider-next">
+                                <img src="{{ asset('assets/img/icon/left-arrow4.svg') }}"
+                                    style="display: unset!important;" alt="arrow-next">
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
+    </div>
+
+    <div class="shape-mockup d-none d-xxl-block"
+        data-bottom="0%"
+        data-left="0%">
+        <img src="{{ asset('assets/img/shape/element-4.png') }}" alt="">
     </div>
 </section>
 
-<section class="overflow-hidden space-bottom overflow-hidden playfair-display" id="instagram-sec">
+
+<section class="overflow-hidden space-bottom overflow-hidden playfair-display renovation-bg-color" id="instagram-sec">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-7">
@@ -1291,702 +1430,521 @@
     </div>
 </section>
 
-<section class="space playfair-display" id="gallery-sec">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-8">
-                <div class="title-area text-center">
-                    <h4 class="text-anime text-dark">OUR GALLERY</h4>
-                    <h4 class="text-dark">Through a Unique Combination of Engineering</h4>
+<section class="overflow-hidden space" id="gallery-sec">
+    <div class="overflow-hidden">
+        <div class="container">
+            <div class="services-header">
+                <h5 class="title-heading">Gallery</h5>
+                <p class="text-custom text-light-green">Our recent gallery of projects.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <div class="filter-menu indicator-active filter-menu-active">
+
+                        <button data-filter="*" class="tab-btn active" type="button">
+                            View All
+                        </button>
+                        @foreach($galleryCategories as $index => $category)
+                        <button
+                            data-filter=".cat{{ $category->id }}"
+                            class="tab-btn"
+                            type="button">
+                            {{ $category->name }}
+                        </button>
+                        @endforeach
+
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="row gy-4 gallery-row filter-active">
+                @foreach($galleryCategories as $category)
+                @foreach($category->galleries as $gallery)
+                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat{{ $category->id }}">
 
-        <div class="slider-wrap text-center">
-            <div class="swiper th-slider gallery-slider4" id="gallerySlider4"
-                data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":1.3},"991":{"slidesPerView":1.5},"1200":{"slidesPerView":2},"1600":{"slidesPerView":3.3}},"effect":"coverflow","coverflowEffect":{"rotate":17,"stretch":190,"depth":190,"modifier":1},"centeredSlides":true,"initialSlide":0}'>
+                    <div class="gallery-card">
+                        <div class="box-img global-img">
+                            <img
+                                class="wow clippy-img"
+                                src="{{ asset($gallery->image) }}"
+                                alt="gallery image">
 
-                <div class="swiper-wrapper">
-                    @forelse($galleries as $gallery)
-                    <div class="swiper-slide">
-                        <div class="gallery-item2">
-                            <div class="box-img">
-                                <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title ?? 'Gallery Image' }}">
-                                <a href="{{ asset($gallery->image) }}" class="icon-btn th-popup-image">
-                                    <i class="far fa-plus"></i>
-                                </a>
+                            <a href="{{ asset($gallery->image) }}"
+                                class="icon-btn th-popup-image">
+                                <i class="far fa-plus"></i>
+                            </a>
+
+                            <div class="shape">
+                                <div class="dot"></div>
                             </div>
                         </div>
+
+                        <div class="gallery-content">
+                            <h2 class="box-title">
+                                {{ $gallery->title }}
+                            </h2>
+                        </div>
                     </div>
-                    @empty
 
-                    @endforelse
                 </div>
-
-                <div class="icon-box">
-                    <!-- Prev -->
-                    <button data-slider-prev="#gallerySlider4"
-                        class="slider-btn slider-prev"
-                        aria-label="Previous">
-                        &#8592;
-                    </button>
-
-                    <!-- Next -->
-                    <button data-slider-next="#gallerySlider4"
-                        class="slider-btn slider-next"
-                        aria-label="Next">
-                        &#8594;
-                    </button>
-                </div>
-
-
+                @endforeach
+                @endforeach
             </div>
         </div>
     </div>
 </section>
+@endsection
 
-<style>
-    /* Testimonial section styling - adjusted to match theme */
-    .testi-box-tab .tab-btn img,
-    .box-author img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .testi-box-tab .tab-btn {
-        min-width: 150px;
-        max-height: 150px;
-        cursor: pointer;
-    }
-
-    .box-author {
-        max-width: 150px;
-        border-radius: 0px;
-    }
-
-    /* Additional testimonial styles */
-    .testi-area.light {
-        position: relative;
-        z-index: 2;
-    }
-
-    .testi-img.global-img img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-
-    .testi-line {
-        width: 70%;
-        height: 0px;
-        border: 1px solid rgba(108, 109, 113, 0.5);
-        display: block;
-        margin-top: -20px;
-    }
-
-    .testi-box.light {
-        background: #ffffff;
-        color: #333;
-    }
-
-    .testi-box.light .box-text {
-        color: #333 !important; /* Make text visible */
-        font-weight: 400;
-        font-size: 20px;
-        letter-spacing: 0.02em;
-        margin-bottom: 50px;
-        line-height: 1.6;
-    }
-
-    .testi-box.light .box-title {
-        font-family: var(--title-font2);
-        font-weight: 400;
-        font-size: 40px;
-        letter-spacing: 0.02em;
-        color: #333 !important; /* Make title visible */
-        margin-bottom: 0;
-    }
-
-    .testi-box.light .box-desig {
-        font-weight: 400;
-        font-size: 14px;
-        color: #666666 !important; /* Make designation visible */
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .testi-img {
-        position: relative; /* Change positioning */
-        z-index: 1; /* Ensure it doesn't overlap text */
-    }
-
-    /* Ensure testimonial content is visible and properly positioned */
-    #testi-sec {
-        position: relative;
-        z-index: 10;
-    }
-
-    /* Ensure testimonial box content is visible */
-    .testi-box.light {
-        background: #ffffff;
-        color: #333;
-        padding: 30px;
-        border-radius: 8px;
-    }
-
-    .testi-box.light .box-text {
-        color: #333 !important; /* Make text visible */
-        font-weight: 400;
-        font-size: 20px;
-        letter-spacing: 0.02em;
-        margin-bottom: 50px;
-        line-height: 1.6;
-    }
-
-    .testi-box.light .box-title {
-        font-family: var(--title-font2);
-        font-weight: 400;
-        font-size: 40px;
-        letter-spacing: 0.02em;
-        color: #333 !important; /* Make title visible */
-        margin-bottom: 0;
-    }
-
-    .testi-box.light .box-desig {
-        font-weight: 400;
-        font-size: 14px;
-        color: #666666 !important; /* Make designation visible */
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    /* Position the testi-img properly */
-    .col-lg-5 .testi-img {
-        margin-top: 0;
-    }
-
-    .testi-box.light .box-profile {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .testi-area.light .icon-box .slider-arrow {
-        border: 1px solid rgba(14, 14, 14, 0.3);
-    }
-
-    .testi-area.light .icon-box .slider-arrow img {
-        -webkit-filter: none;
-        filter: none;
-        -webkit-transition: none;
-        transition: none;
-    }
-
-    .testi-area.light .icon-box .slider-arrow:hover img {
-        -webkit-filter: none;
-        filter: none;
-    }
-
-    .testi-area .icon-box {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: end;
-        -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-        margin-top: 50px;
-        margin-right: 95px;
-    }
-
-    .testi-area .icon-box .slider-arrow {
-        width: 90px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        font-weight: 600;
-        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
-        color: #fff;
-        border: 2px solid #003f3a;
-        border-radius: 25px !important;
-        cursor: pointer;
-        transition: none !important;
-        box-shadow: none;
-        outline: none;
-        -webkit-transform: rotate(-180deg);
-        -ms-transform: rotate(-180deg);
-        transform: rotate(-180deg);
-    }
-
-    .testi-area .icon-box .slider-arrow:hover,
-    .testi-area .icon-box .slider-arrow:focus,
-    .testi-area .icon-box .slider-arrow:active {
-        background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
-        color: #fff !important;
-        border-color: #003f3a !important;
-        transform: none !important;
-        box-shadow: none !important;
-    }
-
-    /* Ensure testimonial section has proper z-index */
-    #testi-sec {
-        position: relative;
-        z-index: 10;
-    }
-
-    /* Project section styling */
-    .project-img-first {
-        width: 300px;
-        height: 300px;
-        flex-shrink: 0;
-    }
-
-    .project-img-second {
-        width: 565px;
-        height: 300px;
-        flex-shrink: 0;
-    }
-
-    /* Ensure project content stays inline and visible */
-    .project-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: transparent !important;
-        color: #000000 !important;
-        min-height: auto;
-        flex: 0 0 250px;
-    }
-
-    .project-content .box-title {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin: 0 0 10px 0;
-        color: #000000 !important;
-        font-weight: bold;
-    }
-
-    .project-content .box-text {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin: 0 0 15px 0;
-        line-height: 1.4;
-        color: #000000 !important;
-    }
-
-    /* Align content in one line */
-    .project-item-container {
-        flex-wrap: nowrap;
-    }
-
-    /* Detail button styling to match homepage buttons */
-    .project-content .th-btn.white-border.th-icon {
-        background: transparent;
-        border: 2px solid #003f3a;
-        color: #003f3a;
-        padding: 10px 25px;
-        border-radius: 100px;
-        text-decoration: none;
-        display: inline-block;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-
-    .project-content .th-btn.white-border.th-icon:hover {
-        background: #003f3a;
-        color: white;
-    }
-
-    /* Project item container flex layout */
-    .project-item-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 30px;
-        flex-wrap: nowrap;
-        width: 100%;
-    }
-
-    .project-item_wrapp {
-        display: flex;
-        gap: 30px;
-        align-items: flex-start;
-        flex: 1;
-        flex-wrap: nowrap;
-    }
-
-    /* Ensure images are properly aligned in a row */
-    .project-item_wrapp .box-img {
-        margin: 0;
-        flex-shrink: 0;
-    }
-
-    /* Ensure content stays in one line */
-    .project-content {
-        flex: 0 0 250px;
-        min-width: 250px;
-        flex-shrink: 0;
-    }
-
-    /* Force images to stay inline */
-    .box-img.global-img {
-        display: block;
-        float: left;
-    }
-
-    /* Filter button active state */
-    .filter-menu .th-btns.black-border {
-        display: inline-block;
-        text-decoration: none;
-        background: transparent;
-        border: 2px solid #000000;
-        color: #000000;
-        padding: 12px 28px;
-        border-radius: 100px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        margin-right: 10px;
-    }
-
-    .filter-menu .th-btns.black-border:hover {
-        background: #000000;
-        color: #ffffff;
-    }
-
-    .filter-menu .th-btns.black-border.active {
-        background: #000000;
-        color: #ffffff;
-    }
-
-    /* Project filtering styles */
-    .project-item {
-        transition: all 0.6s ease;
-    }
-
-    .gallery-row .project-item {
-        margin-bottom: 30px;
-        opacity: 1;
-    }
-
-    /* Isotope filtering */
-    .gallery-row.isotope .project-item {
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .gallery-row.isotope .project-item.is-hidden {
-        opacity: 0;
-        transform: scale(0.001);
-        pointer-events: none;
-        display: none;
-    }
-
-    /* Ensure project items visibility */
-    .filter-item {
-        display: block;
-    }
-
-    /* Fix layout for few items */
-
-    .project-item {
-        margin-bottom: 0;
-    }
-
-    /* Ensure content alignment */
-    .project-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    /* Remove Bootstrap row gutters when filtering */
-    @media (min-width: 768px) {
-        .gallery-row {
-            margin-right: 0;
-            margin-left: 0;
-        }
-
-        .project-item {
-            padding-right: 0;
-            padding-left: 0;
-        }
-    }
-
-    /* Detail button styling to match homepage buttons */
-    .project-content .th-btns.black-border {
-        display: inline-block;
-        text-decoration: none;
-        background: transparent;
-        border: 2px solid #000000;
-        color: #000000;
-        padding: 12px 28px;
-        border-radius: 100px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-
-    .project-content .th-btns.black-border:hover {
-        background: #000000;
-        color: #ffffff;
-    }
-
-    /* Better vertical alignment */
-    .project-item-container {
-        align-items: self-start !important;
-    }
-
-    .project-item_wrapp {
-        align-items: center !important;
-    }
-</style>
-
+@push('scripts')
 <script>
-    // Wait for DOM to be fully loaded and jQuery to be available
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if jQuery is loaded
-        if (typeof $ === 'undefined') {
-            console.error('jQuery is not loaded');
-            return;
-        }
+    $(document).ready(function() {
+        // Contact form submission with AJAX
+        $('#contactForm').on('submit', function(e) {
+            e.preventDefault();
 
-        // Initialize testimonial slider
-        if (document.querySelector('.testiSlide3')) {
-            const testimonialSwiper = new Swiper('.testiSlide3', {
-                loop: true,
-                effect: 'slide',
-                speed: 600,
-                autoplay: {
-                    delay: 4000, // Auto-slide every 4 seconds
-                    disableOnInteraction: false, // Continue auto-sliding after user interactions
-                },
-                navigation: {
-                    nextEl: '[data-slider-next="#testiSlide3"]',
-                    prevEl: '[data-slider-prev="#testiSlide3"]',
-                },
-                on: {
-                    slideChange: function() {
-                        // Update tab buttons when slide changes
-                        const activeIndex = this.realIndex;
-                        const tabButtons = document.querySelectorAll('.testi-box-tab .tab-btn');
-
-                        tabButtons.forEach((btn, index) => {
-                            btn.classList.toggle('active', index === activeIndex);
-                        });
-
-                        // Update main image when slide changes
-                        updateMainImage(activeIndex);
-                    }
-                }
-            });
-
-            // Function to update the main image
-            function updateMainImage(index) {
-                const allImages = document.querySelectorAll('.testi-area .testi-img img');
-                if (allImages.length > 0) {
-                    // Hide all images
-                    allImages.forEach(img => {
-                        img.style.display = 'none';
-                    });
-
-                    // Show the image at the current index
-                    if (allImages[index]) {
-                        allImages[index].style.display = 'block';
-                    }
-                }
+            // Prevent multiple submissions
+            var submitBtn = $('#submitBtn');
+            if (submitBtn.prop('disabled') || submitBtn.hasClass('disabled')) {
+                return false;
             }
 
-            // Initialize the first image
-            if (document.querySelector('.testi-area .testi-img img')) {
-                const allImages = document.querySelectorAll('.testi-area .testi-img img');
-                allImages.forEach((img, idx) => {
-                    if (idx !== 0) {
-                        img.style.display = 'none';
-                    }
+            // Clear previous errors
+            $('.invalid-feedback').text('').hide();
+            $('.form-control, .form-select').removeClass('is-invalid');
+            hideAlert();
+
+            // Get form data
+            var formData = {
+                _token: $('input[name=_token]').val(),
+                name: $('#name').val().trim(),
+                email: $('#email').val().trim(),
+                phone: $('#phone').val().trim(),
+                subject: $('#subject').val(),
+                message: $('#message').val().trim()
+            };
+
+            // Client-side validation
+            var isValid = true;
+            var errors = {};
+
+            // Validate name
+            if (!formData.name) {
+                errors.name = 'Name is required.';
+                isValid = false;
+            } else if (formData.name.length < 2) {
+                errors.name = 'Name must be at least 2 characters long.';
+                isValid = false;
+            }
+
+            // Validate email
+            if (!formData.email) {
+                errors.email = 'Email is required.';
+                isValid = false;
+            } else if (!isValidEmail(formData.email)) {
+                errors.email = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Validate phone
+            if (!formData.phone) {
+                errors.phone = 'Phone number is required.';
+                isValid = false;
+            } else if (!isValidPhone(formData.phone)) {
+                errors.phone = 'Please enter a valid phone number.';
+                isValid = false;
+            }
+
+            // Validate subject
+            if (!formData.subject) {
+                errors.subject = 'Subject is required.';
+                isValid = false;
+            } else if (formData.subject.length > 150) {
+                errors.subject = 'Subject must be no more than 150 characters.';
+                isValid = false;
+            }
+
+            // Validate message
+            if (!formData.message) {
+                errors.message = 'Message is required.';
+                isValid = false;
+            } else if (formData.message.length < 10) {
+                errors.message = 'Message must be at least 10 characters long.';
+                isValid = false;
+            }
+
+            // Display validation errors
+            if (!isValid) {
+                $.each(errors, function(field, message) {
+                    $('#' + field + '-error').text(message).show();
+                    $('#' + field).addClass('is-invalid');
                 });
+                showAlert('Please correct the errors below.', 'danger');
+                return;
             }
-        }
 
-        // Initialize the testimonial section using the theme's built-in functionality
-        if ($('.testi-box-tab').length > 0) {
-            $('.testi-box-tab').activateSliderThumbs({
-                sliderTab: true,
-                tabButton: '.tab-btn'
-            });
-        }
+            // Disable submit button and show loading
+            var submitBtn = $('#submitBtn');
+            var btnText = $('.btn-text');
+            var btnLoading = $('.btn-loading');
 
-        // Handle testimonial image loading errors
-        document.querySelectorAll('.testi-area img, .testi-box img').forEach(img => {
-            img.addEventListener('error', function() {
-                // Replace with placeholder
-                this.src = '{{ asset("assets/img/testimonial/testi-1-1.jpg") }}';
-            });
-        });
+            // Prevent multiple clicks by adding multiple disable methods
+            submitBtn.prop('disabled', true);
+            submitBtn.attr('disabled', 'disabled');
+            submitBtn.addClass('disabled');
+            submitBtn.css('pointer-events', 'none');
+            btnText.hide();
+            btnLoading.show();
 
-        // Add click handlers for navigation buttons
-        document.querySelectorAll('[data-slider-prev="#testiSlide3"], [data-slider-next="#testiSlide3"]').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetSliderId = this.getAttribute('data-slider-prev') || this.getAttribute('data-slider-next');
-                const targetSlider = document.querySelector(targetSliderId);
+            // Submit form via AJAX
+            $.ajax({
+                url: $(this).attr('action'),
+                method: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        // Show success message
+                        showAlert(response.message, 'success');
 
-                if (targetSlider && targetSlider.swiper) {
-                    if (this.getAttribute('data-slider-prev')) {
-                        targetSlider.swiper.slidePrev();
+                        // Reset form
+                        $('#contactForm')[0].reset();
+
+                        // Reset nice-select if used
+                        if ($.fn.niceSelect) {
+                            $('#subject').niceSelect('update');
+                        }
                     } else {
-                        targetSlider.swiper.slideNext();
+                        showAlert(response.message || 'Something went wrong. Please try again.', 'danger');
                     }
+                },
+                error: function(xhr) {
+                    if (xhr.status === 422) {
+                        // Validation errors
+                        var errors = xhr.responseJSON.errors;
+                        $.each(errors, function(field, messages) {
+                            $('#' + field + '-error').text(messages[0]).show();
+                            $('#' + field).addClass('is-invalid');
+                        });
+                        showAlert('Please correct the errors below.', 'danger');
+                    } else {
+                        // Other errors
+                        showAlert('Something went wrong. Please try again.', 'danger');
+                    }
+                },
+                complete: function() {
+                    // Re-enable submit button with multiple methods
+                    submitBtn.prop('disabled', false);
+                    submitBtn.removeAttr('disabled');
+                    submitBtn.removeClass('disabled');
+                    submitBtn.css('pointer-events', 'auto');
+                    btnText.show();
+                    btnLoading.hide();
                 }
             });
         });
 
-        // Add tab button click handlers
-        document.querySelectorAll('.testi-box-tab .tab-btn').forEach((btn, index) => {
-            btn.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.testi-box-tab .tab-btn').forEach(tabBtn => {
-                    tabBtn.classList.remove('active');
-                });
+        // Email validation function
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
 
-                // Add active class to clicked button
-                this.classList.add('active');
+        // Phone validation function
+        function isValidPhone(phone) {
+            var phoneRegex = /^[+]?[0-9\s\-\(\)]{10,20}$/;
+            return phoneRegex.test(phone);
+        }
 
-                // Update the slider if it exists
-                if (document.querySelector('.testiSlide3') && document.querySelector('.testiSlide3').swiper) {
-                    document.querySelector('.testiSlide3').swiper.slideTo(index);
-                }
+        // Show alert message
+        function showAlert(message, type) {
+            var alertDiv = $('#contact-alert');
+            var alertMessage = $('#contact-alert-message');
 
-                // Update the main image
-                updateMainImage(index);
-            });
+            alertDiv.removeClass('alert-success alert-danger alert-warning alert-info')
+                .addClass('alert-' + type);
+            alertMessage.text(message);
+            alertDiv.show();
+
+            // Scroll to alert
+            $('html, body').animate({
+                scrollTop: $('#contact-sec').offset().top - 100
+            }, 500);
+
+            // Auto hide success messages after 5 seconds
+            if (type === 'success') {
+                setTimeout(function() {
+                    hideAlert();
+                }, 5000);
+            }
+        }
+
+        // Hide alert message
+        function hideAlert() {
+            $('#contact-alert').hide();
+        }
+
+        // Real-time validation on input blur
+        $('#name, #email, #phone, #subject, #message').on('blur', function() {
+            var field = $(this);
+            var fieldName = field.attr('id');
+            var errorDiv = $('#' + fieldName + '-error');
+
+            // Clear error when user starts typing
+            field.removeClass('is-invalid');
+            errorDiv.hide();
+
+            // Validate on blur
+            var value = field.val().trim();
+            var error = '';
+
+            switch (fieldName) {
+                case 'name':
+                    if (!value) error = 'Name is required.';
+                    else if (value.length < 2) error = 'Name must be at least 2 characters.';
+                    break;
+                case 'email':
+                    if (!value) error = 'Email is required.';
+                    else if (!isValidEmail(value)) error = 'Please enter a valid email.';
+                    break;
+                case 'phone':
+                    if (!value) error = 'Phone number is required.';
+                    else if (!isValidPhone(value)) error = 'Please enter a valid phone number.';
+                    break;
+                case 'subject':
+                    if (!value) error = 'Subject is required.';
+                    else if (value.length > 150) error = 'Subject must be no more than 150 characters.';
+                    break;
+                case 'message':
+                    if (!value) error = 'Message is required.';
+                    else if (value.length < 10) error = 'Message must be at least 10 characters.';
+                    break;
+            }
+
+            if (error) {
+                errorDiv.text(error).show();
+                field.addClass('is-invalid');
+            }
+        });
+
+        // Clear validation on input focus
+        $('#name, #email, #phone, #subject, #message').on('focus', function() {
+            $(this).removeClass('is-invalid');
+            $('#' + $(this).attr('id') + '-error').hide();
         });
     });
-
-    // Project filtering script - only execute when jQuery is ready
-    if (typeof $ !== 'undefined') {
-        $(document).ready(function() {
-            const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
-            const projectItems = document.querySelectorAll('.project-item');
-
-            // Initialize all projects as visible
-            projectItems.forEach(item => {
-                item.style.display = 'block';
-                item.style.opacity = '1';
-            });
-
-            // Add click event listeners to filter buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const filterValue = this.getAttribute('data-filter');
-
-                    // Update active button - remove active class from all and add to current
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    console.log('Filter clicked:', filterValue);
-
-                    // Apply filtering
-                    projectItems.forEach(item => {
-                        if (filterValue === '*') {
-                            // Show all projects
-                            item.style.display = 'block';
-                            item.style.opacity = '1';
-                            item.style.position = 'relative';
-                            item.style.visibility = 'visible';
-                        } else {
-                            // Check if project has the filter class
-                            const filterClass = filterValue.replace('.', '');
-
-                            if (item.classList.contains(filterClass)) {
-                                item.style.display = 'block';
-                                item.style.opacity = '1';
-                                item.style.position = 'relative';
-                                item.style.visibility = 'visible';
-                            } else {
-                                item.style.display = 'none';
-                                item.style.opacity = '0';
-                                item.style.position = 'absolute';
-                                item.style.visibility = 'hidden';
-                            }
-                        }
-                    });
-                });
-            });
-        });
-    } else {
-        // Fallback if jQuery is not loaded yet
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait a bit more for jQuery to load
-            setTimeout(function() {
-                if (typeof $ !== 'undefined') {
-                    const filterButtons = document.querySelectorAll('.filter-menu .th-btns');
-                    const projectItems = document.querySelectorAll('.project-item');
-
-                    // Initialize all projects as visible
-                    projectItems.forEach(item => {
-                        item.style.display = 'block';
-                        item.style.opacity = '1';
-                    });
-
-                    // Add click event listeners to filter buttons
-                    filterButtons.forEach(button => {
-                        button.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const filterValue = this.getAttribute('data-filter');
-
-                            // Update active button - remove active class from all and add to current
-                            filterButtons.forEach(btn => btn.classList.remove('active'));
-                            this.classList.add('active');
-
-                            console.log('Filter clicked:', filterValue);
-
-                            // Apply filtering
-                            projectItems.forEach(item => {
-                                if (filterValue === '*') {
-                                    // Show all projects
-                                    item.style.display = 'block';
-                                    item.style.opacity = '1';
-                                    item.style.position = 'relative';
-                                    item.style.visibility = 'visible';
-                                } else {
-                                    // Check if project has the filter class
-                                    const filterClass = filterValue.replace('.', '');
-
-                                    if (item.classList.contains(filterClass)) {
-                                        item.style.display = 'block';
-                                        item.style.opacity = '1';
-                                        item.style.position = 'relative';
-                                        item.style.visibility = 'visible';
-                                    } else {
-                                        item.style.display = 'none';
-                                        item.style.opacity = '0';
-                                        item.style.position = 'absolute';
-                                        item.style.visibility = 'hidden';
-                                    }
-                                }
-                            });
-                        });
-                    });
-                }
-            }, 500);
-        });
-    }
 </script>
+    <script>
+        $(function () {
 
+            const $form = $('#demoFormContainer form');
+            const $btn  = $form.find('button'); // ✅ FIXED
+            const originalBtnHtml = $btn.html();
 
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
-<!-- Swiper JS -->
-<script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-@endsection
+            const $msg = $('<div/>', {
+                id: 'formMessages',
+                css: {
+                    display: 'none',
+                    marginBottom: '15px',
+                    padding: '12px 15px',
+                    borderRadius: '6px',
+                    fontSize: '14px'
+                }
+            }).prependTo($form);
+
+            $form.on('submit', function (e) {
+                e.preventDefault();
+
+                $msg.hide().empty();
+                $form.find('.is-invalid').removeClass('is-invalid');
+
+                setLoading(true);
+
+                $.post($form.attr('action'), $form.serialize())
+                    .done(res => {
+                        if (res.status === 'success') {
+                            $form[0].reset();
+                            showMsg(res.message, 'success');
+                        }
+                    })
+                    .fail(xhr => {
+                        if (xhr.status === 422) {
+                            const errors = xhr.responseJSON.errors;
+                            showMsg(
+                                Object.values(errors).map(e => `<li>${e[0]}</li>`).join(''),
+                                'error'
+                            );
+                            Object.keys(errors).forEach(f =>
+                                $form.find(`[name="${f}"]`).addClass('is-invalid')
+                            );
+                        } else {
+                            showMsg('Something went wrong. Please try again.', 'error');
+                        }
+                    })
+                    .always(() => {
+                        setLoading(false);
+                    });
+            });
+
+            function setLoading(loading) {
+                if (loading) {
+                    $btn
+                        .prop('disabled', true)
+                        .html('<i class="fa fa-spinner fa-spin"></i> Sending<span class="dots"></span>');
+                } else {
+                    $btn
+                        .prop('disabled', false)
+                        .html(originalBtnHtml);
+                }
+            }
+
+            function showMsg(content, type) {
+                $msg
+                    .css(type === 'success' ? successStyle() : errorStyle())
+                    .html(type === 'success'
+                        ? content
+                        : `<ul style="margin:0;padding-left:18px">${content}</ul>`
+                    )
+                    .fadeIn();
+
+                if (type === 'success') {
+                    setTimeout(() => $msg.fadeOut(), 4000);
+                }
+            }
+
+            function successStyle() {
+                return {
+                    background: '#d4edda',
+                    color: '#155724',
+                    border: '1px solid #c3e6cb'
+                };
+            }
+
+            function errorStyle() {
+                return {
+                    background: '#f8d7da',
+                    color: '#721c24',
+                    border: '1px solid #f5c6cb'
+                };
+            }
+
+        });
+    </script>
+@endpush
+
+@push('styles')
+<style>
+    /* Contact Form Validation Styles */
+    .form-control.is-invalid,
+    .form-select.is-invalid {
+        border-color: #dc3545;
+        padding-right: calc(1.5em + 0.75rem);
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+    .invalid-feedback {
+        display: none;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 0.875em;
+        color: #dc3545;
+    }
+
+    .form-control.is-invalid:focus,
+    .form-select.is-invalid:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    /* Alert Styles */
+    .alert {
+        position: relative;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.375rem;
+        font-weight: 500;
+    }
+
+    .alert-success {
+        color: #0f5132;
+        background-color: #d1e7dd;
+        border-color: #badbcc;
+    }
+
+    .alert-danger {
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+    }
+
+    .alert-warning {
+        color: #664d03;
+        background-color: #fff3cd;
+        border-color: #ffecb5;
+    }
+
+    .alert-info {
+        color: #055160;
+        background-color: #cff4fc;
+        border-color: #b6effb;
+    }
+
+    /* Loading Button Styles */
+    .btn-loading {
+        display: inline-block;
+    }
+
+    /* Disabled button styles */
+    #submitBtn.disabled,
+    #submitBtn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+    }
+
+    #submitBtn.disabled:hover,
+    #submitBtn:disabled:hover {
+        opacity: 0.6;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+        background-color: inherit;
+        border-color: inherit;
+        color: inherit;
+    }
+
+    /* Form Icon Positioning */
+    .form-group {
+        position: relative;
+    }
+
+    .form-group i {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+    }
+
+    .form-control,
+    .form-select {
+        padding-right: 40px;
+    }
+
+    /* Character counter styling */
+    .form-text {
+        font-size: 0.875em;
+        color: #6c757d;
+        margin-top: 0.25rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .alert {
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+@endpush

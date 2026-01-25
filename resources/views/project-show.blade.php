@@ -42,9 +42,6 @@
                                     <div class="col-md-4 mb-3">
                                         <div class="project-image">
                                             <img src="{{ Storage::url($image->image) }}" alt="{{ $image->caption ?: $project->title }}" class="img-fluid rounded">
-                                            @if($image->caption)
-                                                <p class="text-muted small mt-1">{{ $image->caption }}</p>
-                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
