@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InstagramController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Frontend\QuoteController as FrontendQuoteController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -16,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Contact form route
-Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])
+    ->name('contact.store');
 
-
-
+Route::post('/request-demo', FrontendQuoteController::class)
+    ->name('quotes.store');
 
 // Project routes
 Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');

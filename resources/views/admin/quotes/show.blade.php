@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="sm:col-span-1">
                                         <dt class="text-sm font-medium text-gray-500">Last Name</dt>
-                                        <dd class="mt-1 text-sm text-gray-900">{{ $quote->name }}</dd>
+                                        <dd class="mt-1 text-sm text-gray-900">{{ $quote->last_name }}</dd>
                                     </div>
                                     <div class="sm:col-span-1">
                                         <dt class="text-sm font-medium text-gray-500">Email</dt>

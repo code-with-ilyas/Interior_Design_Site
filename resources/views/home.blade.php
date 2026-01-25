@@ -38,7 +38,7 @@
                     </div>
                     <div class="">
                         <a href="{{ route('renovate') }}"
-                            class="th-btns black-border" style="display:inline-block; text-decoration:none;">
+                            class="th-btns black-border mb-2" style="display:inline-block; text-decoration:none;">
                             I Want to Renovate a Property
                         </a>
                         <a href="javascript:void(0);" id="demoBtn" class="th-btns black-border" style="display:inline-block; text-decoration:none;">
@@ -52,29 +52,29 @@
                                 {{-- Success popup --}}
                                 @if (session('success'))
                                 <div id="successPopup" style="
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #28a745;
-                color: white;
-                padding: 15px 20px;
-                border-radius: 6px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                z-index: 2000;
-                font-size: 14px;
-                opacity: 0;
-                transform: translateY(-20px);
-                transition: all 0.5s ease;
-            ">
+                                    position: fixed;
+                                    top: 20px;
+                                    right: 20px;
+                                    background: #28a745;
+                                    color: white;
+                                    padding: 15px 20px;
+                                    border-radius: 6px;
+                                    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                                    z-index: 2000;
+                                    font-size: 14px;
+                                    opacity: 0;
+                                    transform: translateY(-20px);
+                                    transition: all 0.5s ease;
+                                ">
                                     {{ session('success') }}
                                 </div>
                                 @endif
 
-                                <form action="{{ route('admin.quotes.store') }}" method="POST">
+                                <form action="{{ route('quotes.store') }}" method="POST">
                                     @csrf
                                     <div class="form-row mb-3">
-                                        <input class="text-dark" type="text" name="name" placeholder="Your Name" required>
                                         <input class="text-dark" type="text" name="first_name" placeholder="First Name" required>
+                                        <input class="text-dark" type="text" name="last_name" placeholder="Last Name" required>
                                     </div>
 
                                     <div class="form-row mb-3">
@@ -107,25 +107,23 @@
                                 </form>
 
                                 <div id="successPopup" style="
-      display: none;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #28a745;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-size: 14px;
-      z-index: 2000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    ">
+                                    display: none;
+                                    position: absolute;
+                                    top: 10px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    background: #28a745;
+                                    color: white;
+                                    padding: 12px 20px;
+                                    border-radius: 6px;
+                                    font-size: 14px;
+                                    z-index: 2000;
+                                    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                                    ">
                                     Your request has been submitted successfully!
                                 </div>
                             </div>
                         </div>
-
-
                         <style>
                             .form-row:has(button) button {
                                 flex: 0 0 25%;
@@ -322,21 +320,21 @@
 
                     <div
                         style="
-          position:absolute;
-          right:-60px;
-          bottom:5%;
-          width:100px;
-          padding:10px;
-        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
-          border-radius:10px;
-          box-shadow:0 4px 12px rgba(0,0,0,0.15);
-          font-size:11px;
-          height:60px;
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          text-align:center;
-        ">
+                        position:absolute;
+                        right:-60px;
+                        bottom:5%;
+                        width:100px;
+                        padding:10px;
+                        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
+                        border-radius:10px;
+                        box-shadow:0 4px 12px rgba(0,0,0,0.15);
+                        font-size:11px;
+                        height:60px;
+                        display:flex;
+                        flex-direction:column;
+                        justify-content:center;
+                        text-align:center;
+                        ">
                         <h6 style="margin:0; font-size:12px;" class="text-white">Custom</h6>
                         <p style="margin:0;" class="text-white">Fast</p>
                     </div>
@@ -538,11 +536,11 @@
                         View All
                     </button>
                     @foreach($projectCategories as $category)
-                        <button data-filter=".cat{{ $category->id }}"
-                                class="th-btn th-border"
-                                type="button">
-                            {{ $category->name }}
-                        </button>
+                    <button data-filter=".cat{{ $category->id }}"
+                        class="th-btn th-border"
+                        type="button">
+                        {{ $category->name }}
+                    </button>
                     @endforeach
                 </div>
             </div>
@@ -551,60 +549,60 @@
         <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
 
             @foreach($projectCategories as $category)
-                @foreach($category->projects as $project)
+            @foreach($category->projects as $project)
 
-                    @php
-                        $projectImages = $project->projectImages->values();
+            @php
+            $projectImages = $project->projectImages->values();
 
-                        $firstImage = $project->cover_image
-                            ?? optional($projectImages->get(0))->image
-                            ?? 'assets/img/project/default.jpg';
+            $firstImage = $project->cover_image
+            ?? optional($projectImages->get(0))->image
+            ?? 'assets/img/project/default.jpg';
 
-                        $secondImage = $project->cover_image
-                            ? optional($projectImages->get(1))->image
-                            : optional($projectImages->get(1))->image
-                                ?? optional($projectImages->get(0))->image
-                                ?? 'assets/img/project/default.jpg';
+            $secondImage = $project->cover_image
+            ? optional($projectImages->get(1))->image
+            : optional($projectImages->get(1))->image
+            ?? optional($projectImages->get(0))->image
+            ?? 'assets/img/project/default.jpg';
 
-                        $plainText = trim(strip_tags($project->short_description));
-                    @endphp
+            $plainText = trim(strip_tags($project->short_description));
+            @endphp
 
-                    <div class="project-item col-12 filter-item cat{{ $category->id }}">
+            <div class="project-item col-12 filter-item cat{{ $category->id }}">
 
-                        <div class="project-item_wrapp">
-                            <div class="box-img global-img">
-                                <img src="{{ asset($firstImage) }}" alt="project image">
-                            </div>
-                            <div class="box-img global-img">
-                                <img src="{{ asset($secondImage) }}" alt="project image">
-                            </div>
-                        </div>
+                <div class="project-item_wrapp">
+                    <div class="box-img global-img">
+                        <img src="{{ asset($firstImage) }}" alt="project image">
+                    </div>
+                    <div class="box-img global-img">
+                        <img src="{{ asset($secondImage) }}" alt="project image">
+                    </div>
+                </div>
 
-                        <div class="project-content mt-2">
-                            <h2 class="box-title">
-                                <a href="{{ url('projects/' . $project->slug) }}">
-                                    {{ $project->title }}
-                                </a>
-                            </h2>
+                <div class="project-content mt-2">
+                    <h2 class="box-title">
+                        <a href="{{ url('projects/' . $project->slug) }}">
+                            {{ $project->title }}
+                        </a>
+                    </h2>
 
-                            <p class="box-text service-description mt-4">
-                                {{ mb_strlen($plainText) > 149
+                    <p class="box-text service-description mt-4">
+                        {{ mb_strlen($plainText) > 149
                                     ? mb_substr($plainText, 0, 149) . '...'
                                     : $plainText
                                 }}
-                            </p>
+                    </p>
 
-                            <div class="btn-group mt-45">
-                                <a href="{{ url('projects/' . $project->slug) }}"
-                                   class="th-btns black-border">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
+                    <div class="btn-group mt-45">
+                        <a href="{{ url('projects/' . $project->slug) }}"
+                            class="th-btns black-border">
+                            View Details
+                        </a>
                     </div>
+                </div>
 
-                @endforeach
+            </div>
+
+            @endforeach
             @endforeach
 
         </div>
@@ -693,7 +691,7 @@
     #blog-sec .services-header .text-light-green {
         opacity: 1 !important;
         visibility: visible !important;
-       /*  color: inherit !important; */
+        /*  color: inherit !important; */
     }
 
     /* Responsive adjustments */
@@ -1498,356 +1496,455 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    // Contact form submission with AJAX
-    $('#contactForm').on('submit', function(e) {
-        e.preventDefault();
+    $(document).ready(function() {
+        // Contact form submission with AJAX
+        $('#contactForm').on('submit', function(e) {
+            e.preventDefault();
 
-        // Prevent multiple submissions
-        var submitBtn = $('#submitBtn');
-        if (submitBtn.prop('disabled') || submitBtn.hasClass('disabled')) {
-            return false;
-        }
+            // Prevent multiple submissions
+            var submitBtn = $('#submitBtn');
+            if (submitBtn.prop('disabled') || submitBtn.hasClass('disabled')) {
+                return false;
+            }
 
-        // Clear previous errors
-        $('.invalid-feedback').text('').hide();
-        $('.form-control, .form-select').removeClass('is-invalid');
-        hideAlert();
+            // Clear previous errors
+            $('.invalid-feedback').text('').hide();
+            $('.form-control, .form-select').removeClass('is-invalid');
+            hideAlert();
 
-        // Get form data
-        var formData = {
-            _token: $('input[name=_token]').val(),
-            name: $('#name').val().trim(),
-            email: $('#email').val().trim(),
-            phone: $('#phone').val().trim(),
-            subject: $('#subject').val(),
-            message: $('#message').val().trim()
-        };
+            // Get form data
+            var formData = {
+                _token: $('input[name=_token]').val(),
+                name: $('#name').val().trim(),
+                email: $('#email').val().trim(),
+                phone: $('#phone').val().trim(),
+                subject: $('#subject').val(),
+                message: $('#message').val().trim()
+            };
 
-        // Client-side validation
-        var isValid = true;
-        var errors = {};
+            // Client-side validation
+            var isValid = true;
+            var errors = {};
 
-        // Validate name
-        if (!formData.name) {
-            errors.name = 'Name is required.';
-            isValid = false;
-        } else if (formData.name.length < 2) {
-            errors.name = 'Name must be at least 2 characters long.';
-            isValid = false;
-        }
+            // Validate name
+            if (!formData.name) {
+                errors.name = 'Name is required.';
+                isValid = false;
+            } else if (formData.name.length < 2) {
+                errors.name = 'Name must be at least 2 characters long.';
+                isValid = false;
+            }
 
-        // Validate email
-        if (!formData.email) {
-            errors.email = 'Email is required.';
-            isValid = false;
-        } else if (!isValidEmail(formData.email)) {
-            errors.email = 'Please enter a valid email address.';
-            isValid = false;
-        }
+            // Validate email
+            if (!formData.email) {
+                errors.email = 'Email is required.';
+                isValid = false;
+            } else if (!isValidEmail(formData.email)) {
+                errors.email = 'Please enter a valid email address.';
+                isValid = false;
+            }
 
-        // Validate phone
-        if (!formData.phone) {
-            errors.phone = 'Phone number is required.';
-            isValid = false;
-        } else if (!isValidPhone(formData.phone)) {
-            errors.phone = 'Please enter a valid phone number.';
-            isValid = false;
-        }
+            // Validate phone
+            if (!formData.phone) {
+                errors.phone = 'Phone number is required.';
+                isValid = false;
+            } else if (!isValidPhone(formData.phone)) {
+                errors.phone = 'Please enter a valid phone number.';
+                isValid = false;
+            }
 
-        // Validate subject
-        if (!formData.subject) {
-            errors.subject = 'Subject is required.';
-            isValid = false;
-        } else if (formData.subject.length > 150) {
-            errors.subject = 'Subject must be no more than 150 characters.';
-            isValid = false;
-        }
+            // Validate subject
+            if (!formData.subject) {
+                errors.subject = 'Subject is required.';
+                isValid = false;
+            } else if (formData.subject.length > 150) {
+                errors.subject = 'Subject must be no more than 150 characters.';
+                isValid = false;
+            }
 
-        // Validate message
-        if (!formData.message) {
-            errors.message = 'Message is required.';
-            isValid = false;
-        } else if (formData.message.length < 10) {
-            errors.message = 'Message must be at least 10 characters long.';
-            isValid = false;
-        }
+            // Validate message
+            if (!formData.message) {
+                errors.message = 'Message is required.';
+                isValid = false;
+            } else if (formData.message.length < 10) {
+                errors.message = 'Message must be at least 10 characters long.';
+                isValid = false;
+            }
 
-        // Display validation errors
-        if (!isValid) {
-            $.each(errors, function(field, message) {
-                $('#' + field + '-error').text(message).show();
-                $('#' + field).addClass('is-invalid');
-            });
-            showAlert('Please correct the errors below.', 'danger');
-            return;
-        }
+            // Display validation errors
+            if (!isValid) {
+                $.each(errors, function(field, message) {
+                    $('#' + field + '-error').text(message).show();
+                    $('#' + field).addClass('is-invalid');
+                });
+                showAlert('Please correct the errors below.', 'danger');
+                return;
+            }
 
-        // Disable submit button and show loading
-        var submitBtn = $('#submitBtn');
-        var btnText = $('.btn-text');
-        var btnLoading = $('.btn-loading');
+            // Disable submit button and show loading
+            var submitBtn = $('#submitBtn');
+            var btnText = $('.btn-text');
+            var btnLoading = $('.btn-loading');
 
-        // Prevent multiple clicks by adding multiple disable methods
-        submitBtn.prop('disabled', true);
-        submitBtn.attr('disabled', 'disabled');
-        submitBtn.addClass('disabled');
-        submitBtn.css('pointer-events', 'none');
-        btnText.hide();
-        btnLoading.show();
+            // Prevent multiple clicks by adding multiple disable methods
+            submitBtn.prop('disabled', true);
+            submitBtn.attr('disabled', 'disabled');
+            submitBtn.addClass('disabled');
+            submitBtn.css('pointer-events', 'none');
+            btnText.hide();
+            btnLoading.show();
 
-        // Submit form via AJAX
-        $.ajax({
-            url: $(this).attr('action'),
-            method: 'POST',
-            data: formData,
-            dataType: 'json',
-            success: function(response) {
-                if (response.success) {
-                    // Show success message
-                    showAlert(response.message, 'success');
+            // Submit form via AJAX
+            $.ajax({
+                url: $(this).attr('action'),
+                method: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        // Show success message
+                        showAlert(response.message, 'success');
 
-                    // Reset form
-                    $('#contactForm')[0].reset();
+                        // Reset form
+                        $('#contactForm')[0].reset();
 
-                    // Reset nice-select if used
-                    if ($.fn.niceSelect) {
-                        $('#subject').niceSelect('update');
+                        // Reset nice-select if used
+                        if ($.fn.niceSelect) {
+                            $('#subject').niceSelect('update');
+                        }
+                    } else {
+                        showAlert(response.message || 'Something went wrong. Please try again.', 'danger');
                     }
-                } else {
-                    showAlert(response.message || 'Something went wrong. Please try again.', 'danger');
+                },
+                error: function(xhr) {
+                    if (xhr.status === 422) {
+                        // Validation errors
+                        var errors = xhr.responseJSON.errors;
+                        $.each(errors, function(field, messages) {
+                            $('#' + field + '-error').text(messages[0]).show();
+                            $('#' + field).addClass('is-invalid');
+                        });
+                        showAlert('Please correct the errors below.', 'danger');
+                    } else {
+                        // Other errors
+                        showAlert('Something went wrong. Please try again.', 'danger');
+                    }
+                },
+                complete: function() {
+                    // Re-enable submit button with multiple methods
+                    submitBtn.prop('disabled', false);
+                    submitBtn.removeAttr('disabled');
+                    submitBtn.removeClass('disabled');
+                    submitBtn.css('pointer-events', 'auto');
+                    btnText.show();
+                    btnLoading.hide();
                 }
-            },
-            error: function(xhr) {
-                if (xhr.status === 422) {
-                    // Validation errors
-                    var errors = xhr.responseJSON.errors;
-                    $.each(errors, function(field, messages) {
-                        $('#' + field + '-error').text(messages[0]).show();
-                        $('#' + field).addClass('is-invalid');
-                    });
-                    showAlert('Please correct the errors below.', 'danger');
-                } else {
-                    // Other errors
-                    showAlert('Something went wrong. Please try again.', 'danger');
-                }
-            },
-            complete: function() {
-                // Re-enable submit button with multiple methods
-                submitBtn.prop('disabled', false);
-                submitBtn.removeAttr('disabled');
-                submitBtn.removeClass('disabled');
-                submitBtn.css('pointer-events', 'auto');
-                btnText.show();
-                btnLoading.hide();
+            });
+        });
+
+        // Email validation function
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Phone validation function
+        function isValidPhone(phone) {
+            var phoneRegex = /^[+]?[0-9\s\-\(\)]{10,20}$/;
+            return phoneRegex.test(phone);
+        }
+
+        // Show alert message
+        function showAlert(message, type) {
+            var alertDiv = $('#contact-alert');
+            var alertMessage = $('#contact-alert-message');
+
+            alertDiv.removeClass('alert-success alert-danger alert-warning alert-info')
+                .addClass('alert-' + type);
+            alertMessage.text(message);
+            alertDiv.show();
+
+            // Scroll to alert
+            $('html, body').animate({
+                scrollTop: $('#contact-sec').offset().top - 100
+            }, 500);
+
+            // Auto hide success messages after 5 seconds
+            if (type === 'success') {
+                setTimeout(function() {
+                    hideAlert();
+                }, 5000);
+            }
+        }
+
+        // Hide alert message
+        function hideAlert() {
+            $('#contact-alert').hide();
+        }
+
+        // Real-time validation on input blur
+        $('#name, #email, #phone, #subject, #message').on('blur', function() {
+            var field = $(this);
+            var fieldName = field.attr('id');
+            var errorDiv = $('#' + fieldName + '-error');
+
+            // Clear error when user starts typing
+            field.removeClass('is-invalid');
+            errorDiv.hide();
+
+            // Validate on blur
+            var value = field.val().trim();
+            var error = '';
+
+            switch (fieldName) {
+                case 'name':
+                    if (!value) error = 'Name is required.';
+                    else if (value.length < 2) error = 'Name must be at least 2 characters.';
+                    break;
+                case 'email':
+                    if (!value) error = 'Email is required.';
+                    else if (!isValidEmail(value)) error = 'Please enter a valid email.';
+                    break;
+                case 'phone':
+                    if (!value) error = 'Phone number is required.';
+                    else if (!isValidPhone(value)) error = 'Please enter a valid phone number.';
+                    break;
+                case 'subject':
+                    if (!value) error = 'Subject is required.';
+                    else if (value.length > 150) error = 'Subject must be no more than 150 characters.';
+                    break;
+                case 'message':
+                    if (!value) error = 'Message is required.';
+                    else if (value.length < 10) error = 'Message must be at least 10 characters.';
+                    break;
+            }
+
+            if (error) {
+                errorDiv.text(error).show();
+                field.addClass('is-invalid');
             }
         });
+
+        // Clear validation on input focus
+        $('#name, #email, #phone, #subject, #message').on('focus', function() {
+            $(this).removeClass('is-invalid');
+            $('#' + $(this).attr('id') + '-error').hide();
+        });
     });
-
-    // Email validation function
-    function isValidEmail(email) {
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    // Phone validation function
-    function isValidPhone(phone) {
-        var phoneRegex = /^[+]?[0-9\s\-\(\)]{10,20}$/;
-        return phoneRegex.test(phone);
-    }
-
-    // Show alert message
-    function showAlert(message, type) {
-        var alertDiv = $('#contact-alert');
-        var alertMessage = $('#contact-alert-message');
-
-        alertDiv.removeClass('alert-success alert-danger alert-warning alert-info')
-               .addClass('alert-' + type);
-        alertMessage.text(message);
-        alertDiv.show();
-
-        // Scroll to alert
-        $('html, body').animate({
-            scrollTop: $('#contact-sec').offset().top - 100
-        }, 500);
-
-        // Auto hide success messages after 5 seconds
-        if (type === 'success') {
-            setTimeout(function() {
-                hideAlert();
-            }, 5000);
-        }
-    }
-
-    // Hide alert message
-    function hideAlert() {
-        $('#contact-alert').hide();
-    }
-
-    // Real-time validation on input blur
-    $('#name, #email, #phone, #subject, #message').on('blur', function() {
-        var field = $(this);
-        var fieldName = field.attr('id');
-        var errorDiv = $('#' + fieldName + '-error');
-
-        // Clear error when user starts typing
-        field.removeClass('is-invalid');
-        errorDiv.hide();
-
-        // Validate on blur
-        var value = field.val().trim();
-        var error = '';
-
-        switch(fieldName) {
-            case 'name':
-                if (!value) error = 'Name is required.';
-                else if (value.length < 2) error = 'Name must be at least 2 characters.';
-                break;
-            case 'email':
-                if (!value) error = 'Email is required.';
-                else if (!isValidEmail(value)) error = 'Please enter a valid email.';
-                break;
-            case 'phone':
-                if (!value) error = 'Phone number is required.';
-                else if (!isValidPhone(value)) error = 'Please enter a valid phone number.';
-                break;
-            case 'subject':
-                if (!value) error = 'Subject is required.';
-                else if (value.length > 150) error = 'Subject must be no more than 150 characters.';
-                break;
-            case 'message':
-                if (!value) error = 'Message is required.';
-                else if (value.length < 10) error = 'Message must be at least 10 characters.';
-                break;
-        }
-
-        if (error) {
-            errorDiv.text(error).show();
-            field.addClass('is-invalid');
-        }
-    });
-
-    // Clear validation on input focus
-    $('#name, #email, #phone, #subject, #message').on('focus', function() {
-        $(this).removeClass('is-invalid');
-        $('#' + $(this).attr('id') + '-error').hide();
-    });
-});
 </script>
+    <script>
+        $(function () {
+
+            const $form = $('#demoFormContainer form');
+            const $btn  = $form.find('button'); // ✅ FIXED
+            const originalBtnHtml = $btn.html();
+
+            const $msg = $('<div/>', {
+                id: 'formMessages',
+                css: {
+                    display: 'none',
+                    marginBottom: '15px',
+                    padding: '12px 15px',
+                    borderRadius: '6px',
+                    fontSize: '14px'
+                }
+            }).prependTo($form);
+
+            $form.on('submit', function (e) {
+                e.preventDefault();
+
+                $msg.hide().empty();
+                $form.find('.is-invalid').removeClass('is-invalid');
+
+                setLoading(true);
+
+                $.post($form.attr('action'), $form.serialize())
+                    .done(res => {
+                        if (res.status === 'success') {
+                            $form[0].reset();
+                            showMsg(res.message, 'success');
+                        }
+                    })
+                    .fail(xhr => {
+                        if (xhr.status === 422) {
+                            const errors = xhr.responseJSON.errors;
+                            showMsg(
+                                Object.values(errors).map(e => `<li>${e[0]}</li>`).join(''),
+                                'error'
+                            );
+                            Object.keys(errors).forEach(f =>
+                                $form.find(`[name="${f}"]`).addClass('is-invalid')
+                            );
+                        } else {
+                            showMsg('Something went wrong. Please try again.', 'error');
+                        }
+                    })
+                    .always(() => {
+                        setLoading(false);
+                    });
+            });
+
+            function setLoading(loading) {
+                if (loading) {
+                    $btn
+                        .prop('disabled', true)
+                        .html('<i class="fa fa-spinner fa-spin"></i> Sending<span class="dots"></span>');
+                } else {
+                    $btn
+                        .prop('disabled', false)
+                        .html(originalBtnHtml);
+                }
+            }
+
+            function showMsg(content, type) {
+                $msg
+                    .css(type === 'success' ? successStyle() : errorStyle())
+                    .html(type === 'success'
+                        ? content
+                        : `<ul style="margin:0;padding-left:18px">${content}</ul>`
+                    )
+                    .fadeIn();
+
+                if (type === 'success') {
+                    setTimeout(() => $msg.fadeOut(), 4000);
+                }
+            }
+
+            function successStyle() {
+                return {
+                    background: '#d4edda',
+                    color: '#155724',
+                    border: '1px solid #c3e6cb'
+                };
+            }
+
+            function errorStyle() {
+                return {
+                    background: '#f8d7da',
+                    color: '#721c24',
+                    border: '1px solid #f5c6cb'
+                };
+            }
+
+        });
+    </script>
 @endpush
 
 @push('styles')
 <style>
-/* Contact Form Validation Styles */
-.form-control.is-invalid, .form-select.is-invalid {
-    border-color: #dc3545;
-    padding-right: calc(1.5em + 0.75rem);
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(0.375em + 0.1875rem) center;
-    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-}
-
-.invalid-feedback {
-    display: none;
-    width: 100%;
-    margin-top: 0.25rem;
-    font-size: 0.875em;
-    color: #dc3545;
-}
-
-.form-control.is-invalid:focus, .form-select.is-invalid:focus {
-    border-color: #dc3545;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-}
-
-/* Alert Styles */
-.alert {
-    position: relative;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.375rem;
-    font-weight: 500;
-}
-
-.alert-success {
-    color: #0f5132;
-    background-color: #d1e7dd;
-    border-color: #badbcc;
-}
-
-.alert-danger {
-    color: #842029;
-    background-color: #f8d7da;
-    border-color: #f5c2c7;
-}
-
-.alert-warning {
-    color: #664d03;
-    background-color: #fff3cd;
-    border-color: #ffecb5;
-}
-
-.alert-info {
-    color: #055160;
-    background-color: #cff4fc;
-    border-color: #b6effb;
-}
-
-/* Loading Button Styles */
-.btn-loading {
-    display: inline-block;
-}
-
-/* Disabled button styles */
-#submitBtn.disabled,
-#submitBtn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed !important;
-    pointer-events: none !important;
-}
-
-#submitBtn.disabled:hover,
-#submitBtn:disabled:hover {
-    opacity: 0.6;
-    cursor: not-allowed !important;
-    pointer-events: none !important;
-    background-color: inherit;
-    border-color: inherit;
-    color: inherit;
-}
-
-/* Form Icon Positioning */
-.form-group {
-    position: relative;
-}
-
-.form-group i {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #6c757d;
-}
-
-.form-control, .form-select {
-    padding-right: 40px;
-}
-
-/* Character counter styling */
-.form-text {
-    font-size: 0.875em;
-    color: #6c757d;
-    margin-top: 0.25rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .alert {
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+    /* Contact Form Validation Styles */
+    .form-control.is-invalid,
+    .form-select.is-invalid {
+        border-color: #dc3545;
+        padding-right: calc(1.5em + 0.75rem);
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
     }
-}
+
+    .invalid-feedback {
+        display: none;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 0.875em;
+        color: #dc3545;
+    }
+
+    .form-control.is-invalid:focus,
+    .form-select.is-invalid:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    /* Alert Styles */
+    .alert {
+        position: relative;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.375rem;
+        font-weight: 500;
+    }
+
+    .alert-success {
+        color: #0f5132;
+        background-color: #d1e7dd;
+        border-color: #badbcc;
+    }
+
+    .alert-danger {
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+    }
+
+    .alert-warning {
+        color: #664d03;
+        background-color: #fff3cd;
+        border-color: #ffecb5;
+    }
+
+    .alert-info {
+        color: #055160;
+        background-color: #cff4fc;
+        border-color: #b6effb;
+    }
+
+    /* Loading Button Styles */
+    .btn-loading {
+        display: inline-block;
+    }
+
+    /* Disabled button styles */
+    #submitBtn.disabled,
+    #submitBtn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+    }
+
+    #submitBtn.disabled:hover,
+    #submitBtn:disabled:hover {
+        opacity: 0.6;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+        background-color: inherit;
+        border-color: inherit;
+        color: inherit;
+    }
+
+    /* Form Icon Positioning */
+    .form-group {
+        position: relative;
+    }
+
+    .form-group i {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+    }
+
+    .form-control,
+    .form-select {
+        padding-right: 40px;
+    }
+
+    /* Character counter styling */
+    .form-text {
+        font-size: 0.875em;
+        color: #6c757d;
+        margin-top: 0.25rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .alert {
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+        }
+    }
 </style>
 @endpush
