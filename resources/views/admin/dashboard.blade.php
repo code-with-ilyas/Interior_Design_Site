@@ -45,8 +45,8 @@
                         </div>
 
                         <div class="bg-teal-50 p-4 rounded-lg">
-                            <h4 class="font-medium text-teal-800">About Us</h4>
-                            <p class="text-2xl font-bold">{{ \App\Models\About::count() }}</p>
+                            <h4 class="font-medium text-teal-800">Site Settings</h4>
+                            <p class="text-2xl font-bold">{{ \App\Models\SiteSetting::count() }}</p>
                         </div>
 
                         <div class="bg-teal-50 p-4 rounded-lg">
@@ -86,6 +86,7 @@
                             <a href="{{ route('admin.skills.index') }}" class="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600">Manage Skills</a>
                             <a href="{{ route('admin.project-categories.index') }}" class="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600">Manage Project Categories</a>
                             <a href="{{ route('admin.permissions.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Manage Permissions</a>
+                            <a href="{{ route('admin.site-settings.index') }}" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Manage Site Settings</a>
                             <a href="/" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Visit Home Page</a>
                         </div>
                     </div>

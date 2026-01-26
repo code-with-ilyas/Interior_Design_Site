@@ -9,26 +9,18 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InstagramController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Frontend\QuoteController as FrontendQuoteController;
-
+use App\Http\Controllers\TermsAndConditionsController;
+use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\LegalNoticesController;
 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-use Illuminate\Support\Facades\Mail;
-
-Route::get('/test-mail', function () {
-    Mail::raw('This is a test email from Laravel via Plesk SMTP', function ($message) {
-        $message->to('saeed.histone@gmail.com')
-                ->subject('Test Email');
-    });
-
-    return 'Test email sent!';
-});
-
 // Contact form route
-Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'])
     ->name('contact.store');
 
 Route::post('/request-demo', FrontendQuoteController::class)
@@ -132,6 +124,11 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     Route::post('/quotes/{quote}/approve', [QuoteController::class, 'approve'])->name('admin.quotes.approve');
     Route::post('/quotes/{quote}/reject', [QuoteController::class, 'reject'])->name('admin.quotes.reject');
 
+    // Contact management routes
+    Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('admin.contacts.show');
+    Route::delete('/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy'])->name('admin.contacts.destroy');
+
     // Permission management routes
     Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class)->names([
         'index' => 'admin.permissions.index',
@@ -196,8 +193,7 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
 
 
 
-Route::resource('admin/about', AboutController::class)
-    ->names('admin.about');
+
 
 Route::resource('admin/customers', CustomerController::class)
     ->names('admin.customers');
@@ -224,6 +220,12 @@ Route::resource('admin/instagram', InstagramController::class)
 
 Route::resource('admin/testimonials', TestimonialController::class)
     ->names('admin.testimonials');
+
+// Site settings routes
+Route::get('admin/site-settings', [SiteSettingController::class, 'index'])
+    ->name('admin.site-settings.index');
+Route::put('admin/site-settings', [SiteSettingController::class, 'update'])
+    ->name('admin.site-settings.update');
 
 Route::get('/renovate', function () {
     return view('multi-forms');
@@ -295,5 +297,10 @@ Route::prefix('extensions')->name('extensions.')->group(function () {
     Route::view('step7', 'extensions.step7')->name('step7');
 
 });
+
+// Legal pages routes
+Route::get('/terms-and-conditions', TermsAndConditionsController::class)->name('terms-and-conditions');
+Route::get('/privacy-policy', PrivacyPolicyController::class)->name('privacy-policy');
+Route::get('/legal-notices', LegalNoticesController::class)->name('legal-notices');
 
 require __DIR__ . '/auth.php';

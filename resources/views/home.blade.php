@@ -470,7 +470,7 @@
         <h5 id="about-title"
             class="title-heading"
             style="scroll-margin-top: 100px;">
-            {{ $about?->name ?? 'About Us' }}
+            {{ $siteSetting->site_name ?? 'About Us' }}
         </h5>
         <p class="text-custom text-light-green">Minimalist luxury interiors rarely go out of fashion.</p>
     </div>
@@ -478,14 +478,14 @@
 
         <div style="flex: 1; min-width: 350px;">
             <img
-                src="{{ $about?->image ? Storage::url($about->image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
-                alt="{{ $about?->name ?? 'About Image' }}"
+                src="{{ $siteSetting->about_us_image ? asset('storage/' . $siteSetting->about_us_image) : 'https://mesbatisseurs.fr/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-21-at-15.28.33.jpeg' }}"
+                alt="{{ $siteSetting->site_name ?? 'About Image' }}"
                 style="width: 100%; height: 500px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
         </div>
 
         <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
             <p style="font-size: 16px; line-height: 1.7; color: #000000ff;">
-                {!! $about?->description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
+                {!! $siteSetting->about_short_description ?? $siteSetting->about_us ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
             </p>
         </div>
 
@@ -501,8 +501,8 @@
             </div>
 
             <div class="services-grid">
+                 <div class="services-row mb-3">
                 @foreach($services->chunk(3) as $row)
-                <div class="services-row mb-3">
                     @foreach($row as $service)
                     <div class="service-column">
                         <div class="service-card home-service-card">
@@ -511,8 +511,9 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+
                 @endforeach
+                </div>
             </div>
         </div>
     </div>
@@ -554,15 +555,19 @@
             @php
             $projectImages = $project->projectImages->values();
 
-            $firstImage = Storage::url($project->cover_image)
-            ?? optional($projectImages->get(0))->image
-            ?? 'assets/img/project/default.jpg';
+            $firstImage = $project->cover_image
+                ? Storage::url($project->cover_image)
+                : ($projectImages->get(0)
+                    ? Storage::url($projectImages->get(0)->image)
+                    : asset('assets/img/project/default.jpg')
+                );
 
-            $secondImage = Storage::url($project->cover_image)
-            ? Storage::url(optional($projectImages->get(1))->image)
-            : Storage::url(optional($projectImages->get(1))->image)
-            ?? Storage::url(optional($projectImages->get(0))->image)
-            ?? 'assets/img/project/default.jpg';
+            $secondImage = $projectImages->get(1)
+                ? Storage::url($projectImages->get(1)->image)
+                : ($projectImages->get(0)
+                    ? Storage::url($projectImages->get(0)->image)
+                    : asset('assets/img/project/default.jpg')
+                );
 
             $plainText = trim(strip_tags($project->short_description));
             @endphp

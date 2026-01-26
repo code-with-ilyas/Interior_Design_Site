@@ -1,36 +1,43 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 
+@php
+    $siteSetting = \App\Models\SiteSetting::first();
+@endphp
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>H24 Renovation</title>
+    <title>{{ $siteSetting->site_name ?? 'H24 Renovation' }}</title>
     <meta name="author" content="themeholy">
     <meta name="description" content="Faren   - Architecture & Interior Design Template">
     <meta name="keywords" content="Faren   - Architecture & Interior Design Template">
     <meta name="robots" content="INDEX,FOLLOW">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
+    @if($siteSetting && $siteSetting->favicon)
+        <link rel="shortcut icon" href="{{ Storage::url($siteSetting->favicon) }}" type="image/x-icon">
+    @else
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/apple-icon-60x60.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/apple-icon-72x72.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/apple-icon-76x76.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/apple-icon-114x114.png') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/apple-icon-120x120.png') }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/apple-icon-144x144.png') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/apple-icon-152x152.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-icon-180x180.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/android-icon-192x192.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/ms-icon-144x144.png') }}">
+        <meta name="theme-color" content="#ffffff">
+    @endif
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;display=swap" rel="stylesheet">
@@ -46,7 +53,13 @@
 <body class="show-grid" id="show-grid">
     <div class="th-menu-wrapper">
         <div class="th-menu-area text-center"><button class="th-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation"></a></div>
+            <div class="mobile-logo"><a href="{{ url('/') }}">
+                @if($siteSetting && $siteSetting->mobile_logo)
+                    <img src="{{ Storage::url($siteSetting->mobile_logo) }}" alt="{{ $siteSetting->site_name ?? 'H24 Renovation' }}">
+                @else
+                    <img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation">
+                @endif
+            </a></div>
             <div class="th-mobile-menu">
                 <ul>
                     <li>
@@ -95,7 +108,13 @@
                 <div class="menu-area">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto">
-                            <div class="header-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation"></a></div>
+                            <div class="header-logo"><a href="{{ url('/') }}">
+                                @if($siteSetting && $siteSetting->logo)
+                                    <img src="{{ Storage::url($siteSetting->logo) }}" alt="{{ $siteSetting->site_name ?? 'H24 Renovation' }}">
+                                @else
+                                    <img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation">
+                                @endif
+                            </a></div>
                         </div>
                         <div class="col-auto">
                             <nav class="main-menu d-none d-lg-inline-block">
@@ -161,14 +180,27 @@
                     <div class="col-md-7 col-xl-4">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
-                                <div class="about-logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation"></a></div>
-                                <p class="about-text">Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.</p>
+                                <div class="about-logo"><a href="{{ url('/') }}">
+                                    @if($siteSetting && $siteSetting->logo)
+                                        <img src="{{ Storage::url($siteSetting->logo) }}" alt="{{ $siteSetting->site_name ?? 'H24 Renovation' }}">
+                                    @else
+                                        <img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation">
+                                    @endif
+                                </a></div>
+                                <p class="about-text">{{ $siteSetting->about_us ?? 'Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.' }}</p>
                                 <div class="th-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
-                                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                    @if($siteSetting && $siteSetting->facebook)
+                                        <a href="{{ $siteSetting->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    @endif
+                                    @if($siteSetting && $siteSetting->instagram)
+                                        <a href="{{ $siteSetting->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                    @endif
+                                    @if($siteSetting && $siteSetting->linkedin)
+                                        <a href="{{ $siteSetting->linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    @endif
+                                    @if($siteSetting && $siteSetting->whatsapp)
+                                        <a href="{{ $siteSetting->whatsapp }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                    @endif
                                 </div>
                                 <br>
                                 <br>
@@ -177,32 +209,32 @@
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu  footer-widget">
-                            <h3 class="widget_title text-custom">About Us</h3>
+                            <h3 class="widget_title text-custom">Quick Links</h3>
                             <div class="menu-all-pages-container text-custom">
                                 <ul class="menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="service.html">All Services</a></li>
-                                    <li><a href="team.html">Our Team Leaders</a></li>
-                                    <li><a href="contact.html">Rquest a Visit</a></li>
-                                    <li><a href="pricing.html">Our Pricing Plan</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a class="renovation-link" href="#hero-sec">Home</a></li>
+                                    <li><a class="renovation-link" href="#about-title">About Us</a></li>
+                                    <li><a class="renovation-link" href="#services-sec">Services</a></li>
+                                    <li><a class="renovation-link" href="#project-sec">Projects</a></li>
+                                    <li><a class="renovation-link" href="#blog-sec">Blog</a></li>
+                                    <li><a class="renovation-link" href="#experts-sec">Experts</a></li>
+                                    <li><a class="renovation-link" href="#contact-sec">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title text-custom">Our Projects</h3>
+                            <h3 class="widget_title text-custom">Latest Projects</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu text-custom">
-                                    <li><a href="project.html">All Projects</a></li>
-                                    <li><a href="contact.html">Residential Space</a></li>
-                                    <li><a href="contact.html">Multipurpose</a></li>
-                                    <li><a href="contact.html">Commercial Space</a></li>
-                                    <li><a href="contact.html">Minimalism</a></li>
-                                    <li><a href="contact.html">Urbanism</a></li>
-                                    <li><a href="contact.html">Villa Cabin</a></li>
+                                    @if(isset($latestProjects) && $latestProjects->count() > 0)
+                                        @foreach($latestProjects as $project)
+                                            <li><a href="{{ route('projects.show', $project->slug) }}">{{ $project->title }}</a></li>
+                                        @endforeach
+                                    @else
+                                        <li><a href="{{ route('projects.index') }}">View All Projects</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -211,9 +243,15 @@
                         <div class="widget footer-widget">
                             <h3 class="widget_title text-custom">Get In Touch</h3>
                             <div class="th-widget-about style2">
-                                <p class="footer-info">221 Rue LaFayette, 75010 Paris</p>
-                                <p class="footer-info"><span><a class="text-inherit d-block" href="tel:+01234567890">01 80 20 92 78</a></span></p>
-                                <p class="footer-info"><span><a class="text-inherit" href="mailto:contact@mesbatisseurs.fr">contact@mesbatisseurs.fr</a></span></p>
+                                @if($siteSetting && $siteSetting->address)
+                                    <p class="footer-info">{{ $siteSetting->address }}</p>
+                                @endif
+                                @if($siteSetting && $siteSetting->phone)
+                                    <p class="footer-info"><span><a class="text-inherit d-block" href="tel:{{ preg_replace('/[^0-9]/', '', $siteSetting->phone) }}">{{ $siteSetting->phone }}</a></span></p>
+                                @endif
+                                @if($siteSetting && $siteSetting->email)
+                                    <p class="footer-info"><span><a class="text-inherit" href="mailto:{{ $siteSetting->email }}">{{ $siteSetting->email }}</a></span></p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -223,15 +261,15 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-6">
                                 <div class="copyright-wrap">
-                                    <p>Copyright, H24 RENOVATION. All Rights Reserved.</p>
+                                    <p>Copyright, {{ $siteSetting->site_name ?? 'H24 RENOVATION' }}. All Rights Reserved.</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 text-center text-lg-end">
                                 <div class="footer-links">
                                     <ul>
-                                        <li><a href="about.html">Terms of service</a></li>
-                                        <li><a href="about.html">Privacy policy</a></li>
-
+                                        <li><a href="{{ route('terms-and-conditions') }}">Terms of service</a></li>
+                                        <li><a href="{{ route('privacy-policy') }}">Privacy policy</a></li>
+                                        <li><a href="{{ route('legal-notices') }}">Legal notices</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -454,12 +492,13 @@
             });
         }
         setInterval(changeCompanies, 2000);
-        document.addEventListener("contextmenu", function(e) {
-            e.stopPropagation();
+        // Enable context menu (right-click) on all pages
+        document.oncontextmenu = function(e) { return true; };
+        window.oncontextmenu = function(e) { return true; };
 
-        }, true);
-        document.oncontextmenu = null;
-        window.oncontextmenu = null;
+        // Remove any existing contextmenu event listeners
+        document.removeEventListener('contextmenu', function(e) { e.preventDefault(); });
+        document.removeEventListener('contextmenu', function(e) { e.stopPropagation(); });
     </script>
 
     <script>
@@ -1622,7 +1661,7 @@
         .filter-menu.style2 .th-btn.th-border.active:hover,
         .filter-menu.style2 .th-btns.th-border.active:hover {
             background: linear-gradient(65deg, #f8f8f8 0%, #e8e8e8 100%) !important;
-            color: #003f3a !important;
+            color:rgb(255, 255, 255) !important;
             border-color: #003f3a !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 63, 58, 0.5) !important;
