@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expert;
-use App\Models\About;
+use App\Models\SiteSetting;
 use App\Models\Service;
 use App\Models\Customer;
 use App\Models\Gallery;
@@ -29,8 +29,8 @@ class HomeController extends Controller
             ->get();
 
 
-        // Fetch latest About section
-        $about = About::latest()->first();
+        // Fetch site settings for about section
+        $siteSetting = SiteSetting::firstOrCreate([]);
 
 
         $services = Service::all();
@@ -74,7 +74,7 @@ class HomeController extends Controller
             ->orderBy('sort_order')
             ->get();
 
-        return view('home', compact('expertsByCategory', 'about', 'services', 'companies', 'customers', 'instagrams', 'blogPosts', 'projects', 'projectCategories', 'testimonials', 'galleryCategories'));
+        return view('home', compact('expertsByCategory', 'siteSetting', 'services', 'companies', 'customers', 'instagrams', 'blogPosts', 'projects', 'projectCategories', 'testimonials', 'galleryCategories'));
     }
 
     /**

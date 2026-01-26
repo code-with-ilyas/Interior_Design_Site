@@ -9,26 +9,15 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InstagramController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Frontend\QuoteController as FrontendQuoteController;
-
 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-use Illuminate\Support\Facades\Mail;
-
-Route::get('/test-mail', function () {
-    Mail::raw('This is a test email from Laravel via Plesk SMTP', function ($message) {
-        $message->to('saeed.histone@gmail.com')
-                ->subject('Test Email');
-    });
-
-    return 'Test email sent!';
-});
-
 // Contact form route
-Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store'])
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'])
     ->name('contact.store');
 
 Route::post('/request-demo', FrontendQuoteController::class)
@@ -196,8 +185,7 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
 
 
 
-Route::resource('admin/about', AboutController::class)
-    ->names('admin.about');
+
 
 Route::resource('admin/customers', CustomerController::class)
     ->names('admin.customers');
@@ -224,6 +212,12 @@ Route::resource('admin/instagram', InstagramController::class)
 
 Route::resource('admin/testimonials', TestimonialController::class)
     ->names('admin.testimonials');
+
+// Site settings routes
+Route::get('admin/site-settings', [SiteSettingController::class, 'index'])
+    ->name('admin.site-settings.index');
+Route::put('admin/site-settings', [SiteSettingController::class, 'update'])
+    ->name('admin.site-settings.update');
 
 Route::get('/renovate', function () {
     return view('multi-forms');
