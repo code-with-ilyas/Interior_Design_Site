@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\InstagramController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Frontend\QuoteController as FrontendQuoteController;
+use App\Http\Controllers\TermsAndConditionsController;
+use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\LegalNoticesController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -289,5 +292,10 @@ Route::prefix('extensions')->name('extensions.')->group(function () {
     Route::view('step7', 'extensions.step7')->name('step7');
 
 });
+
+// Legal pages routes
+Route::get('/terms-and-conditions', TermsAndConditionsController::class)->name('terms-and-conditions');
+Route::get('/privacy-policy', PrivacyPolicyController::class)->name('privacy-policy');
+Route::get('/legal-notices', LegalNoticesController::class)->name('legal-notices');
 
 require __DIR__ . '/auth.php';
