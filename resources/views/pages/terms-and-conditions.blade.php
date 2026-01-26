@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-10">
             <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white text-center py-4" style="background: linear-gradient(135deg, #003f3a 0%, #006400 100%) !important;">
+                <div class="card-header bg-primary text-white text-center py-4" style="background: linear-gradient(135deg, #003f3a 0%, #003f3a 100%) !important;">
                     <h1 class="mb-0 fw-bold">Terms and Conditions</h1>
                 </div>
                 <div class="card-body px-4 py-5">

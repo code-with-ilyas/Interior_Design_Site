@@ -492,12 +492,13 @@
             });
         }
         setInterval(changeCompanies, 2000);
-        // Allow context menu (right-click) to work normally
-        document.removeEventListener("contextmenu", function(e) {
-            e.stopPropagation();
-        });
-        document.oncontextmenu = null;
-        window.oncontextmenu = null;
+        // Enable context menu (right-click) on all pages
+        document.oncontextmenu = function(e) { return true; };
+        window.oncontextmenu = function(e) { return true; };
+
+        // Remove any existing contextmenu event listeners
+        document.removeEventListener('contextmenu', function(e) { e.preventDefault(); });
+        document.removeEventListener('contextmenu', function(e) { e.stopPropagation(); });
     </script>
 
     <script>
