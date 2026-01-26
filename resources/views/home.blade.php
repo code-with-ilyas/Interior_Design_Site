@@ -554,14 +554,14 @@
             @php
             $projectImages = $project->projectImages->values();
 
-            $firstImage = $project->cover_image
+            $firstImage = Storage::url($project->cover_image)
             ?? optional($projectImages->get(0))->image
             ?? 'assets/img/project/default.jpg';
 
-            $secondImage = $project->cover_image
-            ? optional($projectImages->get(1))->image
-            : optional($projectImages->get(1))->image
-            ?? optional($projectImages->get(0))->image
+            $secondImage = Storage::url($project->cover_image)
+            ? Storage::url(optional($projectImages->get(1))->image)
+            : Storage::url(optional($projectImages->get(1))->image)
+            ?? Storage::url(optional($projectImages->get(0))->image)
             ?? 'assets/img/project/default.jpg';
 
             $plainText = trim(strip_tags($project->short_description));
@@ -571,10 +571,10 @@
 
                 <div class="project-item_wrapp">
                     <div class="box-img global-img">
-                        <img src="{{ asset($firstImage) }}" alt="project image">
+                        <img src="{{ $firstImage }}" alt="project image">
                     </div>
                     <div class="box-img global-img">
-                        <img src="{{ asset($secondImage) }}" alt="project image">
+                        <img src="{{ $secondImage }}" alt="project image">
                     </div>
                 </div>
 
@@ -1276,8 +1276,8 @@ asset('assets/img/testimonial/testi-img1.jpg'),
 asset('assets/img/testimonial/testi-img2.jpg'),
 ];
 
-$image1 = $randomGalleryImages[0]->image ?? $fallbackImages[0];
-$image2 = $randomGalleryImages[1]->image ?? $fallbackImages[1];
+$image1 = Storage::url($randomGalleryImages[0]->image) ?? $fallbackImages[0];
+$image2 = Storage::url($randomGalleryImages[1]->image) ?? $fallbackImages[1];
 $imageOneTitle = $randomGalleryImages[0]->title ?? 'Excellence Residence';
 $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 @endphp
@@ -1299,7 +1299,7 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
                 <div class="testi-image_wrapp">
                     <div class="testi-review">
                         <div class="testi-img1 global-img">
-                            <img src="{{ asset($image1) }}" alt="image">
+                            <img src="{{ $image1 }}" alt="image">
                         </div>
                         <div class="box-content">
                             <h3 class="box-title">{{ $imageOneTitle }}</h3>
@@ -1307,7 +1307,7 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
                         </div>
                     </div>
                     <div class="testi-img2 global-img">
-                        <img src="{{ asset($image2) }}" alt="image">
+                        <img src="{{ $image2 }}" alt="image">
                     </div>
                 </div>
             </div>
@@ -1349,7 +1349,7 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 
                                     <div class="box-profile">
                                         <div class="box-author">
-                                            <img src="{{ asset($testimonial->client_image) }}"
+                                            <img src="{{ Storage::url($testimonial->client_image) }}"
                                                 alt="{{ $testimonial->client_name }}">
                                         </div>
                                         <div class="box-info">
@@ -1465,10 +1465,10 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
                         <div class="box-img global-img">
                             <img
                                 class="wow clippy-img"
-                                src="{{ asset($gallery->image) }}"
+                                src="{{ Storage::url($gallery->image) }}"
                                 alt="gallery image">
 
-                            <a href="{{ asset($gallery->image) }}"
+                            <a href="{{ Storage::url($gallery->image) }}"
                                 class="icon-btn th-popup-image">
                                 <i class="far fa-plus"></i>
                             </a>
