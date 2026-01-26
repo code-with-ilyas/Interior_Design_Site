@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
                 ->orderBy('created_at', 'desc')
                 ->take(6)
                 ->get();
-            
+
             $view->with(compact('siteSetting', 'latestProjects'));
         });
     }
