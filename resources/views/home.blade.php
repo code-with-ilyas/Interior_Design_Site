@@ -501,8 +501,8 @@
             </div>
 
             <div class="services-grid">
+                 <div class="services-row mb-3">
                 @foreach($services->chunk(3) as $row)
-                <div class="services-row mb-3">
                     @foreach($row as $service)
                     <div class="service-column">
                         <div class="service-card home-service-card">
@@ -511,8 +511,9 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+
                 @endforeach
+                </div>
             </div>
         </div>
     </div>
@@ -554,15 +555,19 @@
             @php
             $projectImages = $project->projectImages->values();
 
-            $firstImage = Storage::url($project->cover_image)
-            ?? optional($projectImages->get(0))->image
-            ?? 'assets/img/project/default.jpg';
+            $firstImage = $project->cover_image
+                ? Storage::url($project->cover_image)
+                : ($projectImages->get(0)
+                    ? Storage::url($projectImages->get(0)->image)
+                    : asset('assets/img/project/default.jpg')
+                );
 
-            $secondImage = Storage::url($project->cover_image)
-            ? Storage::url(optional($projectImages->get(1))->image)
-            : Storage::url(optional($projectImages->get(1))->image)
-            ?? Storage::url(optional($projectImages->get(0))->image)
-            ?? 'assets/img/project/default.jpg';
+            $secondImage = $projectImages->get(1)
+                ? Storage::url($projectImages->get(1)->image)
+                : ($projectImages->get(0)
+                    ? Storage::url($projectImages->get(0)->image)
+                    : asset('assets/img/project/default.jpg')
+                );
 
             $plainText = trim(strip_tags($project->short_description));
             @endphp

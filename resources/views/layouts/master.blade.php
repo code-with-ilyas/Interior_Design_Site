@@ -1661,7 +1661,7 @@
         .filter-menu.style2 .th-btn.th-border.active:hover,
         .filter-menu.style2 .th-btns.th-border.active:hover {
             background: linear-gradient(65deg, #f8f8f8 0%, #e8e8e8 100%) !important;
-            color: #003f3a !important;
+            color:rgb(255, 255, 255) !important;
             border-color: #003f3a !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 63, 58, 0.5) !important;

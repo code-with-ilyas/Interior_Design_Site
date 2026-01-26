@@ -68,6 +68,11 @@ class TestimonialController extends Controller
             ->with('success', 'Testimonial updated');
     }
 
+    public function show(Testimonial $testimonial)
+    {
+        return view('admin.testimonials.show', compact('testimonial'));
+    }
+
     public function destroy(Testimonial $testimonial)
     {
         $testimonial->delete();

@@ -124,6 +124,11 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     Route::post('/quotes/{quote}/approve', [QuoteController::class, 'approve'])->name('admin.quotes.approve');
     Route::post('/quotes/{quote}/reject', [QuoteController::class, 'reject'])->name('admin.quotes.reject');
 
+    // Contact management routes
+    Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('admin.contacts.show');
+    Route::delete('/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy'])->name('admin.contacts.destroy');
+
     // Permission management routes
     Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class)->names([
         'index' => 'admin.permissions.index',
