@@ -124,6 +124,56 @@
                 </div>
             </div>
 
+            <!-- Services Dropdown -->
+            <div x-data="{ open: {{ request()->routeIs('admin.services.*') ? 'true' : 'false' }} }">
+                <button @click="open = !open"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.services.*') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                    <div class="flex items-center">
+                        <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                        </svg>
+                        Services
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="mt-1 ml-4 space-y-1">
+                    <a href="{{ route('admin.services.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.services.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Services List
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gallery Dropdown -->
+            <div x-data="{ open: {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'true' : 'false' }} }">
+                <button @click="open = !open"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.gallery.*') || request()->routeIs('admin.gallery-categories.*') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                    <div class="flex items-center">
+                        <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                        </svg>
+                        Gallery
+                    </div>
+                    <svg :class="{'rotate-180': open}" class="h-4 w-4 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="mt-1 ml-4 space-y-1">
+                    <a href="{{ route('admin.gallery.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.gallery.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Gallery Images
+                    </a>
+                    <a href="{{ route('admin.gallery-categories.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.gallery-categories.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Gallery Categories
+                    </a>
+                </div>
+            </div>
+
             <!-- Quotes Dropdown -->
             <div x-data="{ open: {{ request()->routeIs('admin.quotes.*') ? 'true' : 'false' }} }">
                 <button @click="open = !open"

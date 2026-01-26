@@ -209,32 +209,32 @@
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu  footer-widget">
-                            <h3 class="widget_title text-custom">About Us</h3>
+                            <h3 class="widget_title text-custom">Quick Links</h3>
                             <div class="menu-all-pages-container text-custom">
                                 <ul class="menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="service.html">All Services</a></li>
-                                    <li><a href="team.html">Our Team Leaders</a></li>
-                                    <li><a href="contact.html">Rquest a Visit</a></li>
-                                    <li><a href="pricing.html">Our Pricing Plan</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a class="renovation-link" href="#hero-sec">Home</a></li>
+                                    <li><a class="renovation-link" href="#about-title">About Us</a></li>
+                                    <li><a class="renovation-link" href="#services-sec">Services</a></li>
+                                    <li><a class="renovation-link" href="#project-sec">Projects</a></li>
+                                    <li><a class="renovation-link" href="#blog-sec">Blog</a></li>
+                                    <li><a class="renovation-link" href="#experts-sec">Experts</a></li>
+                                    <li><a class="renovation-link" href="#contact-sec">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title text-custom">Our Projects</h3>
+                            <h3 class="widget_title text-custom">Latest Projects</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu text-custom">
-                                    <li><a href="project.html">All Projects</a></li>
-                                    <li><a href="contact.html">Residential Space</a></li>
-                                    <li><a href="contact.html">Multipurpose</a></li>
-                                    <li><a href="contact.html">Commercial Space</a></li>
-                                    <li><a href="contact.html">Minimalism</a></li>
-                                    <li><a href="contact.html">Urbanism</a></li>
-                                    <li><a href="contact.html">Villa Cabin</a></li>
+                                    @if(isset($latestProjects) && $latestProjects->count() > 0)
+                                        @foreach($latestProjects as $project)
+                                            <li><a href="{{ route('projects.show', $project->slug) }}">{{ $project->title }}</a></li>
+                                        @endforeach
+                                    @else
+                                        <li><a href="{{ route('projects.index') }}">View All Projects</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>

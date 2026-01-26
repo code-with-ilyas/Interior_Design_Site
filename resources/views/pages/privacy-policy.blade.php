@@ -1,31 +1,30 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white text-center py-4" style="background: linear-gradient(135deg, #003f3a 0%, #003f3a 100%) !important;">
-                    <h1 class="mb-0 fw-bold">Privacy Policy</h1>
-                </div>
-                <div class="card-body px-4 py-5">
-                    <div class="privacy-content">
-                        @if($siteSetting && $siteSetting->privacy_policy)
-                            <div class="content-wrapper">
-                                {!! $siteSetting->privacy_policy !!}
-                            </div>
-                        @else
-                            <div class="alert alert-info">
-                                <h4 class="text-center">Privacy Policy Content</h4>
-                                <p class="text-center">Please add privacy policy content in the site settings panel.</p>
-                            </div>
-                        @endif
-                    </div>
+<section style="min-height: 100vh; background-color: white;">
+    <div class="container">
+        <div class="services-header">
+            <h5 class="title-heading">Privacy Policy</h5>
+            <p class="text-custom text-light-green">Your privacy is important to us</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="privacy-content">
+                    @if($siteSetting && $siteSetting->privacy_policy)
+                        <div class="content-wrapper">
+                            {!! $siteSetting->privacy_policy !!}
+                        </div>
+                    @else
+                        <div class="alert alert-info">
+                            <h4 class="text-center">Privacy Policy Content</h4>
+                            <p class="text-center">Please add privacy policy content in the site settings panel.</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <style>
     .privacy-content {
