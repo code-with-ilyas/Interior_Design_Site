@@ -474,7 +474,7 @@
         </h5>
         <p class="text-custom text-light-green">Minimalist luxury interiors rarely go out of fashion.</p>
     </div>
-    <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: flex-start; justify-content: center; max-width: 1200px; margin: auto; gap: 40px; flex-wrap: wrap;padding: 10px;">
 
         <div style="flex: 1; min-width: 350px;">
             <img
@@ -1166,7 +1166,7 @@
         <h5 class="title-heading">Our Community</h5>
         <p class="text-custom text-light-green">Experts in the technologies you need for your projects</p>
     </div>
-    <div class="services-row" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;">
+    <div class="services-row" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;padding:10px;">
         <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
         </div>
@@ -1925,11 +1925,7 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
     }
 
     .form-group i {
-        position: absolute;
-        right: 15px;
-        top: 50%;
         transform: translateY(-50%);
-        color: #6c757d;
     }
 
     .form-control,
