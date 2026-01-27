@@ -323,45 +323,61 @@
         const demoFormContainer = document.getElementById('demoFormContainer');
         const closeForm = document.getElementById('closeForm');
 
-        // Open Form
-        demoBtn.addEventListener('click', () => {
-            demoFormOverlay.classList.add('active');
-            demoFormContainer.classList.add('active');
-        });
+        // Open Form - with null check
+        if (demoBtn) {
+            demoBtn.addEventListener('click', () => {
+                if (demoFormOverlay && demoFormContainer) {
+                    demoFormOverlay.classList.add('active');
+                    demoFormContainer.classList.add('active');
+                }
+            });
+        }
 
-        // Close Form
-        closeForm.addEventListener('click', () => {
-            demoFormContainer.classList.remove('active');
-            demoFormOverlay.classList.remove('active');
-        });
+        // Close Form - with null check
+        if (closeForm) {
+            closeForm.addEventListener('click', () => {
+                if (demoFormContainer && demoFormOverlay) {
+                    demoFormContainer.classList.remove('active');
+                    demoFormOverlay.classList.remove('active');
+                }
+            });
+        }
 
-        // Close when clicking outside the form
-        demoFormOverlay.addEventListener('click', (e) => {
-            if (e.target === demoFormOverlay) {
-                demoFormContainer.classList.remove('active');
-                demoFormOverlay.classList.remove('active');
-            }
-        });
+        // Close when clicking outside the form - with null check
+        if (demoFormOverlay) {
+            demoFormOverlay.addEventListener('click', (e) => {
+                if (e.target === demoFormOverlay && demoFormContainer) {
+                    demoFormContainer.classList.remove('active');
+                    demoFormOverlay.classList.remove('active');
+                }
+            });
+        }
 
 
 
         const tabs = document.querySelectorAll('.tab-link');
 
         tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-            });
+            if (tab) {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => {
+                        if (t) t.classList.remove('active');
+                    });
+                    tab.classList.add('active');
+                });
+            }
         });
 
         function fadeInElements() {
             const elements = document.querySelectorAll('.fade-in');
-            const inViewport = (el) => el.getBoundingClientRect().top <= window.innerHeight * 0.8;
-            const handleScroll = () => elements.forEach(el => {
-                if (inViewport(el)) el.classList.add('visible');
-            });
-            window.addEventListener('scroll', handleScroll);
-            handleScroll();
+            if (elements.length > 0) {
+                const inViewport = (el) => el.getBoundingClientRect().top <= window.innerHeight * 0.8;
+                const handleScroll = () => elements.forEach(el => {
+                    if (el && inViewport(el)) el.classList.add('visible');
+                });
+                window.addEventListener('scroll', handleScroll);
+                handleScroll();
+            }
         }
 
 
@@ -387,8 +403,14 @@
                 const duration = totalWidth / track.speed;
                 el.style.animation = `scroll ${duration}s linear infinite`;
                 const mask = el.parentElement;
-                mask.addEventListener('mouseenter', () => el.style.animationPlayState = 'paused');
-                mask.addEventListener('mouseleave', () => el.style.animationPlayState = 'running');
+                if (mask) {
+                    mask.addEventListener('mouseenter', () => {
+                        if (el) el.style.animationPlayState = 'paused';
+                    });
+                    mask.addEventListener('mouseleave', () => {
+                        if (el) el.style.animationPlayState = 'running';
+                    });
+                }
             });
 
             const style = document.createElement('style');
@@ -416,18 +438,22 @@
 
             companyLists.forEach(list => {
                 const el = document.getElementById(list.id);
-                if (!el) return;
+                if (!el || !el.children || el.children.length === 0) return;
 
                 const companies = el.children;
-                const companyHeight = companies[0].offsetHeight;
+                const firstCompany = companies[0];
+                if (!firstCompany) return;
+
+                const companyHeight = firstCompany.offsetHeight;
                 let currentIndex = 0;
 
                 el.style.transform = `translateY(0)`;
 
-
                 setInterval(() => {
-                    currentIndex = (currentIndex + 1) % companies.length;
-                    el.style.transform = `translateY(-${currentIndex * companyHeight}px)`;
+                    if (el && companies.length > 0) {
+                        currentIndex = (currentIndex + 1) % companies.length;
+                        el.style.transform = `translateY(-${currentIndex * companyHeight}px)`;
+                    }
                 }, list.interval);
             });
         }
@@ -441,57 +467,73 @@
             const tabLinks = document.querySelectorAll('.tab-link');
             const tabPanes = document.querySelectorAll('.w-tab-pane');
 
-            tabLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
+            if (tabLinks.length > 0 && tabPanes.length > 0) {
+                tabLinks.forEach(link => {
+                    if (link) {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
 
+                            tabLinks.forEach(tab => {
+                                if (tab) tab.classList.remove('w--current');
+                            });
+                            tabPanes.forEach(pane => {
+                                if (pane) pane.classList.remove('w--tab-active');
+                            });
 
-                    tabLinks.forEach(tab => tab.classList.remove('w--current'));
-                    tabPanes.forEach(pane => pane.classList.remove('w--tab-active'));
+                            this.classList.add('w--current');
 
+                            const tabId = this.getAttribute('data-w-tab');
 
-                    this.classList.add('w--current');
-
-
-                    const tabId = this.getAttribute('data-w-tab');
-
-
-                    tabPanes.forEach(pane => {
-                        if (pane.getAttribute('data-w-tab') === tabId) {
-                            pane.classList.add('w--tab-active');
-                        }
-                    });
+                            tabPanes.forEach(pane => {
+                                if (pane && pane.getAttribute('data-w-tab') === tabId) {
+                                    pane.classList.add('w--tab-active');
+                                }
+                            });
+                        });
+                    }
                 });
-            });
+            }
         });
 
 
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+            const anchors = document.querySelectorAll('a[href^="#"]');
+            if (anchors.length > 0) {
+                anchors.forEach(anchor => {
+                    if (anchor) {
+                        anchor.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const targetSelector = this.getAttribute('href');
+                            if (targetSelector) {
+                                const target = document.querySelector(targetSelector);
+                                if (target) {
+                                    target.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                    });
+                                }
+                            }
                         });
                     }
                 });
-            });
+            }
         });
         const companies = ["Airbus", "Renault", "Accor", "Vinci", "Google", "Microsoft", "Tesla", "Amazon"];
         const boxes = document.querySelectorAll(".company-box");
 
-        let indices = [0, 1, 2, 3];
+        if (boxes.length > 0 && companies.length > 0) {
+            let indices = [0, 1, 2, 3];
 
-        function changeCompanies() {
-            boxes.forEach((box, i) => {
-                indices[i] = (indices[i] + 1) % companies.length;
-                box.textContent = companies[indices[i]];
-            });
+            function changeCompanies() {
+                boxes.forEach((box, i) => {
+                    if (box && companies[indices[i]]) {
+                        indices[i] = (indices[i] + 1) % companies.length;
+                        box.textContent = companies[indices[i]];
+                    }
+                });
+            }
+            setInterval(changeCompanies, 2000);
         }
-        setInterval(changeCompanies, 2000);
         // Enable context menu (right-click) on all pages
         document.oncontextmenu = function(e) { return true; };
         window.oncontextmenu = function(e) { return true; };
@@ -504,16 +546,19 @@
     <script>
         function toggleDropdown() {
             var dropdownMenu = document.getElementById('user-dropdown-menu');
-            if (dropdownMenu.style.display === 'none') {
-                dropdownMenu.style.display = 'block';
-            } else {
-                dropdownMenu.style.display = 'none';
+            if (dropdownMenu) {
+                if (dropdownMenu.style.display === 'none') {
+                    dropdownMenu.style.display = 'block';
+                } else {
+                    dropdownMenu.style.display = 'none';
+                }
             }
         }
         document.addEventListener('click', function(event) {
             var dropdown = document.getElementById('user-dropdown');
-            if (dropdown && !dropdown.contains(event.target)) {
-                document.getElementById('user-dropdown-menu').style.display = 'none';
+            var dropdownMenu = document.getElementById('user-dropdown-menu');
+            if (dropdown && dropdownMenu && !dropdown.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
             }
         });
     </script>
@@ -1898,42 +1943,42 @@
                         console.warn('Could not calculate SVG path length:', e.message);
                     }
                 }
-            }
 
-            // Re-initialize the scroll functionality with proper checks
-            var scrollElement = document.querySelector('.scroll-top');
-            if (scrollElement) {
-                // Add scroll event listener
+                // Add scroll event listener with null checks
                 window.addEventListener('scroll', function() {
                     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    if (scrollTop > 50) {
-                        scrollElement.classList.add('show');
-                    } else {
-                        scrollElement.classList.remove('show');
-                    }
+                    if (scrollTopElement) {
+                        if (scrollTop > 50) {
+                            scrollTopElement.classList.add('show');
+                        } else {
+                            scrollTopElement.classList.remove('show');
+                        }
 
-                    // Update SVG path if it exists
-                    var pathElement = scrollElement.querySelector('path');
-                    if (pathElement && typeof pathElement.getTotalLength === 'function') {
-                        try {
-                            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                            var pathLength = pathElement.getTotalLength();
-                            var offset = pathLength - (scrollTop * pathLength / docHeight);
-                            pathElement.style.strokeDashoffset = offset;
-                        } catch (e) {
-                            console.warn('Could not update SVG path:', e.message);
+                        // Update SVG path if it exists
+                        var pathElement = scrollTopElement.querySelector('path');
+                        if (pathElement && typeof pathElement.getTotalLength === 'function') {
+                            try {
+                                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                                var pathLength = pathElement.getTotalLength();
+                                var offset = pathLength - (scrollTop * pathLength / docHeight);
+                                pathElement.style.strokeDashoffset = offset;
+                            } catch (e) {
+                                console.warn('Could not update SVG path:', e.message);
+                            }
                         }
                     }
                 });
 
-                // Add click handler for scroll to top
-                scrollElement.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
+                // Add click handler for scroll to top with null check
+                if (scrollTopElement) {
+                    scrollTopElement.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
                     });
-                });
+                }
             }
         });
     </script>
