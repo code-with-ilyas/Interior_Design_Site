@@ -63,18 +63,18 @@
             <div class="th-mobile-menu">
                 <ul>
                     <li>
-                        <a class="renovation-link" href="#hero-sec">Home</a>
+                        <a class="renovation-link" href="#home">Home</a>
                     </li>
-                    <li><a class="renovation-link" href="#about-title">About Us</a></li>
-                    <li><a class="renovation-link" href="#services-sec">Services</a></li>
-                    <li><a class="renovation-link" href="#project-sec">Projects</a></li>
-                    <li><a class="renovation-link" href="#blog-sec">Blog</a></li>
-                    <li><a class="renovation-link" href="#experts-sec" class="link-experts">Experts</a></li>
+                    <li><a class="renovation-link" href="#about-us">About Us</a></li>
+                    <li><a class="renovation-link" href="#services">Services</a></li>
+                    <li><a class="renovation-link" href="#projects">Projects</a></li>
+                    <li><a class="renovation-link" href="#blog">Blog</a></li>
+                    <li><a class="renovation-link" href="#experts">Experts</a></li>
                     {{-- <li><a href="#customers-sec" class="link-customers">Customers</a></li> --}}
                     {{-- <li><a href="#community-sec" class="link-community">Community</a></li> --}}
-                    <li><a class="renovation-link" href="#contact-sec">Contact Us</a></li>
+                    <li><a class="renovation-link" href="#contact-us">Contact Us</a></li>
                     {{-- <li><a href="#instagram-sec">Instagram</a></li> --}}
-                    <li><a class="renovation-link" href="#gallery-sec">Gallery</a></li>
+                    <li><a class="renovation-link" href="#gallery">Gallery</a></li>
                     @auth
                     <li class="menu-item-has-children"><a href="#">
                             <i class="fas fa-user" style="font-size: 18px;"></i>
@@ -120,18 +120,18 @@
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li>
-                                        <a class="renovation-link" href="#hero-sec">Home</a>
+                                        <a class="renovation-link" href="#home">Home</a>
                                     </li>
-                                    <li><a class="renovation-link" href="#about-title">About Us</a></li>
-                                    <li><a class="renovation-link" href="#services-sec">Services</a></li>
-                                    <li><a class="renovation-link" href="#project-sec">Projects</a></li>
-                                    <li><a class="renovation-link" href="#blog-sec">Blog</a></li>
-                                    <li><a class="renovation-link" href="#experts-sec">Experts</a></li>
+                                    <li><a class="renovation-link" href="#about-us">About Us</a></li>
+                                    <li><a class="renovation-link" href="#services">Services</a></li>
+                                    <li><a class="renovation-link" href="#projects">Projects</a></li>
+                                    <li><a class="renovation-link" href="#blog">Blog</a></li>
+                                    <li><a class="renovation-link" href="#experts">Experts</a></li>
                                     {{-- <li><a href="#customers-sec" class="link-customers renovation-link">Customers</a></li> --}}
                                     {{-- <li><a href="#community-sec" class="link-community renovation-link">Community</a></li> --}}
-                                    <li><a class="renovation-link" href="#contact-sec">Contact Us</a></li>
+                                    <li><a class="renovation-link" href="#contact-us">Contact Us</a></li>
                                     {{-- <li><a href="#instagram-sec" class="renovation-link">Instagram</a></li> --}}
-                                    <li><a class="renovation-link" href="#gallery-sec">Gallery</a></li>
+                                    <li><a class="renovation-link" href="#gallery">Gallery</a></li>
                                     @auth
                                     <li class="menu-item-has-children"><a href="#">
                                             <i class="fas fa-user" style="font-size: 18px;"></i>
@@ -212,13 +212,13 @@
                             <h3 class="widget_title text-custom">Quick Links</h3>
                             <div class="menu-all-pages-container text-custom">
                                 <ul class="menu">
-                                    <li><a class="renovation-link" href="#hero-sec">Home</a></li>
-                                    <li><a class="renovation-link" href="#about-title">About Us</a></li>
-                                    <li><a class="renovation-link" href="#services-sec">Services</a></li>
-                                    <li><a class="renovation-link" href="#project-sec">Projects</a></li>
-                                    <li><a class="renovation-link" href="#blog-sec">Blog</a></li>
-                                    <li><a class="renovation-link" href="#experts-sec">Experts</a></li>
-                                    <li><a class="renovation-link" href="#contact-sec">Contact Us</a></li>
+                                    <li><a class="renovation-link" href="#home">Home</a></li>
+                                    <li><a class="renovation-link" href="#about-us">About Us</a></li>
+                                    <li><a class="renovation-link" href="#services">Services</a></li>
+                                    <li><a class="renovation-link" href="#projects">Projects</a></li>
+                                    <li><a class="renovation-link" href="#blog">Blog</a></li>
+                                    <li><a class="renovation-link" href="#experts">Experts</a></li>
+                                    <li><a class="renovation-link" href="#contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -301,6 +301,7 @@
     <script src="{{ asset('assets/js/SplitType.js') }}"></script>
     <script src="{{ asset('assets/js/lenis.min.js') }}"></script>
     <script src="{{ asset('assets/js/CustomEase.min.js') }}"></script>
+    <script src="{{ asset('assets/js/anchor-navigation.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- Scroll Top Button -->
@@ -1795,19 +1796,19 @@
         }
 
         /* Project section spacing */
-        /*  #project-sec {
+        /*  #projects {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         } */
 
         /* Blog section spacing */
-        #blog-sec {
+        #blog {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
 
         /* Experts section spacing */
-        #experts-sec {
+        #experts {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
@@ -1819,31 +1820,31 @@
         }
 
         /* Community section spacing */
-        #community-sec {
+        #community {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
 
         /* Contact section spacing */
-        #contact-sec {
+        #contact-us {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
 
         /* Testimonials section spacing */
-        #testi-sec {
+        #testimonials {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
 
         /* Instagram section spacing */
-        #instagram-sec {
+        #instagram {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }
 
         /* Gallery section spacing */
-        #gallery-sec {
+        #gallery {
             margin-top: 0 !important;
             margin-bottom: 0 !important;
         }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="freelancer-hero-section" id="hero-sec">
+<section class="freelancer-hero-section" id="home">
     <div class="container">
         <div class="row align-items-center" style="margin-top: 5px;">
             <div class="col-lg-6">
@@ -366,7 +366,7 @@
     </div>
 </section>
 
-<section class="client-reference" id="clients-sec">
+<section class="client-reference" id="clients">
     <div class="reference-heading text-center mb-4">
         Referenced by most <span class="text-span-5 text-primary ">CAC40 </span> and <span class="text-span-6 text-primary">SBF120</span> companies </div>
 
@@ -465,9 +465,9 @@
     }
 </style>
 
-<section id="about-sec">
+<section id="about-us">
     <div class="services-header">
-        <h5 id="about-title"
+        <h5 id="about-us"
             class="title-heading"
             style="scroll-margin-top: 100px;">
             {{ $siteSetting->site_name ?? 'About Us' }}
@@ -492,7 +492,7 @@
     </div>
 </section>
 
-<section id="services-sec" class="renovation-bg-color">
+<section id="services" class="renovation-bg-color">
     <div>
         <div class="container">
             <div class="services-header">
@@ -519,7 +519,7 @@
     </div>
 </section>
 
-<section class="project-area position-relative space-bottom" id="project-sec">
+<section class="project-area position-relative space-bottom" id="projects">
     <div class="container">
 
         <div class="row justify-content-between align-items-end">
@@ -616,7 +616,7 @@
 
 
 
-<section class="renovation-bg-color positive-relative overflow-hidden space overflow-hidden" id="blog-sec">
+<section class="renovation-bg-color positive-relative overflow-hidden space overflow-hidden" id="blog">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-xl-5">
@@ -672,7 +672,7 @@
 
 <style>
     /* Blog section styling */
-    #blog-sec .blog-img {
+    #blog .blog-img {
         width: 100%;
         max-width: 730px;
         height: 315px;
@@ -680,20 +680,20 @@
         border-radius: 8px;
     }
 
-    #blog-sec .blog-img img {
+    #blog .blog-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
     /* Fix: Ensure blog section header is always visible */
-    #blog-sec .services-header {
+    #blog .services-header {
         opacity: 1 !important;
         visibility: visible !important;
     }
 
-    #blog-sec .services-header .title-heading,
-    #blog-sec .services-header .text-light-green {
+    #blog .services-header .title-heading,
+    #blog .services-header .text-light-green {
         opacity: 1 !important;
         visibility: visible !important;
         /*  color: inherit !important; */
@@ -701,14 +701,14 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-        #blog-sec .blog-img {
+        #blog .blog-img {
             height: 200px;
             max-width: 100%;
         }
     }
 </style>
 
-<section id="experts-sec" class="expertise">
+<section id="experts" class="expertise">
     <div class="hero">
         <div class="services-header">
             <h5 class="title-heading">Our Experts</h5>
@@ -771,7 +771,7 @@
 
 <style>
     /* Expert section styling */
-    #experts-sec .profile {
+    #experts .profile {
         background: #ffffff;
         border-radius: 12px;
         padding: 10px;
@@ -782,12 +782,12 @@
         flex-direction: column;
     }
 
-    #experts-sec .profile:hover {
+    #experts .profile:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
-    #experts-sec .profile-header {
+    #experts .profile-header {
         border-radius: 10px;
         overflow: hidden;
         margin-bottom: 15px;
@@ -798,7 +798,7 @@
         /* Prevents flex item from shrinking */
     }
 
-    #experts-sec .image-126 {
+    #experts .image-126 {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -809,12 +809,12 @@
         /* Ensures no extra space from inline elements */
     }
 
-    #experts-sec .profile:hover .image-126 {
+    #experts .profile:hover .image-126 {
         border-color: #003f3a;
         transform: scale(1.02);
     }
 
-    #experts-sec .profile-body {
+    #experts .profile-body {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -822,46 +822,46 @@
         /* Explicitly set padding to 0 */
     }
 
-    #experts-sec .sector_profile,
-    #experts-sec .previously_profile {
+    #experts .sector_profile,
+    #experts .previously_profile {
         color: #000000 !important;
     }
 
-    #experts-sec .tag {
+    #experts .tag {
         background-color: #f0f0f0;
         border-radius: 6px;
         padding: 4px 8px;
         margin: 2px;
     }
 
-    #experts-sec .tag.blue {
+    #experts .tag.blue {
         background-color: #e6f0ef;
     }
 
-    #experts-sec .tag.grey {
+    #experts .tag.grey {
         background-color: #f5f5f5;
     }
 
     /* Expert section tabs styling */
-    #experts-sec .tab-link {
+    #experts .tab-link {
         cursor: pointer;
         /* Pointer cursor on hover */
         font-style: normal !important;
         /* Normal font style by default */
     }
 
-    #experts-sec .tab-link.w--current {
+    #experts .tab-link.w--current {
         font-style: italic !important;
         /* Italic when selected */
     }
 
-    #experts-sec .tab-link:hover {
+    #experts .tab-link:hover {
         font-style: normal !important;
         /* Normal font style on hover */
     }
 </style>
 
-<section id="customers-sec" class="renovation-bg-color">
+<section id="customers" class="renovation-bg-color">
     <div class="services-header">
         <h5 class="title-heading">CUSTOMER</h5>
         <p class="text-custom text-light-green">Who are our customers and partners</p>
@@ -1161,7 +1161,7 @@
     </script>
 </section>
 
-<section id="community-sec" class="clients">
+<section id="community" class="clients">
     <div class="services-header">
         <h5 class="title-heading">Our Community</h5>
         <p class="text-custom text-light-green">Experts in the technologies you need for your projects</p>
@@ -1194,7 +1194,7 @@
     </div>
 </section>
 
-<section class="overflow-hidden space-top renovation-bg-color" id="contact-sec">
+<section class="overflow-hidden space-top renovation-bg-color" id="contact-us">
     <div class="services-header">
         <h5 class="title-heading">Contact Us</h5>
         <p class="text-custom text-light-green">If you have any questions, suggestions, or would like to work with us, feel free to reach out. We're here to help and will get back to you as soon as possible.</p>
@@ -1287,7 +1287,7 @@ $imageOneTitle = $randomGalleryImages[0]->title ?? 'Excellence Residence';
 $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 @endphp
 
-<section class="overflow-hidden space overflow-hidden" id="testi-sec">
+<section class="overflow-hidden space overflow-hidden" id="testimonials">
     <div class="container">
 
         <div class="services-header">
@@ -1402,7 +1402,7 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 </section>
 
 
-<section class="overflow-hidden space-bottom overflow-hidden playfair-display renovation-bg-color" id="instagram-sec">
+<section class="overflow-hidden space-bottom overflow-hidden playfair-display renovation-bg-color" id="instagram">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-7">
@@ -1435,7 +1435,7 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
     </div>
 </section>
 
-<section class="overflow-hidden space" id="gallery-sec">
+<section class="overflow-hidden space" id="gallery">
     <div class="overflow-hidden">
         <div class="container">
             <div class="services-header">
@@ -1671,7 +1671,7 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 
             // Scroll to alert
             $('html, body').animate({
-                scrollTop: $('#contact-sec').offset().top - 100
+                scrollTop: $('#contact-us').offset().top - 100
             }, 500);
 
             // Auto hide success messages after 5 seconds
