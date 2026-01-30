@@ -27,7 +27,7 @@ class BlogController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('blog', compact('posts', 'categories'));
+        return view('blog-dynamic', compact('posts', 'categories'));
     }
 
     /**
@@ -52,6 +52,9 @@ class BlogController extends Controller
             ->limit(3)
             ->get();
 
+        // Load blog post images
+        $blog->load('images');
+
         return view('blog-show', compact('blog', 'relatedPosts'));
     }
 
@@ -75,6 +78,6 @@ class BlogController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('blog', compact('posts', 'categories', 'category'));
+        return view('blog-dynamic', compact('posts', 'categories', 'category'));
     }
 }

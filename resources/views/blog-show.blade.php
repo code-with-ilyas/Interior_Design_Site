@@ -16,14 +16,15 @@
                 @endif
 
                 <div class="post-header mb-4">
-                    <div class="post-meta d-flex align-items-center mb-3">
-                        <span class="badge bg-secondary me-2">
-                            {{ $blog->category->name ?? 'General' }}
-                        </span>
+                    <div class="post-meta d-flex d-flex justify-content-between align-items-center">
+
                         <small class="text-muted">
-                            By Admin •
+                            By Admin.
                             {{ $blog->published_at ? $blog->published_at->format('M d, Y') : $blog->created_at->format('M d, Y') }}
                         </small>
+                         <span class="text-muted">
+                            {{ $blog->category->name ?? 'General' }}
+                        </span>
                     </div>
 
                     <h1 class="post-title">{{ $blog->title }}</h1>
@@ -46,7 +47,7 @@
                             @foreach($blog->images as $image)
                                 <div class="col-md-6 col-lg-4">
                                     <div class="gallery-item">
-                                        <img src="{{ Storage::url($image->image_path) }}"
+                                        <img src="{{ Storage::url($image->image) }}"
                                              alt="{{ $image->alt_text ?? $blog->title }}"
                                              class="img-fluid rounded"
                                              style="width: 100%; height: 200px; object-fit: cover;">
@@ -63,7 +64,7 @@
 
             <!-- Back to Blog Link -->
             <div class="mt-5">
-                <a href="{{ route('blog.index') }}" class="btn btn-outline-primary">
+                <a href="#blog" class="th-btns black-border">
                     ← Back to Blog
                 </a>
             </div>
@@ -117,7 +118,7 @@
                                         <a href="{{ route('blog.category', $category) }}"
                                            class="text-decoration-none">
                                             {{ $category->name }}
-                                            <span class="badge bg-secondary float-end">{{ $category->posts_count }}</span>
+                                            {{-- <span class="badge bg-secondary float-end">{{ $category->posts_count }}</span> --}}
                                         </a>
                                     </li>
                                 @endif
@@ -164,6 +165,37 @@
 
 .badge.bg-secondary {
     background-color: #6c757d !important;
+}
+
+/* Ensure sidebar categories are visible */
+.sidebar .card ul.list-unstyled {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .card ul.list-unstyled li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar .card ul.list-unstyled li:last-child {
+    border-bottom: none;
+}
+
+.sidebar .card ul.list-unstyled li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.sidebar .card ul.list-unstyled li a:hover {
+    color: #003f3a;
+}
+
+.sidebar .card ul.list-unstyled li .badge {
+    background-color: #003f3a !important;
+    color: white;
 }
 </style>
 @endsection
