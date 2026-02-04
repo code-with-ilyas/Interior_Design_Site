@@ -125,9 +125,9 @@
             </div>
 
             <!-- Services Dropdown -->
-            <div x-data="{ open: {{ request()->routeIs('admin.services.*') ? 'true' : 'false' }} }">
+            <div x-data="{ open: {{ request()->routeIs('admin.services.*') || request()->routeIs('admin.service-categories.*') ? 'true' : 'false' }} }">
                 <button @click="open = !open"
-                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.services.*') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.services.*') || request()->routeIs('admin.service-categories.*') ? 'bg-blue-100 text-blue-800' : 'text-gray-700 hover:bg-gray-100' }}">
                     <div class="flex items-center">
                         <svg class="mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
@@ -143,6 +143,10 @@
                     <a href="{{ route('admin.services.index') }}"
                         class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.services.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
                         Services List
+                    </a>
+                    <a href="{{ route('admin.service-categories.index') }}"
+                        class="block px-4 py-2 text-sm rounded-md {{ request()->routeIs('admin.service-categories.index') ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                        Service Categories
                     </a>
                 </div>
             </div>

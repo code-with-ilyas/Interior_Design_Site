@@ -530,8 +530,17 @@
                     @foreach($row as $service)
                     <div class="service-column">
                         <div class="service-card home-service-card">
-                            <h5 class="service-title">{{ $service->title }}</h5>
+                            @if($service->image)
+                            <div class="service-image mb-3">
+                                <img src="{{ asset('storage/' . $service->image) }}" 
+                                     alt="{{ $service->title }}" 
+                                     class="img-fluid rounded" 
+                                     style="width: 100%; height: 200px; object-fit: cover;">
+                            </div>
+                            @endif
+                            <h5 class="service-title"><a href="{{ route('service.show', $service) }}" class="text-decoration-none">{{ $service->title }}</a></h5>
                             <div class="service-description">{{ $service->short_description }}</div>
+                            <a href="{{ route('service.show', $service) }}" class="th-btns black-border mt-3">Learn More</a>
                         </div>
                     </div>
                     @endforeach
