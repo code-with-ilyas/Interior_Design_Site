@@ -532,9 +532,9 @@
                         <div class="service-card home-service-card">
                             @if($service->image)
                             <div class="service-image mb-3">
-                                <img src="{{ asset('storage/' . $service->image) }}" 
-                                     alt="{{ $service->title }}" 
-                                     class="img-fluid rounded" 
+                                <img src="{{ asset('storage/' . $service->image) }}"
+                                     alt="{{ $service->title }}"
+                                     class="img-fluid rounded"
                                      style="width: 100%; height: 200px; object-fit: cover;">
                             </div>
                             @endif
