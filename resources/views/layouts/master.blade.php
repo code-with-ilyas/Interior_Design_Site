@@ -187,7 +187,7 @@
                                         <img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation">
                                     @endif
                                 </a></div>
-                                <p class="about-text">{{ $siteSetting->about_us ?? 'Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.' }}</p>
+                                <p class="about-text">{{ $siteSetting->about_short_description ?? 'Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.' }}</p>
                                 <div class="th-social">
                                     @if($siteSetting && $siteSetting->facebook)
                                         <a href="{{ $siteSetting->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
