@@ -511,7 +511,7 @@
 
         <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
             <p style="font-size: 16px; line-height: 1.7; color: #000000ff;">
-                {!! $siteSetting->about_short_description ?? $siteSetting->about_us ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
+                {!! $siteSetting->about_us ?? $siteSetting->about_short_description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
             </p>
         </div>
 
@@ -522,7 +522,7 @@
     <div>
         <div class="container">
             <div class="services-header">
-                <h5 class="title-heading">Our services</h5>
+                <h5 class="title-heading">Areas of Expertise</h5>
                 <p class="text-custom text-light-green">Support for all your transformation challenges</p>
             </div>
 
@@ -570,7 +570,8 @@
                 </p>
             </div>
 
-            <div class="col-xl-6">
+            {{--
+                <div class="col-xl-6">
                 <div class="filter-menu style2 filter-menu-active">
                     <button data-filter="*" class="th-btn th-border active" type="button">
                         View All
@@ -584,6 +585,7 @@
                     @endforeach
                 </div>
             </div>
+            --}}
         </div>
 
         <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
@@ -900,348 +902,352 @@
     }
 </style>
 
-<section id="customers" class="renovation-bg-color">
-    <div class="services-header">
-        <h5 class="title-heading">CUSTOMER</h5>
-        <p class="text-custom text-light-green">Who are our customers and partners</p>
-    </div>
-    <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach($customers as $customer)
-            <div class="customer-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-                <h3 class="text-xl font-bold mb-3 text-gray-800">{{ $customer->name }}</h3>
-                <p class="text-gray-600 mb-4">{{ $customer->description }}</p>
+    {{--
+        <section id="customers" class="renovation-bg-color">
+        <div class="services-header">
+            <h5 class="title-heading">CUSTOMER</h5>
+            <p class="text-custom text-light-green">Who are our customers and partners</p>
+        </div>
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach($customers as $customer)
+                <div class="customer-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">{{ $customer->name }}</h3>
+                    <p class="text-gray-600 mb-4">{{ $customer->description }}</p>
 
-                <div class="customer-logo-container flex justify-center items-center min-h-[100px]" data-logos='{{ json_encode($logos ?? []) }}'>
-                    @php
-                    $logos = json_decode($customer->logo, true);
-                    @endphp
-
-                    <div class="logo-stack relative w-32 h-20 overflow-hidden">
-                        @if($logos && count($logos) > 0)
-                        @foreach($logos as $index => $logoPath)
+                    <div class="customer-logo-container flex justify-center items-center min-h-[100px]" data-logos='{{ json_encode($logos ?? []) }}'>
                         @php
-                        $cleanPath = str_replace('\\', '/', ltrim($logoPath, '/'));
-                        // Check if the path is already a full URL or a local asset path
-                        if (filter_var($logoPath, FILTER_VALIDATE_URL)) {
-                        $imageUrl = $logoPath;
-                        } elseif (str_starts_with($logoPath, 'assets/')) {
-                        // Local asset path - use asset() without storage prefix
-                        $imageUrl = asset($cleanPath);
-                        } else {
-                        // Assume it's a stored file path
-                        $imageUrl = asset('storage/' . $cleanPath);
-                        }
+                        $logos = json_decode($customer->logo, true);
                         @endphp
-                        <div class="logo-item absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out transform {{ $index === 0 ? 'opacity-100 rotate-x-0' : 'opacity-0 rotate-x-90' }}"
-                            data-index="{{ $index }}">
-                            <img
-                                src="{{ $imageUrl }}"
-                                alt="{{ $customer->name }} Logo {{ $index + 1 }}"
-                                class="max-h-16 max-w-full object-contain"
-                                onerror="this.onerror=null; this.src='';">
-                        </div>
-                        @endforeach
-                        @else
-                        <div class="logo-item absolute inset-0 flex items-center justify-center opacity-100">
-                            <div class="bg-gray-200 border-2 border-dashed rounded-lg w-20 h-20 flex items-center justify-center text-sm text-gray-500">
-                                No Logo
+
+                        <div class="logo-stack relative w-32 h-20 overflow-hidden">
+                            @if($logos && count($logos) > 0)
+                            @foreach($logos as $index => $logoPath)
+                            @php
+                            $cleanPath = str_replace('\\', '/', ltrim($logoPath, '/'));
+                            // Check if the path is already a full URL or a local asset path
+                            if (filter_var($logoPath, FILTER_VALIDATE_URL)) {
+                            $imageUrl = $logoPath;
+                            } elseif (str_starts_with($logoPath, 'assets/')) {
+                            // Local asset path - use asset() without storage prefix
+                            $imageUrl = asset($cleanPath);
+                            } else {
+                            // Assume it's a stored file path
+                            $imageUrl = asset('storage/' . $cleanPath);
+                            }
+                            @endphp
+                            <div class="logo-item absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out transform {{ $index === 0 ? 'opacity-100 rotate-x-0' : 'opacity-0 rotate-x-90' }}"
+                                data-index="{{ $index }}">
+                                <img
+                                    src="{{ $imageUrl }}"
+                                    alt="{{ $customer->name }} Logo {{ $index + 1 }}"
+                                    class="max-h-16 max-w-full object-contain"
+                                    onerror="this.onerror=null; this.src='';">
                             </div>
+                            @endforeach
+                            @else
+                            <div class="logo-item absolute inset-0 flex items-center justify-center opacity-100">
+                                <div class="bg-gray-200 border-2 border-dashed rounded-lg w-20 h-20 flex items-center justify-center text-sm text-gray-500">
+                                    No Logo
+                                </div>
+                            </div>
+                            @endif
                         </div>
-                        @endif
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
-    </div>
 
-    <style>
-        .customer-card {
-            transition: all 0.3s ease;
-        }
+        <style>
+            .customer-card {
+                transition: all 0.3s ease;
+            }
 
-        .customer-card:hover {
-            transform: translateY(-5px);
-        }
+            .customer-card:hover {
+                transform: translateY(-5px);
+            }
 
-        #customers-sec {
-            background-color: white;
-        }
+            #customers-sec {
+                background-color: white;
+            }
 
-        .title-heading {
-            text-align: center;
-            font-size: 1.3rem;
-            line-height: 2rem;
-            font-weight: 900;
-            color: rgba(0, 15, 10, 1);
-        }
+            .title-heading {
+                text-align: center;
+                font-size: 1.3rem;
+                line-height: 2rem;
+                font-weight: 900;
+                color: rgba(0, 15, 10, 1);
+            }
 
-        .text-light-green {
-            color: #9ebdb4 !important;
-            text-align: center !important;
-        }
+            .text-light-green {
+                color: #9ebdb4 !important;
+                text-align: center !important;
+            }
 
-        /* Customer logo container */
-        .customer-logo-container {
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f8f9fa;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            perspective: 1000px;
-        }
+            /* Customer logo container */
+            .customer-logo-container {
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #f8f9fa;
+                border-radius: 0.5rem;
+                padding: 1rem;
+                perspective: 1000px;
+            }
 
-        .logo-stack {
-            position: relative;
-            width: 8rem;
-            height: 5rem;
-            transform-style: preserve-3d;
-        }
+            .logo-stack {
+                position: relative;
+                width: 8rem;
+                height: 5rem;
+                transform-style: preserve-3d;
+            }
 
-        .logo-item {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backface-visibility: hidden;
-        }
+            .logo-item {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                backface-visibility: hidden;
+            }
 
-        .logo-item img {
-            max-height: 4rem;
-            max-width: 100%;
-            object-fit: contain;
-            display: block;
-        }
+            .logo-item img {
+                max-height: 4rem;
+                max-width: 100%;
+                object-fit: contain;
+                display: block;
+            }
 
-        /* 3D Rotation keyframes */
-        @keyframes verticalFlipIn {
-            0% {
+            /* 3D Rotation keyframes */
+            @keyframes verticalFlipIn {
+                0% {
+                    transform: rotateX(90deg);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: rotateX(0deg);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes verticalFlipOut {
+                0% {
+                    transform: rotateX(0deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: rotateX(-90deg);
+                    opacity: 0;
+                }
+            }
+
+            .rotate-x-0 {
+                transform: rotateX(0deg);
+            }
+
+            .rotate-x-90 {
                 transform: rotateX(90deg);
-                opacity: 0;
             }
 
-            100% {
-                transform: rotateX(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes verticalFlipOut {
-            0% {
-                transform: rotateX(0deg);
-                opacity: 1;
+            .vertical-flip-enter {
+                animation: verticalFlipIn 0.5s ease-in-out forwards;
             }
 
-            100% {
-                transform: rotateX(-90deg);
-                opacity: 0;
+            .vertical-flip-exit {
+                animation: verticalFlipOut 0.5s ease-in-out forwards;
             }
-        }
-
-        .rotate-x-0 {
-            transform: rotateX(0deg);
-        }
-
-        .rotate-x-90 {
-            transform: rotateX(90deg);
-        }
-
-        .vertical-flip-enter {
-            animation: verticalFlipIn 0.5s ease-in-out forwards;
-        }
-
-        .vertical-flip-exit {
-            animation: verticalFlipOut 0.5s ease-in-out forwards;
-        }
-    </style>
+        </style>
 
 
 
-    <style>
-        /* Custom styles for home page services section */
-        .home-service-card {
-            background: white;
-            padding: 8px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
+        <style>
+            /* Custom styles for home page services section */
+            .home-service-card {
+                background: white;
+                padding: 8px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                text-align: left;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
 
-        .home-service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
+            .home-service-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            }
 
-        .home-service-card .service-title {
-            font-weight: 600;
-            color: #003f3a;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
+            .home-service-card .service-title {
+                font-weight: 600;
+                color: #003f3a;
+                margin-bottom: 15px;
+                line-height: 1.4;
+            }
 
-        .home-service-card .service-description {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+            .home-service-card .service-description {
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
 
-        .home-service-card .btn-group {
-            margin-top: auto !important;
-            display: inline-block;
-        }
+            .home-service-card .btn-group {
+                margin-top: auto !important;
+                display: inline-block;
+            }
 
-        .home-service-card .th-btns.black-border {
-            display: inline-block;
-            margin: 0;
-        }
+            .home-service-card .th-btns.black-border {
+                display: inline-block;
+                margin: 0;
+            }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .services-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-column {
-            margin-bottom: 0 !important;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
             .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                margin-top: 40px;
             }
 
             .services-row {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
             }
-        }
-    </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Initializing customer logo rotation');
+            .service-column {
+                margin-bottom: 0 !important;
+            }
 
-            // Initialize rotation for each customer logo stack
-            const logoContainers = document.querySelectorAll('.customer-logo-container');
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .services-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
 
-            logoContainers.forEach(container => {
-                const logoStack = container.querySelector('.logo-stack');
-                const logoItems = container.querySelectorAll('.logo-item');
+                .services-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
 
-                if (logoItems.length > 1) {
-                    let currentIndex = 0;
-                    let interval;
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('Initializing customer logo rotation');
 
-                    function rotateLogos() {
-                        // Hide current logo with exit animation
-                        const currentLogo = logoItems[currentIndex];
-                        currentLogo.classList.remove('opacity-100', 'rotate-x-0');
-                        currentLogo.classList.add('vertical-flip-exit');
+                // Initialize rotation for each customer logo stack
+                const logoContainers = document.querySelectorAll('.customer-logo-container');
 
-                        setTimeout(() => {
-                            // Reset current logo
-                            currentLogo.classList.remove('vertical-flip-exit');
-                            currentLogo.classList.add('opacity-0', 'rotate-x-90');
+                logoContainers.forEach(container => {
+                    const logoStack = container.querySelector('.logo-stack');
+                    const logoItems = container.querySelectorAll('.logo-item');
 
-                            // Move to next logo
-                            currentIndex = (currentIndex + 1) % logoItems.length;
+                    if (logoItems.length > 1) {
+                        let currentIndex = 0;
+                        let interval;
 
-                            // Show next logo with enter animation
-                            const nextLogo = logoItems[currentIndex];
-                            nextLogo.classList.remove('opacity-0', 'rotate-x-90');
-                            nextLogo.classList.add('vertical-flip-enter');
+                        function rotateLogos() {
+                            // Hide current logo with exit animation
+                            const currentLogo = logoItems[currentIndex];
+                            currentLogo.classList.remove('opacity-100', 'rotate-x-0');
+                            currentLogo.classList.add('vertical-flip-exit');
 
                             setTimeout(() => {
-                                nextLogo.classList.remove('vertical-flip-enter');
-                                nextLogo.classList.add('opacity-100', 'rotate-x-0');
-                            }, 10);
-                        }, 500); // Match CSS animation duration
-                    }
+                                // Reset current logo
+                                currentLogo.classList.remove('vertical-flip-exit');
+                                currentLogo.classList.add('opacity-0', 'rotate-x-90');
 
-                    // Start rotation
-                    interval = setInterval(rotateLogos, 3000);
+                                // Move to next logo
+                                currentIndex = (currentIndex + 1) % logoItems.length;
 
-                    // Pause rotation on hover
-                    container.addEventListener('mouseenter', () => {
-                        if (interval) {
-                            clearInterval(interval);
+                                // Show next logo with enter animation
+                                const nextLogo = logoItems[currentIndex];
+                                nextLogo.classList.remove('opacity-0', 'rotate-x-90');
+                                nextLogo.classList.add('vertical-flip-enter');
+
+                                setTimeout(() => {
+                                    nextLogo.classList.remove('vertical-flip-enter');
+                                    nextLogo.classList.add('opacity-100', 'rotate-x-0');
+                                }, 10);
+                            }, 500); // Match CSS animation duration
                         }
-                    });
 
-                    container.addEventListener('mouseleave', () => {
+                        // Start rotation
                         interval = setInterval(rotateLogos, 3000);
+
+                        // Pause rotation on hover
+                        container.addEventListener('mouseenter', () => {
+                            if (interval) {
+                                clearInterval(interval);
+                            }
+                        });
+
+                        container.addEventListener('mouseleave', () => {
+                            interval = setInterval(rotateLogos, 3000);
+                        });
+                    }
+                });
+
+                // Log logo loading status
+                const logoImages = document.querySelectorAll('.logo-item img');
+                logoImages.forEach((img, index) => {
+                    img.addEventListener('load', function() {
+                        console.log('✓ Customer logo loaded:', this.src);
                     });
-                }
-            });
 
-            // Log logo loading status
-            const logoImages = document.querySelectorAll('.logo-item img');
-            logoImages.forEach((img, index) => {
-                img.addEventListener('load', function() {
-                    console.log('✓ Customer logo loaded:', this.src);
-                });
-
-                img.addEventListener('error', function() {
-                    console.error('✗ Customer logo failed to load:', this.src);
+                    img.addEventListener('error', function() {
+                        console.error('✗ Customer logo failed to load:', this.src);
+                    });
                 });
             });
-        });
-    </script>
-</section>
+        </script>
+    </section>
+    --}}
 
-<section id="community" class="clients">
-    <div class="services-header">
-        <h5 class="title-heading">Our Community</h5>
-        <p class="text-custom text-light-green">Experts in the technologies you need for your projects</p>
-    </div>
-    <div class="services-row" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;padding:10px;">
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
+    {{--
+        <section id="community" class="clients">
+        <div class="services-header">
+            <h5 class="title-heading">Our Community</h5>
+            <p class="text-custom text-light-green">Experts in the technologies you need for your projects</p>
         </div>
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+        <div class="services-row" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;padding:10px;">
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
+            </div>
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+            </div>
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
+            </div>
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+            </div>
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
+            </div>
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+            </div>
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
+            </div>
+            <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
+            </div>
         </div>
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
-        </div>
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
-        </div>
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" class="floating-logo" style="width:50px;">
-        </div>
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
-        </div>
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" class="floating-logo" style="width:50px;">
-        </div>
-        <div class="service-card" style="padding:20px; border:1px solid #ddd; border-radius:12px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; overflow:hidden;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="floating-logo" style="width:50px;">
-        </div>
-    </div>
-</section>
+    </section>
+    --}}
 
 <section class="overflow-hidden space-top renovation-bg-color" id="contact-us">
     <div class="services-header">
