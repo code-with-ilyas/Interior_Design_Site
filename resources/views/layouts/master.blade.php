@@ -73,8 +73,8 @@
                     {{-- <li><a href="#customers-sec" class="link-customers">Customers</a></li> --}}
                     {{-- <li><a href="#community-sec" class="link-community">Community</a></li> --}}
                     <li><a class="renovation-link" href="#contact-us">Contact Us</a></li>
-                    {{-- <li><a href="#instagram-sec">Instagram</a></li> --}}
-                    <li><a class="renovation-link" href="#gallery">Gallery</a></li>
+                    {{-- <li><a href="#instagram-sec">Instagram</a></li>
+                    <li><a class="renovation-link" href="#gallery">Gallery</a></li> --}}
                     @auth
                     <li class="menu-item-has-children"><a href="#">
                             <i class="fas fa-user" style="font-size: 18px;"></i>
@@ -130,8 +130,8 @@
                                     {{-- <li><a href="#customers-sec" class="link-customers renovation-link">Customers</a></li> --}}
                                     {{-- <li><a href="#community-sec" class="link-community renovation-link">Community</a></li> --}}
                                     <li><a class="renovation-link" href="#contact-us">Contact Us</a></li>
-                                    {{-- <li><a href="#instagram-sec" class="renovation-link">Instagram</a></li> --}}
-                                    <li><a class="renovation-link" href="#gallery">Gallery</a></li>
+                                    {{-- <li><a href="#instagram-sec" class="renovation-link">Instagram</a></li>
+                                    <li><a class="renovation-link" href="#gallery">Gallery</a></li> --}}
                                     @auth
                                     <li class="menu-item-has-children"><a href="#">
                                             <i class="fas fa-user" style="font-size: 18px;"></i>
@@ -173,7 +173,7 @@
     <main>
         @yield('content')
     </main>
-    <footer class="footer-wrapper footer-layout3 bg-primary-500">
+    <footer class="footer-wrapper footer-layout3 bg-primary-500 mt-5">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
@@ -766,7 +766,7 @@
             background: #ffffffff;
             border: 1px solid #c5bebeff;
             border-radius: 10px;
-            padding: 25px 30px;
+            padding: 15px 15px;
             width: 100%;
             height: 100%;
             display: flex;

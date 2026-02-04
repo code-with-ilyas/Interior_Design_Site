@@ -33,7 +33,7 @@ class HomeController extends Controller
         $siteSetting = SiteSetting::firstOrCreate([]);
 
 
-        $services = Service::all();
+        $services = Service::with('images', 'category')->get();
 
         $companies = \App\Models\Company::all();
 
@@ -75,6 +75,37 @@ class HomeController extends Controller
             ->get();
 
         return view('home', compact('expertsByCategory', 'siteSetting', 'services', 'companies', 'customers', 'instagrams', 'blogPosts', 'projects', 'projectCategories', 'testimonials', 'galleryCategories'));
+    }
+
+    /**
+     * Display a single service
+     */
+    public function showService(Service $service)
+    {
+        // Get related services from the same category
+        $relatedServices = Service::where('service_category_id', $service->service_category_id)
+            ->where('id', '!=', $service->id)
+            ->orderBy('updated_at', 'desc')
+            ->limit(3)
+            ->get();
+
+        // Load service images
+        $service->load('images', 'category');
+
+        return view('service-show', compact('service', 'relatedServices'));
+    }
+
+    /**
+     * Display services by category
+     */
+    public function servicesByCategory(\App\Models\ServiceCategory $category)
+    {
+        $services = Service::with('category')
+            ->where('service_category_id', $category->id)
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        return view('services-by-category', compact('category', 'services'));
     }
 
     /**

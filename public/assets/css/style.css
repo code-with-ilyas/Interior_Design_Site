@@ -27422,7 +27422,7 @@ span.select2-selection.select2-selection--single:focus {
 }
 
 .marquee:last-child {
-    --duration: 80s
+    --duration: 40s
 }
 
 .marquee.marquee--reverse .marquee-group {
@@ -27452,17 +27452,20 @@ span.select2-selection.select2-selection--single:focus {
 }
 
 .marquee .marquee-group.style2 .item a {
-    font-family: var(--title-font);
+    /* font-family: var(--title-font); */
+    font-family: 'Playfair Display', serif !important;
     display: inline-block;
     position: relative;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--title-color);
-    font-size: 88px;
-    font-weight: 500;
-    color: transparent;
+   /*  -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--title-color); */
+    font-size: 96px;
+    font-weight: 600;
+   /*  color: transparent; */
     line-height: 96px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out
+    /* -webkit-transition: all 0.3s ease-in-out; */
+    transition: all 0.3s ease-in-out;
+    /* color: rgb(243, 235, 224) !important; */
+    color: rgb(243 235 224 / 50%) !important
 }
 
 .marquee .marquee-group.style2 .item a::before {
@@ -27478,22 +27481,25 @@ span.select2-selection.select2-selection--single:focus {
     transition: all 0.5s cubic-bezier(0.17, 0.67, 0.32, 0.87)
 }
 
-.marquee .marquee-group.style2 .item a:hover {
+/* .marquee .marquee-group.style2 .item a:hover {
     color: var(--title-color);
     -webkit-text-stroke-color: var(--title-color)
-}
+    color: rgb(243, 235, 224)!important;
+} */
 
-.marquee .marquee-group.style2 .item a:hover::before {
+/* .marquee .marquee-group.style2 .item a:hover::before {
     width: 100%;
+    color: rgb(243, 235, 224)!important;
     color: var(--title-color)
-}
+} */
 
 .marquee .marquee-group.style3 .item {
     font-family: var(--title-font);
     font-weight: 800;
     font-size: 120px;
     line-height: 96px;
-    color: rgba(255, 255, 255, 0.05);
+   /*  color: rgba(255, 255, 255, 0.05); */
+    color: rgb(243, 235, 224)!important;
     text-transform: capitalize
 }
 

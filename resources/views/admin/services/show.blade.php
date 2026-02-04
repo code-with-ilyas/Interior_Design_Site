@@ -48,6 +48,22 @@
                                     </div>
                                 </div>
                             @endif
+
+                            @if($service->images->count() > 0)
+                                <div class="mb-6">
+                                    <h5 class="text-lg font-medium mb-2">Additional Images</h5>
+                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                        @foreach($service->images as $image)
+                                            <div>
+                                                <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $image->alt_text ?: $service->title }}" class="w-full h-48 object-cover rounded">
+                                                @if($image->alt_text)
+                                                    <p class="mt-2 text-sm text-gray-600">{{ $image->alt_text }}</p>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
                         </div>
 
                         <div>
@@ -61,6 +77,16 @@
                                     <div>
                                         <dt class="font-medium text-gray-700">Title</dt>
                                         <dd class="ml-0">{{ $service->title }}</dd>
+                                    </div>
+                                    <div>
+                                        <dt class="font-medium text-gray-700">Category</dt>
+                                        <dd class="ml-0">
+                                            @if($service->category)
+                                                <span class="text-indigo-600">{{ $service->category->name }}</span>
+                                            @else
+                                                <span class="text-gray-500">Uncategorized</span>
+                                            @endif
+                                        </dd>
                                     </div>
                                     <div>
                                         <dt class="font-medium text-gray-700">Icon</dt>

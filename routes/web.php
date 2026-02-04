@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
+
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InstagramController;
@@ -34,6 +36,10 @@ Route::get('/projects/{project:slug}', [App\Http\Controllers\ProjectController::
 Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/category/{category:slug}', [\App\Http\Controllers\BlogController::class, 'category'])->name('blog.category');
 Route::get('/blog/{blog:slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
+
+// Service routes
+Route::get('/services/{service:slug}', [\App\Http\Controllers\HomeController::class, 'showService'])->name('service.show');
+Route::get('/services/category/{category}', [\App\Http\Controllers\HomeController::class, 'servicesByCategory'])->name('services.by.category');
 
 Route::get('/gallery', function () {
     return view('gallery');
@@ -102,6 +108,9 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
 
     // Project image management routes
     Route::delete('/projects/{project}/images/{image}', [\App\Http\Controllers\Admin\ProjectController::class, 'destroyImage'])->name('admin.projects.images.destroy');
+
+    // Service image management routes
+    Route::delete('/services/{service}/images/{image}', [\App\Http\Controllers\Admin\ServiceController::class, 'destroyImage'])->name('admin.services.images.destroy');
 
     // Project Category management routes
     Route::resource('project-categories', \App\Http\Controllers\Admin\ProjectCategoryController::class)->names([
@@ -189,6 +198,28 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
         'update' => 'admin.services.update',
         'destroy' => 'admin.services.destroy',
     ]);
+
+    // Service Category management routes
+    Route::resource('service-categories', \App\Http\Controllers\Admin\ServiceCategoryController::class)->names([
+        'index' => 'admin.service-categories.index',
+        'create' => 'admin.service-categories.create',
+        'store' => 'admin.service-categories.store',
+        'show' => 'admin.service-categories.show',
+        'edit' => 'admin.service-categories.edit',
+        'update' => 'admin.service-categories.update',
+        'destroy' => 'admin.service-categories.destroy',
+    ]);
+
+    // Service Images routes - temporarily disabled to use inline approach
+    // Route::prefix('services/{service}/images')->name('admin.services.images.')->group(function () {
+    //     Route::get('/', [ServiceImageController::class, 'index'])->name('index');
+    //     Route::get('/create', [ServiceImageController::class, 'create'])->name('create');
+    //     Route::post('/', [ServiceImageController::class, 'store'])->name('store');
+    //     Route::get('/{serviceImage}', [ServiceImageController::class, 'show'])->name('show');
+    //     Route::get('/{serviceImage}/edit', [ServiceImageController::class, 'edit'])->name('edit');
+    //     Route::put('/{serviceImage}', [ServiceImageController::class, 'update'])->name('update');
+    //     Route::delete('/{serviceImage}', [ServiceImageController::class, 'destroy'])->name('destroy');
+    // });
 });
 
 
