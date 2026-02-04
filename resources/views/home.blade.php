@@ -269,44 +269,45 @@
                         src="{{ asset('admin/home/h24renovation-home-img.png')}}"
                         alt="home-image"
                         style="width:100%;border-radius:12px;animation: floatUpDown 4s ease-in-out infinite;">
+                   {{--
                     <div
                         style="
-          position:absolute;
-          left: -60px;
-          top: 35%;
-          width:100px;
-          padding:10px;
-          background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
-          border-radius:10px;
-          box-shadow:0 4px 12px rgba(0,0,0,0.15);
-          font-size:11px;
-          height:60px;          /* vertical shape */
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          text-align:center;
-        ">
+                        position:absolute;
+                        left: -60px;
+                        top: 35%;
+                        width:100px;
+                        padding:10px;
+                        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
+                        border-radius:10px;
+                        box-shadow:0 4px 12px rgba(0,0,0,0.15);
+                        font-size:11px;
+                        height:60px;          /* vertical shape */
+                        display:flex;
+                        flex-direction:column;
+                        justify-content:center;
+                        text-align:center;
+                        ">
                         <h6 style="margin:0; font-size:12px;" class="text-white">Complete </h6>
                         <p style="margin:0;" class="text-white">Renovation</p>
                     </div>
 
                     <div
                         style="
-          position:absolute;
-          right: 110px;
-          top: -8%;
-          width:100px;
-          padding:10px;
-         background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
-          border-radius:10px;
-          box-shadow:0 4px 12px rgba(0,0,0,0.15);
-          font-size:11px;
-          height:60px;
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          text-align:center;
-        ">
+                        position:absolute;
+                        right: 110px;
+                        top: -8%;
+                        width:100px;
+                        padding:10px;
+                        background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
+                        border-radius:10px;
+                        box-shadow:0 4px 12px rgba(0,0,0,0.15);
+                        font-size:11px;
+                        height:60px;
+                        display:flex;
+                        flex-direction:column;
+                        justify-content:center;
+                        text-align:center;
+                        ">
                         <h6 style="margin:0; font-size:12px;" class="text-white">Interior </h6>
                         <p style="margin:0;" class="text-white">Remodeling</p>
                     </div>
@@ -332,6 +333,7 @@
                         <h6 style="margin:0; font-size:12px;" class="text-white">Custom</h6>
                         <p style="margin:0;" class="text-white">Fast</p>
                     </div>
+                    --}}
 
                 </div>
             </div>
@@ -531,16 +533,20 @@
                     <div class="service-column">
                         <div class="service-card home-service-card">
                             @if($service->image)
-                            <div class="service-image mb-3">
+                            <div class="service-image mb-3" style="height: 200px; overflow: hidden; border-radius: 8px;">
                                 <img src="{{ asset('storage/' . $service->image) }}"
                                      alt="{{ $service->title }}"
-                                     class="img-fluid rounded"
-                                     style="width: 100%; height: 200px; object-fit: cover;">
+                                     class="img-fluid w-100"
+                                     style="height: 100%; object-fit: cover; border-radius: 8px;">
                             </div>
                             @endif
                             <h5 class="service-title"><a href="{{ route('service.show', $service) }}" class="text-decoration-none">{{ $service->title }}</a></h5>
                             <div class="service-description">{{ $service->short_description }}</div>
-                            <a href="{{ route('service.show', $service) }}" class="th-btns black-border mt-3">Learn More</a>
+                            <div class="btn-group mt-3">
+                                <a href="{{ route('service.show', $service) }}" class="th-btns black-border">
+                                    Learn More
+                                </a>
+                            </div>
                         </div>
                     </div>
                     @endforeach
@@ -1062,16 +1068,15 @@
         /* Custom styles for home page services section */
         .home-service-card {
             background: white;
-            padding: 30px;
+            padding: 8px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: start;
+            justify-content: flex-start;
         }
 
         .home-service-card:hover {
@@ -1090,6 +1095,17 @@
             font-size: 0.9rem;
             color: #666;
             line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .home-service-card .btn-group {
+            margin-top: auto !important;
+            display: inline-block;
+        }
+
+        .home-service-card .th-btns.black-border {
+            display: inline-block;
+            margin: 0;
         }
 
         .services-grid {

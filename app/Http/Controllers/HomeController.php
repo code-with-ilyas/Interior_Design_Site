@@ -98,10 +98,10 @@ class HomeController extends Controller
     /**
      * Display services by category
      */
-    public function servicesByCategory($categoryId)
+    public function servicesByCategory(\App\Models\ServiceCategory $category)
     {
-        $category = \App\Models\ServiceCategory::findOrFail($categoryId);
-        $services = Service::where('service_category_id', $categoryId)
+        $services = Service::with('category')
+            ->where('service_category_id', $category->id)
             ->orderBy('updated_at', 'desc')
             ->get();
 

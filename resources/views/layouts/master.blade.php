@@ -766,7 +766,7 @@
             background: #ffffffff;
             border: 1px solid #c5bebeff;
             border-radius: 10px;
-            padding: 25px 30px;
+            padding: 15px 15px;
             width: 100%;
             height: 100%;
             display: flex;
