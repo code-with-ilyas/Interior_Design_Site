@@ -7,6 +7,7 @@
         <div class="row align-items-center" style="margin-top: 5px;">
             <div class="col-lg-6">
                 <div class="freelancer-hero-content">
+                    {{--
                     <div class="freelancer-tags">
                         <span class="freelancer-tag text-white">IA</span>
                         <span class="freelancer-tag text-white">Data</span>
@@ -15,6 +16,7 @@
                         <span class="freelancer-tag text-white">IT</span>
                         <span class="freelancer-tag text-white">Digital</span>
                     </div>
+                    --}}
                     <h1 class="freelancer-title playfair-display" style="font-size: 36px;">Renovate your property, according to your desires!</h1>
                     <div class="freelancer-features">
                         <div class="feature-item">
@@ -262,24 +264,16 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div style="position: relative; width:100%; max-width:200px; margin:auto;">
-
-
+                <div style="position: relative; width:100%; margin:auto;">
                     <img
-                        src="https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg"
-                        alt="Man wearing glasses in 3-piece suit"
-                        style="
-          width:100%;
-          border-radius:12px;
-          animation: floatUpDown 4s ease-in-out infinite;
-        ">
-
-
+                        src="{{ asset('admin/home/h24renovation-home-img.png')}}"
+                        alt="home-image"
+                        style="width:100%;border-radius:12px;animation: floatUpDown 4s ease-in-out infinite;">
                     <div
                         style="
           position:absolute;
-          left:-60px;
-          top:35%;
+          left: -60px;
+          top: 35%;
           width:100px;
           padding:10px;
           background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
@@ -299,8 +293,8 @@
                     <div
                         style="
           position:absolute;
-          right:-60px;
-          top:5%;
+          right: 110px;
+          top: -8%;
           width:100px;
           padding:10px;
          background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
@@ -321,8 +315,8 @@
                     <div
                         style="
                         position:absolute;
-                        right:-60px;
-                        bottom:5%;
+                        right: 410px;
+                        bottom: 8%;
                         width:100px;
                         padding:10px;
                         background: linear-gradient(65deg, #003f3a 0%, #000000 100%);
@@ -366,37 +360,67 @@
     </div>
 </section>
 
-<section class="client-reference" id="clients">
-    <div class="reference-heading text-center mb-4">
-        Referenced by most <span class="text-span-5 text-primary ">CAC40 </span> and <span class="text-span-6 text-primary">SBF120</span> companies </div>
+    {{-- <section class="client-reference" id="clients">
+        <div class="reference-heading text-center mb-4">
+            Referenced by most <span class="text-span-5 text-primary ">CAC40 </span> and <span class="text-span-6 text-primary">SBF120</span> companies </div>
 
-    <div class="marquee-area overflow-hidden ">
-        <div class="marquee-track flex marquee-group">
-            @foreach($companies as $company)
-            <div class="marquee-item-container">
-                @if($company->logo)
-                <div class="marquee-logo-wrapper">
-                    <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }} Logo" class="customer-logo-img">
+        <div class="marquee-area overflow-hidden ">
+            <div class="marquee-track flex marquee-group">
+                @foreach($companies as $company)
+                <div class="marquee-item-container">
+                    @if($company->logo)
+                    <div class="marquee-logo-wrapper">
+                        <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }} Logo" class="customer-logo-img">
+                    </div>
+                    @endif
+                    <div class="marquee-item">{{ $company->name }}</div>
                 </div>
-                @endif
-                <div class="marquee-item">{{ $company->name }}</div>
-            </div>
-            @endforeach
+                @endforeach
 
-            <!-- Repeat the same items for smooth looping -->
-            @foreach($companies as $company)
-            <div class="marquee-item-container">
-                @if($company->logo)
-                <div class="marquee-logo-wrapper">
-                    <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }} Logo" class="customer-logo-img">
+                <!-- Repeat the same items for smooth looping -->
+                @foreach($companies as $company)
+                <div class="marquee-item-container">
+                    @if($company->logo)
+                    <div class="marquee-logo-wrapper">
+                        <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name }} Logo" class="customer-logo-img">
+                    </div>
+                    @endif
+                    <div class="marquee-item">{{ $company->name }}</div>
                 </div>
-                @endif
-                <div class="marquee-item">{{ $company->name }}</div>
+                @endforeach
             </div>
-            @endforeach
+        </div>
+    </section> --}}
+    <div class="marquee-area2 overflow-hidden mt-3">
+        <div class="marquee-content positive-relative overflow-hidden">
+            <div class="marquee">
+                <div class="marquee-group style2">
+                    <div class="item">
+                        {{-- <img src="assets/img/icon/star3.svg" alt=""> --}}
+                        <a target="_blank" href="#" data-hover="Mission-Driven Company ◌ Mission-Driven Company ◌ H24 Renovation ◌ Eco-friendly renovation ◌">
+                            Mission-Driven Company ◌ Mission-Driven Company ◌ H24 Renovation ◌ Eco-friendly renovation ◌
+                        </a>
+                    </div>
+                   </div>
+               {{--
+               <div aria-hidden="true" class="marquee-group style2">
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Bright Halls">Bright Halls</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Sustainable Architecture">Sustainable Architecture</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Landscape Architecture">Landscape Architecture</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""> <a target="_blank" href="#" data-hover="Commercial Spa">Commercial Spa</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Bright Halls">Bright Halls</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Sustainable Architecture">Sustainable Architecture</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Landscape Architecture">Landscape Architecture</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""> <a target="_blank" href="#" data-hover="Commercial Spa">Commercial Spa</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Bright Halls">Bright Halls</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Sustainable Architecture">Sustainable Architecture</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""><a target="_blank" href="#" data-hover="Landscape Architecture">Landscape Architecture</a></div>
+                    <div class="item"><img src="assets/img/icon/star3.svg" alt=""> <a target="_blank" href="#" data-hover="Commercial Spa">Commercial Spa</a></div>
+                </div>
+                --}}
+            </div>
         </div>
     </div>
-</section>
 
 <style>
     .client-reference .marquee-track {
@@ -1287,7 +1311,7 @@ $imageOneTitle = $randomGalleryImages[0]->title ?? 'Excellence Residence';
 $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 @endphp
 
-<section class="overflow-hidden space overflow-hidden" id="testimonials">
+<section class="overflow-hidden space overflow-hidden mb-5" id="testimonials">
     <div class="container">
 
         <div class="services-header">
@@ -1402,101 +1426,107 @@ $imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
 </section>
 
 
-<section class="overflow-hidden space-bottom overflow-hidden playfair-display renovation-bg-color" id="instagram">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-7">
-                <div class="title-area text-center">
-                    <h4 class="text-anime text-dark">Instagram</h4>
-                    <h3 class="text-dark">Our Instagram Gallery</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center align-items-center">
-            <div class="col-10">
-                <div class="row gallery-row filter-active justify-content-between">
-
-                    @forelse($instagrams as $insta)
-                    <div class="col-xl-auto col-md-6 filter-item">
-                        <div class="gallery-box">
-                            <div class="box-img global-img">
-                                <img src="{{ asset($insta->image) }}" alt="Instagram Image">
-                            </div>
-                        </div>
-                    </div>
-                    @empty
-                    <p class="text-center text-dark">No Instagram Images Available</p>
-                    @endforelse
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="overflow-hidden space" id="gallery">
-    <div class="overflow-hidden">
+{{--
+    <section class="overflow-hidden space-bottom overflow-hidden playfair-display renovation-bg-color" id="instagram">
         <div class="container">
-            <div class="services-header">
-                <h5 class="title-heading">Gallery</h5>
-                <p class="text-custom text-light-green">Our recent gallery of projects.</p>
-            </div>
             <div class="row justify-content-center">
                 <div class="col-xl-7">
-                    <div class="filter-menu indicator-active filter-menu-active">
+                    <div class="title-area text-center">
+                        <h4 class="text-anime text-dark">Instagram</h4>
+                        <h3 class="text-dark">Our Instagram Gallery</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- SnapWidget -->
+            <iframe src="https://snapwidget.com/embed/1117406" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:1020px; height:510px" title="Posts from Instagram"></iframe>
 
-                        <button data-filter="*" class="tab-btn active" type="button">
-                            View All
-                        </button>
-                        @foreach($galleryCategories as $index => $category)
-                        <button
-                            data-filter=".cat{{ $category->id }}"
-                            class="tab-btn"
-                            type="button">
-                            {{ $category->name }}
-                        </button>
-                        @endforeach
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-10">
+                    <div class="row gallery-row filter-active justify-content-between">
+
+                        @forelse($instagrams as $insta)
+                        <div class="col-xl-auto col-md-6 filter-item">
+                            <div class="gallery-box">
+                                <div class="box-img global-img">
+                                    <img src="{{ asset($insta->image) }}" alt="Instagram Image">
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+                        <p class="text-center text-dark">No Instagram Images Available</p>
+                        @endforelse
 
                     </div>
                 </div>
             </div>
-            <div class="row gy-4 gallery-row filter-active">
-                @foreach($galleryCategories as $category)
-                @foreach($category->galleries as $gallery)
-                <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat{{ $category->id }}">
 
-                    <div class="gallery-card">
-                        <div class="box-img global-img">
-                            <img
-                                class="wow clippy-img"
-                                src="{{ Storage::url($gallery->image) }}"
-                                alt="gallery image">
+        </div>
+    </section>
 
-                            <a href="{{ Storage::url($gallery->image) }}"
-                                class="icon-btn th-popup-image">
-                                <i class="far fa-plus"></i>
-                            </a>
+    <section class="overflow-hidden space" id="gallery">
+        <div class="overflow-hidden">
+            <div class="container">
+                <div class="services-header">
+                    <h5 class="title-heading">Gallery</h5>
+                    <p class="text-custom text-light-green">Our recent gallery of projects.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-7">
+                        <div class="filter-menu indicator-active filter-menu-active">
 
-                            <div class="shape">
-                                <div class="dot"></div>
+                            <button data-filter="*" class="tab-btn active" type="button">
+                                View All
+                            </button>
+                            @foreach($galleryCategories as $index => $category)
+                            <button
+                                data-filter=".cat{{ $category->id }}"
+                                class="tab-btn"
+                                type="button">
+                                {{ $category->name }}
+                            </button>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-4 gallery-row filter-active">
+                    @foreach($galleryCategories as $category)
+                    @foreach($category->galleries as $gallery)
+                    <div class="col-lg-6 col-xl-4 col-xxl-auto filter-item cat{{ $category->id }}">
+
+                        <div class="gallery-card">
+                            <div class="box-img global-img">
+                                <img
+                                    class="wow clippy-img"
+                                    src="{{ Storage::url($gallery->image) }}"
+                                    alt="gallery image">
+
+                                <a href="{{ Storage::url($gallery->image) }}"
+                                    class="icon-btn th-popup-image">
+                                    <i class="far fa-plus"></i>
+                                </a>
+
+                                <div class="shape">
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+
+                            <div class="gallery-content">
+                                <h2 class="box-title">
+                                    {{ $gallery->title }}
+                                </h2>
                             </div>
                         </div>
 
-                        <div class="gallery-content">
-                            <h2 class="box-title">
-                                {{ $gallery->title }}
-                            </h2>
-                        </div>
                     </div>
-
+                    @endforeach
+                    @endforeach
                 </div>
-                @endforeach
-                @endforeach
             </div>
         </div>
-    </div>
-</section>
+    </section>
+ --}}
 @endsection
 
 @push('scripts')
