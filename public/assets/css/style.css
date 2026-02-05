@@ -294,9 +294,10 @@ h6 {
     font-family: var(--title-font);
     color: var(--title-color);
     text-transform: none;
-    font-weight: 700;
+    font-weight: 700!important;
     line-height: 1.4;
-    margin: 0 0 15px 0
+    margin: 0 0 15px 0;
+    font-size: 24px!important;
 }
 
 .h1,
@@ -26845,7 +26846,8 @@ span.select2-selection.select2-selection--single:focus {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    gap: 24px
+    gap: 24px;
+    width:100%!important;
 }
 
 @media (max-width: 375px) {
