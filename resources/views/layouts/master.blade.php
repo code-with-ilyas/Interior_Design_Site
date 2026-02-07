@@ -252,6 +252,9 @@
                                 @if($siteSetting && $siteSetting->email)
                                     <p class="footer-info"><span><a class="text-inherit" href="mailto:{{ $siteSetting->email }}">{{ $siteSetting->email }}</a></span></p>
                                 @endif
+                                @if($siteSetting && $siteSetting->office_timings)
+                                    <p class="footer-info"><span>{{ $siteSetting->office_timings }}</span></p>
+                                @endif
                             </div>
                         </div>
                     </div>

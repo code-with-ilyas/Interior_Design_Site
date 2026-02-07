@@ -31,14 +31,15 @@ class SiteSettingController extends Controller
                 'favicon' => ['sometimes', 'nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'about_us_image' => ['sometimes', 'nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
                 'about_short_description' => 'sometimes|nullable|string',
+                'office_timings' => 'sometimes|nullable|string|max:255',
                 'terms_and_conditions' => 'sometimes|string',
                 'privacy_policy' => 'sometimes|string',
                 'legal_notices' => 'sometimes|string',
                 'about_us' => 'sometimes|string',
-                'facebook' => 'sometimes|url|max:255',
-                'instagram' => 'sometimes|url|max:255',
-                'linkedin' => 'sometimes|url|max:255',
-                'whatsapp' => 'sometimes|url|max:255',
+                'facebook' => 'nullable|url|max:255',
+                'instagram' => 'nullable|url|max:255',
+                'linkedin' => 'nullable|url|max:255',
+                'whatsapp' => 'nullable|url|max:255',
             ]);
 
             $siteSetting = SiteSetting::firstOrCreate([]);

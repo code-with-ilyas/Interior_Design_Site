@@ -36,5 +36,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProjectSeeder::class);
         $this->call(ProjectImageSeeder::class);
         $this->call(ProjectExpertSeeder::class);
+
+        // Call site settings seeder
+        $this->call(SiteSettingsSeeder::class);
     }
 }

@@ -74,6 +74,14 @@
                             </div>
 
                             <div>
+                                <label for="office_timings" class="block text-sm font-medium text-gray-700">Office Timings</label>
+                                <input type="text" name="office_timings" id="office_timings"
+                                    value="{{ old('office_timings', $siteSetting->office_timings) }}"
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                    placeholder="e.g., Mon-Fri: 9AM-6PM, Sat: 10AM-2PM">
+                            </div>
+
+                            <div>
                                 <label for="about_short_description" class="block text-sm font-medium text-gray-700">About Short Description</label>
                                 <textarea name="about_short_description" id="about_short_description" rows="3"
                                     class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ old('about_short_description', $siteSetting->about_short_description) }}</textarea>
