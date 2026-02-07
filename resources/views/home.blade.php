@@ -17,7 +17,7 @@
                         <span class="freelancer-tag text-white">Digital</span>
                     </div>
                     --}}
-                    <h1 class="freelancer-title playfair-display" style="font-size: 36px;">Renovate your property, according to your desires!</h1>
+                    <h1 class="freelancer-title playfair-display" style="font-size: 38px!important;">Renovate your property, according to your desires!</h1>
                     <div class="freelancer-features">
                         <div class="feature-item">
                             <div class="feature-icon">
@@ -46,6 +46,12 @@
                         <a href="javascript:void(0);" id="demoBtn" class="th-btns black-border" style="display:inline-block; text-decoration:none;">
                             Request a Demo
                         </a>
+                        @if(!empty($siteSetting->phone))
+                        <a href="tel:{{ $siteSetting->phone }}" class="th-btns black-border" style="display:block; text-decoration:none; text-align: center; padding: 8px 16px !important; font-size: 14px; width: fit-content; max-width: 100%;" title="Book your slot">
+                             <i class="fas fa-phone" style="margin: 0;">
+                            </i> Call Us
+                        </a>
+                        @endif
                         <div id="demoFormOverlay">
                             <div id="demoFormContainer">
                                 <span id="closeForm" class="close-arrow">&#x2192;</span>

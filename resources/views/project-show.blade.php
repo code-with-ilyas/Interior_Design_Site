@@ -179,6 +179,21 @@
                         </div>
                     @endif
 
+                    <!-- Contact Options -->
+                    <div class="sidebar-widget mb-4">
+                        <h4 class="widget-title">Contact Us</h4>
+                        <div class="contact-options d-flex flex-column" style="gap: 10px;">
+                            <a href="javascript:void(0);" id="demoBtnProject" class="th-btns black-border" style="display:block; text-decoration:none; text-align: center; width: fit-content; max-width: 100%; padding: 8px 16px !important;">
+                                Request a Demo
+                            </a>
+                            @if(!empty($siteSetting->phone))
+                            <a href="tel:{{ $siteSetting->phone }}" class="th-btns black-border" style="display:block; text-decoration:none; text-align: center; padding: 8px 16px !important; font-size: 14px; width: fit-content; max-width: 100%;" title="Book your slot">
+                                <i class="fas fa-phone" style="margin: 0;"></i> Call Us
+                            </a>
+                            @endif
+                        </div>
+                    </div>
+
                     <!-- Related Projects -->
                     @if($relatedProjects->count() > 0)
                         <div class="sidebar-widget mb-4">
@@ -280,4 +295,210 @@
         margin-right: 1rem;
     }
 </style>
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Project page demo button functionality
+    $(document).ready(function() {
+        // Check if demo button exists on project page
+        $(document).on('click', '#demoBtnProject', function() {
+            // Create overlay if it doesn't exist
+            let $overlay = $('#demoFormOverlayProject');
+            if ($overlay.length === 0) {
+                createDemoFormOverlay();
+                $overlay = $('#demoFormOverlayProject');
+            }
+
+            $overlay.css('display', 'flex');
+        });
+
+        // Close button functionality for project overlay
+        $(document).on('click', '#closeFormProject', function() {
+            const $overlay = $('#demoFormOverlayProject');
+            if ($overlay.length) {
+                $overlay.css('display', 'none');
+            }
+        });
+
+        // Click outside to close form
+        $(document).on('click', function(e) {
+            const $overlay = $('#demoFormOverlayProject');
+            if ($overlay.length && e.target === $overlay[0]) {
+                $overlay.css('display', 'none');
+            }
+        });
+
+        // Form submission handler for demo form on project page
+        $(document).on('submit', '#demoFormContainerProject form', function(e) {
+            e.preventDefault();
+
+            const $form = $(this);
+            const $msg = $form.find('#formMessagesProject');
+            const $btn = $form.find('button[type="submit"]');
+            const originalBtnText = $btn.html();
+
+            $msg.hide().empty();
+            $form.find('.is-invalid').removeClass('is-invalid');
+
+            // Set loading state
+            setLoadingProject(true, $btn, originalBtnText);
+
+            $.post($form.attr('action'), $form.serialize())
+                .done(function(res) {
+                    if (res.status === 'success' || res.success) {
+                        $form[0].reset();
+                        showMsgProject(res.message || 'Request submitted successfully!', 'success', $msg);
+
+                        // Close form after success
+                        setTimeout(function() {
+                            $('#demoFormOverlayProject').css('display', 'none');
+                        }, 2000);
+                    } else {
+                        showMsgProject(res.message || 'Submission failed. Please try again.', 'error', $msg);
+                    }
+                })
+                .fail(function(xhr) {
+                    if (xhr.status === 422) {
+                        const errors = xhr.responseJSON.errors;
+                        let errorMsg = '';
+                        $.each(errors, function(field, messages) {
+                            errorMsg += '<li>' + messages[0] + '</li>';
+
+                            // Highlight the field with error
+                            $form.find('[name="' + field + '"]').addClass('is-invalid');
+                        });
+
+                        showMsgProject(errorMsg, 'error', $msg);
+                    } else {
+                        showMsgProject('Something went wrong. Please try again.', 'error', $msg);
+                    }
+                })
+                .always(function() {
+                    setLoadingProject(false, $btn, originalBtnText);
+                });
+        });
+    });
+
+    function createDemoFormOverlay() {
+        // Create overlay container
+        const overlayHTML = `
+            <div id="demoFormOverlayProject" style="
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 10000;
+                justify-content: center;
+                align-items: center;
+            ">
+                <div id="demoFormContainerProject" style="
+                    width: 90%;
+                    max-width: 700px;
+                    background: white;
+                    padding: 40px 30px 30px;
+                    margin: 0;
+                    border-radius: 8px;
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <span id="closeFormProject" style="
+                        position: absolute;
+                        top: 15px;
+                        right: 20px;
+                        font-size: 24px;
+                        cursor: pointer;
+                        color: #000000ff;
+                        z-index: 10;
+                    ">&#x2192;</span>
+                    <h3 class="text-dark" style="margin: 0 0 20px 0; text-align: center;">Request a demo</h3>
+                    <form method="POST" action="{{ route("quotes.store") }}">
+                        {{ csrf_field() }}
+                        <div id="formMessagesProject" style="
+                            display: none;
+                            margin-bottom: 15px;
+                            padding: 12px 15px;
+                            border-radius: 6px;
+                            font-size: 14px;
+                        "></div>
+                        <div class="form-row mb-3">
+                            <input class="text-dark form-control" type="text" name="first_name" placeholder="First Name" required style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                            <input class="text-dark form-control" type="text" name="last_name" placeholder="Last Name" required style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                        </div>
+
+                        <div class="form-row mb-3">
+                            <input class="text-dark form-control" type="email" name="email" placeholder="Your Email" required style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                            <input class="text-dark form-control" type="tel" name="phone" placeholder="Your Phone" style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                        </div>
+
+                        <div class="form-row mb-3">
+                            <input class="text-dark form-control" type="text" name="company" placeholder="Your Company" style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                            <input class="text-dark form-control" type="text" name="cities" placeholder="Preferred Cities" style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                        </div>
+
+                        <div class="form-row mb-3">
+                            <input class="text-dark form-control" type="text" name="address" placeholder="Street Address" style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                            <input class="text-dark form-control" type="text" name="postal_code" placeholder="Postal/ZIP Code" style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                        </div>
+
+                        <div class="form-row mb-3">
+                            <input class="text-dark form-control" type="text" name="city" placeholder="City" style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                            <input class="text-dark form-control" type="text" name="country" placeholder="Country" style="flex: 1; min-width: 100px; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;">
+                        </div>
+
+                        <div class="form-row mb-3">
+                            <textarea class="text-dark form-control" name="mesage" placeholder="Your Message" style="flex: 1 1 100%; height: auto; padding: 10px; font-family: inherit; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box;"></textarea>
+                        </div>
+
+                        <button type="submit" class="th-btns black-border" style="display: block; margin: 0 auto;">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        `;
+
+        $('body').append(overlayHTML);
+
+        // Add form row styling
+        if ($('#formRowStyleProject').length === 0) {
+            $('head').append(`
+                <style id="formRowStyleProject">
+                    .form-row {
+                        display: flex !important;
+                        gap: 15px !important;
+                        flex-wrap: wrap !important;
+                    }
+                    .form-control.is-invalid {
+                        border-color: #dc3545 !important;
+                    }
+                </style>
+            `);
+        }
+    }
+
+    function setLoadingProject(loading, $btn, originalText) {
+        if (loading) {
+            $btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Sending...');
+        } else {
+            $btn.prop('disabled', false).html(originalText);
+        }
+    }
+
+    function showMsgProject(content, type, $msg) {
+        const styles = type === 'success' ?
+            { background: '#d4edda', color: '#155724', border: '1px solid #c3e6cb' } :
+            { background: '#f8d7da', color: '#721c24', border: '1px solid #f5c6cb' };
+
+        $msg.css(styles)
+            .html(type === 'success' ? content : '<ul style="margin:0;padding-left:18px">' + content + '</ul>')
+            .fadeIn();
+
+        if (type === 'success') {
+            setTimeout(() => $msg.fadeOut(), 4000);
+        }
+    }
+</script>
 @endpush

@@ -31,6 +31,9 @@ class ProjectController extends Controller
             ->limit(3)
             ->get();
 
-        return view('project-show', compact('project', 'relatedProjects'));
+        // Get site settings for phone number and other details
+        $siteSetting = \App\Models\SiteSetting::first();
+
+        return view('project-show', compact('project', 'relatedProjects', 'siteSetting'));
     }
 }

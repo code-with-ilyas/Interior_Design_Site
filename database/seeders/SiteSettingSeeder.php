@@ -25,6 +25,7 @@ class SiteSettingSeeder extends Seeder
             'whatsapp' => 'https://wa.me/1234567890',
             'about_us' => 'We are a leading renovation company specializing in home and office transformations.',
             'about_short_description' => 'A trusted renovation company with years of experience delivering quality results.',
+            'office_timings' => 'Mon-Fri: 9:00 AM - 6:00 PM, Sat: 10:00 AM - 2:00 PM',
             'terms_and_conditions' => 'Terms and conditions for using our services...',
             'privacy_policy' => 'Privacy policy for our website and services...',
             'legal_notices' => 'Legal notices and disclaimers...'

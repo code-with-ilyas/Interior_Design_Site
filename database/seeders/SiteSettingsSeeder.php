@@ -24,6 +24,7 @@ class SiteSettingsSeeder extends Seeder
             'linkedin' => 'https://linkedin.com/company/h24renovation',
             'whatsapp' => 'https://wa.me/1234567890',
             'about_us' => 'We are a leading renovation company specializing in home and office transformations.',
+            'office_timings' => 'Mon-Fri: 9:00 AM - 6:00 PM, Sat: 10:00 AM - 2:00 PM',
             'terms_and_conditions' => 'Terms and conditions for using our services...',
             'privacy_policy' => 'Privacy policy for our website and services...',
             'legal_notices' => 'Legal notices and disclaimers...'
