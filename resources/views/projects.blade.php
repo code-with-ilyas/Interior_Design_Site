@@ -54,6 +54,17 @@
                 </div>
             @endforelse
         </div>
+
+        <!-- Pagination -->
+        @if($projects->hasPages())
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    {{ $projects->links() }}
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 </section>
 @endsection

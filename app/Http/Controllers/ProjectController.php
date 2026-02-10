@@ -12,7 +12,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with(['projectCategory', 'projectImages', 'experts'])->orderBy('created_at', 'desc')->get();
+        $projects = Project::with(['projectCategory', 'projectImages', 'experts'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(9);
 
         return view('projects', compact('projects'));
     }

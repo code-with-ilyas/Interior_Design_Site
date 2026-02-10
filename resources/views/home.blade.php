@@ -44,7 +44,7 @@
                             I Want to Renovate a Property
                         </a>
                         <a href="javascript:void(0);" id="demoBtn" class="th-btns black-border" style="display:inline-block; text-decoration:none;">
-                            Request a Demo
+                            Request a Quote
                         </a>
                         @if(!empty($siteSetting->phone))
                         <a href="tel:{{ $siteSetting->phone }}" class="th-btns black-border" style="display:block; text-decoration:none; text-align: center; padding: 8px 16px !important; font-size: 14px; width: fit-content; max-width: 100%;" title="Book your slot">
@@ -55,7 +55,7 @@
                         <div id="demoFormOverlay">
                             <div id="demoFormContainer">
                                 <span id="closeForm" class="close-arrow">&#x2192;</span>
-                                <h3 class="text-dark">Request a demo</h3>
+                                <h3 class="text-dark">Request a Quote</h3>
 
                                 {{-- Success popup --}}
                                 @if (session('success'))
@@ -560,6 +560,16 @@
                 @endforeach
                 </div>
             </div>
+
+            <!-- View All Services Link -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="{{ route('services.index') }}" class="th-btns black-border" style="display: inline-block; padding: 12px 32px; font-size: 16px;">
+                        View All Services
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -596,8 +606,11 @@
 
         <div class="row gallery-row filter-active justify-content-between load-more-active align-items-center">
 
+           {{--
             @foreach($projectCategories as $category)
             @foreach($category->projects as $project)
+            --}}
+            @foreach($projects as $project)
 
             @php
             $projectImages = $project->projectImages->values();
@@ -617,15 +630,28 @@
                 );
 
             $plainText = trim(strip_tags($project->short_description));
+            $title = $project->title;
+            $titleLength = mb_strlen($title);
+            if ($titleLength < 20) {
+                $title .= str_repeat('&nbsp;', 20 - $titleLength);
+            }
+            $displayDesc = mb_strlen($plainText) > 149
+                ? mb_substr($plainText, 0, 149) . '...'
+                : $plainText;
+
+            $descLength = mb_strlen($displayDesc);
+            if ($descLength < 85) {
+                $displayDesc .= str_repeat('&nbsp;', 85 - $descLength);
+            }
             @endphp
 
-            <div class="project-item col-12 filter-item cat{{ $category->id }}">
+            <div class="project-item col-12 filter-item cat{{ $project->project_category_id }}">
 
                 <div class="project-item_wrapp">
                     <div class="box-img global-img">
                         <img src="{{ $firstImage }}" alt="project image">
                     </div>
-                    <div class="box-img global-img">
+                    <div class="box-img global-img renovation-project-second-image">
                         <img src="{{ $secondImage }}" alt="project image">
                     </div>
                 </div>
@@ -633,15 +659,12 @@
                 <div class="project-content mt-2">
                     <h2 class="box-title">
                         <a href="{{ url('projects/' . $project->slug) }}">
-                            {{ $project->title }}
+                            {!! $title !!}
                         </a>
                     </h2>
 
                     <p class="box-text service-description mt-4">
-                        {{ mb_strlen($plainText) > 149
-                                    ? mb_substr($plainText, 0, 149) . '...'
-                                    : $plainText
-                                }}
+                        {!! $displayDesc !!}
                     </p>
 
                     <div class="btn-group mt-45">
@@ -655,8 +678,18 @@
             </div>
 
             @endforeach
-            @endforeach
+            {{-- @endforeach --}}
 
+        </div>
+
+        <!-- View All Projects Link -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="{{ url('/projects') }}" class="th-btns black-border" style="display: inline-block; padding: 12px 32px; font-size: 16px;">
+                    View All Projects
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
         </div>
     </div>
 </section>
@@ -713,6 +746,17 @@
                 @endforelse
             </div>
         </div>
+
+        <!-- View All Blog Link -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="{{ route('blog.index') }}" class="th-btns black-border" style="display: inline-block; padding: 12px 32px; font-size: 16px;">
+                    View All Blog Posts
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+
         <hr class="line">
     </div>
 </section>

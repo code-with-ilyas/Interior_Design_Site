@@ -85,6 +85,9 @@ body {
     .project-item_wrapp .box-img:last-child {
         height: 220px !important;
     }
+    div.renovation-project-second-image{
+        display:none!important;
+    }
 }
 
 

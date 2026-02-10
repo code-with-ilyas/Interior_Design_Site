@@ -22,6 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'timezone',
+        'working_hours_start',
+        'working_hours_end',
+        'working_days',
     ];
 
     /**
@@ -44,6 +48,24 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'working_hours_start' => 'datetime:H:i:s',
+            'working_hours_end' => 'datetime:H:i:s',
         ];
+    }
+
+    /**
+     * Get the bookings for the user.
+     */
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    /**
+     * Get working days as array.
+     */
+    public function getWorkingDaysArrayAttribute()
+    {
+        return explode(',', $this->working_days);
     }
 }

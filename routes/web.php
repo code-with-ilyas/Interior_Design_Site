@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\QuoteController as FrontendQuoteController;
 use App\Http\Controllers\TermsAndConditionsController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\LegalNoticesController;
+use App\Http\Controllers\BookingController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,7 @@ Route::get('/blog/category/{category:slug}', [\App\Http\Controllers\BlogControll
 Route::get('/blog/{blog:slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
 
 // Service routes
+Route::get('/services', [\App\Http\Controllers\HomeController::class, 'servicesIndex'])->name('services.index');
 Route::get('/services/{service:slug}', [\App\Http\Controllers\HomeController::class, 'showService'])->name('service.show');
 Route::get('/services/category/{category}', [\App\Http\Controllers\HomeController::class, 'servicesByCategory'])->name('services.by.category');
 
@@ -220,16 +222,13 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
     //     Route::put('/{serviceImage}', [ServiceImageController::class, 'update'])->name('update');
     //     Route::delete('/{serviceImage}', [ServiceImageController::class, 'destroy'])->name('destroy');
     // });
-});
 
+    // Customer management routes
+    Route::resource('customers', CustomerController::class)
+        ->names('admin.customers');
 
-
-
-
-Route::resource('admin/customers', CustomerController::class)
-    ->names('admin.customers');
-
-Route::resource('admin/companies', \App\Http\Controllers\Admin\CompanyController::class)->names([
+    // Company management routes
+    Route::resource('companies', \App\Http\Controllers\Admin\CompanyController::class)->names([
         'index' => 'admin.companies.index',
         'create' => 'admin.companies.create',
         'store' => 'admin.companies.store',
@@ -239,24 +238,29 @@ Route::resource('admin/companies', \App\Http\Controllers\Admin\CompanyController
         'destroy' => 'admin.companies.destroy',
     ]);
 
-Route::resource('admin/gallery', GalleryController::class)
-    ->names('admin.gallery');
+    // Gallery management routes
+    Route::resource('gallery', GalleryController::class)
+        ->names('admin.gallery');
 
-Route::resource('admin/gallery-categories', \App\Http\Controllers\Admin\GalleryCategoryController::class)
-    ->names('admin.gallery-categories');
+    // Gallery Category management routes
+    Route::resource('gallery-categories', \App\Http\Controllers\Admin\GalleryCategoryController::class)
+        ->names('admin.gallery-categories');
 
-Route::resource('admin/instagram', InstagramController::class)
-    ->names('admin.instagram');
+    // Instagram management routes
+    Route::resource('instagram', InstagramController::class)
+        ->names('admin.instagram');
 
+    // Testimonial management routes
+    Route::resource('testimonials', TestimonialController::class)
+        ->names('admin.testimonials');
 
-Route::resource('admin/testimonials', TestimonialController::class)
-    ->names('admin.testimonials');
+    // Site settings routes
+    Route::get('site-settings', [SiteSettingController::class, 'index'])
+        ->name('admin.site-settings.index');
+    Route::put('site-settings', [SiteSettingController::class, 'update'])
+        ->name('admin.site-settings.update');
+});
 
-// Site settings routes
-Route::get('admin/site-settings', [SiteSettingController::class, 'index'])
-    ->name('admin.site-settings.index');
-Route::put('admin/site-settings', [SiteSettingController::class, 'update'])
-    ->name('admin.site-settings.update');
 
 Route::get('/renovate', function () {
     return view('multi-forms');
@@ -333,5 +337,14 @@ Route::prefix('extensions')->name('extensions.')->group(function () {
 Route::get('/terms-and-conditions', TermsAndConditionsController::class)->name('terms-and-conditions');
 Route::get('/privacy-policy', PrivacyPolicyController::class)->name('privacy-policy');
 Route::get('/legal-notices', LegalNoticesController::class)->name('legal-notices');
+
+// Booking routes
+Route::get('/book/{host}', [BookingController::class, 'index'])->name('booking.index');
+Route::post('/book/calendar', [BookingController::class, 'calendar'])->name('booking.calendar');
+Route::post('/book/slots', [BookingController::class, 'slots'])->name('booking.slots');
+Route::post('/book/confirm', [BookingController::class, 'store'])->name('booking.store');
+
+// API endpoint for available slots (as suggested in requirements)
+Route::get('/api/available-slots', [BookingController::class, 'availableSlots'])->name('api.available-slots');
 
 require __DIR__ . '/auth.php';

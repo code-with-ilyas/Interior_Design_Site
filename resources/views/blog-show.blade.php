@@ -129,6 +129,16 @@
             </div>
         </div>
     </div>
+
+    <!-- View All Blog Posts Link -->
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="{{ route('blog.index') }}" class="th-btns black-border" style="display: inline-block; padding: 12px 32px; font-size: 16px;">
+                <i class="fas fa-arrow-left me-2"></i>
+                View All Blog Posts
+            </a>
+        </div>
+    </div>
 </div>
 
 <style>
