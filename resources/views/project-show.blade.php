@@ -184,7 +184,7 @@
                         <h4 class="widget-title">Contact Us</h4>
                         <div class="contact-options d-flex flex-column" style="gap: 10px;">
                             <a href="javascript:void(0);" id="demoBtnProject" class="th-btns black-border" style="display:block; text-decoration:none; text-align: center; width: fit-content; max-width: 100%; padding: 8px 16px !important;">
-                                Request a Demo
+                                Request a Quote
                             </a>
                             @if(!empty($siteSetting->phone))
                             <a href="tel:{{ $siteSetting->phone }}" class="th-btns black-border" style="display:block; text-decoration:none; text-align: center; padding: 8px 16px !important; font-size: 14px; width: fit-content; max-width: 100%;" title="Book your slot">
@@ -213,6 +213,16 @@
                         </div>
                     @endif
                 </aside>
+            </div>
+        </div>
+
+        <!-- View All Projects Link -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="{{ route('projects.index') }}" class="th-btns black-border" style="display: inline-block; padding: 12px 32px; font-size: 16px;">
+                    <i class="fas fa-arrow-left me-2"></i>
+                    View All Projects
+                </a>
             </div>
         </div>
     </div>
@@ -413,7 +423,7 @@
                         color: #000000ff;
                         z-index: 10;
                     ">&#x2192;</span>
-                    <h3 class="text-dark" style="margin: 0 0 20px 0; text-align: center;">Request a demo</h3>
+                    <h3 class="text-dark" style="margin: 0 0 20px 0; text-align: center;">Request a Quote</h3>
                     <form method="POST" action="{{ route("quotes.store") }}">
                         {{ csrf_field() }}
                         <div id="formMessagesProject" style="

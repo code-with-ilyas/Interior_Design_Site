@@ -1,0 +1,600 @@
+[
+  {
+    "group": "Afghanistan",
+    "options": [
+      {"value": "Asia/Kabul", "label": "(UTC+04:30) Kabul"}
+    ]
+  },
+  {
+    "group": "Albania",
+    "options": [
+      {"value": "Europe/Tirane", "label": "(UTC+01:00) Tirana"}
+    ]
+  },
+  {
+    "group": "Algeria",
+    "options": [
+      {"value": "Africa/Algiers", "label": "(UTC+01:00) Algiers"}
+    ]
+  },
+  {
+    "group": "Argentina",
+    "options": [
+      {"value": "America/Argentina/Buenos_Aires", "label": "(UTC-03:00) Buenos Aires"},
+      {"value": "America/Argentina/Cordoba", "label": "(UTC-03:00) Cordoba"},
+      {"value": "America/Argentina/Salta", "label": "(UTC-03:00) Salta"},
+      {"value": "America/Argentina/Mendoza", "label": "(UTC-03:00) Mendoza"}
+    ]
+  },
+  {
+    "group": "Australia",
+    "options": [
+      {"value": "Australia/Perth", "label": "(UTC+08:00) Perth"},
+      {"value": "Australia/Darwin", "label": "(UTC+09:30) Darwin"},
+      {"value": "Australia/Brisbane", "label": "(UTC+10:00) Brisbane"},
+      {"value": "Australia/Sydney", "label": "(UTC+11:00) Sydney"},
+      {"value": "Australia/Melbourne", "label": "(UTC+11:00) Melbourne"},
+      {"value": "Australia/Adelaide", "label": "(UTC+10:30) Adelaide"}
+    ]
+  },
+  {
+    "group": "Austria",
+    "options": [
+      {"value": "Europe/Vienna", "label": "(UTC+01:00) Vienna"}
+    ]
+  },
+  {
+    "group": "Azerbaijan",
+    "options": [
+      {"value": "Asia/Baku", "label": "(UTC+04:00) Baku"}
+    ]
+  },
+  {
+    "group": "Bahrain",
+    "options": [
+      {"value": "Asia/Bahrain", "label": "(UTC+03:00) Manama"}
+    ]
+  },
+  {
+    "group": "Bangladesh",
+    "options": [
+      {"value": "Asia/Dhaka", "label": "(UTC+06:00) Dhaka"}
+    ]
+  },
+  {
+    "group": "Belarus",
+    "options": [
+      {"value": "Europe/Minsk", "label": "(UTC+03:00) Minsk"}
+    ]
+  },
+  {
+    "group": "Belgium",
+    "options": [
+      {"value": "Europe/Brussels", "label": "(UTC+01:00) Brussels"}
+    ]
+  },
+  {
+    "group": "Bolivia",
+    "options": [
+      {"value": "America/La_Paz", "label": "(UTC-04:00) La Paz"}
+    ]
+  },
+  {
+    "group": "Brazil",
+    "options": [
+      {"value": "America/Noronha", "label": "(UTC-02:00) Fernando de Noronha"},
+      {"value": "America/Sao_Paulo", "label": "(UTC-03:00) São Paulo, Rio de Janeiro"},
+      {"value": "America/Manaus", "label": "(UTC-04:00) Manaus"},
+      {"value": "America/Rio_Branco", "label": "(UTC-05:00) Rio Branco"}
+    ]
+  },
+  {
+    "group": "Bulgaria",
+    "options": [
+      {"value": "Europe/Sofia", "label": "(UTC+02:00) Sofia"}
+    ]
+  },
+  {
+    "group": "Cambodia",
+    "options": [
+      {"value": "Asia/Phnom_Penh", "label": "(UTC+07:00) Phnom Penh"}
+    ]
+  },
+  {
+    "group": "Canada",
+    "options": [
+      {"value": "America/St_Johns", "label": "(UTC-03:30) St. John's"},
+      {"value": "America/Halifax", "label": "(UTC-04:00) Halifax"},
+      {"value": "America/Toronto", "label": "(UTC-05:00) Toronto, Montreal"},
+      {"value": "America/Winnipeg", "label": "(UTC-06:00) Winnipeg"},
+      {"value": "America/Edmonton", "label": "(UTC-07:00) Edmonton, Calgary"},
+      {"value": "America/Vancouver", "label": "(UTC-08:00) Vancouver"}
+    ]
+  },
+  {
+    "group": "Chile",
+    "options": [
+      {"value": "America/Santiago", "label": "(UTC-03:00) Santiago"},
+      {"value": "Pacific/Easter", "label": "(UTC-05:00) Easter Island"}
+    ]
+  },
+  {
+    "group": "China",
+    "options": [
+      {"value": "Asia/Shanghai", "label": "(UTC+08:00) Beijing, Shanghai"}
+    ]
+  },
+  {
+    "group": "Colombia",
+    "options": [
+      {"value": "America/Bogota", "label": "(UTC-05:00) Bogotá"}
+    ]
+  },
+  {
+    "group": "Costa Rica",
+    "options": [
+      {"value": "America/Costa_Rica", "label": "(UTC-06:00) San José"}
+    ]
+  },
+  {
+    "group": "Croatia",
+    "options": [
+      {"value": "Europe/Zagreb", "label": "(UTC+01:00) Zagreb"}
+    ]
+  },
+  {
+    "group": "Cuba",
+    "options": [
+      {"value": "America/Havana", "label": "(UTC-05:00) Havana"}
+    ]
+  },
+  {
+    "group": "Cyprus",
+    "options": [
+      {"value": "Asia/Nicosia", "label": "(UTC+02:00) Nicosia"}
+    ]
+  },
+  {
+    "group": "Czech Republic",
+    "options": [
+      {"value": "Europe/Prague", "label": "(UTC+01:00) Prague"}
+    ]
+  },
+  {
+    "group": "Denmark",
+    "options": [
+      {"value": "Europe/Copenhagen", "label": "(UTC+01:00) Copenhagen"}
+    ]
+  },
+  {
+    "group": "Ecuador",
+    "options": [
+      {"value": "America/Guayaquil", "label": "(UTC-05:00) Quito, Guayaquil"}
+    ]
+  },
+  {
+    "group": "Egypt",
+    "options": [
+      {"value": "Africa/Cairo", "label": "(UTC+02:00) Cairo"}
+    ]
+  },
+  {
+    "group": "Estonia",
+    "options": [
+      {"value": "Europe/Tallinn", "label": "(UTC+02:00) Tallinn"}
+    ]
+  },
+  {
+    "group": "Ethiopia",
+    "options": [
+      {"value": "Africa/Addis_Ababa", "label": "(UTC+03:00) Addis Ababa"}
+    ]
+  },
+  {
+    "group": "Finland",
+    "options": [
+      {"value": "Europe/Helsinki", "label": "(UTC+02:00) Helsinki"}
+    ]
+  },
+  {
+    "group": "France",
+    "options": [
+      {"value": "Europe/Paris", "label": "(UTC+01:00) Paris"}
+    ]
+  },
+  {
+    "group": "Germany",
+    "options": [
+      {"value": "Europe/Berlin", "label": "(UTC+01:00) Berlin, Munich"}
+    ]
+  },
+  {
+    "group": "Ghana",
+    "options": [
+      {"value": "Africa/Accra", "label": "(UTC+00:00) Accra"}
+    ]
+  },
+  {
+    "group": "Greece",
+    "options": [
+      {"value": "Europe/Athens", "label": "(UTC+02:00) Athens"}
+    ]
+  },
+  {
+    "group": "Hong Kong",
+    "options": [
+      {"value": "Asia/Hong_Kong", "label": "(UTC+08:00) Hong Kong"}
+    ]
+  },
+  {
+    "group": "Hungary",
+    "options": [
+      {"value": "Europe/Budapest", "label": "(UTC+01:00) Budapest"}
+    ]
+  },
+  {
+    "group": "Iceland",
+    "options": [
+      {"value": "Atlantic/Reykjavik", "label": "(UTC+00:00) Reykjavik"}
+    ]
+  },
+  {
+    "group": "India",
+    "options": [
+      {"value": "Asia/Kolkata", "label": "(UTC+05:30) Mumbai, Delhi, Kolkata"}
+    ]
+  },
+  {
+    "group": "Indonesia",
+    "options": [
+      {"value": "Asia/Jakarta", "label": "(UTC+07:00) Jakarta"},
+      {"value": "Asia/Makassar", "label": "(UTC+08:00) Makassar"},
+      {"value": "Asia/Jayapura", "label": "(UTC+09:00) Jayapura"}
+    ]
+  },
+  {
+    "group": "Iran",
+    "options": [
+      {"value": "Asia/Tehran", "label": "(UTC+03:30) Tehran"}
+    ]
+  },
+  {
+    "group": "Iraq",
+    "options": [
+      {"value": "Asia/Baghdad", "label": "(UTC+03:00) Baghdad"}
+    ]
+  },
+  {
+    "group": "Ireland",
+    "options": [
+      {"value": "Europe/Dublin", "label": "(UTC+00:00) Dublin"}
+    ]
+  },
+  {
+    "group": "Israel",
+    "options": [
+      {"value": "Asia/Jerusalem", "label": "(UTC+02:00) Jerusalem"}
+    ]
+  },
+  {
+    "group": "Italy",
+    "options": [
+      {"value": "Europe/Rome", "label": "(UTC+01:00) Rome, Milan"}
+    ]
+  },
+  {
+    "group": "Japan",
+    "options": [
+      {"value": "Asia/Tokyo", "label": "(UTC+09:00) Tokyo"}
+    ]
+  },
+  {
+    "group": "Jordan",
+    "options": [
+      {"value": "Asia/Amman", "label": "(UTC+02:00) Amman"}
+    ]
+  },
+  {
+    "group": "Kazakhstan",
+    "options": [
+      {"value": "Asia/Almaty", "label": "(UTC+06:00) Almaty"},
+      {"value": "Asia/Aqtobe", "label": "(UTC+05:00) Aqtobe"}
+    ]
+  },
+  {
+    "group": "Kenya",
+    "options": [
+      {"value": "Africa/Nairobi", "label": "(UTC+03:00) Nairobi"}
+    ]
+  },
+  {
+    "group": "Kuwait",
+    "options": [
+      {"value": "Asia/Kuwait", "label": "(UTC+03:00) Kuwait City"}
+    ]
+  },
+  {
+    "group": "Latvia",
+    "options": [
+      {"value": "Europe/Riga", "label": "(UTC+02:00) Riga"}
+    ]
+  },
+  {
+    "group": "Lebanon",
+    "options": [
+      {"value": "Asia/Beirut", "label": "(UTC+02:00) Beirut"}
+    ]
+  },
+  {
+    "group": "Libya",
+    "options": [
+      {"value": "Africa/Tripoli", "label": "(UTC+02:00) Tripoli"}
+    ]
+  },
+  {
+    "group": "Lithuania",
+    "options": [
+      {"value": "Europe/Vilnius", "label": "(UTC+02:00) Vilnius"}
+    ]
+  },
+  {
+    "group": "Luxembourg",
+    "options": [
+      {"value": "Europe/Luxembourg", "label": "(UTC+01:00) Luxembourg"}
+    ]
+  },
+  {
+    "group": "Malaysia",
+    "options": [
+      {"value": "Asia/Kuala_Lumpur", "label": "(UTC+08:00) Kuala Lumpur"}
+    ]
+  },
+  {
+    "group": "Mexico",
+    "options": [
+      {"value": "America/Mexico_City", "label": "(UTC-06:00) Mexico City"},
+      {"value": "America/Cancun", "label": "(UTC-05:00) Cancún"},
+      {"value": "America/Tijuana", "label": "(UTC-08:00) Tijuana"}
+    ]
+  },
+  {
+    "group": "Morocco",
+    "options": [
+      {"value": "Africa/Casablanca", "label": "(UTC+01:00) Casablanca"}
+    ]
+  },
+  {
+    "group": "Nepal",
+    "options": [
+      {"value": "Asia/Kathmandu", "label": "(UTC+05:45) Kathmandu"}
+    ]
+  },
+  {
+    "group": "Netherlands",
+    "options": [
+      {"value": "Europe/Amsterdam", "label": "(UTC+01:00) Amsterdam"}
+    ]
+  },
+  {
+    "group": "New Zealand",
+    "options": [
+      {"value": "Pacific/Auckland", "label": "(UTC+13:00) Auckland"},
+      {"value": "Pacific/Chatham", "label": "(UTC+13:45) Chatham Islands"}
+    ]
+  },
+  {
+    "group": "Nigeria",
+    "options": [
+      {"value": "Africa/Lagos", "label": "(UTC+01:00) Lagos"}
+    ]
+  },
+  {
+    "group": "Norway",
+    "options": [
+      {"value": "Europe/Oslo", "label": "(UTC+01:00) Oslo"}
+    ]
+  },
+  {
+    "group": "Oman",
+    "options": [
+      {"value": "Asia/Muscat", "label": "(UTC+04:00) Muscat"}
+    ]
+  },
+  {
+    "group": "Pakistan",
+    "options": [
+      {"value": "Asia/Karachi", "label": "(UTC+05:00) Karachi, Lahore"}
+    ]
+  },
+  {
+    "group": "Peru",
+    "options": [
+      {"value": "America/Lima", "label": "(UTC-05:00) Lima"}
+    ]
+  },
+  {
+    "group": "Philippines",
+    "options": [
+      {"value": "Asia/Manila", "label": "(UTC+08:00) Manila"}
+    ]
+  },
+  {
+    "group": "Poland",
+    "options": [
+      {"value": "Europe/Warsaw", "label": "(UTC+01:00) Warsaw"}
+    ]
+  },
+  {
+    "group": "Portugal",
+    "options": [
+      {"value": "Europe/Lisbon", "label": "(UTC+00:00) Lisbon"},
+      {"value": "Atlantic/Azores", "label": "(UTC-01:00) Azores"}
+    ]
+  },
+  {
+    "group": "Qatar",
+    "options": [
+      {"value": "Asia/Qatar", "label": "(UTC+03:00) Doha"}
+    ]
+  },
+  {
+    "group": "Romania",
+    "options": [
+      {"value": "Europe/Bucharest", "label": "(UTC+02:00) Bucharest"}
+    ]
+  },
+  {
+    "group": "Russia",
+    "options": [
+      {"value": "Europe/Kaliningrad", "label": "(UTC+02:00) Kaliningrad"},
+      {"value": "Europe/Moscow", "label": "(UTC+03:00) Moscow, St. Petersburg"},
+      {"value": "Europe/Samara", "label": "(UTC+04:00) Samara"},
+      {"value": "Asia/Yekaterinburg", "label": "(UTC+05:00) Yekaterinburg"},
+      {"value": "Asia/Omsk", "label": "(UTC+06:00) Omsk"},
+      {"value": "Asia/Krasnoyarsk", "label": "(UTC+07:00) Krasnoyarsk"},
+      {"value": "Asia/Irkutsk", "label": "(UTC+08:00) Irkutsk"},
+      {"value": "Asia/Yakutsk", "label": "(UTC+09:00) Yakutsk"},
+      {"value": "Asia/Vladivostok", "label": "(UTC+10:00) Vladivostok"},
+      {"value": "Asia/Magadan", "label": "(UTC+11:00) Magadan"},
+      {"value": "Asia/Kamchatka", "label": "(UTC+12:00) Kamchatka"}
+    ]
+  },
+  {
+    "group": "Saudi Arabia",
+    "options": [
+      {"value": "Asia/Riyadh", "label": "(UTC+03:00) Riyadh"}
+    ]
+  },
+  {
+    "group": "Serbia",
+    "options": [
+      {"value": "Europe/Belgrade", "label": "(UTC+01:00) Belgrade"}
+    ]
+  },
+  {
+    "group": "Singapore",
+    "options": [
+      {"value": "Asia/Singapore", "label": "(UTC+08:00) Singapore"}
+    ]
+  },
+  {
+    "group": "Slovakia",
+    "options": [
+      {"value": "Europe/Bratislava", "label": "(UTC+01:00) Bratislava"}
+    ]
+  },
+  {
+    "group": "Slovenia",
+    "options": [
+      {"value": "Europe/Ljubljana", "label": "(UTC+01:00) Ljubljana"}
+    ]
+  },
+  {
+    "group": "South Africa",
+    "options": [
+      {"value": "Africa/Johannesburg", "label": "(UTC+02:00) Johannesburg, Cape Town"}
+    ]
+  },
+  {
+    "group": "South Korea",
+    "options": [
+      {"value": "Asia/Seoul", "label": "(UTC+09:00) Seoul"}
+    ]
+  },
+  {
+    "group": "Spain",
+    "options": [
+      {"value": "Europe/Madrid", "label": "(UTC+01:00) Madrid, Barcelona"},
+      {"value": "Atlantic/Canary", "label": "(UTC+00:00) Canary Islands"}
+    ]
+  },
+  {
+    "group": "Sri Lanka",
+    "options": [
+      {"value": "Asia/Colombo", "label": "(UTC+05:30) Colombo"}
+    ]
+  },
+  {
+    "group": "Sweden",
+    "options": [
+      {"value": "Europe/Stockholm", "label": "(UTC+01:00) Stockholm"}
+    ]
+  },
+  {
+    "group": "Switzerland",
+    "options": [
+      {"value": "Europe/Zurich", "label": "(UTC+01:00) Zurich"}
+    ]
+  },
+  {
+    "group": "Taiwan",
+    "options": [
+      {"value": "Asia/Taipei", "label": "(UTC+08:00) Taipei"}
+    ]
+  },
+  {
+    "group": "Thailand",
+    "options": [
+      {"value": "Asia/Bangkok", "label": "(UTC+07:00) Bangkok"}
+    ]
+  },
+  {
+    "group": "Turkey",
+    "options": [
+      {"value": "Europe/Istanbul", "label": "(UTC+03:00) Istanbul"}
+    ]
+  },
+  {
+    "group": "Ukraine",
+    "options": [
+      {"value": "Europe/Kiev", "label": "(UTC+02:00) Kyiv"}
+    ]
+  },
+  {
+    "group": "United Arab Emirates",
+    "options": [
+      {"value": "Asia/Dubai", "label": "(UTC+04:00) Dubai, Abu Dhabi"}
+    ]
+  },
+  {
+    "group": "United Kingdom",
+    "options": [
+      {"value": "Europe/London", "label": "(UTC+00:00) London"}
+    ]
+  },
+  {
+    "group": "United States",
+    "options": [
+      {"value": "Pacific/Honolulu", "label": "(UTC-10:00) Hawaii"},
+      {"value": "America/Anchorage", "label": "(UTC-09:00) Alaska"},
+      {"value": "America/Los_Angeles", "label": "(UTC-08:00) Los Angeles, San Francisco"},
+      {"value": "America/Denver", "label": "(UTC-07:00) Denver, Phoenix"},
+      {"value": "America/Chicago", "label": "(UTC-06:00) Chicago, Houston"},
+      {"value": "America/New_York", "label": "(UTC-05:00) New York, Washington DC"}
+    ]
+  },
+  {
+    "group": "Uruguay",
+    "options": [
+      {"value": "America/Montevideo", "label": "(UTC-03:00) Montevideo"}
+    ]
+  },
+  {
+    "group": "Uzbekistan",
+    "options": [
+      {"value": "Asia/Tashkent", "label": "(UTC+05:00) Tashkent"}
+    ]
+  },
+  {
+    "group": "Venezuela",
+    "options": [
+      {"value": "America/Caracas", "label": "(UTC-04:00) Caracas"}
+    ]
+  },
+  {
+    "group": "Vietnam",
+    "options": [
+      {"value": "Asia/Ho_Chi_Minh", "label": "(UTC+07:00) Ho Chi Minh City, Hanoi"}
+    ]
+  }
+]

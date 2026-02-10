@@ -58,15 +58,27 @@ class HomeController extends Controller
             ->get();
 
         // Fetch project categories that have projects
-        $projectCategories = ProjectCategory::whereHas('projects')
+        /* $projectCategories = ProjectCategory::whereHas('projects')
             ->withCount('projects')
             ->orderBy('name')
-            ->get();
+            ->latest()->take(6)
+            ->get(); */
+            $projectCategories = ProjectCategory::query()
+                ->whereHas('projects')
+                ->with(['projects' => function ($q) {
+                    $q->latest()->take(1); // latest 6 projects per category
+                }])
+                ->latest() // latest categories
+                ->orderBy('name')
+                ->take(6)
+                ->get();
+
 
         // Fetch projects with their images and categories
         $projects = Project::with(['projectImages', 'projectCategory'])
             ->orderBy('created_at', 'desc')
-            ->take(6)
+            ->latest()
+            ->take(9)
             ->get();
 
         // Fetch active testimonials ordered by sort order
@@ -106,6 +118,18 @@ class HomeController extends Controller
             ->get();
 
         return view('services-by-category', compact('category', 'services'));
+    }
+
+    /**
+     * Display all services
+     */
+    public function servicesIndex()
+    {
+        $services = Service::with('category', 'images')
+            ->orderBy('updated_at', 'desc')
+            ->paginate(9);
+
+        return view('services-index', compact('services'));
     }
 
     /**

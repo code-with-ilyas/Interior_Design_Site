@@ -182,9 +182,9 @@
                             <div class="th-widget-about">
                                 <div class="about-logo"><a href="{{ url('/') }}">
                                     @if($siteSetting && $siteSetting->logo)
-                                        <img src="{{ Storage::url($siteSetting->logo) }}" alt="{{ $siteSetting->site_name ?? 'H24 Renovation' }}">
+                                        <img src="{{ Storage::url($siteSetting->logo) }}" alt="{{ $siteSetting->site_name ?? 'H24 Renovation' }}" style="filter: brightness(0) invert(1);">
                                     @else
-                                        <img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation">
+                                        <img src="{{ asset('assets/img/H24.svg') }}" alt="H24 Renovation" style="filter: brightness(0) invert(1);">
                                     @endif
                                 </a></div>
                                 <p class="about-text">{{ $siteSetting->about_short_description ?? 'Welcome to Mes Bâtisseurs, your trusted partner for all your renovation and construction projects. We transform your ideas into reality with expertise and passion.' }}</p>
@@ -264,6 +264,14 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-6">
                                 <div class="copyright-wrap">
+                                    @if(App\Models\User::first())
+                                        <a href="{{ route('booking.index', App\Models\User::first()->id) }}"
+                                           class="th-btns black-border d-inline-block sticky-button"
+                                           style="text-decoration: none; text-align: center; padding: 8px 16px; font-size: 14px; margin-bottom: 10px; display: block; width: fit-content;"
+                                           title="Get a call back">
+                                            <i class="fas fa-phone" style="margin-right: 8px;"></i> Get a call back as soon as possible
+                                        </a>
+                                    @endif
                                     <p>Copyright, {{ $siteSetting->site_name ?? 'H24 RENOVATION' }}. All Rights Reserved.</p>
                                 </div>
                             </div>
@@ -1924,9 +1932,58 @@
                 padding-bottom: 80px !important;
             }
         } */
+
+        /* Sticky button for "Get a call back" */
+        .sticky-button {
+            position: fixed !important;
+            bottom: 20px !important;
+            left: 20px !important;
+            z-index: 9999 !important;
+            background: linear-gradient(65deg, #003f3a 0%, #000000 100%) !important;
+            color: #ffffff !important;
+            border: 2px solid #003f3a !important;
+            padding: 12px 20px !important;
+            border-radius: 25px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            box-shadow: 0 4px 15px rgba(0, 63, 58, 0.3) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .sticky-button:hover {
+            background: linear-gradient(65deg, #4a6b66 0%, #000000 100%) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(0, 63, 58, 0.4) !important;
+        }
+
+        /* Hide original button in footer when sticky version is active */
+        .copyright-wrap .sticky-button:not(.sticky-version) {
+            display: none !important;
+        }
     </style>
 
     <script>
+        // Sticky button scroll behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            const stickyButton = document.querySelector('.sticky-button.sticky-version');
+
+            if (stickyButton) {
+                // Show button when scrolling down
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 100) {
+                        stickyButton.style.display = 'block';
+                    } else {
+                        stickyButton.style.display = 'none';
+                    }
+                });
+
+                // Show button immediately if already scrolled
+                if (window.scrollY > 100) {
+                    stickyButton.style.display = 'block';
+                }
+            }
+        });
+
         // Fix for the getTotalLength error in main.js
         // Ensure SVG path exists before trying to manipulate it
         document.addEventListener('DOMContentLoaded', function() {
@@ -1990,6 +2047,15 @@
     @stack('styles')
     @stack('scripts')
 
+    <!-- Sticky "Get a call back" button -->
+    @if(App\Models\User::first())
+        <a href="{{ route('booking.index', App\Models\User::first()->id) }}"
+           class="sticky-button sticky-version"
+           style="display: none;"
+           title="Get a call back">
+            <i class="fas fa-phone" style="margin-right: 8px;"></i> Get a call back as soon as possible
+        </a>
+    @endif
 </body>
 
 </html>
