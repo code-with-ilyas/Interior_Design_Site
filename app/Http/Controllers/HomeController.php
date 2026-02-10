@@ -78,7 +78,7 @@ class HomeController extends Controller
         $projects = Project::with(['projectImages', 'projectCategory'])
             ->orderBy('created_at', 'desc')
             ->latest()
-            ->take(9)
+            ->take(6)
             ->get();
 
         // Fetch active testimonials ordered by sort order
