@@ -23,3 +23,19 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 /public/assets/*.{png,jpg,jpeg,gif,svg,webp}
+
+# Kiro AI Assistant files
+/.kiro/
+
+# Qoder AI Assistant files
+/.qoder/
+
+# Temporary and cleanup files
+CLEANUP_SUMMARY.md
+CLEANUP_INSTRUCTIONS.md
+calendar_fix.js
+calendar_render_function.js
+routes.txt
+
+# Archived legacy views (no longer needed)
+/resources/views/_archived_legacy_views/

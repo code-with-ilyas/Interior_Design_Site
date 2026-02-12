@@ -452,14 +452,14 @@
 <script>
 $(document).ready(function() {
     // Debug: Check if jQuery is working
-    console.log('jQuery version:', $.fn.jquery);
-    console.log('Document ready fired');
+    // console.log('jQuery version:', $.fn.jquery);
+    // console.log('Document ready fired');
 
     // Debug: Check if elements exist on page load
-    console.log('Time slots section on load:', $('#time-slots-section').length);
-    console.log('Booking form container on load:', $('#booking-form-container').length);
-    console.log('Time slots section visible on load:', $('#time-slots-section').is(':visible'));
-    console.log('Booking form container visible on load:', $('#booking-form-container').is(':visible'));
+    // console.log('Time slots section on load:', $('#time-slots-section').length);
+    // console.log('Booking form container on load:', $('#booking-form-container').length);
+    // console.log('Time slots section visible on load:', $('#time-slots-section').is(':visible'));
+    // console.log('Booking form container visible on load:', $('#booking-form-container').is(':visible'));
     // State management
     const state = {
         currentDate: new Date(),
@@ -494,13 +494,13 @@ $(document).ready(function() {
         bookedSlots.push({ start: startTime, end: endTime, timezone: timezone });
         sessionStorage.setItem(key, JSON.stringify(bookedSlots));
         state.bookedSlots = bookedSlots;
-        console.log('Added booked slot to session:', { start: startTime, end: endTime, timezone: timezone });
+        // console.log('Added booked slot to session:', { start: startTime, end: endTime, timezone: timezone });
     }
 
     function isSlotBookedInSession(startTime, endTime) {
         const bookedSlots = getSessionBookedSlots();
         const isBooked = bookedSlots.some(slot => slot.start === startTime && slot.end === endTime);
-        console.log('Checking if slot is booked:', { start: startTime, end: endTime, isBooked: isBooked });
+        // console.log('Checking if slot is booked:', { start: startTime, end: endTime, isBooked: isBooked });
         return isBooked;
     }
 
@@ -564,7 +564,7 @@ $(document).ready(function() {
 
     // Initialize booked slots from session AFTER $timezoneSelect is declared
     state.bookedSlots = getSessionBookedSlots();
-    console.log('Initial booked slots loaded:', state.bookedSlots);
+    // console.log('Initial booked slots loaded:', state.bookedSlots);
 
     // Initialize timezone selector
     // Initialize timezone selector with grouped options
@@ -585,7 +585,7 @@ $(document).ready(function() {
                 $timezoneSelect.append($optgroup);
             });
 
-            console.log('Timezone selector initialized with browser timezone:', state.selectedTimezone);
+            // console.log('Timezone selector initialized with browser timezone:', state.selectedTimezone);
 
             // Load calendar AFTER timezone selector is populated
             loadCalendarData();
@@ -635,10 +635,10 @@ $(document).ready(function() {
             year: 'numeric'
         });
         $currentMonthYear.text(monthName);
-        console.log('Calendar header updated to:', monthName);
-        console.log('Current date state:', state.currentDate);
-        console.log('Current month (0-indexed):', state.currentDate.getMonth());
-        console.log('Current year:', state.currentDate.getFullYear());
+        // console.log('Calendar header updated to:', monthName);
+        // console.log('Current date state:', state.currentDate);
+        // console.log('Current month (0-indexed):', state.currentDate.getMonth());
+        // console.log('Current year:', state.currentDate.getFullYear());
     }
 
     // Load calendar data from backend
@@ -659,12 +659,12 @@ $(document).ready(function() {
         formData.append('timezone', timezone);
         formData.append('_token', '{{ csrf_token() }}');
 
-        console.log('Sending calendar request with:');
-        console.log('Host ID:', state.hostId);
-        console.log('Month:', state.currentDate.getMonth() + 1);
-        console.log('Year:', state.currentDate.getFullYear());
-        console.log('Timezone:', timezone);
-        console.log('Date object:', state.currentDate);
+        // console.log('Sending calendar request with:');
+        // console.log('Host ID:', state.hostId);
+        // console.log('Month:', state.currentDate.getMonth() + 1);
+        // console.log('Year:', state.currentDate.getFullYear());
+        // console.log('Timezone:', timezone);
+        // console.log('Date object:', state.currentDate);
 
         // Show loading state
         $calendarGrid.html('<div class="col-12 text-center py-4 text-muted">Loading...</div>');
@@ -676,7 +676,7 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(data) {
-                console.log('Calendar data received:', data);
+                // console.log('Calendar data received:', data);
                 if (data.calendar) {
                     renderCalendarFromData(data.calendar);
                 } else {
@@ -706,9 +706,9 @@ $(document).ready(function() {
     function renderCalendarFromData(calendarData) {
         $calendarGrid.empty();
 
-        console.log('Rendering calendar with data:', calendarData);
-        console.log('Calendar grid element:', $calendarGrid);
-        console.log('Calendar grid children before:', $calendarGrid.children().length);
+        // console.log('Rendering calendar with data:', calendarData);
+        // console.log('Calendar grid element:', $calendarGrid);
+        // console.log('Calendar grid children before:', $calendarGrid.children().length);
 
         // Clear any existing selections
         state.selectedDate = null;
@@ -754,12 +754,12 @@ $(document).ready(function() {
                         e.preventDefault();
                         e.stopPropagation();
 
-                        console.log('Calendar day clicked:', day.date);
-                        console.log('Day element classes:', $(this).attr('class'));
-                        console.log('State before click:', {
-                            selectedDate: state.selectedDate,
-                            currentDate: state.currentDate
-                        });
+                        // console.log('Calendar day clicked:', day.date);
+                        // console.log('Day element classes:', $(this).attr('class'));
+                        // console.log('State before click:', {
+                        //     selectedDate: state.selectedDate,
+                        //     currentDate: state.currentDate
+                        // });
 
                         // Remove previous selection from ALL calendar days
                         $('.calendar-day').each(function() {
@@ -804,11 +804,11 @@ $(document).ready(function() {
             $calendarGrid.append($currentRow);
         }
 
-        console.log('Calendar rendering complete.');
-        console.log('Calendar grid children after:', $calendarGrid.children().length);
-        console.log('Total calendar days:', $('.calendar-day').length);
-        console.log('Available days count:', $('.calendar-day.available').length);
-        console.log('Sample calendar day HTML:', $('.calendar-day').first().html());
+        // console.log('Calendar rendering complete.');
+        // console.log('Calendar grid children after:', $calendarGrid.children().length);
+        // console.log('Total calendar days:', $('.calendar-day').length);
+        // console.log('Available days count:', $('.calendar-day.available').length);
+        // console.log('Sample calendar day HTML:', $('.calendar-day').first().html());
     }
 
     // Update selected date display
@@ -830,19 +830,19 @@ $(document).ready(function() {
 
     // Load time slots for selected date
     function loadTimeSlots() {
-        console.log('loadTimeSlots called with state:', state);
+        // console.log('loadTimeSlots called with state:', state);
 
         if (!state.selectedDate) {
-            console.log('No selected date, clearing time slots');
+            // console.log('No selected date, clearing time slots');
             $timeSlotsContainer.html('<div class="text-center py-5 text-muted"><p>Select a date to view available times</p></div>');
             return;
         }
 
         const dateStr = state.selectedDate.toISOString().split('T')[0];
 
-        console.log('Loading time slots for date:', dateStr);
-        console.log('Host ID:', state.hostId);
-        console.log('Timezone:', $timezoneSelect.val());
+        // console.log('Loading time slots for date:', dateStr);
+        // console.log('Host ID:', state.hostId);
+        // console.log('Timezone:', $timezoneSelect.val());
 
         $timeSlotsContainer.html('<div class="text-center py-4 text-muted">Loading available times...</div>');
 
@@ -852,11 +852,11 @@ $(document).ready(function() {
         formData.append('timezone', $timezoneSelect.val());
         formData.append('_token', '{{ csrf_token() }}');
 
-        console.log('Making AJAX request with:', {
-            date: dateStr,
-            host_id: state.hostId,
-            timezone: $timezoneSelect.val()
-        });
+        // console.log('Making AJAX request with:', {
+        //     date: dateStr,
+        //     host_id: state.hostId,
+        //     timezone: $timezoneSelect.val()
+        // });
 
         $.ajax({
             url: '{{ route("booking.slots") }}',
@@ -865,8 +865,8 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(data) {
-                console.log('Time slots data received:', data);
-                console.log('Slot count:', data.slots ? data.slots.length : 'No slots array');
+                // console.log('Time slots data received:', data);
+                // console.log('Slot count:', data.slots ? data.slots.length : 'No slots array');
                 if (data.slots !== undefined) {
                     renderTimeSlots(data.slots);
                 } else {
@@ -885,9 +885,9 @@ $(document).ready(function() {
     function renderTimeSlots(slots) {
         $timeSlotsContainer.empty();
 
-        console.log('renderTimeSlots called with', slots.length, 'slots');
-        console.log('Current timezone:', $timezoneSelect.val());
-        console.log('Session booked slots:', state.bookedSlots);
+        // console.log('renderTimeSlots called with', slots.length, 'slots');
+        // console.log('Current timezone:', $timezoneSelect.val());
+        // console.log('Session booked slots:', state.bookedSlots);
 
         if (slots.length === 0) {
             $timeSlotsContainer.html('<div class="text-center py-4"><p class="text-dark mb-0">No available times for this date</p></div>');
@@ -919,8 +919,8 @@ $(document).ready(function() {
                     e.preventDefault(); // Prevent any default behavior
                     e.stopPropagation(); // Stop event bubbling
 
-                    console.log('Time slot clicked:', slot.display_time);
-                    console.log('Current timezone at click:', $timezoneSelect.val());
+                    // console.log('Time slot clicked:', slot.display_time);
+                    // console.log('Current timezone at click:', $timezoneSelect.val());
 
                     // Hide any previous messages
                     hideMessage();
@@ -943,9 +943,9 @@ $(document).ready(function() {
                     $('#summary-time').text(slot.display_time);
 
                     // Show booking form directly (improved UX)
-                    console.log('Showing booking form...');
-                    console.log('Time slots section exists:', $('#time-slots-section').length);
-                    console.log('Booking form container exists:', $('#booking-form-container').length);
+                    // console.log('Showing booking form...');
+                    // console.log('Time slots section exists:', $('#time-slots-section').length);
+                    // console.log('Booking form container exists:', $('#booking-form-container').length);
 
                     // Hide time slots content (not the entire section)
                     $('#time-slots-content').hide();
@@ -973,17 +973,17 @@ $(document).ready(function() {
                         $('#guest_phone').val(state.formData.phone);
                     }
 
-                    console.log('Form values set:', {
-                        date: $('#selected-date').val(),
-                        timezone: $('#guest-timezone').val(),
-                        start: $('#start_time').val(),
-                        end: $('#end_time').val()
-                    });
+                    // console.log('Form values set:', {
+                    //     date: $('#selected-date').val(),
+                    //     timezone: $('#guest-timezone').val(),
+                    //     start: $('#start_time').val(),
+                    //     end: $('#end_time').val()
+                    // });
 
                     // Verify form is visible
                     setTimeout(function() {
-                        console.log('Form visible after timeout:', $('#booking-form-container').is(':visible'));
-                        console.log('Time slots content visible after timeout:', $('#time-slots-content').is(':visible'));
+                        // console.log('Form visible after timeout:', $('#booking-form-container').is(':visible'));
+                        // console.log('Time slots content visible after timeout:', $('#time-slots-content').is(':visible'));
                     }, 100);
                 });
             }
@@ -992,7 +992,7 @@ $(document).ready(function() {
         });
 
         $timeSlotsContainer.append($slotsContainer);
-        console.log('Time slots rendered successfully');
+        // console.log('Time slots rendered successfully');
     }
 
     // Event Listeners
@@ -1029,13 +1029,13 @@ $(document).ready(function() {
     });
 
     $timezoneSelect.on('change', function() {
-        console.log('Timezone changed to:', $(this).val());
+        // console.log('Timezone changed to:', $(this).val());
 
         state.selectedTimezone = $(this).val();
 
         // Load booked slots for the new timezone
         state.bookedSlots = getSessionBookedSlots();
-        console.log('Loaded booked slots for new timezone:', state.bookedSlots);
+        // console.log('Loaded booked slots for new timezone:', state.bookedSlots);
 
         // Completely reset the booking flow when timezone changes
         // Clear all selections and states
@@ -1068,7 +1068,7 @@ $(document).ready(function() {
         state.currentDate = new Date(currentYear, currentMonth, 1);
 
         // Reload calendar data with new timezone
-        console.log('Reloading calendar with new timezone');
+        // console.log('Reloading calendar with new timezone');
         loadCalendarData();
 
         // Update header
@@ -1087,12 +1087,12 @@ $(document).ready(function() {
 
         const formData = new FormData(this);
 
-        console.log('Form data being sent:');
-        for (let [key, value] of formData.entries()) {
-            console.log(key, ':', value);
-        }
+        // console.log('Form data being sent:');
+        // for (let [key, value] of formData.entries()) {
+        //     console.log(key, ':', value);
+        // }
 
-        console.log('Submitting booking:', Object.fromEntries(formData));
+        // console.log('Submitting booking:', Object.fromEntries(formData));
 
         $.ajax({
             url: '{{ route("booking.store") }}',
@@ -1158,7 +1158,7 @@ $(document).ready(function() {
 
     // Back to selection button
     $('#back-to-selection').on('click', function() {
-        console.log('Back to selection clicked');
+        // console.log('Back to selection clicked');
 
         // Save form values before hiding
         state.formData = {
@@ -1187,26 +1187,26 @@ $(document).ready(function() {
         const today = new Date();
         const todayStr = today.toISOString().split('T')[0];
 
-        console.log('Attempting to select today:', todayStr);
+        // console.log('Attempting to select today:', todayStr);
 
         setTimeout(() => {
             // First try to find today if it's available
             const $todayElement = $(`.calendar-day[data-date="${todayStr}"].available`);
             if ($todayElement.length) {
-                console.log('Selecting today:', todayStr);
+                // console.log('Selecting today:', todayStr);
                 $todayElement.trigger('click');
                 return;
             }
 
-            console.log('Today not available, looking for alternatives');
+            // console.log('Today not available, looking for alternatives');
 
             // If today isn't available, find the next available date in current month
             const $availableDays = $('.calendar-day.available:not(.other-month)');
             if ($availableDays.length > 0) {
-                console.log('Selecting first available date');
+                // console.log('Selecting first available date');
                 $availableDays.first().trigger('click');
             } else {
-                console.log('No available dates found');
+                // console.log('No available dates found');
             }
         }, 1500); // Increased delay to ensure calendar is fully loaded
     }

@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <a href="{{ route('renovate') }}"
+                        <a href="{{ route('renovation.intent-selection') }}"
                             class="th-btns black-border mb-2" style="display:inline-block; text-decoration:none;">
                             I Want to Renovate a Property
                         </a>
@@ -516,9 +516,9 @@
         </div>
 
         <div style="flex: 1; min-width: 350px; display: flex; flex-direction: column; justify-content: flex-start;">
-            <p style="font-size: 16px; line-height: 1.7; color: #000000ff;">
-                {!! $siteSetting->about_us ?? $siteSetting->about_short_description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...' !!}
-            </p>
+            <div style="font-size: 16px; line-height: 1.7; color: #000000ff; white-space: pre-line;">
+                {!! nl2br($siteSetting->about_us ?? $siteSetting->about_short_description ?? 'At <strong>Mes Batisseurs</strong>, our passion lies in transforming spaces into true havens of peace...') !!}
+            </div>
         </div>
 
     </div>
@@ -1386,10 +1386,10 @@ asset('assets/img/testimonial/testi-img1.jpg'),
 asset('assets/img/testimonial/testi-img2.jpg'),
 ];
 
-$image1 = Storage::url($randomGalleryImages[0]->image) ?? $fallbackImages[0];
-$image2 = Storage::url($randomGalleryImages[1]->image) ?? $fallbackImages[1];
-$imageOneTitle = $randomGalleryImages[0]->title ?? 'Excellence Residence';
-$imageTwoTitle = $randomGalleryImages[1]->title ?? 'Interior Decoration';
+$image1 = $randomGalleryImages->get(0) ? Storage::url($randomGalleryImages[0]->image) : $fallbackImages[0];
+$image2 = $randomGalleryImages->get(1) ? Storage::url($randomGalleryImages[1]->image) : $fallbackImages[1];
+$imageOneTitle = $randomGalleryImages->get(0) ? $randomGalleryImages[0]->title : 'Excellence Residence';
+$imageTwoTitle = $randomGalleryImages->get(1) ? $randomGalleryImages[1]->title : 'Interior Decoration';
 @endphp
 
 <section class="overflow-hidden space overflow-hidden mb-5" id="testimonials">
