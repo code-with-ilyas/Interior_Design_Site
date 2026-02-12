@@ -259,79 +259,127 @@ Route::middleware(['auth', 'verified', 'super.admin'])->prefix('admin')->group(f
         ->name('admin.site-settings.index');
     Route::put('site-settings', [SiteSettingController::class, 'update'])
         ->name('admin.site-settings.update');
+
+    // Renovation Submission management routes
+    Route::get('/renovation-submissions/export', [\App\Http\Controllers\Admin\RenovationSubmissionController::class, 'export'])
+        ->name('admin.renovation-submissions.export');
+
+    Route::resource('renovation-submissions', \App\Http\Controllers\Admin\RenovationSubmissionController::class)
+        ->only(['index', 'show', 'update'])
+        ->names([
+            'index' => 'admin.renovation-submissions.index',
+            'show' => 'admin.renovation-submissions.show',
+            'update' => 'admin.renovation-submissions.update',
+        ]);
 });
 
 
-Route::get('/renovate', function () {
-    return view('multi-forms');
-})->name('renovate');
+// Dynamic Renovation System Routes
+Route::prefix('renovate')->name('renovation.')->group(function () {
+    // Intent selection
+    Route::get('/', [\App\Http\Controllers\Frontend\RenovationController::class, 'showIntentSelection'])
+        ->name('intent-selection');
 
-Route::prefix('estimate')->name('estimate.')->group(function () {
-    Route::view('/', 'estimates.step1')->name('step1');
-    Route::view('step2', 'estimates.step2')->name('step2');
-    Route::view('step3', 'estimates.step3')->name('step3');
-    Route::view('step4', 'estimates.step4')->name('step4');
-    Route::view('step5', 'estimates.step5')->name('step5');
-    Route::view('step6', 'estimates.step6')->name('step6');
-    Route::view('step7', 'estimates.step7')->name('step7');
-    Route::view('step8', 'estimates.step8')->name('step8');
-    Route::view('step9', 'estimates.step9')->name('step9');
-    Route::view('step10', 'estimates.step10')->name('step10');
-    Route::view('step11', 'estimates.step11')->name('step11');
-    Route::view('step12', 'estimates.step12')->name('step12');
-    Route::view('step13', 'estimates.step13')->name('step13');
-    Route::view('step14', 'estimates.step14')->name('step14');
+    Route::post('/intent', [\App\Http\Controllers\Frontend\RenovationController::class, 'storeIntent'])
+        ->name('store-intent');
+
+    // Category selection
+    Route::get('/select-category', [\App\Http\Controllers\Frontend\RenovationController::class, 'showCategorySelection'])
+        ->name('category-selection');
+
+    // Success page
+    Route::get('/success', [\App\Http\Controllers\Frontend\RenovationController::class, 'showSuccess'])
+        ->name('success');
+
+    // Category-specific routes
+    Route::prefix('{categorySlug}')->group(function () {
+        // Show step (defaults to step 1 if not specified)
+        Route::get('/{stepNumber?}', [\App\Http\Controllers\Frontend\RenovationController::class, 'showStep'])
+            ->name('step')
+            ->where('stepNumber', '[0-9]+');
+
+        // Process step
+        Route::post('/{stepNumber}', [\App\Http\Controllers\Frontend\RenovationController::class, 'processStep'])
+            ->name('process-step')
+            ->where('stepNumber', '[0-9]+');
+
+        // Previous step navigation
+        Route::get('/previous/{stepNumber}', [\App\Http\Controllers\Frontend\RenovationController::class, 'previousStep'])
+            ->name('previous-step')
+            ->where('stepNumber', '[0-9]+');
+
+        // User info collection
+        Route::get('/user-info', [\App\Http\Controllers\Frontend\RenovationController::class, 'showUserInfo'])
+            ->name('user-info');
+
+        // Final submission with rate limiting (5 per hour)
+        Route::post('/submit', [\App\Http\Controllers\Frontend\RenovationController::class, 'submitForm'])
+            ->name('submit')
+            ->middleware('throttle:5,60');
+    });
 });
 
-Route::prefix('renovation')->name('renovation.')->group(function () {
-    Route::view('step1', 'renovation.step1')->name('step1');
-    Route::view('step2', 'renovation.step2')->name('step2');
-    Route::view('step3', 'renovation.step3')->name('step3');
-    Route::view('step4', 'renovation.step4')->name('step4');
-    Route::view('step5', 'renovation.step5')->name('step5');
-    Route::view('step6', 'renovation.step6')->name('step6');
-    Route::view('step7', 'renovation.step7')->name('step7');
-    Route::view('step8', 'renovation.step8')->name('step8');
-});
+// Backward Compatibility Redirects
+// Redirect old URLs to new dynamic renovation system format
 
-Route::prefix('energy-renovation')->name('energy-renovation.')->group(function () {
-    Route::view('step1', 'energy-renovation.step1')->name('step1');
-    Route::view('step2', 'energy-renovation.step2')->name('step2');
-});
+// /renovation/step{number} → /renovate/complete-renovation/{number}
+Route::redirect('/renovation/step1', '/renovate/complete-renovation/1', 301);
+Route::redirect('/renovation/step2', '/renovate/complete-renovation/2', 301);
+Route::redirect('/renovation/step3', '/renovate/complete-renovation/3', 301);
+Route::redirect('/renovation/step4', '/renovate/complete-renovation/4', 301);
+Route::redirect('/renovation/step5', '/renovate/complete-renovation/5', 301);
+Route::redirect('/renovation/step6', '/renovate/complete-renovation/6', 301);
+Route::redirect('/renovation/step7', '/renovate/complete-renovation/7', 301);
+Route::redirect('/renovation/step8', '/renovate/complete-renovation/8', 301);
 
-Route::prefix('specific-works')->name('specific-works.')->group(function () {
-    Route::view('step1', 'specific-works.step1')->name('step1');
-    Route::view('step2', 'specific-works.step2')->name('step2');
-    Route::view('step3', 'specific-works.step3')->name('step3');
-    Route::view('step4', 'specific-works.step4')->name('step4');
-    Route::view('step5', 'specific-works.step5')->name('step5');
-    Route::view('step6', 'specific-works.step6')->name('step6');
-    Route::view('step7', 'specific-works.step7')->name('step7');
-    Route::view('step8', 'specific-works.step8')->name('step8');
-});
+// /estimate/step{number} → /renovate/partial-renovation/{number}
+Route::redirect('/estimate', '/renovate/partial-renovation/1', 301);
+Route::redirect('/estimate/step1', '/renovate/partial-renovation/1', 301);
+Route::redirect('/estimate/step2', '/renovate/partial-renovation/2', 301);
+Route::redirect('/estimate/step3', '/renovate/partial-renovation/3', 301);
+Route::redirect('/estimate/step4', '/renovate/partial-renovation/4', 301);
+Route::redirect('/estimate/step5', '/renovate/partial-renovation/5', 301);
+Route::redirect('/estimate/step6', '/renovate/partial-renovation/6', 301);
+Route::redirect('/estimate/step7', '/renovate/partial-renovation/7', 301);
+Route::redirect('/estimate/step8', '/renovate/partial-renovation/8', 301);
+Route::redirect('/estimate/step9', '/renovate/partial-renovation/9', 301);
+Route::redirect('/estimate/step10', '/renovate/partial-renovation/10', 301);
+Route::redirect('/estimate/step11', '/renovate/partial-renovation/11', 301);
+Route::redirect('/estimate/step12', '/renovate/partial-renovation/12', 301);
+Route::redirect('/estimate/step13', '/renovate/partial-renovation/13', 301);
+Route::redirect('/estimate/step14', '/renovate/partial-renovation/14', 301);
 
-Route::prefix('elevations')->name('elevations.')->group(function () {
-    Route::view('step1', 'elevations.step1')->name('step1');
-    Route::view('step2', 'elevations.step2')->name('step2');
-    Route::view('step3', 'elevations.step3')->name('step3');
-    Route::view('step4', 'elevations.step4')->name('step4');
-    Route::view('step5', 'elevations.step5')->name('step5');
-    Route::view('step6', 'elevations.step6')->name('step6');
-    Route::view('step7', 'elevations.step7')->name('step7');
+// /energy-renovation/step{number} → /renovate/energy-renovation/{number}
+Route::redirect('/energy-renovation/step1', '/renovate/energy-renovation/1', 301);
+Route::redirect('/energy-renovation/step2', '/renovate/energy-renovation/2', 301);
 
-});
+// /specific-works/step{number} → /renovate/small-specific-works/{number}
+Route::redirect('/specific-works/step1', '/renovate/small-specific-works/1', 301);
+Route::redirect('/specific-works/step2', '/renovate/small-specific-works/2', 301);
+Route::redirect('/specific-works/step3', '/renovate/small-specific-works/3', 301);
+Route::redirect('/specific-works/step4', '/renovate/small-specific-works/4', 301);
+Route::redirect('/specific-works/step5', '/renovate/small-specific-works/5', 301);
+Route::redirect('/specific-works/step6', '/renovate/small-specific-works/6', 301);
+Route::redirect('/specific-works/step7', '/renovate/small-specific-works/7', 301);
+Route::redirect('/specific-works/step8', '/renovate/small-specific-works/8', 301);
 
+// /elevations/step{number} → /renovate/home-elevation/{number}
+Route::redirect('/elevations/step1', '/renovate/home-elevation/1', 301);
+Route::redirect('/elevations/step2', '/renovate/home-elevation/2', 301);
+Route::redirect('/elevations/step3', '/renovate/home-elevation/3', 301);
+Route::redirect('/elevations/step4', '/renovate/home-elevation/4', 301);
+Route::redirect('/elevations/step5', '/renovate/home-elevation/5', 301);
+Route::redirect('/elevations/step6', '/renovate/home-elevation/6', 301);
+Route::redirect('/elevations/step7', '/renovate/home-elevation/7', 301);
 
-Route::prefix('extensions')->name('extensions.')->group(function () {
-    Route::view('step1', 'extensions.step1')->name('step1');
-    Route::view('step2', 'extensions.step2')->name('step2');
-    Route::view('step3', 'extensions.step3')->name('step3');
-    Route::view('step4', 'extensions.step4')->name('step4');
-    Route::view('step5', 'extensions.step5')->name('step5');
-    Route::view('step6', 'extensions.step6')->name('step6');
-    Route::view('step7', 'extensions.step7')->name('step7');
-
-});
+// /extensions/step{number} → /renovate/home-extension/{number}
+Route::redirect('/extensions/step1', '/renovate/home-extension/1', 301);
+Route::redirect('/extensions/step2', '/renovate/home-extension/2', 301);
+Route::redirect('/extensions/step3', '/renovate/home-extension/3', 301);
+Route::redirect('/extensions/step4', '/renovate/home-extension/4', 301);
+Route::redirect('/extensions/step5', '/renovate/home-extension/5', 301);
+Route::redirect('/extensions/step6', '/renovate/home-extension/6', 301);
+Route::redirect('/extensions/step7', '/renovate/home-extension/7', 301);
 
 // Legal pages routes
 Route::get('/terms-and-conditions', TermsAndConditionsController::class)->name('terms-and-conditions');
